@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/SunLogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts/webfontkit-nasalization/nasalization.css">
+    <script type="module" src="navBar.js"></script>
+    <title>Project Icarus</title>
+  </head>
+
+  <body>
+
+    <!--Hero Section-->
+    <div class="hero" id="begin" overflow: hidden;>
+      <img src="public/ProjectIcarusHeader.png" id="logo">
+      <nav class="navbar">
+        <div class="navbar-container container">
+          <input type="checkbox" name="" id="" />
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+            <li><a href="#begin">Home</a></li>  
+            <li><a href="#sun">Touch The Sun</a></li>
+            <li><a href="#yess">Parker Space Probe</a></li>
+            <li><a href="#corona">The Big Ol' Corona</a></li>
+            <li><a href="#light">WISPR</a></li>
+            <li><a href="./about.html">About Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!--Scroll Down Button-->
+    <div class="scroll">
+      <button id="first" onclick="location.href='#sun'">
+        <p>click to start your journey</p>
+      </button>
+      <br>
+    </div>
+
+    <!--Sun :D-->
+    <div id="sun">
+      <img src="public/sun.jpg">
+      <h2><em>ever wondered what it'd be like. . .</em></h2>
+      <h1><em>TO TOUCH THE SUN?</em></h1>
+    </div>
+
+    <!--Rotating diamond-->
+    <div id="diamonds">
+      <div id="diamond1">
+        <img src="public/diamond.png" id="dimg1" class="diamondy">
+        <script src="scrollAnimation.js"></script>
+        <h1>well,</h1>
+      </div>
+      <div id="diamond2">
+        <img src="public/diamond.png" id="dimg2" class="diamondy">
+        <script src="scrollAnimation.js"></script>
+        <h2>we've</h2>
+      </div>
+      <div id="diamond3">
+        <img src="public/diamond.png" id="dimg3" class="diamondy">
+        <script src="scrollAnimation.js"></script>
+        <h3>got</h3>
+      </div>
+      <div id="diamond4">
+        <img src="public/diamond.png" id="dimg4" class="diamondy">
+        <script src="scrollAnimation.js"></script>
+        <h4>your</h4>
+      </div>
+      <div id="diamond5">
+        <img src="public/diamond.png" id="dimg5" class="diamondy">
+        <script src="scrollAnimation.js"></script>
+        <h5>answer.</h5>
+      </div>
+    </div>
+
+    <!--3D Interactive Model-->
+    <div class="modelcontainer" id="yess">
+      <h2>Introducing the All-New</h2>
+      <h1>PARKER SOLAR PROBE</h1>
+      <hr style="border:solid;color:white;margin-bottom:20px;">
+      <h3>- by NASA -</h2>
+      <h4>available for just $1,500,000,000 USD</h4>
+      <canvas id="parker"></canvas>
+      <script type="module" src="/threeD.js" href="/style.css"></script> 
+      <p id="disclaimer"> <strong>Disclaimer:</strong> This is a joke. Obviously. We are not NASA. You can’t actually buy the Parker Space Probe. And before you get any smart ideas, you’re also a tad late if you were hoping to stowaway in that cozy little cubby behind the heat shield. The PSP (what cool people call it) has been in space since August 2018. Not only that, but it already touched the sun on April 28, 2021. 
+      </p>
+    </div>
+
+    <!--Corona thang-->
+    <div id="corona">
+      <h1>The Big Ol' Corona</h1>
+      <img src="public/CoronaSunSTART_4.1.1.png" id="vidPlayImg">
+      <video autoplay muted loop id="vid1">
+        <source src="public/CoronaSunVIDEO1.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop id="vid2">
+        <source src="public/CoronaSunVIDEO2.mp4" type="video/mp4">
+      </video>
+      <script type="text/javascript">
+        document.getElementById("vidPlayImg").onclick = function() {
+          document.getElementById("vidPlayImg").style.display="none";
+          document.getElementById("vid1").style.display="block";
+          var delayInMilliseconds = 9833;
+          setTimeout(function() {
+            document.getElementById("vid1").style.display="none";
+            document.getElementById("vid2").style.display="block";
+          }, delayInMilliseconds);
+          }
+      </script>
+    </div>
+    <!--<script type="module" src="/vid.js"></script>-->
+
+    <!--WISPR Thing-->
+    <div id="light">
+      <h1>Lights. . .</h1>
+      <div id="lightimg">
+      </div>
+    </div>
+    <div id="camera">
+      <h1>Camera. . .</h1>
+      <div id="camimg">
+        <!--<img src="WISPR_Camera_OFF_5.1.2.png">-->
+      </div>
+    </div>
+    <div id="action">
+      <h1>Action!</h1>
+      <p>Coming Soon</p>
+      <form>
+        <select name="orbit" id="orbit_num">
+          <option value="0">Select an orbit!</option>
+          <option value="1">Orbit 1</option>
+          <option value="2">Orbit 2</option>
+          <option value="3">Orbit 3</option>
+          <option value="4">Orbit 4</option>
+          <option value="5">Orbit 5</option>
+          <option value="6">Orbit 6</option>
+          <option value="7">Orbit 7</option>
+          <option value="8">Orbit 8</option>
+          <option value="9">Orbit 9</option>
+          <option value="10">Orbit 10</option>
+          <option value="11">Orbit 11</option>
+        </select>
+        <br>
+        <input type="submit" value="SUBMIT">
+      </form>
+      <p id="thing">Number</p>
+      <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="Frame 1" id = "inner">
+      <script src="animate.js"></script>
+    </div>
+
+
+  </body>
+</html>

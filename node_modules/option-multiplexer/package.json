@@ -1,0 +1,16 @@
+{
+	"name": "option-multiplexer",
+	"version": "0.1.0",
+	"author": "Izaak Schroeder <izaak.schroeder@gmail.com>",
+	"description": "",
+	"main": "lib/multi.js",
+	"repository": "izaakschroeder/option-multiplexer",
+	"dependencies": {
+		"cartesian-product": "^2.1.2",
+		"lodash": "^3.8.0"
+	},
+	"devDependencies": {
+		"eslint": "^0.20.0",
+		"babel-eslint": "^3.0.1"
+	}
+}
