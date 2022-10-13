@@ -400,6 +400,7 @@ body {
   justify-content: center;
   padding-top: 1px;
   border-top: solid;
+  border-bottom: solid;
   border-width: 10px;
   border-color: rgb(231, 46, 0);
 }
@@ -443,12 +444,12 @@ body {
   color: rgb(0, 14, 54);
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   padding-top: 50px;
   padding-bottom: 30px;
-  padding-left: 222px;
-  padding-right: 222px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 canvas {
   display:block;

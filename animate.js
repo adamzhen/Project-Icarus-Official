@@ -1,9 +1,12 @@
 var counter = 0;
 var delay_ms = 200;
+var e = document.getElementById("orbit_number");
+var orbit = e.value;
 
 function video(){
     if(counter <= 1000){
-        document.getElementById("thing").textContent = innerPNGs[counter];
+        orbit = e.value;
+        document.getElementById("thing").textContent = orbit;
         document.getElementById("inner").src = innerURL + innerPNGs[counter];
         counter++;
     } else {
