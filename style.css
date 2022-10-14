@@ -85,7 +85,7 @@ button {
 
   .navbar-container {
     display: block;
-    position: relative;
+    position: absolute;
     height: 64px;
   }
 
@@ -96,19 +96,18 @@ button {
     width: 30px;
     top: 20px;
     left: 0px;
-    z-index: 5;
+    z-index: 9;
     opacity: 0;
     cursor: pointer;
   }
 
   .navbar-container .hamburger-lines {
-    display: block;
     height: 23px;
     width: 30px;
     position: absolute;
     top: 20px;
     left: 0px;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -120,7 +119,7 @@ button {
     height: 4px;
     width: 100%;
     border-radius: 10px;
-    background: #fff;
+    background: #f8860d;
   }
 
   .navbar-container .hamburger-lines .line1 {
@@ -283,6 +282,7 @@ body {
 }
 #diamond1{
   position: relative;
+  z-index: 1;
   height: 300px;
   display: flex;
   justify-content: center;
@@ -290,7 +290,7 @@ body {
 }
 #dimg1{
   position: absolute;
-  opacity: 1;
+  opacity: 0.74;
   width: 300px;
   height: 300px;
 }
@@ -312,7 +312,7 @@ body {
 }
 #dimg2{
   position: absolute;
-  opacity: 1;
+  opacity: 0.8;
   width: 350px;
   height: 350px;
 }
@@ -334,7 +334,7 @@ body {
 }
 #dimg3{
   position: absolute;
-  opacity: 1;
+  opacity: 0.87;
   width: 400px;
   height: 400px;
 }
@@ -356,7 +356,7 @@ body {
 }
 #dimg4{
   position: absolute;
-  opacity: 1;
+  opacity: 0.94;
   width: 450px;
   height: 450px;
 }
@@ -448,8 +448,14 @@ body {
   font-weight: 500;
   padding-top: 50px;
   padding-bottom: 30px;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+#corona h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  font-weight: 800;
 }
 canvas {
   display:block;

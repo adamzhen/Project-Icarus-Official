@@ -1,4 +1,4 @@
-import { readFileSync, promises as fsPromises } from 'fs';
+// import { readFileSync } from 'fs';
 
 var e = document.getElementById("orbit_num");
 var orbit = e.value;
