@@ -29,5 +29,3 @@ e.oninput = function(){
   //const contents = readFileSync('./PNG_locations/PNGs_Orbit01_inner.txt', 'utf-8');
 }
 
-// FITS data
-// var data = syncReadFITS('./wispr_txt_data/orbit'+format_orbit(orbit)+'.txt');
