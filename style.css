@@ -475,70 +475,6 @@ canvas {
   max-width: 80%;
   max-height: 80%;
 }
-
-#light {
-  width: 100%;
-  height: 400px;
-  background-color: black;
-  justify-content: center;
-  display: block;
-  padding-top: 90px;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-}
-
-
-#lightimg {
-  width: 100%;
-  height: 220px;
-  padding-top: 70px;
-  background-image: url("public/sun2gray.png");
-  background-size: 217px 196px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#lightimg:hover {
-  width: 100%;
-  background-repeat:no-repeat;
-  padding-top: 70px;
-  height: 220px;
-  background-image: url("public/sun2.jpg");
-  background-size: 221px 200px;
-  background-position: center;
-}
-
-#camera {
-  width: 100%;
-  height: 300px;
-  background-color: black;
-  justify-content: center;
-  display: block;
-  padding-top: 0px;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-}
-
-#camimg {
-  width: 100%;
-  height: 200px;
-  background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
-  background-size: 399px 200px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#camimg:hover {
-  width: 100%;
-  background-repeat:no-repeat;
-  height: 200px;
-  background-image: url("public/WISPR_Camera_ON_5.1.1.png");
-  background-size: 399px 200px;
-  background-position: center;
-}
-
 #corona {
   color:white;
   padding-top: 100px;
@@ -572,6 +508,69 @@ canvas {
   height: 450px;
   margin-left:auto;
   margin-right: auto;
+}
+
+#light {
+  width: 100%;
+  height: 380px;
+  background-color: black;
+  justify-content: center;
+  display: block;
+  padding-top: 90px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+
+#lightimg {
+  width: 100%;
+  height: 220px;
+  padding-top: 70px;
+  background-image: url("public/sun2gray.png");
+  background-size: 217px 196px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#lightimg:hover {
+  width: 100%;
+  background-repeat:no-repeat;
+  padding-top: 70px;
+  height: 220px;
+  background-image: url("public/sun2.jpg");
+  background-size: 221px 200px;
+  background-position: center;
+}
+
+#camera {
+  width: 100%;
+  height: 180px;
+  background-color: black;
+  justify-content: center;
+  display: block;
+  padding-top: 0px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+#camimg {
+  width: 100%;
+  height: 200px;
+  background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
+  background-size: 399px 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#camimg:hover {
+  width: 100%;
+  background-repeat:no-repeat;
+  height: 200px;
+  background-image: url("public/WISPR_Camera_ON_5.1.1.png");
+  background-size: 399px 200px;
+  background-position: center;
 }
 
 #action {

@@ -8,7 +8,7 @@ def format_orbit(orbit):
         return 'orbit'+str(o)
 # orbits_list = os.listdir(f'wispr_txt_data')
 arr = []
-with open(f'wispr_list_data/fits_lists.txt', 'w') as l:
+with open(f'wispr_data/fits_lists.txt', 'w') as l:
     l.write('[')
     for n in range(1,12):
         orbit = format_orbit(n) # set orbit number
