@@ -454,8 +454,8 @@ body {
   font-weight: 500;
   padding-top: 50px;
   padding-bottom: 30px;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 90px;
+  padding-right: 90px;
 }
 
 #corona h1 {
@@ -615,7 +615,7 @@ canvas {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%; 
-  background: rgb(231, 65, 0); /* Green background */
+  background: rgb(255, 85, 0);
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -623,6 +623,6 @@ canvas {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%; 
-  background: #04AA6D; /* Green background */
+  background: rgb(255, 85, 0); 
   cursor: pointer; /* Cursor on hover */
 }

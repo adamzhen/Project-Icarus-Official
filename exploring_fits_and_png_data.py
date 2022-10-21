@@ -1,75 +1,5 @@
-// import { readFileSync, promises as fsPromises } from 'fs';
-
-var e = document.getElementById("orbit_num");
-var orbit = '1';
-
-
-function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc. 
-  var o = '';
-  if (parseInt(orb) < 10){
-    o = '0'+parseInt(orb).toString();
-  } else{
-    o = parseInt(orb).toString();
-  }
-  if (orb=='5'){
-    return'https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit' + o + '_' + camera + '_Encounter/';
-  } else{
-    return'https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit' + o + '_' + camera + '/';
-  }
-    
-}
-
-// function syncReadFITS(filename) {
-//   const contents = readFileSync(filename, 'utf-8');
-//   const arr1 = contents.split(/\r?\n/);
-//   const arr2 = [];
-//   for (var i=0; i<arr1.length; i++){
-//     arr2.push(arr1[i].split(", "));
-//   }
-//   return arr2;
-// }
-
-// function syncReadPNGs(filename) {
-//   const contents = readFileSync(filename, 'utf-8');
-//   const arr = contents.split(/\r?\n/);
-//   return arr;
-// }
-
-var innerPNGs;
-var outerPNGs;
-var innerURL;
-var outerURL;
-// Updates the current selector value for orbit number
-e.oninput = function(){
-  orbit = e.value;
-  orbit_ind = parseInt(orbit)-1;
-  innerPNGs = allInnerPNGs[orbit_ind];
-  outerPNGs = allOuterPNGs[orbit_ind];
-  innerURL= png_url(orbit, "inner")
-  outerURL = png_url(orbit, "outer")
-  document.getElementById("inner").src = innerURL + innerPNGs[0]; //CHANGE
-  document.getElementById("outer").src = outerURL + outerPNGs[0]; //CHANGE
-  document.getElementById("thing").textContent = orbit; // TEMP
-  slider.value = 0; // resets slider value to 0 every time orbit is changed
-  slider.max = fitsLists[orbit_ind].length - 1; // changes slider range to match indices of the fits data points
-  output.innerHTML = 0; // TEMP
-}
-
-var slider = document.getElementById("sliderrr");
-var output = document.getElementById("slider_value");
-var slider_val = 0;
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  slider_val = this.value;
-  output.innerHTML = slider_val; // TEMP
-  document.getElementById("inner").src = innerURL + innerPNGs[slider_val]; //CHANGE
-  document.getElementById("outer").src = outerURL + outerPNGs[slider_val]; //CHANGE
-}
-
-// 2D array of PNG names
-var allInnerPNGs = [[
+# 2D array of PNG names
+allInnerPNGs = [[
   '20181101_004548_1suff.png',
   '20181101_013048_1suff.png',
   '20181101_021548_1suff.png',
@@ -10391,7 +10321,7 @@ var allInnerPNGs = [[
 '20220315_130552_1suff.png',
 '20220315_140552_1suff.png',
 ]]
-var allOuterPNGs = [[
+allOuterPNGs = [[
   '20181101_004530_2suff.png',
 '20181101_013030_2suff.png',
 '20181101_021530_2suff.png',
@@ -17435,10 +17365,10 @@ var allOuterPNGs = [[
 '20220312_111748_2suff.png',
 '20220312_121748_2suff.png',
 ]]
-// 3D array of FITS data (obtained via WISPR Level-3 FITS Data -> wispr_data.py -> txt files -> read_txt.py -> formatted 3D array)
-// SOURCE: wispr_list_data/fits_lists.txt
-// DESCRIPTION:     YYYYMMDD_HHMM | MM/DD/YYYY |  HH:MM  |    HAEX_OBS  |   HAEY_OBS   |    HAEZ_OBS   | DIST FROM SUN (AU) 
-var fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 33910290684.3, -646735457.996, 0.2381781429260924],
+# 3D array of FITS data (obtained via WISPR Level-3 FITS Data -> wispr_data.py -> txt files -> read_txt.py -> formatted 3D array)
+# SOURCE: wispr_list_data/fits_lists.txt
+# DESCRIPTION:     YYYYMMDD_HHMM | MM/DD/YYYY |  HH:MM  |    HAEX_OBS  |   HAEY_OBS   |    HAEZ_OBS   | DIST FROM SUN (AU) 
+fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 33910290684.3, -646735457.996, 0.2381781429260924],
 ['20181101_0047', '11/01/2018', '00:47', 10921807440.2, 33910749586.3, -646864292.945, 0.238185567096577],
 ['20181101_0132', '11/01/2018', '01:32', 10717846029.3, 33867690104.9, -634871704.357, 0.23749536734003346],
 ['20181101_0132', '11/01/2018', '01:32', 10720039696.8, 33868156916.1, -635000688.872, 0.23750278121768448],
@@ -34718,8 +34648,37 @@ var fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 339102
 ['20220315_1307', '03/15/2022', '13:07', 45169025637.7, -67291400490.4, -3540932650.52, 0.5422725470296236],
 ['20220315_1407', '03/15/2022', '14:07', 45279941944.9, -67336826828.3, -3547953823.82, 0.5429394890217216]
 ]]
-// initializes inner and outer PNGs to orbit 1 so that the slider works before the orbit selector is changed
-innerPNGs = allInnerPNGs[0];
-outerPNGs = allOuterPNGs[0];
-innerURL= png_url(orbit, "inner")
-outerURL = png_url(orbit, "outer")
+
+inner_count = 0
+outer_count = 0
+both_count = 0
+none_count = 0
+for orbit in range(11):
+    print(f'- Orbit {orbit + 1} -')
+    for list in fitsLists[orbit]:
+        time = list[0][:11]
+        inner = False
+        outer = False
+        for inPNG in allInnerPNGs[orbit]:
+            if time in inPNG:
+                inner = True
+        for outPNG in allOuterPNGs[orbit]:
+            if time in outPNG:
+                outer = True
+        if inner and outer:
+            both_count += 1
+        elif inner and not outer:
+            inner_count += 1
+        elif outer and not inner:
+            outer_count += 1
+        else:
+            none_count += 1
+            print(list[0])
+    print(f'Just inner: {inner_count}')
+    print(f'Just outer: {outer_count}')
+    print(f'Both: {both_count}')
+    print(f'None: {none_count}')
+
+# CONCLUSION: If we use the first 11 characters (YYYYMMDD_HH) of the YYYYMMDD_HHMM, the vast majority of fits data points will have a
+# corresponding inner or outer PNG, and a sizable majority will have both
+
