@@ -512,23 +512,29 @@ canvas {
 
 #light {
   width: 100%;
-  height: 380px;
+  height: 330px;
   background-color: black;
   justify-content: center;
   display: block;
   padding-top: 90px;
   text-align: center;
-  color: white;
+  color: rgb(227, 106, 13);
   font-size: 20px;
 }
-
+#light h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 12px;
+  padding-bottom: 10px;
+}
 
 #lightimg {
   width: 100%;
-  height: 220px;
+  height: 170px;
   padding-top: 70px;
   background-image: url("public/sun2gray.png");
-  background-size: 217px 196px;
+  background-size: 172px 156px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -537,29 +543,36 @@ canvas {
   width: 100%;
   background-repeat:no-repeat;
   padding-top: 70px;
-  height: 220px;
+  height: 170px;
   background-image: url("public/sun2.jpg");
-  background-size: 221px 200px;
+  background-size: 177px 160px;
   background-position: center;
 }
 
 #camera {
   width: 100%;
-  height: 180px;
+  height: 140px;
   background-color: black;
   justify-content: center;
   display: block;
   padding-top: 0px;
   text-align: center;
-  color: white;
+  color: rgb(9, 177, 255);
   font-size: 20px;
+}
+#camera h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 10px;
+  padding-bottom: 10px;
 }
 
 #camimg {
   width: 100%;
-  height: 200px;
+  height: 170px;
   background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
-  background-size: 399px 200px;
+  background-size: 339px 170px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -567,9 +580,9 @@ canvas {
 #camimg:hover {
   width: 100%;
   background-repeat:no-repeat;
-  height: 200px;
+  height: 170px;
   background-image: url("public/WISPR_Camera_ON_5.1.1.png");
-  background-size: 399px 200px;
+  background-size: 339px 170px;
   background-position: center;
 }
 
@@ -592,7 +605,7 @@ canvas {
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 50%; /* Full-width */
+  width: 25%;
   height: 10px; /* Specified height */
   border-radius: 5px;  
   background: #d3d3d3; /* Grey background */
@@ -628,13 +641,13 @@ canvas {
 
 #inner{
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
 }
 #outer{
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
 }
 #PSPloc {
   position: relative;
