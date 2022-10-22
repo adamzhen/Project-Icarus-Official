@@ -34649,79 +34649,121 @@ fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 3391029068
 ['20220315_1407', '03/15/2022', '14:07', 45279941944.9, -67336826828.3, -3547953823.82, 0.5429394890217216]
 ]]
 
-allInnerPNGs13 = [[name[:13] for name in orbit] for orbit in allInnerPNGs]
-allOuterPNGs13 = [[name[:13] for name in orbit] for orbit in allOuterPNGs]
-allInnerPNGs9 = [[name[:9] for name in orbit] for orbit in allInnerPNGs]
-allOuterPNGs9 = [[name[:9] for name in orbit] for orbit in allOuterPNGs]
-allInnerPNGsMatch = allInnerPNGs13.copy()
-allOuterPNGsMatch = allOuterPNGs13.copy()
+import matplotlib.pyplot as plt
+import numpy as np
+import math 
 
-# REFORMAT INNER PNGS LIST TO MATCH TIMES IN FITS DATA
-with open(f'wispr_data/PNG_match_lists/inner.txt', 'w') as f:
-  f.write('[')
-  for orbit in range(11):
-    f.write('[')
-    for i in range(len(allInnerPNGsMatch[orbit])):
-      n11 = allInnerPNGs9[orbit][i]
-      n13 = allInnerPNGs13[orbit][i]
-      matches = []
-      for list in fitsLists[orbit]: # finds the FITS data points that match the first 9 characters of the PNG name, and stores them in matches
-        time = list[0][:9]
-        if time == n11:
-          matches.append(list[0])
-      closest_diff = 60 # stores the difference value of the closest match to the PNG name
-      closest = '' # stores the closest match to the PNG name
-      pmin = 60*int(n13[-4:-2]) + int(n13[-2:]) # extracts the minutes from the png name
-      for match in matches:
-        fmin = 60*int(match[-4:-2]) + int(match[-2:]) # extracts the minutes from the fits data point    
-        if abs(pmin-fmin) < closest_diff:
-          closest_diff = abs(pmin-fmin)
-          closest = match
-      if len(matches) == 0: # special check if no matches were ever found, and assigns the value of the previous PNG if that is the case
-        allInnerPNGsMatch[orbit][i] = allInnerPNGsMatch[orbit][i-1]
-      else: # changes the allInnerPNGsMatch list to the closest matches
-        allInnerPNGsMatch[orbit][i] = closest[:12]
-      if i == len(allInnerPNGsMatch[orbit])-1 and orbit == 10:
-        f.write(f"'{allInnerPNGsMatch[orbit][i]}']\n")
-      elif i == len(allInnerPNGsMatch[orbit])-1:
-        f.write(f"'{allInnerPNGsMatch[orbit][i]}'],\n")
-      else:
-        f.write(f"'{allInnerPNGsMatch[orbit][i]}',\n")
-  f.write(']')
+def orb_to_hex(n): # returns scatter plot color in hex based on orbit number 
+  if n==10:
+    return '0000'
+  elif n==0:
+    return '9999'
+  else:
+    return f'{int(100-n*10)}{int(100-n*10)}'
+ORB = 6
+x = [0]
+y = [0]
+z = [0]
+for ORB in range(11):
+  numfar = 0
+  x = [0]
+  y = [0]
+  z = [0]
+  for list in fitsLists[ORB]:
+    x.append(list[3])
+    y.append(list[4])
+    z.append(list[5])
+    if list[6] > 0.25:
+      numfar += 1
+  print(f'{numfar} points are over 0.25 AU from the Sun')
+  HAEX = np.array(x)
+  HAEY = np.array(y)
+  HAEZ = np.array(z)
+  plt.scatter(HAEX, HAEY, s=1, c = f'#FF{orb_to_hex(ORB)}', label=f'Orbit {ORB+1}')
+# Plots graph of circle with radius 0.25 AU
+r = 3.7399e10
+circ = [[], []]
+for i in range(1, 721):
+  circ[0].append(r*math.cos(i/360*math.pi))
+  circ[1].append(r*math.sin(i/360*math.pi))
+plt.scatter(circ[0], circ[1], s=1, c = 'black', label='0.25 AU')
+
+plt.legend(loc="lower right")
+plt.show()
+
+# allInnerPNGs13 = [[name[:13] for name in orbit] for orbit in allInnerPNGs]
+# allOuterPNGs13 = [[name[:13] for name in orbit] for orbit in allOuterPNGs]
+# allInnerPNGs9 = [[name[:9] for name in orbit] for orbit in allInnerPNGs]
+# allOuterPNGs9 = [[name[:9] for name in orbit] for orbit in allOuterPNGs]
+# allInnerPNGsMatch = allInnerPNGs13.copy()
+# allOuterPNGsMatch = allOuterPNGs13.copy()
+
+# # REFORMAT INNER PNGS LIST TO MATCH TIMES IN FITS DATA & EXPORTS TO TXT FILE IN PNG_MATCH_LISTS
+# with open(f'wispr_data/PNG_match_lists/inner.txt', 'w') as f:
+#   f.write('[')
+#   for orbit in range(11):
+#     f.write('[')
+#     for i in range(len(allInnerPNGsMatch[orbit])):
+#       n11 = allInnerPNGs9[orbit][i]
+#       n13 = allInnerPNGs13[orbit][i]
+#       matches = []
+#       for list in fitsLists[orbit]: # finds the FITS data points that match the first 9 characters of the PNG name, and stores them in matches
+#         time = list[0][:9]
+#         if time == n11:
+#           matches.append(list[0])
+#       closest_diff = 60 # stores the difference value of the closest match to the PNG name
+#       closest = '' # stores the closest match to the PNG name
+#       pmin = 60*int(n13[-4:-2]) + int(n13[-2:]) # extracts the minutes from the png name
+#       for match in matches:
+#         fmin = 60*int(match[-4:-2]) + int(match[-2:]) # extracts the minutes from the fits data point    
+#         if abs(pmin-fmin) < closest_diff:
+#           closest_diff = abs(pmin-fmin)
+#           closest = match
+#       if len(matches) == 0: # special check if no matches were ever found, and assigns the value of the previous PNG if that is the case
+#         allInnerPNGsMatch[orbit][i] = allInnerPNGsMatch[orbit][i-1]
+#       else: # changes the allInnerPNGsMatch list to the closest matches
+#         allInnerPNGsMatch[orbit][i] = closest[:12]
+#       if i == len(allInnerPNGsMatch[orbit])-1 and orbit == 10:
+#         f.write(f"'{allInnerPNGsMatch[orbit][i]}']\n")
+#       elif i == len(allInnerPNGsMatch[orbit])-1:
+#         f.write(f"'{allInnerPNGsMatch[orbit][i]}'],\n")
+#       else:
+#         f.write(f"'{allInnerPNGsMatch[orbit][i]}',\n")
+#   f.write(']')
 
 
-# REFORMAT OUTER PNGS LIST TO MATCH TIMES IN FITS DATA
-with open(f'wispr_data/PNG_match_lists/outer.txt', 'w') as f:
-  f.write('[')
-  for orbit in range(11):
-    f.write('[')
-    for i in range(len(allOuterPNGsMatch[orbit])):
-      n11 = allOuterPNGs9[orbit][i]
-      n13 = allOuterPNGs13[orbit][i]
-      matches = []
-      for list in fitsLists[orbit]: # finds the FITS data points that match the first 9 characters of the PNG name, and stores them in matches
-        time = list[0][:9]
-        if time == n11:
-          matches.append(list[0])
-      closest_diff = 60 # stores the difference value of the closest match to the PNG name
-      closest = '' # stores the closest match to the PNG name
-      pmin = 60*int(n13[-4:-2]) + int(n13[-2:]) # extracts the minutes from the png name
-      for match in matches:
-        fmin = 60*int(match[-4:-2]) + int(match[-2:]) # extracts the minutes from the fits data point    
-        if abs(pmin-fmin) < closest_diff:
-          closest_diff = abs(pmin-fmin)
-          closest = match
-      if len(matches) == 0: # special check if no matches were ever found, and assigns the value of the previous PNG if that is the case
-        allOuterPNGsMatch[orbit][i] = allOuterPNGsMatch[orbit][i-1]
-      else: # changes the allInnerPNGsMatch list to the closest matches
-        allOuterPNGsMatch[orbit][i] = closest[:12]
-      if i == len(allInnerPNGsMatch[orbit])-1 and orbit == 10:
-        f.write(f"'{allOuterPNGsMatch[orbit][i]}']\n")
-      elif i == len(allOuterPNGsMatch[orbit])-1:
-        f.write(f"'{allOuterPNGsMatch[orbit][i]}'],\n")
-      else:
-        f.write(f"'{allOuterPNGsMatch[orbit][i]}',\n")
-  f.write(']')
+# # REFORMAT OUTER PNGS LIST TO MATCH TIMES IN FITS DATA & EXPORTS TO TXT FILE IN PNG_MATCH_LISTS
+# with open(f'wispr_data/PNG_match_lists/outer.txt', 'w') as f:
+#   f.write('[')
+#   for orbit in range(11):
+#     f.write('[')
+#     for i in range(len(allOuterPNGsMatch[orbit])):
+#       n11 = allOuterPNGs9[orbit][i]
+#       n13 = allOuterPNGs13[orbit][i]
+#       matches = []
+#       for list in fitsLists[orbit]: # finds the FITS data points that match the first 9 characters of the PNG name, and stores them in matches
+#         time = list[0][:9]
+#         if time == n11:
+#           matches.append(list[0])
+#       closest_diff = 60 # stores the difference value of the closest match to the PNG name
+#       closest = '' # stores the closest match to the PNG name
+#       pmin = 60*int(n13[-4:-2]) + int(n13[-2:]) # extracts the minutes from the png name
+#       for match in matches:
+#         fmin = 60*int(match[-4:-2]) + int(match[-2:]) # extracts the minutes from the fits data point    
+#         if abs(pmin-fmin) < closest_diff:
+#           closest_diff = abs(pmin-fmin)
+#           closest = match
+#       if len(matches) == 0: # special check if no matches were ever found, and assigns the value of the previous PNG if that is the case
+#         allOuterPNGsMatch[orbit][i] = allOuterPNGsMatch[orbit][i-1]
+#       else: # changes the allInnerPNGsMatch list to the closest matches
+#         allOuterPNGsMatch[orbit][i] = closest[:12]
+#       if i == len(allInnerPNGsMatch[orbit])-1 and orbit == 10:
+#         f.write(f"'{allOuterPNGsMatch[orbit][i]}']\n")
+#       elif i == len(allOuterPNGsMatch[orbit])-1:
+#         f.write(f"'{allOuterPNGsMatch[orbit][i]}'],\n")
+#       else:
+#         f.write(f"'{allOuterPNGsMatch[orbit][i]}',\n")
+#   f.write(']')
 
 # for orbit in range(11):
 #     inner_count = 0
@@ -34747,6 +34789,5 @@ with open(f'wispr_data/PNG_match_lists/outer.txt', 'w') as f:
 #     print(f'      Both: {both_count}')
 #     print(f'      None: {none_count}') # /len(fitsLists[orbit]):.2f
 
-# CONCLUSION: If we use the first 11 characters (YYYYMMDD_HH) of the YYYYMMDD_HHMM, the vast majority of fits data points will have a
-# corresponding inner or outer PNG, and a sizable majority will have both
+
 

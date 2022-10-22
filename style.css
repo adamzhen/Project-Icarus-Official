@@ -625,3 +625,26 @@ canvas {
   background: rgb(255, 85, 0); 
   cursor: pointer; /* Cursor on hover */
 }
+
+#inner{
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+#outer{
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+#PSPloc {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 50px;
+  top: -300px;
+  right: 0px;
+  left: 0px;
+}

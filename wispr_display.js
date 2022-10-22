@@ -50,7 +50,6 @@ e.oninput = function(){
   outerURL = png_url(orbit, "outer")
   document.getElementById("inner").src = innerURL + innerPNGs[0]; //CHANGE
   document.getElementById("outer").src = outerURL + outerPNGs[0]; //CHANGE
-  document.getElementById("thing").textContent = orbit; // TEMP
   slider.value = 0; // resets slider value to 0 every time orbit is changed
   slider.max = fitsLists[orbit_ind].length - 1; // changes slider range to match indices of the fits data points
   output.innerHTML = 0; // TEMP
@@ -61,6 +60,7 @@ var output = document.getElementById("slider_value");
 var slider_val = 0;
 var fits = [];
 output.innerHTML = slider.value; // Display the default slider value
+var loc = document.getElementById("PSPloc");
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
@@ -74,6 +74,9 @@ slider.oninput = function() {
   if (allOuterPNGsMatch[orbit_ind].includes(date)){
     document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
   }
+  var scale_factor = 300000000;
+  loc.style.left = (fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  loc.style.top = (-300 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 
 // 2D array of PNG names
