@@ -1,6 +1,6 @@
 // import { readFileSync, promises as fsPromises } from 'fs';
 
-var e = document.getElementById("orbit_num");
+var selector = document.getElementById("orbit_num");
 var orbit = '1';
 
 
@@ -34,15 +34,43 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
 //   const arr = contents.split(/\r?\n/);
 //   return arr;
 // }
-
+function update_data(){
+  fits = fitsLists[orbit_ind][slider_val]; 
+  var date = fits[0].substring(0,12);
+  output.innerHTML = fits[0]; // TEMP
+  if (allInnerPNGsMatch[orbit_ind].includes(date)){
+    document.getElementById("inner").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)];
+  } 
+  if (allOuterPNGsMatch[orbit_ind].includes(date)){
+    document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
+  }
+  var scale_factor = 300000000;
+  loc.style.left = (fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  loc.style.top = (-300 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+}
+function play_loop(){
+  if (!stopplay){
+    var increment = 4;
+    max = parseInt(slider.max);
+    if (slider_val < max-increment){
+      slider_val += increment;
+      slider.value = toString(slider_val);
+    } else {
+      slider_val = 0;
+      slider.value = toString(slider_val);
+    }
+    
+    update_data();
+  }
+}
 var innerPNGs;
 var outerPNGs;
 var innerURL;
 var outerURL;
 var orbit_ind = 0;
 // Updates the current selector value for orbit number
-e.oninput = function(){
-  orbit = e.value;
+selector.oninput = function(){
+  orbit = selector.value;
   orbit_ind = parseInt(orbit)-1;
   innerPNGs = allInnerPNGs[orbit_ind];
   outerPNGs = allOuterPNGs[orbit_ind];
@@ -61,22 +89,34 @@ var slider_val = 0;
 var fits = [];
 output.innerHTML = slider.value; // Display the default slider value
 var loc = document.getElementById("PSPloc");
+var stopplay;
+var delay_ms; // delay time for play loop
+var max; // max value of slider
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-  slider_val = this.value;
-  fits = fitsLists[orbit_ind][slider_val];
-  var date = fits[0].substring(0,12);
-  output.innerHTML = fits[0]; // TEMP
-  if (allInnerPNGsMatch[orbit_ind].includes(date)){
-    document.getElementById("inner").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)];
-  } 
-  if (allOuterPNGsMatch[orbit_ind].includes(date)){
-    document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
+  slider_val = parseInt(this.value);
+  update_data();
+}
+
+function playclick(){
+  var play = document.getElementById("playbutton")
+  play.classList.toggle("paused");
+  if (play.className=="button paused"){
+    stopplay = false;
+    delay_ms = 200;
+    let timer = setInterval(play_loop, delay_ms);
+    // var slider = document.getElementById("sliderrr");
+    // var max = parseInt(slider.max);
+    // document.getElementById("clicktoplay").innerHTML = max;
+    // const sliderPlay = [{ transform: 'rotate(0) scale(1)' }, { transform: 'rotate(360deg) scale(0)' }, { transform: 'rotate(0) scale(1)' }];
+    // const sliderSpeed = {duration: 1000, iterations: 5};
+    // slider.animate(sliderPlay, sliderSpeed);
+  } else{
+    // document.getElementById("clicktoplay").innerHTML = "stopped";
+    stopplay = true;
+    clearInterval(timer);
   }
-  var scale_factor = 300000000;
-  loc.style.left = (fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-300 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 
 // 2D array of PNG names

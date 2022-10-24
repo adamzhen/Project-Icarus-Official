@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/public/favicomatic/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/public/favicomatic/favicon.ico" sizes="32x32" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -144,8 +144,10 @@
         </select>
         <br>
       </form>
+      <button id = 'playbutton' class='button' onclick="playclick()"></button>
       <div class="slidecontainer">
         <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
+        <script src="wispr_display.js"></script>
         <p id="slider_value" style="padding-bottom:40px;">slider_value</p>
       </div>
       <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="Inner Camera" id = "inner">
@@ -153,7 +155,5 @@
       <img src="public/diamond.png" alt="Probe Location" id = "PSPloc">
       <script src="wispr_display.js"></script>
     </div>
-
-
   </body>
 </html>
