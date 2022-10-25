@@ -232,6 +232,55 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
 }
+.scroll-down {
+  height: 50px;
+  width: 30px;
+  border: 2px solid #f8860d;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.scroll-down:hover{
+  border: 3px solid #ff8400;
+}
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border: 2px solid #f8860d;
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 1s ease-in-out infinite;
+}
+.scroll-down::before {
+  top: 30%;
+  animation-delay: 0.3s;
+  /* animation: scroll-down 1s ease-in-out infinite; */
+}
+
+@keyframes scroll-down {
+  0% {
+    /* top:20%; */
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
 
 #sun {
   width: 100%;
@@ -240,17 +289,17 @@ body {
   justify-content: center;
   background-color: black;
   padding-bottom: 50px;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
-#sun img {
+#sunimg {
   max-width: 100%;
 }
 
 #sun h1 {
   color: black;
   position: absolute;
-  top: 1340px;
+  top: 1240px;
   font-family: 'Montserrat', sans-serif;
   font-size: 45px;
   font-weight: 800;
@@ -259,7 +308,7 @@ body {
 #sun h2 {
   color: black;
   position: absolute;
-  top: 1330px;
+  top: 1230px;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -616,6 +665,7 @@ canvas {
   height: 74px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   border-color: transparent transparent transparent #aeaeae;
   transition: 100ms all ease;
   cursor: pointer;
@@ -637,8 +687,11 @@ canvas {
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 25%;
-  height: 10px; /* Specified height */
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 8px; /* Specified height */
   border-radius: 5px;  
   background: #d3d3d3; /* Grey background */
   outline: none; /* Remove outline */
@@ -656,30 +709,33 @@ canvas {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
   border-radius: 50%; 
   background: rgb(255, 85, 0);
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
   border-radius: 50%; 
   background: rgb(255, 85, 0); 
   cursor: pointer; /* Cursor on hover */
 }
-
+#slider_value {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
 #inner{
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
 }
 #outer{
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
 }
 #PSPloc {
   position: relative;

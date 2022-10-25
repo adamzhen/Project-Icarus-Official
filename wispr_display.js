@@ -34,7 +34,7 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
 //   const arr = contents.split(/\r?\n/);
 //   return arr;
 // }
-function update_data(){
+function update_data(){ // updates the images, location, etc. every time the slider changes
   fits = fitsLists[orbit_ind][slider_val]; 
   var date = fits[0].substring(0,12);
   output.innerHTML = fits[0]; // TEMP
@@ -44,9 +44,9 @@ function update_data(){
   if (allOuterPNGsMatch[orbit_ind].includes(date)){
     document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
   }
-  var scale_factor = 300000000;
+  var scale_factor = 400000000;
   loc.style.left = (fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-300 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+  loc.style.top = (-250 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 function play_loop(){
   if (!stopplay){
@@ -63,6 +63,18 @@ function play_loop(){
     update_data();
   }
 }
+function help_load(orb){ // trying to help the wispr images load quicker
+  innerPNGs = allInnerPNGs[orb];
+  outerPNGs = allOuterPNGs[orb];
+  innerURL= png_url((orb+1).toString(), "inner")
+  outerURL = png_url((orb+1).toString(), "outer")
+  for (var i=0; i<innerPNGs.length; i++){
+    document.getElementById("inner").src = innerURL + innerPNGs[i];
+  }
+  for (var o=0; i<outerPNGs.length; i++){
+    document.getElementById("outer").src = outerURL + outerPNGs[o];
+  }
+}
 var innerPNGs;
 var outerPNGs;
 var innerURL;
@@ -74,8 +86,8 @@ selector.oninput = function(){
   orbit_ind = parseInt(orbit)-1;
   innerPNGs = allInnerPNGs[orbit_ind];
   outerPNGs = allOuterPNGs[orbit_ind];
-  innerURL= png_url(orbit, "inner")
-  outerURL = png_url(orbit, "outer")
+  innerURL= png_url(orbit, "inner");
+  outerURL = png_url(orbit, "outer");
   document.getElementById("inner").src = innerURL + innerPNGs[0]; //CHANGE
   document.getElementById("outer").src = outerURL + outerPNGs[0]; //CHANGE
   slider.value = 0; // resets slider value to 0 every time orbit is changed
@@ -103,8 +115,9 @@ function playclick(){
   var play = document.getElementById("playbutton")
   play.classList.toggle("paused");
   if (play.className=="button paused"){
+    slider.style.display = "none";
     stopplay = false;
-    delay_ms = 200;
+    delay_ms = 250;
     let timer = setInterval(play_loop, delay_ms);
     // var slider = document.getElementById("sliderrr");
     // var max = parseInt(slider.max);
@@ -114,6 +127,7 @@ function playclick(){
     // slider.animate(sliderPlay, sliderSpeed);
   } else{
     // document.getElementById("clicktoplay").innerHTML = "stopped";
+    slider.style.display = "flex";
     stopplay = true;
     clearInterval(timer);
   }
@@ -52133,8 +52147,15 @@ var fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 339102
 ['20220315_1307', '03/15/2022', '13:07', 45169025637.7, -67291400490.4, -3540932650.52, 0.5422725470296236],
 ['20220315_1407', '03/15/2022', '14:07', 45279941944.9, -67336826828.3, -3547953823.82, 0.5429394890217216]
 ]];
+
+// Pre-loads all images from orbit 1 so it might be quicker to load with the slider/play button
+for (var i=0; i<11; i++){
+  help_load(i);
+}
 // initializes inner and outer PNGs to orbit 1 so that the slider works before the orbit selector is changed
 innerPNGs = allInnerPNGs[0];
 outerPNGs = allOuterPNGs[0];
 innerURL= png_url(orbit, "inner")
 outerURL = png_url(orbit, "outer")
+document.getElementById("inner").src = innerURL + innerPNGs[0]; //CHANGE
+document.getElementById("outer").src = outerURL + outerPNGs[0]; //CHANGE

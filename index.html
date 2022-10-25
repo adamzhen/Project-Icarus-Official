@@ -26,7 +26,7 @@
           </div>
           <ul class="menu-items">
             <li><a href="#begin">Home</a></li>  
-            <li><a href="#sun">Touch The Sun</a></li>
+            <li><a href="#sunloc">Touch The Sun</a></li>
             <li><a href="#yess">Parker Space Probe</a></li>
             <li><a href="#corona">The Big Ol' Corona</a></li>
             <li><a href="#light">WISPR</a></li>
@@ -37,18 +37,22 @@
     </div>
 
     <!--Scroll Down Button-->
-    <div class="scroll">
+    <a href="#sunloc">
+      <div class="scroll-down"></div>
+    </a>
+    <!-- <div class="scroll">
       <button id="first" onclick="location.href='#sun'">
         <p>click to start your journey</p>
       </button>
       <br>
-    </div>
+    </div> -->
 
     <!--Sun :D-->
     <div id="sun">
-      <img src="public/sun.jpg">
+      <img src="public/sun.jpg" id = "sunimg">
       <h2><em>ever wondered what it'd be like. . .</em></h2>
       <h1><em>TO TOUCH THE SUN?</em></h1>
+      <img src="public/diamond.png" id="sunloc" style="position:absolute;top:900px;width:1px;height:1px;">
     </div>
 
     <!--Rotating diamond-->
@@ -145,7 +149,7 @@
         <br>
       </form>
       <button id = 'playbutton' class='button' onclick="playclick()"></button>
-      <div class="slidecontainer">
+      <div class="slidecontainer" id="theslider">
         <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
         <script src="wispr_display.js"></script>
         <p id="slider_value" style="padding-bottom:40px;">slider_value</p>
