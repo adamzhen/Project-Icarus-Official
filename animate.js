@@ -1,3 +1,4 @@
+// Solely for testing purposes, not actually used in the website
 var counter = 0;
 var delay_ms = 200;
 var e = document.getElementById("orbit_num");
