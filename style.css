@@ -746,6 +746,32 @@ canvas {
   right: 38.7%;
 
 }
+#psploc {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 50px;
+  top: -300px;
+  right: 0px;
+  left: 0px;
+}
+.rect1 {
+  position: relative;
+  top: 9.5px;
+  height: 16px;
+  width: 3px;
+  background-color: rgb(227, 106, 13);
+}
+.rect2 {
+  position: relative;
+  right: 6.5px;
+  height: 3px;
+  width: 16px;
+  background-color: rgb(227, 106, 13);
+}
 #PSPloc {
   position: relative;
   width: 20px;
