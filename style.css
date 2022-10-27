@@ -731,16 +731,25 @@ canvas {
   position: relative;
   width: 300px;
   height: 300px;
+  left: -15%;
 }
 #outer{
   position: relative;
   width: 300px;
   height: 300px;
+  left: 15%;
+}
+#locplot{
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: 38.7%;
+
 }
 #PSPloc {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;

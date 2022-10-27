@@ -44,13 +44,13 @@ function update_data(){ // updates the images, location, etc. every time the sli
   if (allOuterPNGsMatch[orbit_ind].includes(date)){
     document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
   }
-  var scale_factor = 400000000;
-  loc.style.left = (fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-250 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+  var scale_factor = 425000000;
+  loc.style.left = (-39 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  loc.style.top = (-194 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 function play_loop(){
   if (!stopplay){
-    var increment = 4;
+    var increment = 2;
     max = parseInt(slider.max);
     if (slider_val < max-increment){
       slider_val += increment;
