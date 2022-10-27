@@ -45,8 +45,8 @@ function update_data(){ // updates the images, location, etc. every time the sli
     document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
   }
   var scale_factor = 440000000;
-  loc.style.left = (-33 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-202 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+  loc.style.left = (-34 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  loc.style.top = (-203 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 function play_loop(){
   if (!stopplay){

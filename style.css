@@ -772,6 +772,18 @@ canvas {
   width: 16px;
   background-color: rgb(227, 106, 13);
 }
+.sunicon {
+  position: relative;
+  height: 12px;
+  width: 12px;
+  background-color: rgb(255, 204, 0);
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 4px rgb(255, 200, 61);
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 209px;
+  right: 45px;
+}
 #PSPloc {
   position: relative;
   width: 20px;
