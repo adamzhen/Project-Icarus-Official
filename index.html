@@ -152,20 +152,23 @@
       <div class="slidecontainer" id="theslider">
         <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
         <script src="wispr_display.js"></script>
-        <p id="slider_value" style="padding-bottom:40px;">slider_value</p>
+        <p id="slider_value" style="margin-bottom: 50px;"></p>
       </div>
-      <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="Inner Camera" id = "inner">
-      <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="Outer Camera" id = "outer">
-      <img src="public/OrbitsPlot1.png" alt="Location Plot" id="locplot">
-      <div id = "positiondisplay">
-        <div id="psploc">
-          <div class="rect1"></div>
-          <div class="rect2"></div>
+      <div id="wisprdisplay">
+        <h3 id="innerlabel">Inner Camera</h3>
+        <h3 id="outerlabel">Outer Camera</h3>
+        <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="Inner Camera" id = "inner">
+        <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="Outer Camera" id = "outer">
+        <img src="public/OrbitsPlot1.png" alt="Location Plot" id="locplot">
+        <div id = "positiondisplay">
+          <div id="psploc">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+          </div>
+          <div class="sunicon"></div>
         </div>
-        <div class="sunicon"></div>
+        <script src="wispr_display.js"></script>
       </div>
-      
-      <script src="wispr_display.js"></script>
     </div>
   </body>
 </html>

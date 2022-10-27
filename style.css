@@ -44,6 +44,7 @@
   width: 100%;
   background: transparent;
   color: #fff;
+  z-index: 4;
 }
 
 .navbar-container {
@@ -183,7 +184,8 @@ button {
 /*Body*/
 body {
   margin: 0;
-  background-color: black
+  background-color: black;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -636,16 +638,16 @@ canvas {
 }
 
 #action {
-  color:white;
   padding-top: 100px;
   text-align: center;
   justify-content: center;
   width: 100%;
   height: 600px;
-  display: block;
   font-size: 40px;
+  margin-bottom: 50px;
 }
 #action h1{
+  color:white;
   margin-bottom: 0px;
 }
 
@@ -723,28 +725,55 @@ canvas {
   background: rgb(255, 85, 0); 
   cursor: pointer; /* Cursor on hover */
 }
-#slider_value {
-  padding-bottom: 20px;
-  font-size: 20px;
+
+#wisprdisplay{
+  margin-bottom: 50px;
+  text-align: center;
+  justify-content: center;
+}
+#innerlabel{
+  position: relative;
+  z-index: 2;
+  left: -35.9%;
+  top: 22px;
+  color: rgb(9, 177, 255);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0px;
 }
 #inner{
   position: relative;
+  z-index: 2;
   width: 300px;
   height: 300px;
-  left: -15%;
+  left: -20%;
+  border: 5px dashed rgb(9, 177, 255);
+}
+#outerlabel{
+  position: relative;
+  top: 1px;
+  left: 35.75%;
+  color: rgb(0, 117, 185);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0px;
+  overflow-x: hidden;
 }
 #outer{
   position: relative;
   width: 300px;
   height: 300px;
-  left: 15%;
+  left: 20%;
+  border: 5px dashed rgb(0, 117, 185);
 }
 #locplot{
   position: absolute;
-  width: 350px;
-  height: 350px;
-  right: 38.7%;
-
+  width: 500px;
+  height: 500px;
+  right: 33.3%;
+  justify-content: center;
 }
 #psploc {
   position: relative;
@@ -753,10 +782,6 @@ canvas {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  bottom: 50px;
-  top: -300px;
-  right: 0px;
-  left: 0px;
 }
 .rect1 {
   position: relative;
@@ -781,8 +806,8 @@ canvas {
   box-shadow: 0px 0px 5px 4px rgb(255, 200, 61);
   margin-left: auto;
   margin-right: auto;
-  bottom: 209px;
-  right: 45px;
+  bottom: 153px;
+  right: 55px;
 }
 #PSPloc {
   position: relative;

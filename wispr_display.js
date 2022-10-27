@@ -37,16 +37,15 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
 function update_data(){ // updates the images, location, etc. every time the slider changes
   fits = fitsLists[orbit_ind][slider_val]; 
   var date = fits[0].substring(0,12);
-  output.innerHTML = fits[0]; // TEMP
   if (allInnerPNGsMatch[orbit_ind].includes(date)){
     document.getElementById("inner").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)];
   } 
   if (allOuterPNGsMatch[orbit_ind].includes(date)){
     document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
   }
-  var scale_factor = 440000000;
-  loc.style.left = (-34 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-203 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+  var scale_factor = 310000000;
+  loc.style.left = (-45 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  loc.style.top = (-145 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 function play_loop(){
   if (!stopplay){
@@ -93,15 +92,12 @@ selector.oninput = function(){
   slider.value = '0'; // resets slider value to 0 every time orbit is changed
   slider_val = 0;
   slider.max = fitsLists[orbit_ind].length - 1; // changes slider range to match indices of the fits data points
-  output.innerHTML = 0; // TEMP
   update_data();
 }
 
 var slider = document.getElementById("sliderrr");
-var output = document.getElementById("slider_value");
 var slider_val = 0;
 var fits = [];
-output.innerHTML = slider.value; // Display the default slider value
 var loc = document.getElementById("psploc");
 var stopplay;
 var delay_ms; // delay time for play loop
