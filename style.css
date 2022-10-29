@@ -27,7 +27,25 @@
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+/* unvisited link */
+a:link {
+  color: rgb(173, 84, 0);
+}
 
+/* visited link */
+a:visited {
+  color: rgb(173, 84, 0);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(255, 123, 0);
+}
+
+/* selected link */
+a:active {
+  color: rgb(255, 123, 0);
+}
 .navbar input[type="checkbox"],
 .navbar .hamburger-lines {
   display: none;
@@ -505,8 +523,8 @@ body {
   font-weight: 500;
   padding-top: 50px;
   padding-bottom: 30px;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 141px;
+  padding-right: 141px;
 }
 
 #corona h1 {
@@ -837,4 +855,48 @@ canvas {
   position: relative;
   right: 115px;
   top: 160px;
+}
+#wisprsource {
+  position: relative;
+  left: 222px;
+  top: 142px;
+}
+
+#acknowledgments h1 {
+  text-align: left;
+  color: #ff8400;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-bottom: 3px;
+}
+#bottomline {
+  position: relative;
+  height: 1px;
+  width: 97.5%;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background: #ff8400;
+}
+#pspacknowledgments {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+#wispracknowledgments {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
 }
