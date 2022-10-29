@@ -34762,44 +34762,45 @@ usedinnerfits = [] # creates a list of fits data points already matched with inn
 #     total_none += none_count
 # print(f"TOTAL NONE: {total_none}") # FINAL VALUE = 33
 
-def orb_to_hex(n): # returns scatter plot color in hex based on orbit number 
-  if n==10:
-    return '0000'
-  elif n==0:
-    return '9999'
-  else:
-    return f'{int(100-n*10)}{int(100-n*10)}'
-ORB = 6
-x = [0]
-y = [0]
-z = [0]
-plt.figure(figsize=(8, 8), dpi=80)
-plt.xlim([-4e10, 8e10])
-plt.ylim([-8e10, 4e10])
-for ORB in range(11):
-  numfar = 0
+for highlight in range(11):
   x = [0]
   y = [0]
   z = [0]
-  for list in fitsLists[ORB]:
+  plt.figure(figsize=(10, 10), dpi=200)
+  plt.xlim([-4e10, 8e10])
+  plt.ylim([-8e10, 4e10])
+  for ORB in range(11):
+    x = [0]
+    y = [0]
+    z = [0]
+    for list in fitsLists[ORB]:
+      x.append(list[3])
+      y.append(list[4])
+      z.append(list[5])
+    HAEX = np.array(x)
+    HAEY = np.array(y)
+    HAEZ = np.array(z)
+    plt.scatter(HAEX, HAEY, s=2, c = '#7d3d00')
+  # Graphs highlighted orbit on top
+  x = [0]
+  y = [0]
+  z = [0]
+  for list in fitsLists[highlight]:
     x.append(list[3])
     y.append(list[4])
     z.append(list[5])
-    if list[6] > 0.25:
-      numfar += 1
-  print(f'{numfar} points are over 0.25 AU from the Sun')
   HAEX = np.array(x)
   HAEY = np.array(y)
   HAEZ = np.array(z)
-  plt.scatter(HAEX, HAEY, s=1, c = f'#FF{orb_to_hex(ORB)}', label=f'Orbit {ORB+1}')
-# Plots graph of circle with radius 0.25 AU
-r = 3.7399e10
-circ = [[], []]
-for i in range(1, 721):
-  circ[0].append(r*math.cos(i/360*math.pi))
-  circ[1].append(r*math.sin(i/360*math.pi))
-plt.scatter(circ[0], circ[1], s=1, c = '#FFA500', label='0.25 AU')
+  plt.scatter(HAEX, HAEY, s=8, c = '#ff7b00')
+  # Plots graph of circle with radius 0.25 AU
+  # r = 3.7399e10
+  # circ = [[], []]
+  # for i in range(1, 721):
+  #   circ[0].append(r*math.cos(i/360*math.pi))
+  #   circ[1].append(r*math.sin(i/360*math.pi))
+  # plt.scatter(circ[0], circ[1], s=1, c = '#FFA500', label='0.25 AU')
 
-plt.legend(loc="lower right")
-plt.show()
+  # plt.legend(loc="lower right")
+  plt.savefig(f'public/orbit_plot_{highlight+1}.png', transparent = True)
 

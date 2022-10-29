@@ -27,7 +27,7 @@ body {
 html {
     height: 100%;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    overflow-x: hidden;
+    overflow: hidden;
   }
   
   #stars {
@@ -196,6 +196,7 @@ button {
     left: 0px;
     z-index: 5;
     opacity: 0;
+
     cursor: pointer;
   }
 

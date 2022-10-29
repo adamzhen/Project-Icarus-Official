@@ -141,10 +141,10 @@ button {
   .navbar .menu-items {
     padding-top: 100px;
     background: rgb(0, 0, 0);
-    opacity: 0.85;
+    opacity: 1;
     border-right: solid;
     border-color: white;
-    box-shadow: 20px 0 40px #000000;
+    box-shadow: 2px 0 30px #000000;
     height: 100vh;
     max-width: 270px;
     transform: translate(-150%);
@@ -352,7 +352,7 @@ body {
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  font-weight: 400
+  font-weight: 600
 }
 
 #diamond2{
@@ -374,7 +374,7 @@ body {
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 #diamond3{
@@ -396,7 +396,7 @@ body {
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 19px;
-  font-weight: 550;
+  font-weight: 600;
 }
 
 #diamond4{
@@ -418,7 +418,7 @@ body {
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 21px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 #diamond5{
@@ -440,8 +440,8 @@ body {
   position: absolute;
   color: black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 
@@ -651,12 +651,9 @@ canvas {
   margin-bottom: 0px;
 }
 
-#orbit_num {
+#orbit_num { /* Orbit drop-down selector */
   margin-top: 0px;
-  margin-bottom: 40px;
-}
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
+  margin-bottom: 20px;
 }
 
 .button {
@@ -668,7 +665,7 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  border-color: transparent transparent transparent #aeaeae;
+  border-color: transparent transparent transparent #c45f00;
   transition: 100ms all ease;
   cursor: pointer;
 
@@ -677,14 +674,19 @@ canvas {
 
 }
 .button.paused {
-  border-color: #939393;
+  border-color: #c45f00;
   border-style: double;
   border-width: 0px 0px 0px 60px;
 }
 .button:hover {
-  border-color: transparent transparent transparent #ffffff;
+  border-color: transparent transparent transparent #ff7b00;
 }
 
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+  position: relative;
+  top: 0px;
+}
 /* The slider */
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
@@ -692,12 +694,12 @@ canvas {
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
+  width: 17%;
   height: 8px; /* Specified height */
   border-radius: 5px;  
-  background: #d3d3d3; /* Grey background */
+  background: #f3f3f3; /* Grey background */
   outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
@@ -713,8 +715,8 @@ canvas {
   appearance: none;
   width: 20px; /* Set a specific slider handle width */
   height: 20px; /* Slider handle height */
-  border-radius: 50%; 
-  background: rgb(255, 85, 0);
+  border-radius: 80%; 
+  background: rgb(255, 121, 0);
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -722,7 +724,7 @@ canvas {
   width: 20px; /* Set a specific slider handle width */
   height: 20px; /* Slider handle height */
   border-radius: 50%; 
-  background: rgb(255, 85, 0); 
+  background: rgb(255, 111, 0); 
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -731,42 +733,50 @@ canvas {
   text-align: center;
   justify-content: center;
 }
+#wisprdisplay h2{
+  position: relative;
+  top: 44px;
+  color: rgb(255, 122, 0);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
 #innerlabel{
   position: relative;
   z-index: 2;
-  left: -35.9%;
+  left: -32%;
   top: 22px;
   color: rgb(9, 177, 255);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0px;
 }
 #inner{
   position: relative;
   z-index: 2;
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 256px;
   left: -20%;
-  border: 5px dashed rgb(9, 177, 255);
+  border: 4px dashed rgb(9, 177, 255);
 }
 #outerlabel{
   position: relative;
   top: 1px;
-  left: 35.75%;
+  left: 31.85%;
   color: rgb(0, 117, 185);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0px;
-  overflow-x: hidden;
 }
 #outer{
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 256px;
   left: 20%;
-  border: 5px dashed rgb(0, 117, 185);
+  border: 4px dashed rgb(0, 117, 185);
 }
 #locplot{
   position: absolute;
@@ -774,6 +784,7 @@ canvas {
   height: 500px;
   right: 33.3%;
   justify-content: center;
+  border: 4px solid rgb(255, 122, 0);
 }
 #psploc {
   position: relative;
@@ -799,25 +810,31 @@ canvas {
 }
 .sunicon {
   position: relative;
-  height: 12px;
-  width: 12px;
-  background-color: rgb(255, 204, 0);
+  height: 10px;
+  width: 10px;
+  background-color: rgb(255, 188, 0);
   border-radius: 50%;
-  box-shadow: 0px 0px 5px 4px rgb(255, 200, 61);
+  box-shadow: 0px 0px 4px 2px rgb(255, 188, 0);
   margin-left: auto;
   margin-right: auto;
-  bottom: 153px;
-  right: 55px;
+  bottom: 108px;
+  right: 54px;
 }
-#PSPloc {
+#positiondisplay h3 {
+  font-size: 11px;
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+#disttxt {
   position: relative;
-  width: 20px;
-  height: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 50px;
-  top: -300px;
-  right: 0px;
-  left: 0px;
+  text-align: left;
+  left: 718px;
+  bottom: 119px;
+}
+#AUinfo {
+  position: relative;
+  right: 115px;
+  top: 160px;
 }

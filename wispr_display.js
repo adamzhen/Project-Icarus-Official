@@ -37,15 +37,19 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
 function update_data(){ // updates the images, location, etc. every time the slider changes
   fits = fitsLists[orbit_ind][slider_val]; 
   var date = fits[0].substring(0,12);
+  var dist = fits[6].toFixed(3);
   if (allInnerPNGsMatch[orbit_ind].includes(date)){
-    document.getElementById("inner").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)];
+    document.getElementById("inner").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)]; // updates image for inner camera
   } 
   if (allOuterPNGsMatch[orbit_ind].includes(date)){
-    document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)];
+    document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)]; // updates image for outer camera
   }
-  var scale_factor = 310000000;
-  loc.style.left = (-45 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-145 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+  document.getElementById("locplot").src = "public/orbit_plot_" + orbit + ".png"; // updates image for position display
+  document.getElementById("disttxt").innerHTML = "Distance: " + dist.toString() + " AU";
+  document.getElementById("datetxt").innerHTML = fits[1];
+  var scale_factor = 318000000;
+  loc.style.left = (-45.5 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  loc.style.top = (-101 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 function play_loop(){
   if (!stopplay){
@@ -58,7 +62,6 @@ function play_loop(){
       slider_val = 0;
       slider.value = toString(slider_val);
     }
-    
     update_data();
   }
 }
@@ -102,7 +105,7 @@ var loc = document.getElementById("psploc");
 var stopplay;
 var delay_ms; // delay time for play loop
 var max; // max value of slider
-
+var timer;
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
   slider_val = parseInt(this.value);
@@ -116,7 +119,7 @@ function playclick(){
     slider.style.display = "none";
     stopplay = false;
     delay_ms = 250;
-    let timer = setInterval(play_loop, delay_ms);
+    timer = setInterval(play_loop, delay_ms);
     // var slider = document.getElementById("sliderrr");
     // var max = parseInt(slider.max);
     // document.getElementById("clicktoplay").innerHTML = max;
