@@ -52,7 +52,7 @@ a:active {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 200px;
   width: 90%;
   left: 20px;
 }
@@ -669,12 +669,8 @@ canvas {
   margin-bottom: 0px;
 }
 
-#orbit_num { /* Orbit drop-down selector */
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-
 .button {
+  position: relative;
   border: 0;
   background: transparent;
   box-sizing: border-box;
@@ -682,8 +678,7 @@ canvas {
   height: 74px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  border-color: transparent transparent transparent #c45f00;
+  border-color: transparent transparent transparent rgb(255, 122, 0);
   transition: 100ms all ease;
   cursor: pointer;
 
@@ -692,18 +687,18 @@ canvas {
 
 }
 .button.paused {
-  border-color: #c45f00;
+  border-color: rgb(255, 122, 0);
   border-style: double;
   border-width: 0px 0px 0px 60px;
 }
 .button:hover {
-  border-color: transparent transparent transparent #ff7b00;
+  border-color: transparent transparent transparent rgb(255, 145, 42);
 }
 
 .slidecontainer {
   width: 100%; /* Width of the outside container */
   position: relative;
-  top: 0px;
+  top: 24px;
 }
 /* The slider */
 .slider {
@@ -712,12 +707,12 @@ canvas {
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 17%;
-  height: 8px; /* Specified height */
-  border-radius: 5px;  
-  background: #f3f3f3; /* Grey background */
+  width: 12%;
+  height: 7px; /* Specified height */
+  border-radius: 1px;  
+  background: #ffffff;
   outline: none; /* Remove outline */
-  opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
+  opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
@@ -731,29 +726,34 @@ canvas {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 20px; /* Set a specific slider handle width */
-  height: 20px; /* Slider handle height */
-  border-radius: 80%; 
+  width: 18px; /* Set a specific slider handle width */
+  height: 18px; /* Slider handle height */
+  border-radius: 5%; 
   background: rgb(255, 121, 0);
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-  width: 20px; /* Set a specific slider handle width */
-  height: 20px; /* Slider handle height */
-  border-radius: 50%; 
+  width: 18px; /* Set a specific slider handle width */
+  height: 18px; /* Slider handle height */
+  border-radius: 40%; 
   background: rgb(255, 111, 0); 
   cursor: pointer; /* Cursor on hover */
 }
-
+#sliderplaceholder {
+  font-size: 1px;
+  margin-top: 6.2px;
+}
 #wisprdisplay{
   margin-bottom: 50px;
   text-align: center;
   justify-content: center;
 }
 #wisprdisplay h2{
+  text-align: left;
   position: relative;
-  top: 44px;
+  top: 81px;
+  left: 34.8%;
   color: rgb(255, 122, 0);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
@@ -838,6 +838,28 @@ canvas {
   bottom: 108px;
   right: 54px;
 }
+.selector {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  position: relative;
+  bottom: 360px;
+  left: 13.2%;
+  appearance: none;
+  padding: 2px 5px 2px 7px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-weight: 500;
+  background: url(public/select.png) no-repeat 89% center;
+  background-color: black;
+  background-size: 10px 5px;
+  color: #ff9800;
+  border-radius: 7px;
+  border: 2px solid rgb(255, 122, 0);
+  width: 72px;
+}
 #positiondisplay h3 {
   font-size: 11px;
   color: rgb(173, 84, 0);
@@ -862,20 +884,26 @@ canvas {
   top: 142px;
 }
 
+#acknowledgments {
+  background-color: #181818;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 50px;
+  border-top: 1px dashed #ff8400;
+}
 #acknowledgments h1 {
   text-align: left;
   color: #ff8400;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  margin-top: 50px;
-  margin-left: 20px;
+  margin-left: 80px;
   margin-bottom: 3px;
 }
 #bottomline {
   position: relative;
-  height: 1px;
-  width: 97.5%;
+  height: 1.5px;
+  width: 89.9%;
   margin-left: auto;
   margin-right: auto;
   border: none;
@@ -887,8 +915,8 @@ canvas {
   font-size: 11px;
   font-weight: 500;
   margin-top: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
   margin-bottom: 10px;
 }
 #wispracknowledgments {
@@ -896,7 +924,6 @@ canvas {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 500;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
 }

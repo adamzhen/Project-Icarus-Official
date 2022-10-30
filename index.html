@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/public/favicomatic/favicon.ico" sizes="32x32" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts/webfontkit-nasalization/nasalization.css">
     <script type="module" src="navBar.js"></script>
     <title>Project Icarus</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicomatic/favicon.ico" sizes="32x32" />
   </head>
 
   <body>
@@ -132,27 +132,11 @@
     </div>
     <div id="action">
       <h1><em>Action!</em></h1>
-      <form>
-        <select name="orbit" id="orbit_num">
-          <option value="1">Orbit 1</option>
-          <option value="2">Orbit 2</option>
-          <option value="3">Orbit 3</option>
-          <option value="4">Orbit 4</option>
-          <option value="5">Orbit 5</option>
-          <option value="6">Orbit 6</option>
-          <option value="7">Orbit 7</option>
-          <option value="8">Orbit 8</option>
-          <option value="9">Orbit 9</option>
-          <option value="10">Orbit 10</option>
-          <option value="11">Orbit 11</option>
-        </select>
-        <br>
-      </form>
       <button id = 'playbutton' class='button' onclick="playclick()"></button>
       <div class="slidecontainer" id="theslider">
+        <p id="sliderplaceholder" style="display:none;">.</p>
         <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
         <script src="wispr_display.js"></script>
-        <p id="slider_value" style="margin-bottom: 0px;"></p>
       </div>
       <div id="wisprdisplay">
         <h2 id="datetxt">11/01/2018</h2>
@@ -170,6 +154,22 @@
           <h3 id="disttxt">Distance</h3>
           <h3 id="AUinfo"><em>1 AU = average distance from Earth to Sun</em></h3>
           <h3 id="wisprsource"><a href="https://wispr.nrl.navy.mil/wisprdata" target="_blank">Source<sup>2</sup></a></h3>
+          <form>
+            <select name="orbit" id="orbit_num" class="selector">
+              <option value="1">Orbit 1</option>
+              <option value="2">Orbit 2</option>
+              <option value="3">Orbit 3</option>
+              <option value="4">Orbit 4</option>
+              <option value="5">Orbit 5</option>
+              <option value="6">Orbit 6</option>
+              <option value="7">Orbit 7</option>
+              <option value="8">Orbit 8</option>
+              <option value="9">Orbit 9</option>
+              <option value="10">Orbit 10</option>
+              <option value="11">Orbit 11</option>
+            </select>
+            <br>
+          </form>
         </div>
         <script src="wispr_display.js"></script>
       </div>
