@@ -7,9 +7,14 @@
   font-weight: normal;
   font-style: normal;
 }
-@keyframes rotate {
+@keyframes cwrotate {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes ccwrotate {
+  to {
+    transform: rotate(-360deg);
   }
 }
 
@@ -308,7 +313,7 @@ body {
   display:flex;
   justify-content: center;
   background-color: black;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   padding-top: 15px;
 }
 
@@ -335,16 +340,33 @@ body {
 }
 #diamonds{
   justify-content: center;
-  background-color: transparent;
+  background-color: black;
+  padding-bottom: 0px;
 }
 
-.diamondy{
+.diamondcw{
+  position: relative;
+  bottom: 20px;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 500px;
   height: 500px;
-  animation: rotate 1s linear infinite;
+  animation: cwrotate 1s linear infinite;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -4s);
+  animation-iteration-count: 8;
+  animation-fill-mode: both;
+}
+.diamondccw{
+  position: relative;
+  bottom: 20px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 500px;
+  animation: ccwrotate 1s linear infinite;
   animation-play-state: paused;
   animation-delay: calc(var(--scroll) * -4s);
   animation-iteration-count: 8;
@@ -353,112 +375,117 @@ body {
 #diamond1{
   position: relative;
   z-index: 1;
-  height: 140px;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-}
-#dimg1{
-  position: absolute;
-  opacity: 1;
-  width: 140px;
-  height: 140px;
-}
-#diamonds h1{
-  padding-top: 57px;
-  position: absolute;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 600
-}
-
-#diamond2{
-  position: relative;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-}
-#dimg2{
-  position: absolute;
-  opacity: 1;
-  width: 180px;
-  height: 180px;
-}
-#diamonds h2{
-  padding-top: 78px;
-  position: absolute;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-#diamond3{
-  position: relative;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-}
-#dimg3{
-  position: absolute;
-  opacity: 1;
-  width: 220px;
-  height: 220px;
-}
-#diamonds h3{
-  padding-top: 97px;
-  position: absolute;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
-  font-weight: 600;
-}
-
-#diamond4{
-  position: relative;
-  height: 260px;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-}
-#dimg4{
-  position: absolute;
-  opacity: 1;
-  width: 260px;
-  height: 260px;
-}
-#diamonds h4{
-  padding-top: 117px;
-  position: absolute;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 21px;
-  font-weight: 600;
-}
-
-#diamond5{
-  position: relative;
   height: 300px;
   display: flex;
   justify-content: center;
   background-color: transparent;
-  margin-bottom: 75px;
+  margin-bottom: 20px;
 }
-#dimg5{
+#dimg1{
   position: absolute;
   opacity: 1;
   width: 300px;
   height: 300px;
 }
-#diamonds h5{
-  padding-top: 133px;
+#diamonds h1{
+  padding-top: 115px;
   position: absolute;
-  color: black;
+  color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: 600
+}
+
+#diamond2{
+  position: relative;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+#dimg2{
+  position: absolute;
+  opacity: 1;
+  width: 230px;
+  height: 230px;
+}
+#diamonds h2{
+  padding-top: 80px;
+  position: absolute;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#diamond3{
+  position: relative;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+#dimg3{
+  position: absolute;
+  opacity: 1;
+  width: 190px;
+  height: 190px;
+}
+#diamonds h3{
+  padding-top: 60px;
+  position: absolute;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#diamond4{
+  position: relative;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  margin-bottom: 0px;
+}
+#dimg4{
+  position: absolute;
+  opacity: 1;
+  width: 160px;
+  height: 160px;
+}
+#diamonds h4{
+  padding-top: 47px;
+  position: absolute;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#diamond5{
+  position: relative;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  padding-bottom: 150px;
+  margin-bottom: 15px;
+}
+#dimg5{
+  position: absolute;
+  opacity: 1;
+  width: 130px;
+  height: 130px;
+}
+#diamonds h5{
+  padding-top: 52px;
+  position: absolute;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -468,12 +495,11 @@ body {
   height: 1400px;
   background-color: #ebebeb;
   justify-content: center;
-  margin-top: 100px;
   padding-top: 1px;
   border-top: solid;
   border-bottom: solid;
   border-width: 10px;
-  border-color: rgb(231, 46, 0);
+  border-color: #F86800;
 }
 
 .modelcontainer h1 {
@@ -581,7 +607,7 @@ canvas {
 
 #light {
   width: 100%;
-  height: 330px;
+  height: 255px;
   background-color: black;
   justify-content: center;
   display: block;
@@ -591,19 +617,21 @@ canvas {
   font-size: 20px;
 }
 #light h1{
+  position: relative;
+  left: 10px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  letter-spacing: 12px;
-  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 9px;
+  padding-bottom: 0px;
 }
 
 #lightimg {
   width: 100%;
-  height: 170px;
-  padding-top: 70px;
+  height: 130px;
+  padding-top: 20px;
   background-image: url("public/sun2gray.png");
-  background-size: 172px 156px;
+  background-size: 119px 115px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -611,37 +639,39 @@ canvas {
 #lightimg:hover {
   width: 100%;
   background-repeat:no-repeat;
-  padding-top: 70px;
-  height: 170px;
+  padding-top: 20px;
+  height: 130px;
   background-image: url("public/sun2.jpg");
-  background-size: 177px 160px;
+  background-size: 122px 118px;
   background-position: center;
 }
 
 #camera {
   width: 100%;
-  height: 140px;
+  height: 110px;
   background-color: black;
   justify-content: center;
   display: block;
-  padding-top: 0px;
+  padding-top: 20px;
   text-align: center;
   color: rgb(9, 177, 255);
   font-size: 20px;
 }
 #camera h1{
+  position: relative;
+  left: 10px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: 10px;
-  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 9px;
+  padding-bottom: 15px;
 }
 
 #camimg {
   width: 100%;
-  height: 170px;
+  height: 120px;
   background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
-  background-size: 339px 170px;
+  background-size: 299px 150px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -649,9 +679,9 @@ canvas {
 #camimg:hover {
   width: 100%;
   background-repeat:no-repeat;
-  height: 170px;
+  height: 120px;
   background-image: url("public/WISPR_Camera_ON_5.1.1.png");
-  background-size: 339px 170px;
+  background-size: 299px 150px;
   background-position: center;
 }
 
@@ -858,7 +888,7 @@ canvas {
   color: #ff9800;
   border-radius: 7px;
   border: 2px solid rgb(255, 122, 0);
-  width: 72px;
+  width: 80px;
 }
 #positiondisplay h3 {
   font-size: 11px;
@@ -903,7 +933,7 @@ canvas {
 #bottomline {
   position: relative;
   height: 1.5px;
-  width: 89.9%;
+  width: 1362px;
   margin-left: auto;
   margin-right: auto;
   border: none;

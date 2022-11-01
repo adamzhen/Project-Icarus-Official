@@ -58,23 +58,23 @@
     <!--Rotating diamond-->
     <div id="diamonds">
       <div id="diamond1">
-        <img src="public/diamond.png" id="dimg1" class="diamondy">
+        <img src="public/circle1.png" id="dimg1" class="diamondcw">
         <h1>well</h1>
       </div>
       <div id="diamond2">
-        <img src="public/diamond.png" id="dimg2" class="diamondy">
+        <img src="public/circle2.png" id="dimg2" class="diamondccw">
         <h2>we</h2>
       </div>
       <div id="diamond3">
-        <img src="public/diamond.png" id="dimg3" class="diamondy">
+        <img src="public/circle3.png" id="dimg3" class="diamondcw">
         <h3>got</h3>
       </div>
       <div id="diamond4">
-        <img src="public/diamond.png" id="dimg4" class="diamondy">
+        <img src="public/circle4.png" id="dimg4" class="diamondccw">
         <h4>your</h4>
       </div>
       <div id="diamond5">
-        <img src="public/diamond.png" id="dimg5" class="diamondy">
+        <img src="public/circle5.png" id="dimg5" class="diamondcw">
         <h5>answer.</h5>
       </div>
       <script src="scrollAnimation.js"></script>
@@ -120,12 +120,12 @@
 
     <!--WISPR Thing-->
     <div id="light">
-      <h1><em>Lights</em></h1>
+      <h1><em>Lights...</em></h1>
       <div id="lightimg">
       </div>
     </div>
     <div id="camera">
-      <h1><em>Camera</em></h1>
+      <h1><em>Camera...</em></h1>
       <div id="camimg">
         <!--<img src="WISPR_Camera_OFF_5.1.2.png">-->
       </div>
@@ -181,6 +181,9 @@
       <hr id="bottomline">
       <p id="pspacknowledgments"><sup>1</sup> <em>Parker Solar Probe was designed, built, and is now operated by the Johns Hopkins Applied Physics Laboratory as part of NASA’s Living with a Star (LWS) program (contract NNN06AA01C). Support from the LWS management and technical team has played a critical role in the success of the Parker Solar Probe mission.</em></p>
       <p id="wispracknowledgments"><sup>2</sup> <em>The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology. <a href="https://ui.adsabs.harvard.edu/abs/2016SSRv..204...83V/abstract" target="_blank">Vourlidas, A. et al. (2016), The Wide-Field Imager for Solar Probe Plus (WISPR), Space Science Reviews, 204, 88–130, 10.1007/s11214-014-0114-y</a></em></p>
+      <script>
+        document.getElementById("bottomline").style.width = (screen.width - 172).toString() + 'px'; 
+      </script>
     </div>
 
   </body>
