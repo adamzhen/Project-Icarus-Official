@@ -47,8 +47,8 @@ function update_data(){ // updates the images, location, etc. every time the sli
   document.getElementById("locplot").src = "public/orbit_plot_" + orbit + ".png"; // updates image for position display
   document.getElementById("disttxt").innerHTML = "Distance: " + dist.toString() + " AU";
   document.getElementById("datetxt").innerHTML = fits[1];
-  var scale_factor = 318000000;
-  loc.style.left = (-45.5 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
+  var scale_factor = 316000000;
+  loc.style.left = (-49 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
   loc.style.top = (-101 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
 }
 function play_loop(){

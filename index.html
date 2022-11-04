@@ -39,19 +39,13 @@
     <a href="#thesun">
       <div class="scroll-down"></div>
     </a>
-    <!-- <div class="scroll">
-      <button id="first" onclick="location.href='#sun'">
-        <p>click to start your journey</p>
-      </button>
-      <br>
-    </div> -->
 
     <!--Sun :D-->
     <div id="sun">
       <img src="public/sun.jpg" id = "sunimg">
       <h2><em>ever wondered what it'd be like. . .</em></h2>
       <h1><em>TO TOUCH THE SUN?</em></h1>
-      <img src="public/diamond.png" id="thesun" style="position:absolute;top:900px;width:1px;height:1px;">
+      <img src="public/diamond.png" id="thesun" style="position:absolute; top:27%; width:1px; height:1px;">
     </div>
 
     <!--Rotating diamond-->
@@ -158,7 +152,7 @@
         <h3 id="outerlabel">Outer Camera</h3>
         <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="Inner Camera" id = "inner">
         <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="Outer Camera" id = "outer">
-        <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
+        <img src="diamond.png" style="position:absolute; width:1px; height:1px; opacity:.01;">
         <div id = "positiondisplay">
           <div id="psploc">
             <div class="rect1"></div>
@@ -184,6 +178,7 @@
             </select>
             <br>
           </form>
+          <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
         </div>
         <script src="wispr_display.js"></script>
       </div>

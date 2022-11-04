@@ -211,13 +211,6 @@ a:active { text-decoration: underline; }
   margin-right: auto;
 }
 
-.scroll {
-  display: flex;
-  justify-content: center;
-  background: black;
-  padding-bottom: 100px;
-}
-
 #first {
   background-color: transparent;
   border: 3px solid #f8860d;
@@ -244,12 +237,13 @@ a:active { text-decoration: underline; }
   letter-spacing: 2px;
 }
 .scroll-down {
-  height: 50px;
-  width: 30px;
+  height: 40px;
+  width: 24px;
   border: 2px solid #f8860d;
-  position: absolute;
+  position: relative;
+  margin-top: 40px;
   left: 50%;
-  bottom: 30px;
+  bottom: 0px;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -262,8 +256,8 @@ a:active { text-decoration: underline; }
   position: absolute;
   top: 20%;
   left: 50%;
-  height: 10px;
-  width: 10px;
+  height: 8px;
+  width: 8px;
   transform: translate(-50%, -100%) rotate(45deg);
   border: 2px solid #f8860d;
   border-top: transparent;
@@ -296,11 +290,12 @@ a:active { text-decoration: underline; }
 #sun {
   width: 100%;
   height: 100%;
+  position: relative;
   display:flex;
   justify-content: center;
   background-color: black;
   padding-bottom: 0px;
-  padding-top: 15px;
+  padding-top: 70px;
 }
 
 #sunimg {
@@ -310,7 +305,8 @@ a:active { text-decoration: underline; }
 #sun h1 {
   color: black;
   position: absolute;
-  top: 1270px;
+  top: 50%;
+  bottom: 50%;
   font-family: 'Montserrat', sans-serif;
   font-size: 45px;
   font-weight: 800;
@@ -319,7 +315,8 @@ a:active { text-decoration: underline; }
 #sun h2 {
   color: black;
   position: absolute;
-  top: 1260px;
+  top: 49%;
+  bottom: 50%;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -567,7 +564,9 @@ canvas {
   font-size: 70px;
   font-weight: 700;
   letter-spacing: 0px;
+  padding-top: 4px;
   padding-bottom: 10px;
+  line-height: 60pt;
 }
 #corona h2 {
   color:#ff9950;
@@ -588,7 +587,7 @@ canvas {
   display: none;
   width: 800px;
   height: 450px;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -768,10 +767,11 @@ canvas {
   justify-content: center;
 }
 #wisprdisplay h2{
-  text-align: left;
+  text-align: center;
+  z-index: 3;
   position: relative;
-  top: 81px;
-  left: 34.8%;
+  top: 80px;
+  right: 188px;
   color: rgb(255, 122, 0);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
@@ -820,15 +820,19 @@ canvas {
   border: 4px dashed rgb(0, 117, 185);
 }
 #locplot{
-  position: absolute;
+  position: relative;
+  z-index: 2;
+  display: block;
   width: 500px;
   height: 500px;
-  right: 33.3%;
-  justify-content: center;
+  bottom: 412px;
+  margin-left: auto;
+  margin-right: auto;
   border: 4px solid rgb(255, 122, 0);
 }
 #psploc {
   position: relative;
+  z-index: 3;
   width: 20px;
   height: 20px;
   display: block;
@@ -851,6 +855,7 @@ canvas {
 }
 .sunicon {
   position: relative;
+  z-index: 3;
   height: 10px;
   width: 10px;
   background-color: rgb(255, 188, 0);
@@ -858,17 +863,18 @@ canvas {
   box-shadow: 0px 0px 4px 2px rgb(255, 188, 0);
   margin-left: auto;
   margin-right: auto;
-  bottom: 108px;
-  right: 54px;
+  bottom: 109px;
+  right: 57.3px;
 }
 .selector {
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
   -ms-appearance: none;
+  z-index: 3;
   position: relative;
-  bottom: 360px;
-  left: 13.2%;
+  bottom: 361px;
+  left: 194px;
   appearance: none;
   padding: 2px 5px 2px 7px;
   margin-left: auto;
@@ -891,19 +897,22 @@ canvas {
   letter-spacing: 0px;
 }
 #disttxt {
+  z-index: 3;
   position: relative;
-  text-align: left;
-  left: 718px;
-  bottom: 119px;
+  text-align: center;
+  left: 8px;
+  bottom: 121px;
 }
 #AUinfo {
+  z-index: 3;
   position: relative;
-  right: 115px;
+  right: 119px;
   top: 160px;
 }
 #wisprsource {
+  z-index: 3;
   position: relative;
-  left: 222px;
+  left: 215px;
   top: 142px;
 }
 #acknowledgments a:link {color: rgb(173, 84, 0);}
@@ -956,8 +965,8 @@ canvas {
 
 #github a:link {color: rgb(89, 89, 89); font-family: "Lucida Console", monospace;}
 #github a:visited {color: rgb(89, 89, 89);}
-#github a:hover {color: white;}
-#github a:active {color: white;}
+#github a:hover {color: rgb(216, 216, 216);}
+#github a:active {color: rgb(216, 216, 216);}
 #github {
   background-color: #181818;
   position: relative;
@@ -967,7 +976,6 @@ canvas {
   font-weight: 600;
   letter-spacing: 2px;
   padding-bottom: 40px;
-  opacity: 0.9;
 }
 #github .p{
   font-family: "Lucida Console", "Courier New", monospace;
