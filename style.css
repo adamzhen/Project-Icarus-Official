@@ -32,25 +32,7 @@
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
-/* unvisited link */
-a:link {
-  color: rgb(173, 84, 0);
-}
 
-/* visited link */
-a:visited {
-  color: rgb(173, 84, 0);
-}
-
-/* mouse over link */
-a:hover {
-  color: rgb(255, 123, 0);
-}
-
-/* selected link */
-a:active {
-  color: rgb(255, 123, 0);
-}
 .navbar input[type="checkbox"],
 .navbar .hamburger-lines {
   display: none;
@@ -210,6 +192,10 @@ body {
   background-color: black;
   overflow-x: hidden;
 }
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:active { text-decoration: underline; }
 
 .hero {
   width: 100%;
@@ -489,7 +475,10 @@ body {
   font-weight: 600;
 }
 
-
+.modelcontainer a:link {color: #F86800;}
+.modelcontainer a:visited {color: #F86800;}
+.modelcontainer a:hover {color: #ff9421;}
+.modelcontainer a:active {color: #ff9421;}
 .modelcontainer {
   width: 100%;
   height: 1400px;
@@ -789,6 +778,11 @@ canvas {
   font-weight: 600;
   letter-spacing: 0px;
 }
+#wisprdisplay a:link {color: rgb(173, 84, 0);}
+#wisprdisplay a:visited {color: rgb(173, 84, 0);}
+#wisprdisplay a:hover {color: rgb(255, 123, 0);}
+#wisprdisplay a:active {color: rgb(255, 123, 0);}
+
 #innerlabel{
   position: relative;
   z-index: 2;
@@ -912,11 +906,14 @@ canvas {
   left: 222px;
   top: 142px;
 }
-
+#acknowledgments a:link {color: rgb(173, 84, 0);}
+#acknowledgments a:visited {color: rgb(173, 84, 0);}
+#acknowledgments a:hover {color: rgb(255, 123, 0);}
+#acknowledgments a:active {color: rgb(255, 123, 0);}
 #acknowledgments {
   background-color: #181818;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 60px;
+  padding-bottom: 80px;
   margin-top: 50px;
   border-top: 1px dashed #ff8400;
 }
@@ -926,13 +923,13 @@ canvas {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  margin-left: 80px;
+  margin-left: 6%;
   margin-bottom: 3px;
 }
 #bottomline {
   position: relative;
   height: 1.5px;
-  width: 1362px;
+  width: 88%;
   margin-left: auto;
   margin-right: auto;
   border: none;
@@ -944,8 +941,8 @@ canvas {
   font-size: 11px;
   font-weight: 500;
   margin-top: 15px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 6%;
+  margin-right: 6%;
   margin-bottom: 10px;
 }
 #wispracknowledgments {
@@ -953,6 +950,25 @@ canvas {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 500;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+#github a:link {color: rgb(89, 89, 89); font-family: "Lucida Console", monospace;}
+#github a:visited {color: rgb(89, 89, 89);}
+#github a:hover {color: white;}
+#github a:active {color: white;}
+#github {
+  background-color: #181818;
+  position: relative;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding-bottom: 40px;
+  opacity: 0.9;
+}
+#github .p{
+  font-family: "Lucida Console", "Courier New", monospace;
 }
