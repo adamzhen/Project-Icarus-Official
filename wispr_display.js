@@ -47,9 +47,18 @@ function update_data(){ // updates the images, location, etc. every time the sli
   document.getElementById("locplot").src = "public/orbit_plot_" + orbit + ".png"; // updates image for position display
   document.getElementById("disttxt").innerHTML = "Distance: " + dist.toString() + " AU";
   document.getElementById("datetxt").innerHTML = fits[1];
-  var scale_factor = 316000000;
-  loc.style.left = (-49 + fitsLists[orbit_ind][slider_val][3] / scale_factor).toString() + 'px';
-  loc.style.top = (-101 - fitsLists[orbit_ind][slider_val][4] / scale_factor).toString() + 'px';
+  var scale_factor = 320000000;
+  var x = fitsLists[orbit_ind][slider_val][3];
+  var y = fitsLists[orbit_ind][slider_val][4];
+  var angle;
+  loc.style.left = (-58 + x / scale_factor).toString() + 'px';
+  loc.style.top = (-97 - y / scale_factor).toString() + 'px';
+  if (x>0){
+    angle = Math.atan(y/x);
+  } else {
+    angle = Math.PI - Math.atan(y/-x);
+  }
+  loc.style.transform = "rotate(" + (Math.PI-angle) + "rad)";
 }
 function play_loop(){
   if (!stopplay){
@@ -99,6 +108,7 @@ selector.oninput = function(){
 }
 
 var slider = document.getElementById("sliderrr");
+var speed = document.getElementById("speeed");
 var slider_val = 0;
 var fits = [];
 var loc = document.getElementById("psploc");
@@ -119,7 +129,7 @@ function playclick(){
     slider.style.display = "none";
     document.getElementById("sliderplaceholder").style.display = "flex";
     stopplay = false;
-    delay_ms = 200;
+    delay_ms = 125;
     timer = setInterval(play_loop, delay_ms);
     // var slider = document.getElementById("sliderrr");
     // var max = parseInt(slider.max);
