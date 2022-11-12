@@ -678,7 +678,7 @@ canvas {
   justify-content: center;
   width: 100%;
   height: 600px;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 50px;
 }
 #action h1{
@@ -762,7 +762,7 @@ canvas {
 }
 #wisprdisplay{
   width: 100%;
-  height: 100%;
+  height: 90%;
   margin-bottom: 50px;
   justify-content: center;
 }
@@ -787,7 +787,7 @@ canvas {
   text-align: left;
   position: relative;
   z-index: 2;
-  left: 13.8%;
+  left: 15.8%;
   top: 22px;
   color: rgb(9, 177, 255);
   font-size: 18px;
@@ -800,14 +800,15 @@ canvas {
   z-index: 2;
   width: 240px;
   height: 256px;
-  left: -20%;
+  left: 50%;
+  bottom: 500px;
   border: 4px dashed rgb(9, 177, 255);
 }
 #outerlabel{
   text-align: right;
   position: relative;
   top: 1px;
-  right: 13.8%;
+  right: 15.8%;
   color: rgb(0, 117, 185);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
@@ -819,16 +820,25 @@ canvas {
   z-index: 2;
   width: 240px;
   height: 256px;
-  left: 20%;
+  right: 50%;
+  bottom: 500px;
   border: 4px dashed rgb(0, 117, 185);
+}
+.innerdiv{
+  width: 250px;
+  float: left;
+}
+.outerdiv{
+  width: 250px;
+  float: right;
 }
 #locplot{
   position: relative;
   z-index: 1;
-  display: block;
+  display: flex;
   width: 500px;
   height: 500px;
-  bottom: 412px;
+
   margin-left: auto;
   margin-right: auto;
   border: 4px solid rgb(255, 122, 0);
@@ -877,8 +887,8 @@ canvas {
   box-shadow: 0px 0px 4px 2px rgb(255, 188, 0);
   margin-left: auto;
   margin-right: auto;
-  bottom: 109px;
-  right: 57.3px;
+  bottom: 332px;
+  right: 57px;
 }
 .selector {
   -webkit-appearance: none;
@@ -887,7 +897,7 @@ canvas {
   -ms-appearance: none;
   z-index: 3;
   position: relative;
-  bottom: 361px;
+  bottom: 575px;
   left: 194px;
   appearance: none;
   padding: 2px 5px 2px 7px;
@@ -903,6 +913,7 @@ canvas {
   border: 2px solid rgb(255, 122, 0);
   width: 80px;
 }
+
 #positiondisplay h3 {
   font-size: 11px;
   color: rgb(173, 84, 0);
@@ -915,21 +926,21 @@ canvas {
   position: relative;
   text-align: center;
   left: 8px;
-  bottom: 121px;
+  bottom: 344px;
 }
 #AUinfo {
   z-index: 3;
   text-align: center;
   position: relative;
   right: 119px;
-  top: 160px;
+  bottom: 63px;
 }
 #wisprsource {
   z-index: 3;
-  text-align: right;
+  text-align: center;
   position: relative;
-  right: 520px;
-  top: 142px;
+  left: 216px;
+  bottom: 82px;
 }
 #acknowledgments a:link {color: rgb(173, 84, 0);}
 #acknowledgments a:visited {color: rgb(173, 84, 0);}

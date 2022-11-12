@@ -151,8 +151,13 @@
         <h2 id="datetxt">11/01/2018</h2>
         <h3 id="innerlabel">Inner Camera</h3>
         <h3 id="outerlabel">Outer Camera</h3>
-        <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="Inner Camera" id = "inner">
-        <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="Outer Camera" id = "outer">
+        <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
+        <div class="innerdiv">
+          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "inner" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+        </div>
+        <div class="outerdiv">
+          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outer">
+        </div>
         <img src="diamond.png" style="position:absolute; width:1px; height:1px; opacity:.01;">
         <div id = "positiondisplay">
           <div id="psploc">
@@ -178,7 +183,6 @@
             </select>
             <br>
           </form>
-          <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
         </div>
         <script src="wispr_display.js"></script>
       </div>

@@ -52,7 +52,7 @@ function update_data(){ // updates the images, location, etc. every time the sli
   var y = fitsLists[orbit_ind][slider_val][4];
   var angle;
   loc.style.left = (-58 + x / scale_factor).toString() + 'px';
-  loc.style.top = (-97 - y / scale_factor).toString() + 'px';
+  loc.style.top = (-320 - y / scale_factor).toString() + 'px';
   if (x>0){
     angle = Math.atan(y/x);
   } else {
