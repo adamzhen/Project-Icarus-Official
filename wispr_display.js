@@ -12,9 +12,9 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
     o = parseInt(orb).toString();
   }
   if (orb=='5'){
-    return'https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit' + o + '_' + camera + '_Encounter/';
+    return 'public/WISPR_PNGs/PNGs_Orbit' + o + '_' + camera + '_Encounter/';
   } else{
-    return'https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit' + o + '_' + camera + '/';
+    return 'public/WISPR_PNGs/PNGs_Orbit' + o + '_' + camera + '/';
   }
     
 }
@@ -129,7 +129,7 @@ function playclick(){
     slider.style.display = "none";
     document.getElementById("sliderplaceholder").style.display = "flex";
     stopplay = false;
-    delay_ms = 125;
+    delay_ms = 100;
     timer = setInterval(play_loop, delay_ms);
     // var slider = document.getElementById("sliderrr");
     // var max = parseInt(slider.max);
