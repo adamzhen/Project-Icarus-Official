@@ -11,12 +11,7 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
   } else{
     o = parseInt(orb).toString();
   }
-  if (orb=='5'){
-    return 'public/WISPR_PNGs/PNGs_Orbit' + o + '_' + camera + '_Encounter/';
-  } else{
-    return 'public/WISPR_PNGs/PNGs_Orbit' + o + '_' + camera + '/';
-  }
-    
+  return 'https://media.githubusercontent.com/media/adz888/Project-Icarus-Official/main/public/WISPR_PNGs/PNGs_Orbit' + o + '_' + camera + '/';
 }
 
 // function syncReadFITS(filename) {
@@ -129,14 +124,8 @@ function playclick(){
     slider.style.display = "none";
     document.getElementById("sliderplaceholder").style.display = "flex";
     stopplay = false;
-    delay_ms = 100;
+    delay_ms = 200;
     timer = setInterval(play_loop, delay_ms);
-    // var slider = document.getElementById("sliderrr");
-    // var max = parseInt(slider.max);
-    // document.getElementById("clicktoplay").innerHTML = max;
-    // const sliderPlay = [{ transform: 'rotate(0) scale(1)' }, { transform: 'rotate(360deg) scale(0)' }, { transform: 'rotate(0) scale(1)' }];
-    // const sliderSpeed = {duration: 1000, iterations: 5};
-    // slider.animate(sliderPlay, sliderSpeed);
   } else{
     // document.getElementById("clicktoplay").innerHTML = "stopped";
     slider.style.display = "flex";
