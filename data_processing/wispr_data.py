@@ -1,3 +1,5 @@
+# STEP 1 of data processing
+
 # This code was run on a computer with wget installed, producing the text files that were to be used for data display on the website
 import math
 import sys
@@ -6,6 +8,7 @@ from astropy.io import fits
 import os
 
 print("running!!")
+NUMORBITS = 12
 
 #
 #sets up wget
@@ -25,18 +28,18 @@ def runcmd(cmd, verbose = False, *args, **kwargs):
 #obtains FITS files by date
 date = "20210429"
 orbit = "orbit08"
-# runcmd(f"wget -r -l=2 ‐‐no-parent ‐‐accept fits https://wispr.nrl.navy.mil/data/rel/fits/L3/", verbose = False)
+# runcmd(f"wget -r -l=2 ‐‐no-parent ‐‐accept fits https://wispr.nrl.navy.mil/data/rel/fits/L3/orbit12/", verbose = False)
 
 #creates list of FITS files in certain date
 #extracts HAE coordinates from the FITS files
 m_in_au = 149597870700 #conversion factor obtained from https://cneos.jpl.nasa.gov/glossary/au.html
 
-for i in range(1, 12):
+for i in range(12, NUMORBITS+1):
     if i<10:
         orbit = 'orbit'+'0'+str(i)
     else:
         orbit = 'orbit'+str(i)
-    with open(f'wispr_txt_data/{orbit}.txt', 'w') as f:
+    with open(f'wispr_data/wispr_txt_data/{orbit}.txt', 'w') as f:
         dates_list = os.listdir(f'wispr.nrl.navy.mil\\data\\rel\\fits\\L3\\{orbit}')
         for datey in dates_list:
             fits_list = os.listdir(f'wispr.nrl.navy.mil\\data\\rel\\fits\\L3\\{orbit}\\{datey}')
