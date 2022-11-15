@@ -718,6 +718,9 @@ canvas {
 }
 /* The slider */
 .slider {
+  position: relative;
+  bottom: 3px;
+  z-index: 3;
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
   display: flex;
@@ -765,18 +768,6 @@ canvas {
   height: 90%;
   margin-bottom: 50px;
   justify-content: center;
-}
-#wisprdisplay h2{
-  text-align: center;
-  z-index: 3;
-  position: relative;
-  top: 80px;
-  right: 188px;
-  color: rgb(255, 122, 0);
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0px;
 }
 #wisprdisplay a:link {color: rgb(173, 84, 0);}
 #wisprdisplay a:visited {color: rgb(173, 84, 0);}
@@ -887,7 +878,7 @@ canvas {
   box-shadow: 0px 0px 4px 2px rgb(255, 188, 0);
   margin-left: auto;
   margin-right: auto;
-  bottom: 267px;
+  bottom: 296px;
   right: 12px;
 }
 .selector {
@@ -897,7 +888,7 @@ canvas {
   -ms-appearance: none;
   z-index: 3;
   position: relative;
-  bottom: 575px;
+  bottom: 595px;
   left: 194px;
   appearance: none;
   padding: 2px 5px 2px 7px;
@@ -921,26 +912,38 @@ canvas {
   font-weight: 500;
   letter-spacing: 0px;
 }
+#datetxt{
+  text-align: left;
+  z-index: 3;
+  position: relative;
+  bottom: 485px;
+  left: 277px;
+  color: rgb(255, 122, 0);
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
 #disttxt {
   z-index: 3;
   position: relative;
   text-align: center;
   left: 53px;
-  bottom: 278px;
+  bottom: 307px;
 }
 #AUinfo {
   z-index: 3;
   text-align: center;
   position: relative;
   right: 119px;
-  bottom: 63px;
+  bottom: 87px;
 }
 #wisprsource {
   z-index: 3;
   text-align: center;
   position: relative;
   left: 216px;
-  bottom: 82px;
+  bottom: 105px;
 }
 #acknowledgments a:link {color: rgb(173, 84, 0);}
 #acknowledgments a:visited {color: rgb(173, 84, 0);}
