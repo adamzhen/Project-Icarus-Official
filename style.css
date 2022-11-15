@@ -593,7 +593,7 @@ canvas {
 
 #light {
   width: 100%;
-  height: 255px;
+  height: 188px;
   background-color: black;
   justify-content: center;
   display: block;
@@ -605,20 +605,20 @@ canvas {
 }
 #light h1{
   position: relative;
-  left: 10px;
+  left: 3px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
-  letter-spacing: 9px;
+  letter-spacing: 3px;
   padding-bottom: 0px;
 }
 
 #lightimg {
   width: 100%;
-  height: 130px;
+  height: 72px;
   padding-top: 20px;
   background-image: url("public/sun2gray.png");
-  background-size: 119px 115px;
+  background-size: 62px 60px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -627,38 +627,38 @@ canvas {
   width: 100%;
   background-repeat:no-repeat;
   padding-top: 20px;
-  height: 130px;
+  height: 72px;
   background-image: url("public/sun2.jpg");
-  background-size: 122px 118px;
+  background-size: 66px 62px;
   background-position: center;
 }
 
 #camera {
   width: 100%;
-  height: 110px;
+  height: 120px;
   background-color: black;
   justify-content: center;
   display: block;
-  padding-top: 20px;
+  padding-top: 10px;
   text-align: center;
-  color: rgb(9, 177, 255);
-  font-size: 20px;
+  color: rgb(0, 147, 239);
+  font-size: 26px;
 }
 #camera h1{
   position: relative;
-  left: 10px;
+  left: 3px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
-  letter-spacing: 9px;
+  letter-spacing: 3px;
   padding-bottom: 15px;
 }
 
 #camimg {
   width: 100%;
-  height: 120px;
+  height: 150px;
   background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
-  background-size: 299px 150px;
+  background-size: 359px 180px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -666,9 +666,9 @@ canvas {
 #camimg:hover {
   width: 100%;
   background-repeat:no-repeat;
-  height: 120px;
+  height: 150px;
   background-image: url("public/WISPR_Camera_ON_5.1.1.png");
-  background-size: 299px 150px;
+  background-size: 359px 180px;
   background-position: center;
 }
 
@@ -678,11 +678,14 @@ canvas {
   justify-content: center;
   width: 100%;
   height: 600px;
-  font-size: 30px;
   margin-bottom: 50px;
 }
 #action h1{
-  color:white;
+  color: rgb(255, 111, 0);
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
 }
 
 .button {
@@ -778,7 +781,7 @@ canvas {
   text-align: left;
   position: relative;
   z-index: 2;
-  left: 15.8%;
+  left: 13.5%;
   top: 22px;
   color: rgb(9, 177, 255);
   font-size: 18px;
@@ -791,7 +794,7 @@ canvas {
   z-index: 2;
   width: 240px;
   height: 256px;
-  left: 50%;
+  left: 80%;
   bottom: 500px;
   border: 4px dashed rgb(9, 177, 255);
 }
@@ -799,7 +802,7 @@ canvas {
   text-align: right;
   position: relative;
   top: 1px;
-  right: 15.8%;
+  right: 13.5%;
   color: rgb(0, 117, 185);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
@@ -811,7 +814,7 @@ canvas {
   z-index: 2;
   width: 240px;
   height: 256px;
-  right: 50%;
+  right: 80%;
   bottom: 500px;
   border: 4px dashed rgb(0, 117, 185);
 }
@@ -888,8 +891,8 @@ canvas {
   -ms-appearance: none;
   z-index: 3;
   position: relative;
-  bottom: 595px;
-  left: 194px;
+  bottom: 581px;
+  left: 192px;
   appearance: none;
   padding: 2px 5px 2px 7px;
   margin-left: auto;

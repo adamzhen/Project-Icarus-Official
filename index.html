@@ -116,31 +116,24 @@
             }
           }, delayInMilliseconds);
         }
-        document.getElementById("coronavid").onclick = function() {
-          document.getElementById("coronavid").style.display="none";
-          document.getElementById("vidPlayImg").style.display="block";
-          sources[0].src = 'public/CoronaSunBLANK.mp4';
-          clearTimeout(vidDelay);
-          video.load();
-        }
       </script>
     </div>
     <!--<script type="module" src="/vid.js"></script>-->
 
     <!--WISPR Thing-->
     <div id="light">
-      <h1><em>Lights...</em></h1>
+      <h1><em>- lights -</em></h1>
       <div id="lightimg">
       </div>
     </div>
     <div id="camera">
-      <h1><em>Camera...</em></h1>
+      <h1><em>- camera -</em></h1>
       <div id="camimg">
         <!--<img src="WISPR_Camera_OFF_5.1.2.png">-->
       </div>
     </div>
     <div id="action">
-      <h1 id="actiontitle"><em>Action!</em></h1>
+      <h1 id="actiontitle"><em>ACTION</em></h1>
       <button id = 'playbutton' class='button' onclick="playclick()"></button>
       <div class="slidecontainer" id="theslider">
         <p id="sliderplaceholder" style="display:none;">.</p>
