@@ -205,8 +205,10 @@ a:active { text-decoration: underline; }
 }
 
 .hero #logo {
-  max-width: 70%;
-  max-height: 70%;
+  position: relative;
+  right: 15px;
+  max-width: 80%;
+  max-height: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -241,7 +243,7 @@ a:active { text-decoration: underline; }
   width: 24px;
   border: 2px solid #f8860d;
   position: relative;
-  margin-top: 40px;
+  margin-top: 30px;
   left: 50%;
   bottom: 0px;
   border-radius: 50px;
@@ -318,7 +320,7 @@ a:active { text-decoration: underline; }
   top: 49%;
   bottom: 50%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
 }
 #diamonds{
