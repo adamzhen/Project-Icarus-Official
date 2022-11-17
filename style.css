@@ -218,7 +218,8 @@ a:active { text-decoration: underline; }
   width: 24px;
   border: 2px solid #f8860d;
   position: relative;
-  margin-top: 30px;
+  margin-top: 45px;
+  margin-bottom: 30px;
   left: 50%;
   bottom: 0px;
   border-radius: 50px;
@@ -273,41 +274,43 @@ a:active { text-decoration: underline; }
   background-color: black;
   padding-bottom: 0px;
   padding-top: 0px;
+  color: rgb(255, 199, 139);
 }
-
+#sunline {
+  display: none;
+  border-width: 1px;
+  border-color: #f8860d;
+}
 #sunimg {
+  position: relative;
   width: 100vw;
   height: 89vw; 
   object-fit: cover;
 }
 
 #sun h1 {
-  color: black;
   position: absolute;
   top: 50%;
   bottom: 50px;
   font-family: 'Montserrat', sans-serif;
   font-size: 5em;
   font-weight: 900;
-
 }
 #sun h2 {
-  color: black;
   position: absolute;
   top: 49%;
   bottom: 50%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.2em;
+  font-size: 1.7em;
   font-weight: 900;
 }
 #sun h3 {
-  color: black;
   position: absolute;
-  top: 52%;
+  top: 51%;
   bottom: 50%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.2em;
-  font-weight: 600;
+  font-size: 1.23em;
+  font-weight: 300;
 }
 #circles{
   justify-content: center;
@@ -361,7 +364,7 @@ a:active { text-decoration: underline; }
 #circles h1{
   padding-top: 115px;
   position: absolute;
-  color: white;
+  color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600
@@ -384,7 +387,7 @@ a:active { text-decoration: underline; }
 #circles h2{
   padding-top: 80px;
   position: absolute;
-  color: white;
+  color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -407,7 +410,7 @@ a:active { text-decoration: underline; }
 #circles h3{
   padding-top: 60px;
   position: absolute;
-  color: white;
+  color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -430,7 +433,7 @@ a:active { text-decoration: underline; }
 #circles h4{
   padding-top: 47px;
   position: absolute;
-  color: white;
+  color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -454,7 +457,7 @@ a:active { text-decoration: underline; }
 #circles h5{
   padding-top: 52px;
   position: absolute;
-  color: white;
+  color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;
