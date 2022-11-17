@@ -213,31 +213,6 @@ a:active { text-decoration: underline; }
   margin-right: auto;
 }
 
-#first {
-  background-color: transparent;
-  border: 3px solid #f8860d;
-  color: #f8860d;
-  width: 35%;
-  justify-content: center;
-  border-radius: 12px;
-}
-
-#first:hover {
-  background-color: #f8860d;
-  border: 3px solid black;
-  color: black;
-  justify-content: center;
-  border-radius: 12px;
-}
-
-#first p {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 15px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
 .scroll-down {
   height: 40px;
   width: 24px;
@@ -293,25 +268,27 @@ a:active { text-decoration: underline; }
   width: 100%;
   height: 100%;
   position: relative;
-  display:flex;
+  display: flex;
   justify-content: center;
   background-color: black;
   padding-bottom: 0px;
-  padding-top: 70px;
+  padding-top: 0px;
 }
 
 #sunimg {
-  max-width: 100%;
+  width: 100vw;
+  height: 89vw; 
+  object-fit: cover;
 }
 
 #sun h1 {
   color: black;
   position: absolute;
   top: 50%;
-  bottom: 50%;
+  bottom: 50px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 45px;
-  font-weight: 800;
+  font-size: 5em;
+  font-weight: 900;
 
 }
 #sun h2 {
@@ -320,16 +297,25 @@ a:active { text-decoration: underline; }
   top: 49%;
   bottom: 50%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 19px;
+  font-size: 2.2em;
+  font-weight: 900;
+}
+#sun h3 {
+  color: black;
+  position: absolute;
+  top: 52%;
+  bottom: 50%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
   font-weight: 600;
 }
-#diamonds{
+#circles{
   justify-content: center;
   background-color: black;
   padding-bottom: 0px;
 }
 
-.diamondcw{
+.circlecw{
   position: relative;
   bottom: 20px;
   display: flex;
@@ -343,7 +329,7 @@ a:active { text-decoration: underline; }
   animation-iteration-count: 8;
   animation-fill-mode: both;
 }
-.diamondccw{
+.circleccw{
   position: relative;
   bottom: 20px;
   display: flex;
@@ -357,7 +343,7 @@ a:active { text-decoration: underline; }
   animation-iteration-count: 8;
   animation-fill-mode: both;
 }
-#diamond1{
+#circle1{
   position: relative;
   z-index: 1;
   height: 300px;
@@ -372,7 +358,7 @@ a:active { text-decoration: underline; }
   width: 300px;
   height: 300px;
 }
-#diamonds h1{
+#circles h1{
   padding-top: 115px;
   position: absolute;
   color: white;
@@ -381,7 +367,7 @@ a:active { text-decoration: underline; }
   font-weight: 600
 }
 
-#diamond2{
+#circle2{
   position: relative;
   height: 230px;
   display: flex;
@@ -395,7 +381,7 @@ a:active { text-decoration: underline; }
   width: 230px;
   height: 230px;
 }
-#diamonds h2{
+#circles h2{
   padding-top: 80px;
   position: absolute;
   color: white;
@@ -404,7 +390,7 @@ a:active { text-decoration: underline; }
   font-weight: 600;
 }
 
-#diamond3{
+#circle3{
   position: relative;
   height: 190px;
   display: flex;
@@ -418,7 +404,7 @@ a:active { text-decoration: underline; }
   width: 190px;
   height: 190px;
 }
-#diamonds h3{
+#circles h3{
   padding-top: 60px;
   position: absolute;
   color: white;
@@ -427,7 +413,7 @@ a:active { text-decoration: underline; }
   font-weight: 600;
 }
 
-#diamond4{
+#circle4{
   position: relative;
   height: 160px;
   display: flex;
@@ -441,7 +427,7 @@ a:active { text-decoration: underline; }
   width: 160px;
   height: 160px;
 }
-#diamonds h4{
+#circles h4{
   padding-top: 47px;
   position: absolute;
   color: white;
@@ -450,7 +436,7 @@ a:active { text-decoration: underline; }
   font-weight: 600;
 }
 
-#diamond5{
+#circle5{
   position: relative;
   height: 130px;
   display: flex;
@@ -465,7 +451,7 @@ a:active { text-decoration: underline; }
   width: 130px;
   height: 130px;
 }
-#diamonds h5{
+#circles h5{
   padding-top: 52px;
   position: absolute;
   color: white;
