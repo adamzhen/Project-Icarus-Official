@@ -219,7 +219,7 @@ a:active { text-decoration: underline; }
   border: 2px solid #f8860d;
   position: relative;
   margin-top: 45px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   left: 50%;
   bottom: 0px;
   border-radius: 50px;
@@ -274,7 +274,7 @@ a:active { text-decoration: underline; }
   background-color: black;
   padding-bottom: 0px;
   padding-top: 0px;
-  color: rgb(255, 199, 139);
+  color: rgb(255, 208, 157);
 }
 #sunline {
   display: none;
@@ -287,7 +287,12 @@ a:active { text-decoration: underline; }
   height: 89vw; 
   object-fit: cover;
 }
-
+#featheroverlay {
+  position: absolute;
+  width: 100vw;
+  height: 89vw; 
+  box-shadow: 40px 40px 50px black inset,-40px -40px 50px black inset;
+}
 #sun h1 {
   position: absolute;
   top: 50%;
@@ -312,6 +317,32 @@ a:active { text-decoration: underline; }
   font-size: 1.23em;
   font-weight: 300;
 }
+#sun h4 {
+  position: absolute;
+  top: 53.5%;
+  bottom: 50%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.5em;
+  font-weight: 400;
+  opacity: 0.85;
+}
+#sun a:link {color: rgb(25, 25, 25);}
+#sun a:visited {color: rgb(25, 25, 25);}
+#sun a:hover {color: rgb(255, 208, 157); text-decoration: none;}
+#sun a:active {color: rgb(255, 208, 157); text-decoration: none;}
+#sun a{
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+#sunsource {
+  position: absolute;
+  bottom: 11%;
+  left: 67.5%;
+  transform: rotate(-31deg);
+}
+
 #circles{
   justify-content: center;
   background-color: black;
@@ -349,7 +380,7 @@ a:active { text-decoration: underline; }
 #circle1{
   position: relative;
   z-index: 1;
-  height: 300px;
+  height: 280px;
   display: flex;
   justify-content: center;
   background-color: transparent;
@@ -358,11 +389,11 @@ a:active { text-decoration: underline; }
 #dimg1{
   position: absolute;
   opacity: 1;
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
 }
 #circles h1{
-  padding-top: 115px;
+  padding-top: 105px;
   position: absolute;
   color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
@@ -475,7 +506,7 @@ a:active { text-decoration: underline; }
   padding-top: 1px;
   border-top: solid;
   border-bottom: solid;
-  border-width: 10px;
+  border-width: 4px;
   border-color: #F86800;
 }
 
@@ -557,7 +588,7 @@ canvas {
   letter-spacing: 0px;
   padding-top: 4px;
   padding-bottom: 10px;
-  line-height: 60pt;
+  line-height: 50pt;
 }
 #corona h2 {
   color:#ff9950;
@@ -569,15 +600,17 @@ canvas {
 
 #vidPlayImg {
   display: block;
-  width: 804px;
-  height: 452px;
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
   margin-left: auto;
   margin-right: auto;
 }
 #coronavid {
   display: none;
-  width: 800px;
+  width: 450px;
   height: 450px;
+  object-fit: cover;
   margin-left: auto;
   margin-right: auto;
 }
@@ -672,10 +705,10 @@ canvas {
   margin-bottom: 50px;
 }
 #action h1{
-  color: rgb(255, 111, 0);
+  color: white;
   font-size: 50px;
   font-weight: 800;
-  letter-spacing: 3px;
+  letter-spacing: 0px;
   margin-bottom: 5px;
 }
 
@@ -923,7 +956,7 @@ canvas {
   position: relative;
   text-align: center;
   left: 53px;
-  bottom: 307px;
+  bottom: 307.5px;
 }
 #AUinfo {
   z-index: 3;
@@ -967,6 +1000,16 @@ canvas {
   margin-right: auto;
   border: none;
   background: #ff8400;
+}
+#sdoacknowledgments {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-bottom: 10px;
 }
 #pspacknowledgments {
   color: rgb(173, 84, 0);
