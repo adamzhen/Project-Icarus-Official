@@ -583,33 +583,55 @@ canvas {
 }
 #corona h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 70px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 800;
   letter-spacing: 0px;
-  padding-top: 4px;
-  padding-bottom: 10px;
+  padding-top: 5px;
   line-height: 50pt;
 }
 #corona h2 {
   color:#ff9950;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
-  font-weight: 250;
+  font-weight: 300;
   letter-spacing: 1px;
 }
-
+#corona p {
+  color: #ff9950;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+#hinthint {
+  color: #ffe7d7;
+  position: relative;
+  z-index: 2;
+  bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0px;
+}
 #vidPlayImg {
+  position: relative;
+  bottom: 18px;
+  z-index: 1;
   display: block;
-  width: 450px;
-  height: 450px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
 }
 #coronavid {
+  position: relative;
+  bottom: 18px;
+  z-index: 1;
   display: none;
-  width: 450px;
-  height: 450px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
@@ -622,7 +644,7 @@ canvas {
   justify-content: center;
   display: block;
   padding-top: 90px;
-  margin-top: 50px;
+  margin-top: 200px;
   text-align: center;
   color: rgb(227, 106, 13);
   font-size: 20px;
