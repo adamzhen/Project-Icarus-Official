@@ -27,7 +27,7 @@
             <li><a href="#home">Home</a></li>  
             <li><a href="#thesun">The Sun</a></li>
             <li><a href="#psp">Parker Solar Probe</a></li>
-            <li><a href="#corona">The Big Ol' Corona</a></li>
+            <li><a href="#corona">Corona</a></li>
             <li><a href="#action">WISPR</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank" style="font-family:Lucida Console,Courier New,monospace; font-weight:200; font-size:10px; letter-spacing:4px; padding-top:15px; opacity:0.8;">SOURCE CODE</a></li>
@@ -107,38 +107,25 @@
     <div id="corona">
       <h2><em>soooooooooooo. . .</em></h2>
       <h1>HOW DO YOU TOUCH THE SUN?</h1>
-      <hr style="width:2%; margin:15px; position:relative; left:48%; background:#ff9950; height:1px; border-style:none;">
+      <hr style="width:2%; margin:15px; position:relative; left:48%; background:rgb(0, 147, 239); height:1px; border-style:none;">
       <p>Well your best bet is probably to reach the <b>corona</b></p>
       <h8 id="hinthint"><em>(that might be a word you've heard of somewhere)</em></h8>
       <img src="public/CoronaSunSTART.png" id="vidPlayImg">
       <video autoplay muted id="coronavid">
         <source src="public/CoronaSunVIDEO.mp4" type="video/mp4">
       </video>
-      <p style="position:relative;bottom: 21px;">Now, touching the corona may be easier than trying to kamikaze into the sun, but it's still an incredibly difficult feat.</p>
-      <hr style="width:14vw; margin-bottom:30px;margin-top:30px; position:relative; left:42.5vw; background:#ff9950; height:1px; border-style:none;">
+      <h8 id="waithowbig">Wait, so <em>how big</em> is the corona?</h8>
+      <div id="elfvandisplay">
+        <img src="public/ElfVanBackground.png" alt="sun" id="elfsun">
+      </div>
+      <img src="public/elf-van-bw.png" id="elfvan" alt="ELF VAN!?" onclick="changeColor()">
+      <div>
+        <p>Now, touching the corona may be easier than trying to kamikaze into the sun, but it's still an incredibly difficult feat.</p>
+      </div>
+      <hr style="width:14vw; margin-bottom:30px;margin-top:30px; position:relative; left:42.5vw; background:rgb(0, 147, 239); height:1px; border-style:none;">
       <h8 id='warning' style="font-size:15px; margin-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
       
-      <script type="text/javascript">
-        var reset = true;
-        document.getElementById("vidPlayImg").onclick = function() {
-          document.getElementById("vidPlayImg").style.display="none";
-          var video = document.getElementById('coronavid');
-          var sources = video.getElementsByTagName('source');
-          sources[0].src = 'public/CoronaSunVIDEO.mp4';
-          video.load();
-          video.style.display="block";
-
-          var delayInMilliseconds = 19666;
-          const vidDelay = setTimeout(function() {
-            if (document.getElementById("coronavid").style.display!="none"){
-              document.getElementById("coronavid").style.display="none";
-              document.getElementById("vidPlayImg").style.display="block";
-            } else {
-              clearTimeout(vidDelay);
-            }
-          }, delayInMilliseconds);
-        }
-      </script>
+      <script src="corona.js"></script>
     </div>
 
     <!--WISPR Thing-->
