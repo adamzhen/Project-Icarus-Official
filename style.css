@@ -624,6 +624,7 @@ canvas {
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;
 }
 #coronavid {
   position: relative;
@@ -635,11 +636,13 @@ canvas {
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;;
 }
 #waithowbig{
   color: #ffe7d7;
   position: relative;
   z-index: 2;
+  margin-top: 15px;
   bottom: 25px;
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
@@ -648,13 +651,63 @@ canvas {
 }
 #elfvandisplay {
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 20px;
   width: 100%;
   height: 360px;
 }
+#elfvandisplay h5 {
+  position: relative;
+  z-index: 3;
+  color: #ffe7d7;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  transform: rotate(-90deg);
+}
+#elfvandisplay h5 span{
+  background-color: #00000027;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  opacity: 0.8;
+}
+#elfvandisplay h6 {
+  position: relative;
+  bottom: 68px;
+  left: 192px;
+  z-index: 3;
+  color: #ffe7d7;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+#alfvenpointer {
+  width: 60px;  
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; 
+  bottom: 92px;
+  left: 162px;
+  z-index: 3; 
+  transform: rotate(45deg);
+  background:#ffe7d7; 
+  height: 1px; 
+  border-style:none;
+}
+#coronalabel {
+  bottom: 220px;
+  right: 145px;
+  background-size: 30px 10px;
+}
+#windlabel {
+  bottom: 241px;
+  right: 240px;
+}
 #elfvan {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   left: 200px;
   bottom: 355px;
   transform: rotate(90deg);
@@ -666,6 +719,23 @@ canvas {
   z-index: 1;
   width: 400px;
   height: 400px;
+}
+#coronagradient {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 477px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #ffa600 5%, #000000 72%);
+  opacity: 0.7;
+}
+#alfventext {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }
 
 #light {

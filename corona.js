@@ -1,4 +1,4 @@
-var elfvandelay = 15;
+var elfvandelay = 10;
 var angle = 0;
 var colored = false;
 function changeColor(){ // Changes color of elf van if you click on it
@@ -11,8 +11,8 @@ function changeColor(){ // Changes color of elf van if you click on it
 }
 function elfVanLoop() { // Animates elf van "orbitting" around sun
   angle -= Math.PI/180;
-  document.getElementById("elfvan").style.left = (200*Math.cos(angle)).toString() + "px";
-  document.getElementById("elfvan").style.bottom = (200+200*Math.sin(angle)).toString() + "px";
+  document.getElementById("elfvan").style.left = (195*Math.cos(angle)).toString() + "px";
+  document.getElementById("elfvan").style.bottom = (190+195*Math.sin(angle)).toString() + "px";
   document.getElementById("elfvan").style.transform = "rotate(" + (Math.PI/2-angle) + "rad)"
 }
 let elfVanTimer = setInterval(elfVanLoop, elfvandelay);
