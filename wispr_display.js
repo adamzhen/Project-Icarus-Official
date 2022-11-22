@@ -47,18 +47,18 @@ function update_data(){ // updates the images, location, etc. every time the sli
   document.getElementById("locplot").src = "public/orbit_plot_" + orbit + ".png"; // updates image for position display
   document.getElementById("disttxt").innerHTML = "Distance: " + dist.toString() + " AU";
   document.getElementById("datetxt").innerHTML = fits[1];
-  var scale_factor = 195000000;
+  var scale_factor = 193000000;
   var x = fitsLists[orbit_ind][slider_val][3];
   var y = fitsLists[orbit_ind][slider_val][4];
   var angle;
-  loc.style.left = (-14 + x / scale_factor).toString() + 'px';
+  loc.style.left = (-13 + x / scale_factor).toString() + 'px';
   loc.style.top = (-283 - y / scale_factor).toString() + 'px';
   if (x>0){
     angle = Math.atan(y/x);
   } else {
     angle = Math.PI - Math.atan(y/-x);
   }
-  loc.style.transform = "rotate(" + (Math.PI-angle) + "rad)";
+  loc.style.transform = "rotate(" + (2*Math.PI-angle) + "rad)";
 }
 function play_loop(){
   if (!stopplay){

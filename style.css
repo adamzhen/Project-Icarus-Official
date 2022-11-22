@@ -725,7 +725,7 @@ canvas {
   z-index: 2;
   margin-left: auto;
   margin-right: auto;
-  bottom: 477px;
+  bottom: 485px;
   width: 450px;
   height: 450px;
   background: radial-gradient(circle, #ffa600 5%, #000000 72%);
@@ -1002,7 +1002,7 @@ canvas {
   margin-bottom: auto;
 	border-top: 7px solid transparent;
 	border-bottom: 7px solid transparent;
-	border-left: 15px solid rgb(255, 121, 19);
+	border-left: 16px solid rgb(255, 121, 19);
 }
 .rect1 {
   position: relative;
