@@ -206,6 +206,7 @@ a:active { text-decoration: underline; }
 
 .hero #logo {
   position: relative;
+  z-index: 1;
   right: 15px;
   max-width: 80%;
   max-height: 80%;
@@ -360,6 +361,7 @@ a:active { text-decoration: underline; }
   animation: cwrotate 1s linear infinite;
   animation-play-state: paused;
   animation-delay: calc(var(--scroll) * -4s);
+
   animation-iteration-count: 8;
   animation-fill-mode: both;
 }

@@ -98,9 +98,16 @@
       <h1><em>PROBE</em></h1>
       <h3>BY NASA</h2>
       <h4>available for just $1,500,000,000 USD</h4>
-      <iframe src='https://solarsystem.nasa.gov/gltf_embed/2356' width='100%' height='550px' frameborder='0'></iframe>
+      <iframe src='https://solarsystem.nasa.gov/gltf_embed/2356' width='100%' height='550px' frameborder='0' onload="load()"></iframe>
       <p id="disclaimer"> <strong>Disclaimer:</strong> This is a joke. Obviously.<a href="#pspacknowledgments"><sup>2</sup></a> We are not NASA. You can’t actually buy the Parker Solar Probe. And before you get any smart ideas, you’re also a tad late if you were hoping to stowaway in that cozy little cubby behind the heat shield. The Parker Solar Probe has been in space since August 2018, and it already touched the sun as of April 28, 2021.
       </p>
+      <img src="public/PSP_model.png" alt="PSP Model Placeholder" id="PSPimg" style="display:none; position:relative; bottom:650px; width:720px; height:500px; margin-left:auto; margin-right:auto;">
+      <script>
+        var modelloading = false;
+        if (!modelloading){
+          document.getElementById("PSPimg").style.display = "block";
+        }
+      </script>
     </div>
 
     <!--Corona thang-->
