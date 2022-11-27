@@ -323,9 +323,9 @@ a:active { text-decoration: underline; }
   top: 53.5%;
   bottom: 50%;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.5em;
-  font-weight: 400;
-  opacity: 0.85;
+  font-size: 0.55em;
+  font-weight: 500;
+  opacity: 0.9;
 }
 #sun a:link {color: rgb(25, 25, 25);}
 #sun a:visited {color: rgb(25, 25, 25);}
@@ -580,7 +580,7 @@ canvas {
   text-align: center;
   justify-content: center;
   width: 100%;
-  height: 600px;
+  height: 1000px;
   display: block;
 }
 #corona h1 {
@@ -734,10 +734,26 @@ canvas {
   opacity: 0.7;
 }
 #alfventext {
-  width: 60%;
+  width: 58%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+}
+#aurora {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+  height: 212px;
+}
+#auroraoverlay {
+  position: relative;
+  bottom: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+  height: 215px;
+  box-shadow: 30px 55px 60px black inset,-30px -55px 60px black inset;
 }
 
 #light {
