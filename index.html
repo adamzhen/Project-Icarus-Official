@@ -13,8 +13,21 @@
 
   <body>
     <!--Hero Section-->
-    <div class="hero" id="home" overflow: hidden;>
+    <div class="hero" id="home">
       <img src="public/ProjectIcarusHeader.png" id="logo">
+      <script>
+        function changesize(){
+          if (window.scrollY < window.innerHeight){
+            document.getElementById("logo").style.width = (80 - window.scrollY / window.innerHeight * 30) + "vw";
+            document.getElementById("logo").style.height = (40 - window.scrollY / window.innerHeight * 15) + "vw";
+            document.getElementById("logo").style.opacity = (1 - window.scrollY / window.innerHeight);
+            document.getElementById("scrollbutton").style.opacity = (1 - window.scrollY / window.innerHeight * 2);
+          }
+        }
+        window.addEventListener("scroll", changesize);
+        changesize();
+      </script>
+      <p id="scrolltest" style="display:none; color:white; position:fixed; z-index:5; font-size:30px;">thing</p>
       <nav class="navbar">
         <div class="navbar-container container">
           <input type="checkbox" name="" id="" />
@@ -37,14 +50,15 @@
     </div>
 
     <!--Scroll Down Button-->
-    <a href="#thesun">
-      <div class="scroll-down"></div>
-    </a>
+    <div class="scroll-down" id="scrollbutton" onclick="scrolltosun()"></div>
+    <script>
+      function scrolltosun(){ document.getElementById("sun").scrollIntoView({behavior: "smooth", block: "center"}); }
+    </script>
 
     <!--hr id="sunline"-->
     <!--Sun :D-->
     <div id="sun">
-      <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_0304.jpg" id = "sunimg">
+      <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_0304.jpg" id = "sunimg" onerror="this.onerror=null; this.src='public/sun.jpg'">
       <p id="featheroverlay"  onclick="switchimg()"></p>
       <h2 id="testtt">THIS IS THE SUN RIGHT NOW.</h2>
       <h3><em>ever wondered what it'd be like to touch it?</em></h3>
