@@ -41,7 +41,7 @@
             <li><a href="#thesun">The Sun</a></li>
             <li><a href="#psp">Parker Solar Probe</a></li>
             <li><a href="#corona">Corona</a></li>
-            <li><a href="#action">WISPR</a></li>
+            <li><a href="#wispr">WISPR</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank" style="font-family:Lucida Console,Courier New,monospace; font-weight:200; font-size:10px; letter-spacing:4px; padding-top:15px; opacity:0.8;">SOURCE CODE</a></li>
           </ul>
@@ -106,7 +106,7 @@
 
     <!--3D Interactive Model-->
     <div class="modelcontainer" id="psp">
-      <h2> INTRODUCING THE</h2>
+      <h2>ㅤINTRODUCING THE</h2>
       <h1><em>PARKER</em></h1>
       <h1><em>SOLAR</em></h1>
       <h1><em>PROBE</em></h1>
@@ -126,10 +126,11 @@
 
     <!--Corona thang-->
     <div id="corona">
+      <!--div class="vl"></div-->
       <h2><em>soooooooooooo. . .</em></h2>
-      <h1>HOW DO YOU TOUCH THE SUN?</h1>
+      <h1>How do you touch the sun?</h1>
       <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:rgb(255, 255, 255); height:1px; border-style:none;">
-      <p>Well your best bet is probably to reach the <b>corona</b></p>
+      <p>Well, your best bet is probably to reach the <b>corona.</b></p>
       <h8 id="hinthint"><em>(that might be a word you've heard of somewhere)</em></h8>
       <img src="public/CoronaSunSTART.png" id="vidPlayImg">
       <video autoplay muted id="coronavid">
@@ -148,31 +149,38 @@
       <div id="alfventext">
         <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in plasma particles (which, by the way, the sun is constantly spitting out), so they fly out into space as <b>solar wind</b>.</p>
         <br>
-        <p style="margin-bottom:0px;">That's the same solar wind that can produce stunning <b>auroras</b> here on Earth.</p>
+        <p style="margin-bottom:0px;">That's the same solar wind that can produce stunning <b>auroras</b> here on Earth!</p>
         <div style="width:550px; height:215px; margin-left:auto; margin-right:auto;">
           <img src="public/aurora.jpg" alt="Aurora" id="aurora">
           <p id="auroraoverlay"></p>
         </div>
-        <p>But it's also the same solar wind that, if strong enough, can damage not only <b>satellites and astronauts</b> in space, but also <b>electrical grids and telecommunication networks</b> on Earth. Another level above solar winds are <b>solar storms</b>, where massive amounts of plasma are ejected from a region of the corona - fittingly, called <b>coronal mass ejections (CMEs)</b>. Typically, these CMEs happen anywhere from <b>once every 5 days</b> to <b>once every 8 hours</b>, and if one of them happens to hit Earth, they can have similar effects as solar wind, but way worse. The largest solar storm ever recorded, called the <b>Carrington Event</b>, was back in 1859, when the only electric systems were telegrams. But if it happened today, it would likely <b>wipe out our entire power grid</b> for weeks or even months on end. By getting up close and personal with the source of solar winds and solar storms, the <b>Parker Solar Probe</b> will help us better understand them and better prepare for potential disasters.</p>
+        <p>But it's also the same solar wind that, if strong enough, can damage not only <b>satellites and astronauts</b> in space, but also <b>electrical grids and telecommunication networks</b> on Earth. Another level above solar winds are <b>solar storms</b>, where massive amounts of plasma are ejected from a region of the corona - fittingly, called <b>coronal mass ejections (CMEs)</b>. Typically, these CMEs happen anywhere from <b>once every 5 days</b> to <b>once every 8 hours</b>, and if one of them happens to hit Earth, they can have similar effects as solar wind, but way worse. The largest solar storm ever recorded, called the <b>Carrington Event</b>, was back in 1859, when the only electrical systems were telegrams. But if it happened today, it would likely <b>wipe out our entire power grid</b> for weeks or even months on end. By getting up close and personal with the source of solar winds and solar storms, the <b>Parker Solar Probe</b> will use its instruments to help us better understand them and better prepare for potential disasters.</p>
       </div>
-      <h8 id='warning' style="font-size:15px; margin-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
       <script src="corona.js"></script>
+      <hr style="background:#ffe7d7; height:3px; border-style:none; margin-top:20px;">
     </div>
 
-    <!--WISPR Thing-->
-    <div id="light">
-      <h1><em>- lights -</em></h1>
-      <div id="lightimg">
-      </div>
+    <!--WISPR-->
+    <div id="wisprtext">
+      <h2><em>soooooooooooo. . .</em></h2>
+      <h1>What instruments does the Parker Solar Probe have?</h1>
+      <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:rgb(255, 255, 255); height:1px; border-style:none;">
+      <p style="margin-bottom: 5px;">Well, there are <b>4 main instruments.</b></p>
+      <ol id="instrumlist">
+        <li>1. WISPR</li>
+        <li>2. SWEAP</li>
+        <li>3. FIELDS</li>
+        <li>4. IS☉IS</li>
+      </ol>  
+      <br>
+      <h8 id='warning' style="color:white; font-size:15px; margin-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
     </div>
-    <div id="camera">
-      <h1><em>- camera -</em></h1>
-      <div id="camimg">
-        <!--<img src="WISPR_Camera_OFF_5.1.2.png">-->
+    <div id="wispr">
+      <h1 id="wisprtitle"><em>THE WISPR</em></h1>
+      <div id="camera">
+        <!--h1><em>- camera -</em></h1-->
+        <div id="camimg"></div>
       </div>
-    </div>
-    <div id="action">
-      <h1 id="actiontitle"><em>ACTION!</em></h1>
       <button id = 'playbutton' class='button' onclick="playclick()"></button>
       <div class="slidecontainer" id="theslider">
         <p id="sliderplaceholder" style="display:none;">.</p>
@@ -219,14 +227,14 @@
         <script src="wispr_display.js"></script>
       </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr style="border:none; color:black; margin-top:700px;">
 
     <div id="acknowledgments">
       <h1>Acknowledgements</h1>
       <hr id="bottomline">
       <p id="sdoacknowledgments"><sup><a href="#thesun">1</a></sup> <em>Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams.</em></p>
       <p id="pspacknowledgments"><sup><a href="#psp">2</a></sup> <em>Parker Solar Probe was designed, built, and is now operated by the Johns Hopkins Applied Physics Laboratory as part of NASA’s Living with a Star (LWS) program (contract NNN06AA01C). Support from the LWS management and technical team has played a critical role in the success of the Parker Solar Probe mission.</em></p>
-      <p id="wispracknowledgments"><sup><a href="#action">3</a></sup> <em>The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology. <a href="https://ui.adsabs.harvard.edu/abs/2016SSRv..204...83V/abstract" target="_blank">Vourlidas, A. et al. (2016), The Wide-Field Imager for Solar Probe Plus (WISPR), Space Science Reviews, 204, 88–130, 10.1007/s11214-014-0114-y</a></em></p>
+      <p id="wispracknowledgments"><sup><a href="#wispr">3</a></sup> <em>The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology. <a href="https://ui.adsabs.harvard.edu/abs/2016SSRv..204...83V/abstract" target="_blank">Vourlidas, A. et al. (2016), The Wide-Field Imager for Solar Probe Plus (WISPR), Space Science Reviews, 204, 88–130, 10.1007/s11214-014-0114-y</a></em></p>
     </div>
     <p id="github"><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank">SEE SOURCE CODE ON GITHUB</a></p>
   </body>
