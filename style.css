@@ -742,6 +742,7 @@ canvas {
   opacity: 0.7;
 }
 #alfventext {
+  display: block;
   width: 58%;
   margin-left: auto;
   margin-right: auto;
@@ -763,9 +764,22 @@ canvas {
   height: 215px;
   box-shadow: 30px 55px 60px black inset,-30px -55px 60px black inset;
 }
+#cme {
+  width: 360px;
+  height: 202px;
+}
+#cmeoverlay {
+  position: relative;
+  bottom: 210px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 360px;
+  height: 205px;
+  box-shadow: 20px 40px 50px black inset,-40px -30px 40px black inset;
+}
 
 #wisprtext {
-  margin-top: 1000px;
+  margin-top: 1200px;
   text-align: center;
 }
 #wisprtext h1 {
@@ -1043,11 +1057,11 @@ canvas {
 .sunicon {
   position: relative;
   z-index: 3;
-  height: 10px;
-  width: 10px;
-  background-color: rgb(255, 188, 0);
+  height: 8px;
+  width: 8px;
+  background-color: rgb(255, 208, 0);
   border-radius: 50%;
-  box-shadow: 0px 0px 4px 2px rgb(255, 188, 0);
+  box-shadow: 0px 0px 80px 30px #ffa600c9;
   margin-left: auto;
   margin-right: auto;
   bottom: 296px;
@@ -1078,7 +1092,6 @@ canvas {
 }
 
 #positiondisplay h3 {
-  font-size: 11px;
   color: rgb(173, 84, 0);
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -1097,13 +1110,15 @@ canvas {
   letter-spacing: 0px;
 }
 #disttxt {
+  font-size: 10px;
   z-index: 3;
   position: relative;
   text-align: center;
-  left: 53px;
-  bottom: 307.5px;
+  left: 48px;
+  bottom: 306.5px;
 }
 #AUinfo {
+  font-size: 11px;
   z-index: 3;
   text-align: center;
   position: relative;
@@ -1111,6 +1126,7 @@ canvas {
   bottom: 87px;
 }
 #wisprsource {
+  font-size: 11px;
   z-index: 3;
   text-align: center;
   position: relative;
