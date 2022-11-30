@@ -653,10 +653,10 @@ canvas {
   position: relative;
   z-index: 2;
   margin-top: 15px;
-  bottom: 25px;
+  bottom: 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0px;
 }
 #elfvandisplay {
@@ -765,7 +765,7 @@ canvas {
 }
 
 #wisprtext {
-  margin-top: 900px;
+  margin-top: 1000px;
   text-align: center;
 }
 #wisprtext h1 {
@@ -794,11 +794,27 @@ canvas {
 }
 #instrumlist {
   color: #ffe7d7;
-  
+}
+#PSPinstruments {
+  position: relative;
+  bottom: 10px;
+  width: 300px;
+  height: 200px;
+  border: 4px dashed #ffe7d7;
+}
+#waitwuthuh{
+  color: #ffe7d7;
+  position: relative;
+  z-index: 2;
+  margin-top: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0px;
 }
 
 #wispr {
-  padding-top: 80px;
+  padding-top: 150px;
   text-align: center;
   justify-content: center;
   width: 100%;
