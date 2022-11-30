@@ -775,7 +775,7 @@ canvas {
   margin-right: auto;
   width: 360px;
   height: 205px;
-  box-shadow: 20px 40px 50px black inset,-40px -30px 40px black inset;
+  box-shadow: 20px 40px 50px black inset,-30px -30px 40px black inset;
 }
 
 #wisprtext {
