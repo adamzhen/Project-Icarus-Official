@@ -777,9 +777,22 @@ canvas {
   height: 205px;
   box-shadow: 20px 40px 50px black inset,-30px -30px 40px black inset;
 }
+#carrington {
+  width: 373px;
+  height: 210px;
+}
+#carringtonoverlay {
+  position: relative;
+  bottom: 218px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 373px;
+  height: 212px;
+  box-shadow: 12px 10px 10px black inset,-10px -10px 10px black inset;
+}
 
 #wisprtext {
-  margin-top: 1200px;
+  margin-top: 1400px;
   text-align: center;
 }
 #wisprtext h1 {
