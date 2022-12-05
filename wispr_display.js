@@ -126,15 +126,13 @@ function playclick(){
   var play = document.getElementById("playbutton")
   play.classList.toggle("paused");
   if (play.className=="button paused"){
-    slider.style.display = "none";
-    document.getElementById("sliderplaceholder").style.display = "flex";
+    slider.style.opacity = 0;
     stopplay = false;
     delay_ms = 125;
     timer = setInterval(play_loop, delay_ms);
   } else{
     // document.getElementById("clicktoplay").innerHTML = "stopped";
-    slider.style.display = "flex";
-    document.getElementById("sliderplaceholder").style.display = "none";
+    slider.style.opacity = 1;
     stopplay = true;
     clearInterval(timer);
   }

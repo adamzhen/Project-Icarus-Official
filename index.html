@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts/webfontkit-nasalization/nasalization.css">
     <script type="module" src="navBar.js"></script>
+    <script defer src="app.js"></script>
     <title>Project Icarus</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
   </head>
@@ -126,122 +127,151 @@
 
     <!--Corona thang-->
     <div id="corona">
-      <!--div class="vl"></div-->
-      <h2><em>soooooooooooo. . .</em></h2>
-      <h1>How do you touch the sun?</h1>
+      <section class="hidden">
+        <h2><em>soooooooooooo. . .</em></h2>
+        <h1>How do you touch the sun?</h1>
+      </section>
       <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:rgb(255, 255, 255); height:1px; border-style:none;">
-      <p>Well, your best bet is probably to reach the <b>corona.</b></p>
-      <h8 id="hinthint"><em>(that might be a word you've heard of somewhere)</em></h8>
-      <img src="public/CoronaSunSTART.png" id="vidPlayImg">
-      <video autoplay muted id="coronavid">
-        <source src="public/CoronaSunVIDEO.mp4" type="video/mp4">
-      </video>
-      <h8 id="waithowbig">Wait, so <em>how big</em> is the corona?</h8>
-      <div id="elfvandisplay">
-        <img src="public/ElfVanBackground.png" alt="sun" id="elfsun">
-        <h5 id="coronalabel"><span><em>ㅤcoronaㅤ</em></span></h5>
-        <h5 id="windlabel"><span><em>ㅤsolar windㅤ</em></span></h5>
-        <hr id="alfvenpointer">
-        <h6>Alfvén (Elf Van!) surface</h6>
-        <div id="coronagradient"></div>
-      </div>
-      <img src="public/elf-van-bw.png" id="elfvan" alt="ELF VAN!?" onclick="changeColor()">
+      <section class="hidden">
+        <p>Well, your best bet is probably to reach the <b>corona.</b></p>
+        <h8 id="hinthint"><em>(that might be a word you've heard of somewhere)</em></h8>
+        <img src="public/CoronaSunSTART.png" id="vidPlayImg">
+        <video autoplay muted id="coronavid">
+          <source src="public/CoronaSunVIDEO.mp4" type="video/mp4">
+        </video>
+      </section>
+      <section class="hidden">
+        <h8 id="waithowbig">Wait, so <em>how big</em> is the corona?</h8>
+        <div id="elfvandisplay">
+          <img src="public/ElfVanBackground.png" alt="sun" id="elfsun">
+          <h5 id="coronalabel"><span><em>ㅤcoronaㅤ</em></span></h5>
+          <h5 id="windlabel"><span><em>ㅤsolar windㅤ</em></span></h5>
+          <hr id="alfvenpointer">
+          <h6>Alfvén (Elf Van!) surface</h6>
+          <div id="coronagradient"></div>
+        </div>
+        <img src="public/elf-van-bw.png" id="elfvan" alt="ELF VAN!?" onclick="changeColor()">
+        <script src="corona.js"></script>
+      </section>
       <div id="alfventext">
-        <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in <b>plasma particles</b> (which, by the way, the sun is constantly spitting out), so they fly out into space as <b>solar wind</b>.</p>
-        <br>
-        <p style="margin-bottom:0px;">That's the same solar wind that can produce stunning <b>auroras</b> here on Earth!</p>
-        <div style="width:550px; height:215px; margin-left:auto; margin-right:auto;">
-          <img src="public/aurora.jpg" alt="Aurora" id="aurora">
-          <a href="https://images.squarespace-cdn.com/content/v1/515aaa6be4b063d29d1c71ea/1583485458762-23X64VJ1HFZVYWYS33AJ/Mikko-Lagerstedt-Senja.jpg?format=2500w" target="_blank"><p id="auroraoverlay"></p></a>
-        </div>
-        <p>But it's also the same solar wind that, if strong enough, can damage not only <b>satellites and astronauts</b> in space, but also <b>electrical grids and telecommunication networks</b> on Earth. Yet solar wind is just a blip on the radar compared to <b>solar storms</b>, where massive amounts of plasma are ejected at once from the corona - fittingly, called <b>coronal mass ejections (CMEs).</b></p>
-        <div style="width:360px; height:210px; margin-left:auto; margin-right:auto;">
-          <img src="public/CME.gif" alt="Coronal Mass Ejection" id="cme">
-          <a href="https://giphy.com/gifs/nasa-space-l2Sq7UcchYPqoR3vq" target="_blank"><p id="cmeoverlay"></p></a>
-        </div>
-        <p>Typically, these CMEs happen anywhere from <b>once every 5 days</b> to <b>once every 8 hours</b>, and if one of them happens to hit Earth, they can have similar effects as solar wind, but <b>way worse.</b> The largest solar storm ever recorded, called the <b>Carrington Event</b>, was back in 1859, when the only electrical systems were telegrams. But if it happened today, it would likely wipe out our <b>entire power grid</b> for weeks or even months on end.</p>
-        <div style="width:330px; height:186px; margin-left:auto; margin-right:auto; margin-bottom:10px; margin-top:10px; position: relative; left:10px;">
-          <img src="public/CarringtonEvent.gif" alt="Carrington Event" id="carrington">
-          <a href="https://youtu.be/dVS4Q4VgDxk?t=88" target="_blank"><p id="carringtonoverlay"></p></a>
-        </div>
-        <p>By getting up close and personal with the source of these solar phenomena in the corona, the <b>Parker Solar Probe</b> will be able to use its instruments to get a better picture of them and help prepare for potential disasters.</p>
+        <section class="hidden">
+          <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in <b>plasma particles</b> (which, by the way, the sun is constantly spitting out), so they fly out into space as <b>solar wind</b>.</p>
+          <br>
+        </section>
+        <section class="hidden">
+          <p style="margin-bottom:0px;">That's the same solar wind that can produce stunning <b>auroras</b> here on Earth!</p>
+          <div style="width:550px; height:215px; margin-left:auto; margin-right:auto; z-index:1;">
+            <img src="public/aurora.jpg" alt="Aurora" id="aurora">
+            <a href="https://images.squarespace-cdn.com/content/v1/515aaa6be4b063d29d1c71ea/1583485458762-23X64VJ1HFZVYWYS33AJ/Mikko-Lagerstedt-Senja.jpg?format=2500w" target="_blank"><p id="auroraoverlay"></p></a>
+          </div>
+        </section>
+        <section class="hidden">
+          <p>But it's also the same solar wind that, if strong enough, can damage not only <b>satellites and astronauts</b> in space, but also <b>electrical grids and telecommunication networks</b> on Earth. Yet solar wind is just a blip on the radar compared to <b>solar storms</b>, where massive amounts of plasma are ejected at once from the corona - fittingly, called <b>coronal mass ejections (CMEs).</b></p>
+          <div style="width:360px; height:210px; margin-left:auto; margin-right:auto;">
+            <img src="public/CME.gif" alt="Coronal Mass Ejection" id="cme">
+            <a href="https://giphy.com/gifs/nasa-space-l2Sq7UcchYPqoR3vq" target="_blank"><p id="cmeoverlay"></p></a>
+          </div>
+        </section>
+        <section class="hidden">
+          <p>Typically, these CMEs happen anywhere from <b>once every 5 days</b> to <b>once every 8 hours</b>, and if one of them happens to hit Earth, they can have similar effects as solar wind, but <b>way worse.</b> The largest solar storm ever recorded, called the <b>Carrington Event</b>, was back in 1859, when the only electrical systems were telegrams. But if it happened today, it would likely wipe out our <b>entire power grid</b> for weeks or even months on end.</p>
+          <div style="width:330px; height:186px; margin-left:auto; margin-right:auto; margin-bottom:10px; margin-top:10px; position:relative; left:10px;">
+            <img src="public/CarringtonEvent.gif" alt="Carrington Event" id="carrington">
+            <a href="https://youtu.be/dVS4Q4VgDxk?t=88" target="_blank"><p id="carringtonoverlay"></p></a>
+          </div>
+        </section>
+        <section class="hidden">
+          <p>By getting up close and personal with the source of these solar phenomena in the corona, the <b>Parker Solar Probe</b> will be able to use its instruments to get a better picture of them and help prepare for potential disasters.</p>
+        </section>
       </div>
-      <script src="corona.js"></script>
     </div>
 
     <!--WISPR-->
     <div id="wisprtext">
-      <h2><em>soooooooooooo. . .</em></h2>
-      <h1>What instruments does the Parker Solar Probe have?</h1>
-      <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:rgb(255, 255, 255); height:1px; border-style:none;">
-      <p style="margin-bottom: 5px;">Well, there are <b>4 main instruments.</b></p>
-      <ol id="instrumlist">
-        <li>1. WISPR</li>
-        <li>2. SWEAP</li>
-        <li>3. FIELDS</li>
-        <li>4. IS☉IS</li>
-      </ol>  
-      <br>
-      <a href="https://www.nasa.gov/content/goddard/parker-solar-probe-instruments" target="_blank"><img src="public/PSPinstruments2.png" alt="PSP Instruments Diagram" id="PSPinstruments"></a>
-      <h6 id="waitwuthuh">Wait what da hhh-huhhh???</h6>
-      <p style="margin-top: 10px;">ok ok, let's take this one at a time...</b></p>
+      <section class="hidden2">
+        <h2><em>soooooooooooo. . .</em></h2>
+        <h1>What instruments does the Parker Solar Probe have?</h1>
+        <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:rgb(255, 255, 255); height:1px; border-style:none;">
+      </section>
+      <section class="hidden2">
+        <p style="margin-bottom: 5px;">Well, there are <b>4 main instruments.</b></p>
+        <ol id="instrumlist">
+          <li>1. WISPR</li>
+          <li>2. SWEAP</li>
+          <li>3. FIELDS</li>
+          <li>4. IS☉IS</li>
+        </ol>  
+        <br>
+        <a href="https://www.nasa.gov/content/goddard/parker-solar-probe-instruments" target="_blank"><img src="public/PSPinstruments2.png" alt="PSP Instruments Diagram" id="PSPinstruments"></a>
+        <h6 id="waitwuthuh">WAIT WHAT DA HHH-HUHHH???</h6> 
+        <p style="margin-top: 10px;">ok ok, let's take this one at a time...</b></p>
+      </section>
     </div>
     <div id="wispr">
       <!--h8 id='warning' style="color:white; font-size:15px; margin-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8-->
-      <h8 style="position:relative; top:25px; color:white; font-size:15px; font-family:Times New Roman;">exhibit 1:</h8>
-      <h1 id="wisprtitle"><em>THE WISPR</em></h1>
-      <h8 style="position:relative; bottom:22px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing: 5px; margin-bottom:20px;"><em>Wide-field Imager for Solar PRobe (aka a camera)</em></h8>
-      <div id="camera">
-        <!--h1><em>- camera -</em></h1-->
-        <div id="camimg"></div>
-      </div>
-      <button id = 'playbutton' class='button' onclick="playclick()"></button>
-      <div class="slidecontainer" id="theslider">
-        <p id="sliderplaceholder" style="display:none;">.</p>
-        <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
-        <script src="wispr_display.js"></script>
-      </div>
+      <section class="hidden">
+        <h8 style="position:relative; top:10px; color:white; font-size:15px; font-family:Times New Roman;">exhibit 1:</h8>
+      </section>
+      <section class="hidden2">
+        <h1 style="margin-top:15px;" id="wisprtitle"><em>THE WISPR</em></h1>
+        <h8 style="position:relative; bottom:22px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing: 5px; margin-bottom:20px;"><em>Wide-field Imager for Solar PRobe (aka a camera)</em></h8>
+        <div id="camera">
+          <!--h1><em>- camera -</em></h1-->
+          <div id="camimg"></div>
+        </div>
+      </section>
+      <section class="hidden2">
+        <button id = 'playbutton' class='button' onclick="playclick()"></button>
+        <div class="slidecontainer" id="theslider">
+          <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
+          <script src="wispr_display.js"></script>
+        </div>
+      </section>
       <div id="wisprdisplay">
-        <div class="innerdiv">
-          <h3 id="innerlabel">Inner Camera</h3>
-          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
-        </div>
-        <div class="outerdiv">
-          <h3 id="outerlabel">Outer Camera</h3>
-          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
-        </div>
-        <div id = "positiondisplay">
-          <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
-          <div id="datecontainer"><h2 id="datetxt">11/01/2018</h2></div>
-          <div id="psploc">
-            <div class="triangle"></div>
+        <section class="hiddenInner">
+          <div class="innerdiv">
+            <h3 id="innerlabel">Inner Camera</h3>
+            <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
           </div>
-          <div class="sunicon"></div>
-          <h3 id="disttxt">Distance</h3>
-          <h3 id="AUinfo"><em>1 AU = average distance from Earth to Sun</em></h3>
-          <h3 id="wisprsource"><a href="https://wispr.nrl.navy.mil/wisprdata" target="_blank">Source<sup>3</sup></a></h3>
-          <form>
-            <select name="orbit" id="orbit_num" class="selector">
-              <option value="1">Orbit 1</option>
-              <option value="2">Orbit 2</option>
-              <option value="3">Orbit 3</option>
-              <option value="4">Orbit 4</option>
-              <option value="5">Orbit 5</option>
-              <option value="6">Orbit 6</option>
-              <option value="7">Orbit 7</option>
-              <option value="8">Orbit 8</option>
-              <option value="9">Orbit 9</option>
-              <option value="10">Orbit 10</option>
-              <option value="11">Orbit 11</option>
-              <option value="12">Orbit 12</option>
-            </select>
-            <br>
-          </form>
-        </div>
+        </section>
+        <section class="hiddenOuter">
+          <div class="outerdiv">
+            <h3 id="outerlabel">Outer Camera</h3>
+            <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+          </div>
+        </section>
+        <section class="hidden2">
+          <div id = "positiondisplay">
+            <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
+            <div id="datecontainer"><h2 id="datetxt">11/01/2018</h2></div>
+            <div id="psploc">
+              <div class="triangle"></div>
+            </div>
+            <div class="sunicon"></div>
+            <h3 id="disttxt">Distance</h3>
+            <h3 id="AUinfo"><em>1 AU = average distance from Earth to Sun</em></h3>
+            <h3 id="wisprsource"><a href="https://wispr.nrl.navy.mil/wisprdata" target="_blank">Source<sup>3</sup></a></h3>
+            <form>
+              <select name="orbit" id="orbit_num" class="selector">
+                <option value="1">Orbit 1</option>
+                <option value="2">Orbit 2</option>
+                <option value="3">Orbit 3</option>
+                <option value="4">Orbit 4</option>
+                <option value="5">Orbit 5</option>
+                <option value="6">Orbit 6</option>
+                <option value="7">Orbit 7</option>
+                <option value="8">Orbit 8</option>
+                <option value="9">Orbit 9</option>
+                <option value="10">Orbit 10</option>
+                <option value="11">Orbit 11</option>
+                <option value="12">Orbit 12</option>
+              </select>
+              <br>
+            </form>
+          </div>
+        </section>
         <script src="wispr_display.js"></script>
       </div>
     </div>
-    <hr style="border:none; color:black; margin-top:800px;">
 
     <div id="acknowledgments">
       <h1>Acknowledgements</h1>

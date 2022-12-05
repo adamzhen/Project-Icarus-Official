@@ -17,6 +17,59 @@
     transform: rotate(-360deg);
   }
 }
+/*
+@media(prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
+*/
+.hidden {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateX(-3%);
+  transition: all 0.5s;
+}
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+.hidden2 {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateY(50px);
+  transition: all 1s;
+}
+.show2 {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+.hiddenInner {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateX(-50px);
+  transition: all 1s;
+}
+.showInner {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transform: translateX(0);
+}
+.hiddenOuter {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateX(50px);
+  transition: all 1s;
+}
+.showOuter {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transform: translateX(0);
+}
 
 /*hamburger navbar thing*/
 *,
@@ -588,7 +641,6 @@ canvas {
   text-align: center;
   justify-content: center;
   width: 100%;
-  height: 1000px;
   display: block; 
 }
 #corona h1 {
@@ -744,11 +796,9 @@ canvas {
 }
 #alfventext {
   display: block;
-  height: 1500px;
   width: 43%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
 }
 #aurora {
   position: relative;
@@ -762,7 +812,7 @@ canvas {
   bottom: 220px;
   margin-left: auto;
   margin-right: auto;
-  width: 551px;
+  width: 553px;
   height: 215px;
   box-shadow: 30px 55px 60px black inset,-50px -55px 60px black inset;
 }
@@ -794,8 +844,9 @@ canvas {
 }
 
 #wisprtext {
-  margin-top: 1500px;
+  margin-top: 200px;
   text-align: center;
+  margin-bottom: 150px;
 }
 #wisprtext h1 {
   color: white;
@@ -835,7 +886,7 @@ canvas {
   color: #ffe7d7;
   position: relative;
   z-index: 2;
-  margin-top: 5px;
+  margin-top: 15px;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -843,11 +894,10 @@ canvas {
 }
 
 #wispr {
-  padding-top: 150px;
+  padding-top: 50px;
   text-align: center;
   justify-content: center;
   width: 100%;
-  height: 600px;
   margin-bottom: 50px;
 }
 #wispr h1{
@@ -913,6 +963,8 @@ canvas {
 }
 
 .slidecontainer {
+  z-index: 5;
+  position: relative;
   width: 100%; /* Width of the outside container */
   margin-top: 24px;
   margin-bottom: 18px;
@@ -927,10 +979,10 @@ canvas {
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 12%;
+  width: 10%;
   height: 7px; /* Specified height */
   border-radius: 1px;  
-  background: #ffffff;
+  background: rgb(239, 239, 239);
   outline: none; /* Remove outline */
   opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -948,7 +1000,7 @@ canvas {
   appearance: none;
   width: 18px; /* Set a specific slider handle width */
   height: 18px; /* Slider handle height */
-  border-radius: 5%; 
+  border-radius: 10%; 
   background: rgb(255, 121, 0);
   cursor: pointer; /* Cursor on hover */
 }
@@ -956,7 +1008,7 @@ canvas {
 .slider::-moz-range-thumb {
   width: 18px; /* Set a specific slider handle width */
   height: 18px; /* Slider handle height */
-  border-radius: 40%; 
+  border-radius: 10%; 
   background: rgb(255, 111, 0); 
   cursor: pointer; /* Cursor on hover */
 }
@@ -977,8 +1029,8 @@ canvas {
 
 .innerdiv{
   position: relative;
-  bottom: 50px;
-  left: 7%;
+  bottom: 150px;
+  left: 8%;
   width: 250px;
   float: left;
 }
@@ -1002,8 +1054,8 @@ canvas {
 }
 .outerdiv{
   position: relative;
-  bottom: 50px;
-  right: 7%;
+  bottom: 150px;
+  right: 8%;
   width: 250px;
   float: right;
 }
