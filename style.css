@@ -664,6 +664,7 @@ canvas {
   padding-top: 20px;
   width: 100%;
   height: 360px;
+  margin-bottom: 1px;
 }
 #elfvandisplay h5 {
   position: relative;
@@ -743,7 +744,8 @@ canvas {
 }
 #alfventext {
   display: block;
-  width: 58%;
+  height: 1500px;
+  width: 43%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
@@ -760,9 +762,9 @@ canvas {
   bottom: 220px;
   margin-left: auto;
   margin-right: auto;
-  width: 550px;
+  width: 551px;
   height: 215px;
-  box-shadow: 30px 55px 60px black inset,-30px -55px 60px black inset;
+  box-shadow: 30px 55px 60px black inset,-50px -55px 60px black inset;
 }
 #cme {
   width: 360px;
@@ -773,26 +775,26 @@ canvas {
   bottom: 210px;
   margin-left: auto;
   margin-right: auto;
-  width: 360px;
+  width: 361px;
   height: 205px;
-  box-shadow: 20px 40px 50px black inset,-30px -30px 40px black inset;
+  box-shadow: 20px 50px 50px black inset,-30px -30px 40px black inset;
 }
 #carrington {
-  width: 373px;
-  height: 210px;
+  width: 330px;
+  height: 186px;
 }
 #carringtonoverlay {
   position: relative;
-  bottom: 218px;
+  bottom: 195px;
   margin-left: auto;
   margin-right: auto;
-  width: 373px;
-  height: 212px;
-  box-shadow: 12px 10px 10px black inset,-10px -10px 10px black inset;
+  width: 330px;
+  height: 190px;
+  box-shadow: 15px 15px 20px black inset,-15px -15px 20px black inset;
 }
 
 #wisprtext {
-  margin-top: 1400px;
+  margin-top: 1500px;
   text-align: center;
 }
 #wisprtext h1 {
@@ -912,8 +914,8 @@ canvas {
 
 .slidecontainer {
   width: 100%; /* Width of the outside container */
-  position: relative;
-  top: 24px;
+  margin-top: 24px;
+  margin-bottom: 18px;
 }
 /* The slider */
 .slider {
@@ -960,7 +962,7 @@ canvas {
 }
 #sliderplaceholder {
   font-size: 1px;
-  margin-top: 6.2px;
+  margin-top: 30px;
 }
 #wisprdisplay{
   width: 100%;
@@ -973,55 +975,56 @@ canvas {
 #wisprdisplay a:hover {color: rgb(255, 123, 0);}
 #wisprdisplay a:active {color: rgb(255, 123, 0);}
 
+.innerdiv{
+  position: relative;
+  bottom: 50px;
+  left: 7%;
+  width: 250px;
+  float: left;
+}
 #innerlabel{
   text-align: left;
   position: relative;
+  left: 4px;
   z-index: 2;
-  left: 13.5%;
-  top: 22px;
   color: rgb(9, 177, 255);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   letter-spacing: 0px;
 }
-#inner{
+#innerimg{
   position: relative;
   z-index: 2;
   width: 240px;
   height: 256px;
-  left: 80%;
-  bottom: 500px;
   border: 4px dashed rgb(9, 177, 255);
+}
+.outerdiv{
+  position: relative;
+  bottom: 50px;
+  right: 7%;
+  width: 250px;
+  float: right;
 }
 #outerlabel{
   text-align: right;
   position: relative;
-  top: 1px;
-  right: 13.5%;
+  right: 4px;
   color: rgb(0, 117, 185);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   letter-spacing: 0px;
 }
-#outer{
+#outerimg{
   position: relative;
   z-index: 2;
   width: 240px;
   height: 256px;
-  right: 80%;
-  bottom: 500px;
   border: 4px dashed rgb(0, 117, 185);
 }
-.innerdiv{
-  width: 250px;
-  float: left;
-}
-.outerdiv{
-  width: 250px;
-  float: right;
-}
+
 #locplot{
   position: relative;
   z-index: 1;
@@ -1110,12 +1113,19 @@ canvas {
   font-weight: 500;
   letter-spacing: 0px;
 }
+#datecontainer {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 0px;
+  height: 26px;
+}
 #datetxt{
   text-align: left;
   z-index: 3;
   position: relative;
   bottom: 485px;
-  left: 277px;
+  right: 232px;
   color: rgb(255, 122, 0);
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
@@ -1128,7 +1138,7 @@ canvas {
   position: relative;
   text-align: center;
   left: 48px;
-  bottom: 306.5px;
+  bottom: 306px;
 }
 #AUinfo {
   font-size: 11px;

@@ -39,10 +39,10 @@ function update_data(){ // updates the images, location, etc. every time the sli
   var date = fits[0].substring(0,12);
   var dist = fits[6].toFixed(3);
   if (allInnerPNGsMatch[orbit_ind].includes(date)){
-    document.getElementById("inner").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)]; // updates image for inner camera
+    document.getElementById("innerimg").src = innerURL + innerPNGs[allInnerPNGsMatch[orbit_ind].indexOf(date)]; // updates image for inner camera
   } 
   if (allOuterPNGsMatch[orbit_ind].includes(date)){
-    document.getElementById("outer").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)]; // updates image for outer camera
+    document.getElementById("outerimg").src = outerURL + outerPNGs[allOuterPNGsMatch[orbit_ind].indexOf(date)]; // updates image for outer camera
   }
   document.getElementById("locplot").src = "public/orbit_plot_" + orbit + ".png"; // updates image for position display
   document.getElementById("disttxt").innerHTML = "Distance: " + dist.toString() + " AU";
@@ -80,10 +80,10 @@ function help_load(orb){ // trying to help the wispr images load quicker
   innerURL= png_url((orb+1).toString(), "inner")
   outerURL = png_url((orb+1).toString(), "outer")
   for (var i=0; i<innerPNGs.length; i++){
-    document.getElementById("inner").src = innerURL + innerPNGs[i];
+    document.getElementById("innerimg").src = innerURL + innerPNGs[i];
   }
   for (var o=0; i<outerPNGs.length; i++){
-    document.getElementById("outer").src = outerURL + outerPNGs[o];
+    document.getElementById("outerimg").src = outerURL + outerPNGs[o];
   }
 }
 var innerPNGs;
@@ -99,8 +99,8 @@ selector.oninput = function(){
   outerPNGs = allOuterPNGs[orbit_ind];
   innerURL= png_url(orbit, "inner");
   outerURL = png_url(orbit, "outer");
-  document.getElementById("inner").src = innerURL + innerPNGs[0]; //CHANGE
-  document.getElementById("outer").src = outerURL + outerPNGs[0]; //CHANGE
+  document.getElementById("innerimg").src = innerURL + innerPNGs[0]; //CHANGE
+  document.getElementById("outerimg").src = outerURL + outerPNGs[0]; //CHANGE
   slider.value = '0'; // resets slider value to 0 every time orbit is changed
   slider_val = 0;
   slider.max = fitsLists[orbit_ind].length - 1; // changes slider range to match indices of the fits data points
@@ -54633,6 +54633,6 @@ innerPNGs = allInnerPNGs[0];
 outerPNGs = allOuterPNGs[0];
 innerURL= png_url(orbit, "inner");
 outerURL = png_url(orbit, "outer");
-document.getElementById("inner").src = innerURL + innerPNGs[0]; //CHANGE
-document.getElementById("outer").src = outerURL + outerPNGs[0]; //CHANGE
+document.getElementById("innerimg").src = innerURL + innerPNGs[0]; //CHANGE
+document.getElementById("outerimg").src = outerURL + outerPNGs[0]; //CHANGE
 update_data();

@@ -147,24 +147,24 @@
       </div>
       <img src="public/elf-van-bw.png" id="elfvan" alt="ELF VAN!?" onclick="changeColor()">
       <div id="alfventext">
-        <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in plasma particles (which, by the way, the sun is constantly spitting out), so they fly out into space as <b>solar wind</b>.</p>
+        <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in <b>plasma particles</b> (which, by the way, the sun is constantly spitting out), so they fly out into space as <b>solar wind</b>.</p>
         <br>
         <p style="margin-bottom:0px;">That's the same solar wind that can produce stunning <b>auroras</b> here on Earth!</p>
         <div style="width:550px; height:215px; margin-left:auto; margin-right:auto;">
           <img src="public/aurora.jpg" alt="Aurora" id="aurora">
           <a href="https://images.squarespace-cdn.com/content/v1/515aaa6be4b063d29d1c71ea/1583485458762-23X64VJ1HFZVYWYS33AJ/Mikko-Lagerstedt-Senja.jpg?format=2500w" target="_blank"><p id="auroraoverlay"></p></a>
         </div>
-        <p>But it's also the same solar wind that, if strong enough, can damage not only <b>satellites and astronauts</b> in space, but also <b>electrical grids and telecommunication networks</b> on Earth. Another level above solar winds are <b>solar storms</b>, where massive amounts of plasma are ejected from the corona - fittingly, called <b>coronal mass ejections (CMEs)</b>.</p>
+        <p>But it's also the same solar wind that, if strong enough, can damage not only <b>satellites and astronauts</b> in space, but also <b>electrical grids and telecommunication networks</b> on Earth. Yet solar wind is just a blip on the radar compared to <b>solar storms</b>, where massive amounts of plasma are ejected at once from the corona - fittingly, called <b>coronal mass ejections (CMEs).</b></p>
         <div style="width:360px; height:210px; margin-left:auto; margin-right:auto;">
           <img src="public/CME.gif" alt="Coronal Mass Ejection" id="cme">
           <a href="https://giphy.com/gifs/nasa-space-l2Sq7UcchYPqoR3vq" target="_blank"><p id="cmeoverlay"></p></a>
         </div>
-        <p>Typically, these CMEs happen anywhere from <b>once every 5 days</b> to <b>once every 8 hours</b>, and if one of them happens to hit Earth, they can have similar effects as solar wind, but way worse. The largest solar storm ever recorded, called the <b>Carrington Event</b>, was back in 1859, when the only electrical systems were telegrams. But if it happened today, it would likely wipe out our <b>entire power grid</b> for weeks or even months on end.</p>
-        <div style="width:373px; height:210px; margin-left:auto; margin-right:auto;">
+        <p>Typically, these CMEs happen anywhere from <b>once every 5 days</b> to <b>once every 8 hours</b>, and if one of them happens to hit Earth, they can have similar effects as solar wind, but <b>way worse.</b> The largest solar storm ever recorded, called the <b>Carrington Event</b>, was back in 1859, when the only electrical systems were telegrams. But if it happened today, it would likely wipe out our <b>entire power grid</b> for weeks or even months on end.</p>
+        <div style="width:330px; height:186px; margin-left:auto; margin-right:auto; margin-bottom:10px; margin-top:10px; position: relative; left:10px;">
           <img src="public/CarringtonEvent.gif" alt="Carrington Event" id="carrington">
           <a href="https://youtu.be/dVS4Q4VgDxk?t=88" target="_blank"><p id="carringtonoverlay"></p></a>
         </div>
-        <p>By getting up close and personal with its source in the corona, the <b>Parker Solar Probe</b> will be able to use its instruments to get a better picture of these solar phenomena and help prepare for potential disasters.</p>
+        <p>By getting up close and personal with the source of these solar phenomena in the corona, the <b>Parker Solar Probe</b> will be able to use its instruments to get a better picture of them and help prepare for potential disasters.</p>
       </div>
       <script src="corona.js"></script>
     </div>
@@ -202,17 +202,17 @@
         <script src="wispr_display.js"></script>
       </div>
       <div id="wisprdisplay">
-        <h3 id="innerlabel">Inner Camera</h3>
-        <h3 id="outerlabel">Outer Camera</h3>
-        <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
         <div class="innerdiv">
-          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "inner" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+          <h3 id="innerlabel">Inner Camera</h3>
+          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
         </div>
         <div class="outerdiv">
-          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outer" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+          <h3 id="outerlabel">Outer Camera</h3>
+          <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
         </div>
         <div id = "positiondisplay">
-          <h2 id="datetxt">11/01/2018</h2>
+          <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
+          <div id="datecontainer"><h2 id="datetxt">11/01/2018</h2></div>
           <div id="psploc">
             <div class="triangle"></div>
           </div>
