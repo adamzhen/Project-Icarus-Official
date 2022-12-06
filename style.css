@@ -55,6 +55,39 @@
   filter: blur(0);
   transform: translateY(0);
 }
+.hidden3 {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateY(-50px);
+  transition: all 1s;
+}
+.show3 {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+.hidden4 {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translatex(-10%);
+  transition: all 1s;
+}
+.show4 {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+.hidden5 {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translatex(10%);
+  transition: all 1s;
+}
+.show5 {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
 .hiddenInner {
   opacity: 0;
   filter: blur(1px);
@@ -207,11 +240,11 @@ button {
 
   .navbar .menu-items {
     padding-top: 100px;
-    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.55);
     opacity: 1;
-    border-right: solid;
+    border-right: dashed;
+    border-width: 2px;
     border-color: white;
-    box-shadow: 2px 0 30px #000000;
     height: 100vh;
     max-width: 270px;
     transform: translate(-150%);

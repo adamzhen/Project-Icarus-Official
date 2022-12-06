@@ -1,6 +1,6 @@
 // Creating scroll animations
 
-// 
+// Fade in and scale up
 const observer0 = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     console.log(entry)
@@ -41,6 +41,48 @@ const observer2 = new IntersectionObserver((entries) => {
 });
 const hiddenElements2 = document.querySelectorAll('.hidden2')
 hiddenElements2.forEach((el) => observer2.observe(el));
+
+// Fade in from above
+const observer3 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('show3');
+    } else {
+      entry.target.classList.remove('show3');
+    }
+  });
+});
+const hiddenElements3 = document.querySelectorAll('.hidden3')
+hiddenElements3.forEach((el) => observer3.observe(el));
+
+// Fade in from above
+const observer4 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('show4');
+    } else {
+      entry.target.classList.remove('show4');
+    }
+  });
+});
+const hiddenElements4 = document.querySelectorAll('.hidden4')
+hiddenElements4.forEach((el) => observer4.observe(el));
+
+// Fade in from above
+const observer5 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('show5');
+    } else {
+      entry.target.classList.remove('show5');
+    }
+  });
+});
+const hiddenElements5 = document.querySelectorAll('.hidden5')
+hiddenElements5.forEach((el) => observer5.observe(el));
 
 // Special fade in for inner camera view in WISPR section
 const observerInner = new IntersectionObserver((entries) => {
