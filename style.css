@@ -35,6 +35,15 @@
   filter: blur(0);
   transform: translateX(0);
 }
+.hidden0 {
+  opacity: 0.5;
+  transform: scale(0.85);
+  transition: all 0.5s;
+}
+.show0 {
+  opacity: 1;
+  transform: scale(1);
+}
 .hidden2 {
   opacity: 0;
   filter: blur(1px);
@@ -555,7 +564,6 @@ a:active { text-decoration: underline; }
 .modelcontainer a:active {color: #ff9421;}
 .modelcontainer {
   width: 100%;
-  height: 1400px;
   background-color: #ebebeb;
   justify-content: center;
   padding-top: 1px;
@@ -611,7 +619,7 @@ a:active { text-decoration: underline; }
   font-size: 13px;
   font-weight: 500;
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   padding-left: 172px;
   padding-right: 172px;
 }
@@ -637,7 +645,7 @@ canvas {
 #corona {
   position: relative;
   color:white;
-  padding-top: 100px;
+  padding-top: 200px;
   text-align: center;
   justify-content: center;
   width: 100%;
@@ -660,7 +668,7 @@ canvas {
 }
 #corona p {
   color: #ff9950;
-  z-index: 2;
+  z-index: 5;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 400;
@@ -678,7 +686,7 @@ canvas {
 }
 #vidPlayImg {
   position: relative;
-  bottom: 18px;
+  bottom: 5px;
   z-index: 1;
   display: block;
   width: 360px;
@@ -690,7 +698,7 @@ canvas {
 }
 #coronavid {
   position: relative;
-  bottom: 18px;
+  bottom: 5px;
   z-index: 1;
   display: none;
   width: 360px;
@@ -1030,7 +1038,7 @@ canvas {
 .innerdiv{
   position: relative;
   bottom: 150px;
-  left: 8%;
+  left: 9%;
   width: 250px;
   float: left;
 }
@@ -1055,7 +1063,7 @@ canvas {
 .outerdiv{
   position: relative;
   bottom: 150px;
-  right: 8%;
+  right: 9%;
   width: 250px;
   float: right;
 }
@@ -1158,7 +1166,9 @@ canvas {
   border: 2px solid rgb(255, 122, 0);
   width: 80px;
 }
-
+#positiondisplay {
+  transform: scale(1);
+}
 #positiondisplay h3 {
   color: rgb(173, 84, 0);
   font-family: 'Montserrat', sans-serif;

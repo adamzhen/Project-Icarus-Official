@@ -1,5 +1,19 @@
 // Creating scroll animations
 
+// 
+const observer0 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('show0');
+    } else {
+      entry.target.classList.remove('show0');
+    }
+  });
+});
+const hiddenElements0 = document.querySelectorAll('.hidden0')
+hiddenElements0.forEach((el) => observer0.observe(el));
+
 // Fade in from left
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {

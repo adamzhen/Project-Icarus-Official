@@ -138,6 +138,9 @@ function playclick(){
   }
 }
 
+function resizeDisplay(){
+  document.getElementById("positiondisplay").style.transform = "scale(" + window.innerWidth / 1536 +")";
+}
 // 2D array of PNG names
 var allInnerPNGs = [[
   '20181101_004548_1suff.png',
@@ -54634,3 +54637,5 @@ outerURL = png_url(orbit, "outer");
 document.getElementById("innerimg").src = innerURL + innerPNGs[0]; //CHANGE
 document.getElementById("outerimg").src = outerURL + outerPNGs[0]; //CHANGE
 update_data();
+window.addEventListener("resize", resizeDisplay);
+resizeDisplay();
