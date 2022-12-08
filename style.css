@@ -645,16 +645,34 @@ a:active { text-decoration: underline; }
   padding-left: 50px;
   padding-right: 50px;
 }
+#statsbutton {
+  position: relative;
+  justify-content: right;
+  left: 5%;
+  bottom: 550px;
+  border: none;
+  background-color: #ebebeb;
+  color: black;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 #disclaimer {
   color: rgb(0, 14, 54);
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
+  line-height: 15px;
   padding-top: 50px;
   padding-bottom: 50px;
-  padding-left: 172px;
-  padding-right: 172px;
+  padding-left: 17%;
+  padding-right: 17%;
 }
 
 canvas {
