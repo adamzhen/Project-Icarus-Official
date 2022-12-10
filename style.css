@@ -1098,7 +1098,7 @@ canvas {
   position: relative;
   left: 4px;
   z-index: 2;
-  color: rgb(9, 177, 255);
+  color: #0085FF;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -1109,7 +1109,7 @@ canvas {
   z-index: 2;
   width: 240px;
   height: 256px;
-  border: 4px dashed rgb(9, 177, 255);
+  border: 4px dashed #0085FF;
 }
 .outerdiv{
   position: relative;
@@ -1122,7 +1122,7 @@ canvas {
   text-align: right;
   position: relative;
   right: 4px;
-  color: rgb(0, 117, 185);
+  color: #0057BD;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -1133,7 +1133,7 @@ canvas {
   z-index: 2;
   width: 240px;
   height: 256px;
-  border: 4px dashed rgb(0, 117, 185);
+  border: 4px dashed #0057BD;
 }
 
 #locplot{
@@ -1142,14 +1142,13 @@ canvas {
   display: flex;
   width: 500px;
   height: 500px;
-
   margin-left: auto;
   margin-right: auto;
   border: 4px solid rgb(255, 122, 0);
 }
 #psploc {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   width: 16px;
   height: 16px;
   display: block;
@@ -1157,6 +1156,9 @@ canvas {
   margin-right: auto;
 }
 .triangle {
+  position: relative;
+  bottom: 200px;
+  z-index: 4;
   width: 0;
 	height: 0;
   margin-left: auto;
@@ -1165,21 +1167,41 @@ canvas {
   margin-bottom: auto;
 	border-top: 7px solid transparent;
 	border-bottom: 7px solid transparent;
-	border-left: 16px solid rgb(255, 121, 19);
+	border-left: 16px solid #FF7913;
+  transition: all 0.5s;
 }
-.rect1 {
+
+#fov1 {
   position: relative;
-  top: 9.5px;
-  height: 16px;
-  width: 3px;
-  background-color: rgb(227, 106, 13);
+  z-index: 2;
+  bottom: 45px;
+  right: 42px;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  filter: blur(2px);
+  border-radius: 50%;
+  transform: rotate(58.5deg);
+  background: linear-gradient(40deg, #0085FF 45.626%, transparent 45.626%); /*linear-gradient(40deg, #0085FF 45.626%, transparent 45.626%)*/
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  transition: all 0.5s;
 }
-.rect2 {
+#fov2 {
   position: relative;
-  right: 6.5px;
-  height: 3px;
-  width: 16px;
-  background-color: rgb(227, 106, 13);
+  z-index: 2;
+  bottom: 145px;
+  right: 42px;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  filter: blur(2px);
+  border-radius: 50%;
+  transform: rotate(98.5deg); /* 58.5 + 40 = 98.5deg */
+  background: linear-gradient(58deg, #0057BD 61.54%, transparent 61.54%);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  transition: all 0.5s;
 }
 .sunicon {
   position: relative;

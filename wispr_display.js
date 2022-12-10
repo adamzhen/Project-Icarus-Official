@@ -139,7 +139,24 @@ function playclick(){
 }
 
 function resizeDisplay(){
-  document.getElementById("positiondisplay").style.transform = "scale(" + window.innerWidth / 1536 +")";
+  if (window.innerWidth <= 1536){
+    document.getElementById("positiondisplay").style.transform = "scale(" + window.innerWidth / 1536 +")";
+  }
+}
+
+var psp = document.getElementById('psptriangle');
+var pspON = false; 
+psp.onclick = function(){
+  pspON = !pspON
+  if (pspON){
+    psp.style.borderLeftColor = "#1399FF";
+    document.getElementById("fov1").style.opacity = 0.5;
+    document.getElementById("fov2").style.opacity = 0.5;
+  } else {
+    psp.style.borderLeftColor = "#FF7913";
+    document.getElementById("fov1").style.opacity = 0;
+    document.getElementById("fov2").style.opacity = 0;
+  }
 }
 // 2D array of PNG names
 var allInnerPNGs = [[
