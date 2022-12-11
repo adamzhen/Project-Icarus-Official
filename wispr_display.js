@@ -138,22 +138,16 @@ function playclick(){
   }
 }
 
-function resizeDisplay(){
-  if (window.innerWidth <= 1536){
-    document.getElementById("positiondisplay").style.transform = "scale(" + window.innerWidth / 1536 +")";
-  }
-}
-
 var psp = document.getElementById('psptriangle');
 var pspON = false; 
 psp.onclick = function(){
   pspON = !pspON
   if (pspON){
-    psp.style.borderLeftColor = "#1399FF";
-    document.getElementById("fov1").style.opacity = 0.5;
-    document.getElementById("fov2").style.opacity = 0.5;
+    //psp.style.borderLeftColor = "#1399FF";
+    document.getElementById("fov1").style.opacity = 0.3;
+    document.getElementById("fov2").style.opacity = 0.3;
   } else {
-    psp.style.borderLeftColor = "#FF7913";
+    //psp.style.borderLeftColor = "#FF7913";
     document.getElementById("fov1").style.opacity = 0;
     document.getElementById("fov2").style.opacity = 0;
   }
@@ -54654,5 +54648,3 @@ outerURL = png_url(orbit, "outer");
 document.getElementById("innerimg").src = innerURL + innerPNGs[0]; //CHANGE
 document.getElementById("outerimg").src = outerURL + outerPNGs[0]; //CHANGE
 update_data();
-window.addEventListener("resize", resizeDisplay);
-resizeDisplay();

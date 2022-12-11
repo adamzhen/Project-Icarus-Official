@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <script src="resize.js"></script>
     <!--Hero Section-->
     <div class="hero" id="home">
       <img src="public/ProjectIcarusHeader.png" id="logo">
@@ -61,9 +62,9 @@
     <div id="sun">
       <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_0304.jpg" id = "sunimg" onerror="this.onerror=null; this.src='public/sun.jpg'">
       <p id="featheroverlay"  onclick="switchimg()"></p>
-      <h2 id="testtt">THIS IS THE SUN RIGHT NOW.</h2>
-      <h3><em>ever wondered what it'd be like to touch it?</em></h3>
-      <h4>(plz don't click this image)</h4>
+      <h2 class="suntext" id="suntext1">THIS IS THE SUN RIGHT NOW.</h2>
+      <h3 class="suntext" ><em>ever wondered what it'd be like to touch it?</em></h3>
+      <h4 class="suntext" >(plz don't click this image)</h4>
       <p id="sunsource"><a href="https://sdo.gsfc.nasa.gov/data/" target="_blank">Source<sup>1</sup></a></p>
       <img src="public/circle.png" id="thesun" style="position:absolute; top:24%; width:1px; height:1px;">
       <script>

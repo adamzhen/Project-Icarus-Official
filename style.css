@@ -399,7 +399,7 @@ a:active { text-decoration: underline; }
 }
 #sun h2 {
   position: absolute;
-  top: 49%;
+  top: 48.8%;
   bottom: 50%;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.7em;
@@ -1157,7 +1157,7 @@ canvas {
 }
 .triangle {
   position: relative;
-  bottom: 200px;
+  bottom: 240px;
   z-index: 4;
   width: 0;
 	height: 0;
@@ -1174,12 +1174,12 @@ canvas {
 #fov1 {
   position: relative;
   z-index: 2;
-  bottom: 45px;
-  right: 42px;
-  width: 100px;
-  height: 100px;
+  bottom: 50px;
+  right: 52px;
+  width: 120px;
+  height: 120px;
   opacity: 0;
-  filter: blur(2px);
+  filter: blur(4px);
   border-radius: 50%;
   transform: rotate(58.5deg);
   background: linear-gradient(40deg, #0085FF 45.626%, transparent 45.626%); /*linear-gradient(40deg, #0085FF 45.626%, transparent 45.626%)*/
@@ -1190,12 +1190,12 @@ canvas {
 #fov2 {
   position: relative;
   z-index: 2;
-  bottom: 145px;
-  right: 42px;
-  width: 100px;
-  height: 100px;
+  bottom: 170px;
+  right: 52px;
+  width: 120px;
+  height: 120px;
   opacity: 0;
-  filter: blur(2px);
+  filter: blur(4px);
   border-radius: 50%;
   transform: rotate(98.5deg); /* 58.5 + 40 = 98.5deg */
   background: linear-gradient(58deg, #0057BD 61.54%, transparent 61.54%);
@@ -1240,6 +1240,7 @@ canvas {
   width: 80px;
 }
 #positiondisplay {
+  position: relative;
   transform: scale(1);
 }
 #positiondisplay h3 {
