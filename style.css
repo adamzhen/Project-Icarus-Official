@@ -242,8 +242,8 @@ button {
     padding-top: 100px;
     background: rgba(0, 0, 0, 0.55);
     opacity: 1;
-    border-right: dashed;
-    border-width: 2px;
+    border-right: solid;
+    border-width: 1px;
     border-color: white;
     height: 100vh;
     max-width: 270px;
@@ -256,7 +256,7 @@ button {
     overflow: hidden;
   }
 
-  .navbar .menu-items li {
+  .navbar .menu-items a {
     margin-bottom: 1.8rem;
     font-family: 'Montserrat';
     font-size: 1rem;
