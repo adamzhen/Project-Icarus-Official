@@ -113,7 +113,9 @@ var slider_val = 0;
 var fits = [];
 var loc = document.getElementById("psploc");
 var stopplay;
-var delay_ms; // delay time for play loop
+var curr_speed = 8; // current speed in fps
+var max_speed = 30;
+var min_speed = 1;
 var max; // max value of slider
 var timer;
 // Update the current slider value (each time you drag the slider handle)
@@ -128,13 +130,56 @@ function playclick(){
   if (play.className=="button paused"){
     slider.style.opacity = 0;
     stopplay = false;
-    delay_ms = 125;
-    timer = setInterval(play_loop, delay_ms);
+    timer = setInterval(play_loop, 1000 / curr_speed);
+    document.getElementById("fasterbutton1").style.left = (window.innerWidth/2 + 30) + "px";
+    document.getElementById("fasterbutton2").style.left = (window.innerWidth/2 + 40) + "px";
+    document.getElementById("slowerbutton1").style.right = (window.innerWidth/2 + 30) + "px";
+    document.getElementById("slowerbutton2").style.right = (window.innerWidth/2 + 40) + "px";
+    document.getElementById("speedsection").style.opacity = 1;
   } else{
     // document.getElementById("clicktoplay").innerHTML = "stopped";
     slider.style.opacity = 1;
     stopplay = true;
     clearInterval(timer);
+    document.getElementById("fasterbutton1").style.left = "50%";
+    document.getElementById("fasterbutton2").style.left = "50%";
+    document.getElementById("slowerbutton1").style.right = "50%";
+    document.getElementById("slowerbutton2").style.right = "50%";
+    document.getElementById("speedsection").style.opacity = 0;
+  }
+}
+function playfaster(n){
+  if (curr_speed < max_speed + 1 - n){
+    curr_speed += n
+    stopplay = true;
+    clearInterval(timer);
+    stopplay = false;
+    timer = setInterval(play_loop, 1000 / curr_speed);
+    document.getElementById("speeddisplay").innerHTML = curr_speed + " FPS";
+  } else if (curr_speed != max_speed) {
+    curr_speed = max_speed;
+    stopplay = true;
+    clearInterval(timer);
+    stopplay = false;
+    timer = setInterval(play_loop, 1000 / curr_speed);
+    document.getElementById("speeddisplay").innerHTML = curr_speed + " FPS";
+  }
+}
+function playslower(n){
+  if (curr_speed > min_speed - 1 + n){
+    curr_speed -= n
+    stopplay = true;
+    clearInterval(timer);
+    stopplay = false;
+    timer = setInterval(play_loop, 1000 / curr_speed);
+    document.getElementById("speeddisplay").innerHTML = curr_speed + " FPS";
+  } else if (curr_speed != min_speed) {
+    curr_speed = min_speed;
+    stopplay = true;
+    clearInterval(timer);
+    stopplay = false;
+    timer = setInterval(play_loop, 1000 / curr_speed);
+    document.getElementById("speeddisplay").innerHTML = curr_speed + " FPS";
   }
 }
 

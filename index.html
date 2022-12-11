@@ -243,6 +243,15 @@
       </section>
       <section class="hidden2">
         <button id = 'playbutton' class='button' onclick="playclick()"></button>
+        <section id="speedsection">
+          <div id="speedbuttons">
+            <p id="speeddisplay">8 FPS</p>
+            <button id = 'fasterbutton1' class='fasterbutton' onclick="playfaster(1)"></button>
+            <button id = 'fasterbutton2' class='fasterbutton' onclick="playfaster(5)"></button>
+            <button id = 'slowerbutton1' class='slowerbutton' onclick="playslower(1)"></button>
+            <button id = 'slowerbutton2' class='slowerbutton' onclick="playslower(5)"></button>
+          </div>
+        </section>
         <div class="slidecontainer" id="theslider">
           <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
           <script src="wispr_display.js"></script>

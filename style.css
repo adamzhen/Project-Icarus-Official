@@ -1007,10 +1007,8 @@ canvas {
   border-color: transparent transparent transparent rgb(255, 122, 0);
   transition: 100ms all ease;
   cursor: pointer;
-
   border-style: solid;
   border-width: 37px 0 37px 60px;
-
 }
 .button.paused {
   border-color: rgb(255, 122, 0);
@@ -1020,7 +1018,78 @@ canvas {
 .button:hover {
   border-color: transparent transparent transparent rgb(255, 145, 42);
 }
-
+#speedsection {
+  opacity: 0;
+  transition: 200ms all ease;
+}
+#speedbuttons {
+  background-color: white;
+  height: 0px;
+  justify-content: center;
+}
+#speeddisplay {
+  position: relative;
+  z-index: 6;
+  top: 12px;
+  color: rgb(255, 122, 0);
+}
+.fasterbutton {
+  position: absolute;
+  z-index: 6;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  opacity: 1;
+  background: transparent;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: transparent transparent transparent #ffe7d7;
+  transition: 200ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 10px 0 10px 11px;
+}
+.fasterbutton:hover {
+  border-color: transparent transparent transparent rgb(255, 145, 42);
+}
+#fasterbutton1 {
+  left: 50%;
+  bottom: -4px;
+}
+#fasterbutton2 {
+  left: 50%;
+  bottom: -4px;
+}
+.slowerbutton {
+  position: absolute;
+  z-index: 6;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  opacity: 1;
+  background: transparent;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: transparent transparent transparent #ffe7d7;
+  transition: 200ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 10px 0 10px 11px;
+  transform: rotate(180deg);
+}
+.slowerbutton:hover {
+  border-color: transparent transparent transparent rgb(255, 145, 42);
+}
+#slowerbutton1 {
+  right: 50%;
+  bottom: -4px;
+}
+#slowerbutton2 {
+  right: 50%;
+  bottom: -4px;
+}
 .slidecontainer {
   z-index: 5;
   position: relative;
@@ -1038,7 +1107,7 @@ canvas {
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 10%;
+  width: 140px;
   height: 7px; /* Specified height */
   border-radius: 1px;  
   background: rgb(239, 239, 239);
