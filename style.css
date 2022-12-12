@@ -695,7 +695,7 @@ canvas {
 }
 #corona {
   position: relative;
-  color:white;
+  color: #ff6a00;
   padding-top: 200px;
   text-align: center;
   justify-content: center;
@@ -760,7 +760,7 @@ canvas {
   margin-bottom: 25px;;
 }
 #waithowbig{
-  color: #ffe7d7;
+  color: #ff6a00;
   position: relative;
   z-index: 2;
   margin-top: 15px;
@@ -908,7 +908,7 @@ canvas {
   margin-bottom: 150px;
 }
 #wisprtext h1 {
-  color: white;
+  color: #ff6a00;
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -1369,7 +1369,7 @@ canvas {
   margin-bottom: 50px;
 }
 #wisprinfo p {
-  color: #3491e2;
+  color: #5bacf3;
   z-index: 5;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
