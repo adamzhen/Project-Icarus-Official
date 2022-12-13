@@ -239,19 +239,19 @@ button {
   }
 
   .navbar .menu-items {
-    padding-top: 100px;
+    padding-top: 90px;
     background: rgba(0, 0, 0, 0.55);
     opacity: 1;
     border-right: solid;
     border-width: 1px;
-    border-color: white;
+    border-color: #f8860d;
     height: 100vh;
-    max-width: 270px;
+    max-width: 240px;
     transform: translate(-150%);
     display: flex;
     flex-direction: column;
     margin-left: -50px;
-    padding-left: 40px;
+    padding-left: 35px;
     transition: transform 0.5s ease-in-out;
     overflow: hidden;
   }
@@ -916,7 +916,7 @@ canvas {
   line-height: 30pt;
 }
 #wisprtext h2 {
-  color:#ff9950;
+  color:#ff9950; 
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 300;
