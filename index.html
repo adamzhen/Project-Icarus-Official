@@ -13,7 +13,6 @@
   </head>
 
   <body>
-    <script src="resize.js"></script>
     <!--Hero Section-->
     <div class="hero" id="home">
       <img src="public/ProjectIcarusHeader.png" id="logo">
@@ -70,6 +69,8 @@
       <script>
         var imgnames = ['0304', '0193', '0131', '0094', '0211'];
         var i = 1;
+        var suntexts = document.querySelectorAll('.suntext')
+        suntexts.forEach((el) => el.style.transform = "scale(" + window.innerWidth / 1536 +")");
         function switchimg() {
           if (i >= imgnames.length - 1){
             i = 0;
@@ -82,48 +83,54 @@
     </div>
 
     <!--Rotating circle-->
-    <div id="circles">
-      <section class="hidden3">
-        <div id="circle1">
-          <img src="public/circle1.png" id="dimg1" class="circlecw">
-          <h1>well</h1>
-        </div>
-      </section>
-      <section class="hidden3">
-        <div id="circle2">
-          <img src="public/circle2.png" id="dimg2" class="circleccw">
-          <h2>we</h2>
-        </div>
-      </section>
-      <section class="hidden3">
-        <div id="circle3">
-          <img src="public/circle3.png" id="dimg3" class="circlecw">
-          <h3>got</h3>
-        </div>
-      </section>
-      <section class="hidden3">
-        <div id="circle4">
-          <img src="public/circle4.png" id="dimg4" class="circleccw">
-          <h4>your</h4>
-        </div>
-      </section>
-      <section class="hidden3">
-        <div id="circle5">
-          <img src="public/circle5.png" id="dimg5" class="circlecw">
-          <h5>answer.</h5>
-        </div>
-      </section>
-      <script src="scrollAnimation.js"></script>
-    </div>
+    <section>
+      <div id="circles">
+        <section class="hidden3">
+          <div id="circle1">
+            <img src="public/circle1.png" id="dimg1" class="circlecw">
+            <h1>well</h1>
+          </div>
+        </section>
+        <section class="hidden3">
+          <div id="circle2">
+            <img src="public/circle2.png" id="dimg2" class="circleccw">
+            <h2>we</h2>
+          </div>
+        </section>
+        <section class="hidden3">
+          <div id="circle3">
+            <img src="public/circle3.png" id="dimg3" class="circlecw">
+            <h3>got</h3>
+          </div>
+        </section>
+        <section class="hidden3">
+          <div id="circle4">
+            <img src="public/circle4.png" id="dimg4" class="circleccw">
+            <h4>your</h4>
+          </div>
+        </section>
+        <section class="hidden3">
+          <div id="circle5">
+            <img src="public/circle5.png" id="dimg5" class="circlecw">
+            <h5>answer.</h5>
+          </div>
+        </section>
+        <script src="scrollAnimation.js"></script>
+      </div>
+    </section>
 
     <!--3D Interactive Model-->
     <div class="modelcontainer" id="psp">
-      <h2 class="hidden3">ㅤINTRODUCING THE</h2>
-      <h1 class="hidden4"><em>PARKER</em></h1>
-      <h1 class="hidden5"><em>SOLAR</em></h1>
-      <h1 class="hidden4"><em>PROBE</em></h1>
-      <h3 class="hidden0">BY NASA</h2>
-      <h4>available for just $1,500,000,000 USD</h4>
+      <section id="pspsection">
+        <div>
+          <h2 class="hidden">ㅤINTRODUCING THE</h2>
+          <h1 class="hidden4"><em>PARKER</em></h1>
+          <h1 class="hidden5"><em>SOLAR</em></h1>
+          <h1 class="hidden4"><em>PROBE</em></h1>
+          <h3 class="hidden0">BY NASA</h2>
+          <h4>available for just $1,500,000,000 USD</h4>
+        </div>
+      </section>
       <iframe src='https://solarsystem.nasa.gov/gltf_embed/2356' width='80%' height='550px' frameborder='0' style="position:relative; left:10%;" onload="load()"></iframe>
       <!--button type="button" id="statsbutton">view stats</button-->
       <p id="disclaimer"> <strong>Disclaimer:</strong> This is a joke. Obviously.<a href="#pspacknowledgments"><sup>2</sup></a> We are not NASA. You can’t actually buy the Parker Solar Probe. And before you get any smart ideas, you’re also a tad late if you were hoping to stowaway in that cozy little cubby behind the heat shield. The Parker Solar Probe has been in space since August 2018, officially touching the sun on April 28, 2021.
@@ -178,7 +185,7 @@
           <p style="margin-bottom:0px;">That's the same solar wind that can produce stunning <b>auroras</b> here on Earth!</p>
         </section>
         <section class="hidden0">
-          <div style="width:550px; height:215px; margin-left:auto; margin-right:auto; z-index:1;">
+          <div style="margin-left:auto; margin-right:auto; z-index:1;" id="auroracontainer">
             <img src="public/aurora.jpg" alt="Aurora" id="aurora">
             <a href="https://images.squarespace-cdn.com/content/v1/515aaa6be4b063d29d1c71ea/1583485458762-23X64VJ1HFZVYWYS33AJ/Mikko-Lagerstedt-Senja.jpg?format=2500w" target="_blank"><p id="auroraoverlay"></p></a>
           </div>
@@ -235,7 +242,7 @@
       </section>
       <section class="hidden2">
         <h1 style="margin-top:15px;" id="wisprtitle"><em>THE WISPR</em></h1>
-        <h8 style="position:relative; bottom:22px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing: 5px; margin-bottom:20px;"><em>Wide-field Imager for Solar PRobe (aka cameras)</em></h8>
+        <h8 style="position:relative; bottom:25px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing:5px;"><em>Wide-field Imager for Solar PRobe (aka cameras)</em></h8>
         <div id="camera">
           <!--h1><em>- camera -</em></h1-->
           <div id="camimg"></div>
@@ -323,5 +330,7 @@
       <p id="wispracknowledgments"><sup><a href="#wispr">3</a></sup> <em>The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology. <a href="https://ui.adsabs.harvard.edu/abs/2016SSRv..204...83V/abstract" target="_blank">Vourlidas, A. et al. (2016), The Wide-Field Imager for Solar Probe Plus (WISPR), Space Science Reviews, 204, 88–130, 10.1007/s11214-014-0114-y</a></em></p>
     </div>
     <p id="github"><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank">SEE SOURCE CODE ON GITHUB</a></p>
+
+    <script src="resize.js"></script>
   </body>
 </html>

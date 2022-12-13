@@ -477,7 +477,7 @@ a:active { text-decoration: underline; }
 #circle1{
   position: relative;
   z-index: 1;
-  height: 280px;
+  height: 240px;
   display: flex;
   justify-content: center;
   background-color: transparent;
@@ -486,21 +486,21 @@ a:active { text-decoration: underline; }
 #dimg1{
   position: absolute;
   opacity: 1;
-  width: 280px;
-  height: 280px;
+  width: 240px;
+  height: 240px;
 }
 #circles h1{
-  padding-top: 105px;
+  padding-top: 90px;
   position: absolute;
   color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600
 }
 
 #circle2{
   position: relative;
-  height: 230px;
+  height: 190px;
   display: flex;
   justify-content: center;
   background-color: transparent;
@@ -509,21 +509,21 @@ a:active { text-decoration: underline; }
 #dimg2{
   position: absolute;
   opacity: 1;
-  width: 230px;
-  height: 230px;
+  width: 190px;
+  height: 190px;
 }
 #circles h2{
-  padding-top: 80px;
+  padding-top: 67px;
   position: absolute;
   color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 #circle3{
   position: relative;
-  height: 190px;
+  height: 160px;
   display: flex;
   justify-content: center;
   background-color: transparent;
@@ -532,21 +532,21 @@ a:active { text-decoration: underline; }
 #dimg3{
   position: absolute;
   opacity: 1;
-  width: 190px;
-  height: 190px;
+  width: 160px;
+  height: 160px;
 }
 #circles h3{
-  padding-top: 60px;
+  padding-top: 50px;
   position: absolute;
   color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 #circle4{
   position: relative;
-  height: 160px;
+  height: 130px;
   display: flex;
   justify-content: center;
   background-color: transparent;
@@ -555,39 +555,39 @@ a:active { text-decoration: underline; }
 #dimg4{
   position: absolute;
   opacity: 1;
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
 }
 #circles h4{
-  padding-top: 47px;
+  padding-top: 36px;
   position: absolute;
   color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 #circle5{
   position: relative;
-  height: 130px;
+  height: 100px;
   display: flex;
   justify-content: center;
   background-color: transparent;
-  padding-bottom: 150px;
+  padding-bottom: 120px;
   margin-bottom: 15px;
 }
 #dimg5{
   position: absolute;
   opacity: 1;
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
 }
 #circles h5{
-  padding-top: 52px;
+  padding-top: 41px;
   position: absolute;
   color: rgb(255, 199, 139);
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -624,7 +624,8 @@ a:active { text-decoration: underline; }
   font-size: 20px;
   font-weight: 450;
   letter-spacing: 32px;
-  padding-bottom: 40px;
+  line-height: 40px;
+  padding-bottom: 20px;
 }
 .modelcontainer h3 {
   color: #d24a00;
@@ -859,21 +860,28 @@ canvas {
   margin-left: auto;
   margin-right: auto;
 }
+#auroracontainer {
+  --w: 400px;
+  --h: calc(var(--w)*212/550);
+  width: var(--w);
+  height: var(--h);
+}
 #aurora {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 550px;
-  height: 212px;
+  width: var(--w);
+  height: var(--h);
 }
 #auroraoverlay {
+  --h2: calc(var(--w)*222/550);
   position: relative;
-  bottom: 220px;
+  bottom: calc(var(--h2) + 4px);
   margin-left: auto;
   margin-right: auto;
-  width: 553px;
-  height: 215px;
-  box-shadow: 30px 55px 60px black inset,-50px -55px 60px black inset;
+  width: calc(var(--w) + 3px);
+  height: var(--h2);
+  box-shadow: calc(var(--w)/40*3) calc(var(--w)/8) calc(var(--w)/8) black inset, calc(var(--w)/40*-3) calc(var(--w) / -8) calc(var(--w)/8) black inset;
 }
 #cme {
   width: 360px;
@@ -966,6 +974,9 @@ canvas {
   font-size: 110px;
   font-weight: 800;
   letter-spacing: 0px;
+  line-height: 100px;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 #camera {
   position: relative;
