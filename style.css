@@ -865,6 +865,7 @@ canvas {
   --h: calc(var(--w)*212/550);
   width: var(--w);
   height: var(--h);
+  margin: 5px;
 }
 #aurora {
   position: relative;
@@ -874,7 +875,7 @@ canvas {
   height: var(--h);
 }
 #auroraoverlay {
-  --h2: calc(var(--w)*222/550);
+  --h2: calc(var(--w)*223/550);
   position: relative;
   bottom: calc(var(--h2) + 4px);
   margin-left: auto;
@@ -883,30 +884,48 @@ canvas {
   height: var(--h2);
   box-shadow: calc(var(--w)/40*3) calc(var(--w)/8) calc(var(--w)/8) black inset, calc(var(--w)/40*-3) calc(var(--w) / -8) calc(var(--w)/8) black inset;
 }
+#cmecontainer {
+  --w: 360px;
+  --h: calc(var(--w)*202/360);
+  width: var(--w);
+  height: var(--h);
+  position: relative;
+  right: 30px;
+}
 #cme {
-  width: 360px;
-  height: 202px;
+  width: var(--w);
+  height: var(--h);
 }
 #cmeoverlay {
+  --h2: calc(var(--w)*206/360);
   position: relative;
-  bottom: 210px;
+  bottom: calc(var(--h2) + 5px);
   margin-left: auto;
   margin-right: auto;
-  width: 361px;
-  height: 205px;
-  box-shadow: 20px 50px 50px black inset,-30px -30px 40px black inset;
+  width: calc(var(--w) + 3px);
+  height: var(--h2);
+  box-shadow: calc(var(--w)/18) calc(var(--w)/36*5) calc(var(--w)/36*5) black inset,calc(var(--w)/-12) calc(var(--w)/-12) calc(var(--w)/9) black inset;
+}
+#carringtoncontainer {
+  --w: 330px;
+  --h: calc(var(--w)*186/330);
+  width: var(--w);
+  height: var(--h);
+  position: relative;
+  right: 5px;
 }
 #carrington {
-  width: 330px;
-  height: 186px;
+  width: var(--w);
+  height: var(--h);
 }
 #carringtonoverlay {
+  --h2: calc(var(--w)*190/330);
   position: relative;
-  bottom: 195px;
+  bottom: calc(var(--h2) + 5px);
   margin-left: auto;
   margin-right: auto;
-  width: 330px;
-  height: 190px;
+  width: calc(var(--w) + 3px);
+  height: var(--h2);
   box-shadow: 15px 15px 20px black inset,-15px -15px 20px black inset;
 }
 
