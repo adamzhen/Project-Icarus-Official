@@ -333,10 +333,10 @@ button {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 17% 70%;
+  grid-template-columns: 19% 70%;
   justify-content: center;
   text-align: left;
-  gap: 40px;
+  gap: 50px;
   background-color: transparent;
   padding: 10px;
 }
@@ -356,15 +356,15 @@ button {
   letter-spacing: 0px;
   color: white;
 }
-#img1 {
+#adamzhengimg {
   border: solid rgb(227, 227, 227) 3px;
-  width: 12vw;
-  height: 12vw;
+  width: 12vmax;
+  height: 12vmax;
 }
-#img2 {
+#warrenwuimg {
   border: solid rgb(227, 227, 227) 3px;
-  width: 12vw;
-  height: 12vw;
+  width: 12vmax;
+  height: 12vmax;
 }
 .imgoverlay {
   position: relative;

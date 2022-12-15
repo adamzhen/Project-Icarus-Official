@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="about.css">
         <script src ="index.js"></script>
         <title>About</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     </head>
     <body style="background-color: black">
       <section>
@@ -24,21 +25,34 @@
           <h1>ABOUT US</h1>
         </div>
         <div id="about" class="grid-container">
-          <div style="width:12vw; height:12vw;">
-            <img src="public/adamzhengimgBW.jpg" alt="Profile Pic: Adam Zheng" id="img1">
+          <div style="width:12vmax; height:12vmax;">
+            <img src="public/adamzhengimgBW.png" alt="Profile Pic: Adam Zheng" id="adamzhengimg" onclick="changeColor(0)">
             <!--p class="imgoverlay"></p-->
           </div>
           <div id="text1">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-          <div style="width:12vw; height:12vw;">
-            <img src="public/warrenwuimgBW.png" alt="Profile Pic: Warren Wu" id="img2">
+          <div style="width:12vmax; height:12vmax;">
+            <img src="public/warrenwuimgBW.png" alt="Profile Pic: Warren Wu" id="warrenwuimg" onclick="changeColor(1)">
           </div>
           <div id="text2">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
+          <script>
+            var colored = false;
+            var imgs = ["adamzhengimg", "warrenwuimg"];
+            function changeColor(n){ // Toggles profile pictures from black/white to colored
+              colored = !colored;
+              if (colored){
+                document.getElementById(imgs[n]).src = "public/" + imgs[n] + ".png";
+              } else {
+                document.getElementById(imgs[n]).src = "public/" + imgs[n] + "BW.png";
+              }
+            }
+          </script>
         </div>
       </section>
+
       <nav class="navbar">
         <div class="navbar-container container">
           <input type="checkbox" name="" id="" />
