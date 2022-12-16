@@ -302,7 +302,7 @@ a:active { text-decoration: underline; }
 .hero #logo {
   position: relative;
   z-index: 1;
-  right: 15px;
+  right: vmax;
   width: 80vw;
   height: 40vw;
   margin-left: auto;
@@ -940,7 +940,9 @@ canvas {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   letter-spacing: 0px;
-  line-height: 30pt;
+  line-height: 30pt;  
+  margin-left: 20px;
+  margin-right: 20px;
 }
 #wisprtext h2 {
   color:#ff9950; 

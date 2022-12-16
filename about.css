@@ -328,15 +328,15 @@ button {
   font-weight: 300;
   letter-spacing: 21px;
   text-align: center;
-  color: white;
+  color: #4cdbff;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 19% 70%;
+  grid-template-columns: 18% 72%;
   justify-content: center;
   text-align: left;
-  gap: 50px;
+  gap: 40px;
   background-color: transparent;
   padding: 10px;
 }
@@ -351,9 +351,10 @@ button {
   text-align: left;
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   letter-spacing: 0px;
+  line-height: 20px;
   color: white;
 }
 #adamzhengimg {
