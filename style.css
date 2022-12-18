@@ -932,7 +932,7 @@ canvas {
 #wisprtext {
   margin-top: 200px;
   text-align: center;
-  margin-bottom: 150px;
+  margin-bottom: 180px;
 }
 #wisprtext h1 {
   color: #ff6a00;
@@ -986,7 +986,7 @@ canvas {
   text-align: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 #wispr h1{
   position: relative;
@@ -996,7 +996,7 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-top: 35px;
+  padding-top: 80px;
   padding-bottom: 35px;
 }
 #camera {
@@ -1407,6 +1407,25 @@ canvas {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0px;
+}
+
+#sweap {
+  padding-top: 50px;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 150px;
+}
+#sweap h1{
+  position: relative;
+  top: 10px;
+  color: rgb(217, 18, 0);
+  font-size: 115px;
+  font-weight: 800;
+  letter-spacing: 0px;
+  line-height: 100px;
+  padding-top: 80px;
+  padding-bottom: 38px;
 }
 
 #acknowledgments a:link {color: rgb(173, 84, 0);}
