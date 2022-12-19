@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="about.css">
         <script src ="index.js"></script>
         <title>About</title>
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     </head>
     <body style="background-color: black">
@@ -27,10 +30,17 @@
         <div id="about" class="grid-container">
           <div style="width:12vmax; height:12vmax;">
             <img src="public/adamzhengimgBW.png" alt="Profile Pic: Adam Zheng" id="adamzhengimg" onclick="changeColor(0)">
+            <a href="https://www.linkedin.com/in/adam-zheng/" target="_blank"><img src="public/linkedinicon.png" alt="LinkedIn" class="linkedinicon"></a>
             <!--p class="imgoverlay"></p-->
           </div>
           <div id="text1">
-            <p>Howdy, I'm <b><font color="#4cdbff"><b>Adam Zheng</b></font></b>, a freshman at Texas A&M planning to major in aerospace engineering. As someone who aspires to one day be at the cutting edge of space exploration, this project has taught me a lot about how much more we have to learn about our very own sun, not to mention the unimaginably vast domain of interstellar space. But of course, this was also a great learning experience in terms of building my first website. You see, during the 2022 NASA Space Apps Challenge (October 1-2), Warren Wu and I chose to tackle a challenge called "Creative Data Display With the Parker Solar Probe," for which we created this website. With Warren's help, I was able to quickly get the hang of using HTML & CSS. But although we toiled long and hard, the website ultimately proved to be way too ambitious to complete in 48 hours, so in the time since, I've been working steadily to finish it on my own. </p>
+            <py-script>
+              from datetime import datetime
+              start = datetime(2022, 10, 3)
+              today = datetime.now()
+              pyscript.write('workdays', f"{(today - start).days} days")
+            </py-script>  
+            <p>Howdy, I'm <b><font color="#4cdbff"><b>Adam Zheng</b></font></b>, a freshman at Texas A&M planning to major in aerospace engineering. As someone who aspires to one day be at the cutting edge of space exploration, this project has taught me how much more we have to learn about our very own sun, not to mention the unimaginably vast domain of interstellar space. But of course, this was also a great learning experience in terms of building my first website. You see, during the 2022 NASA Space Apps Challenge (October 1-2), Warren Wu and I tackled a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details" target="_blank">Creative Data Display With the Parker Solar Probe</a>," for which we created this website. With Warren's help, I was able to quickly get the hang of using HTML & CSS. However, despite our best efforts, the website ultimately proved to be too ambitious to complete in two days. So for the past <label id="workdays"></label>, I've been working on my own to bring the original vision for Project Icarus to fruition. </p>
           </div>
           <div style="width:12vmax; height:12vmax;">
             <img src="public/warrenwuimgBW.png" alt="Profile Pic: Warren Wu" id="warrenwuimg" onclick="changeColor(1)">
@@ -49,7 +59,7 @@
                 document.getElementById(imgs[n]).src = "public/" + imgs[n] + "BW.png";
               }
             }
-          </script>
+          </script>       
         </div>
       </section>
 

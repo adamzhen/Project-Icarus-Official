@@ -333,7 +333,7 @@ button {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 18% 72%;
+  grid-template-columns: 18% 75%;
   justify-content: center;
   text-align: left;
   gap: 40px;
@@ -347,6 +347,20 @@ button {
   margin-right: auto;
   margin-bottom: 20px;
 }
+#about a:link {color: #F8F8F8;}
+#about a:visited {color: #F8F8F8;}
+#about a:hover {color: #7BE4FF;}
+#about a:active {color: #7BE4FF;}
+#about a {
+  text-align: left;
+  color: #F8F8F8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  line-height: 20px;
+  color: white;
+}
 #about p {
   text-align: left;
   color: white;
@@ -355,6 +369,13 @@ button {
   font-weight: 300;
   letter-spacing: 0px;
   line-height: 20px;
+  color: white;
+}
+#workdays {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
   color: white;
 }
 #adamzhengimg {
@@ -376,4 +397,11 @@ button {
   width: 12.2vw;
   height: 12.5vw;
   box-shadow: 20px 20px 20px black inset,-20px -20px 20px black inset;
+}
+.linkedinicon {
+  width: 1vmax;
+  height: 1vmax;
+  position: relative;
+  bottom: 1.5vmax;
+  left: 0.5vmax;
 }
