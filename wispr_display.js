@@ -189,8 +189,8 @@ psp.onclick = function(){
   pspON = !pspON
   if (pspON){
     //psp.style.borderLeftColor = "#1399FF";
-    document.getElementById("fov1").style.opacity = 0.3;
-    document.getElementById("fov2").style.opacity = 0.3;
+    document.getElementById("fov1").style.opacity = 0.5;
+    document.getElementById("fov2").style.opacity = 0.5;
   } else {
     //psp.style.borderLeftColor = "#FF7913";
     document.getElementById("fov1").style.opacity = 0;
