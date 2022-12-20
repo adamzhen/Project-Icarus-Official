@@ -13,74 +13,104 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     </head>
     <body style="background-color: black">
-      <section>
-        <div class="bg-animation">
-          <div id="stars"></div>
-          <div id="stars2"></div>
-          <div id="stars3"></div>
-          <div id="stars4"></div>
-        </div>
-      </section>
-      <!--Actual Content-->
-      <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-      <section style="position: absolute;">
-        <div id='title'>
-          <h1>ABOUT US</h1>
-        </div>
-        <div id="about" class="grid-container">
-          <div style="width:12vmax; height:12vmax;">
-            <img src="public/adamzhengimgBW.png" alt="Profile Pic: Adam Zheng" id="adamzhengimg" onclick="changeColor(0)">
-            <a href="https://www.linkedin.com/in/adam-zheng/" target="_blank"><img src="public/linkedinicon.png" alt="LinkedIn" class="linkedinicon"></a>
-            <!--p class="imgoverlay"></p-->
+      <div>
+        <section>
+          <div class="bg-animation">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            <div id="stars4"></div>
           </div>
-          <div id="text1">
-            <py-script>
-              from datetime import datetime
-              start = datetime(2022, 10, 3)
-              today = datetime.now()
-              pyscript.write('workdays', f"{(today - start).days} days")
-            </py-script>  
-            <p>Howdy, I'm <b><font color="#4cdbff"><b>Adam Zheng</b></font></b>, a freshman at Texas A&M planning to major in aerospace engineering. As someone who aspires to one day be at the cutting edge of space exploration, this project has taught me how much more we have to learn about our very own sun, not to mention the unimaginably vast domain of interstellar space. But of course, this was also a great learning experience in terms of building my first website. You see, during the 2022 NASA Space Apps Challenge (October 1-2), Warren Wu and I tackled a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details" target="_blank">Creative Data Display With the Parker Solar Probe</a>," for which we created this website. With Warren's help, I was able to quickly get the hang of using HTML & CSS. However, despite our best efforts, the website ultimately proved to be too ambitious to complete in two days. So for the past <label id="workdays"></label>, I've been working on my own to bring the original vision for Project Icarus to fruition. </p>
+        </section>
+        <!--Actual Content-->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <section style="position: absolute;">
+          <div id='title'>
+            <h1 id="aboutus">ABOUT US</h1>
           </div>
-          <div style="width:12vmax; height:12vmax;">
-            <img src="public/warrenwuimgBW.png" alt="Profile Pic: Warren Wu" id="warrenwuimg" onclick="changeColor(1)">
-          </div>
-          <div id="text2">
-            <p>Howdy, I'm <b><font color="#4cdbff"><b>Warren Wu</b></font></b>, a freshman at Texas A&M planning to major in computer science. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <script>
-            var colored = false;
-            var imgs = ["adamzhengimg", "warrenwuimg"];
-            function changeColor(n){ // Toggles profile pictures from black/white to colored
-              colored = !colored;
-              if (colored){
-                document.getElementById(imgs[n]).src = "public/" + imgs[n] + ".png";
-              } else {
-                document.getElementById(imgs[n]).src = "public/" + imgs[n] + "BW.png";
+          <div id="about" class="grid-container">
+            <section style="margin-left:auto; margin-right:auto;">
+              <div class="imagediv">
+                <img src="public/adamzhengimgBW.png" alt="Profile Pic: Adam Zheng" id="adamzhengimg" class="profileimg" onclick="changeColor(0)">
+                <a href="https://www.linkedin.com/in/adam-zheng/" target="_blank"><img src="public/linkedinicon.png" alt="LinkedIn" class="linkedinicon"></a>
+                <!--p class="imgoverlay"></p-->
+              </div>
+            </section>
+            <div id="text1">
+              <py-script>
+                from datetime import datetime
+                start = datetime(2022, 10, 3)
+                today = datetime.now()
+                pyscript.write('workdays', f"{(today - start).days} days")
+              </py-script>  
+              <p>Howdy, I'm <b><font color="#4cdbff"><b>Adam Zheng</b></font></b>, a freshman at Texas A&M planning to major in aerospace engineering. As someone who aspires to one day be at the cutting edge of space exploration, this project has taught me how much more we have to learn about our very own sun, not to mention the unimaginably vast domain of interstellar space. But of course, this was also a great learning experience in terms of building my first website. You see, during the 2022 NASA Space Apps Challenge (October 1-2), Warren Wu and I tackled a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details" target="_blank">Creative Data Display With the Parker Solar Probe</a>," for which we created this website. With Warren's help, I was able to quickly get the hang of using HTML & CSS. However, despite our best efforts, the website ultimately proved to be too ambitious to complete in two days. So for the past <label id="workdays"></label>, I've been working on my own to bring the original vision for Project Icarus to fruition. </p>
+            </div>
+            <section style="margin-left:auto; margin-right:auto;">
+              <div class="imagediv">
+                <img src="public/warrenwuimgBW.png" alt="Profile Pic: Warren Wu" id="warrenwuimg" class="profileimg" onclick="changeColor(1)">
+              </div>
+            </section>
+            <div id="text2">
+              <p>Howdy, I'm <b><font color="#4cdbff"><b>Warren Wu</b></font></b>, a freshman at Texas A&M planning to major in computer science. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <script>
+              var colored = false;
+              var imgs = ["adamzhengimg", "warrenwuimg"];
+              function changeColor(n){ // Toggles profile pictures from black/white to colored
+                colored = !colored;
+                if (colored){
+                  document.getElementById(imgs[n]).src = "public/" + imgs[n] + ".png";
+                } else {
+                  document.getElementById(imgs[n]).src = "public/" + imgs[n] + "BW.png";
+                }
               }
-            }
-          </script>       
-        </div>
-      </section>
-
-      <nav class="navbar">
-        <div class="navbar-container container">
-          <input type="checkbox" name="" id="" />
-          <div class="hamburger-lines">
-            <span class="line line1"></span>
-            <span class="line line2"></span>
-            <span class="line line3"></span>
+            </script>       
           </div>
-          <ul class="menu-items">
-            <li><a href="./index.html#home">Home</a></li>
-            <li><a href="./index.html#thesun">The Sun</a></li>
-            <li><a href="./index.html#psp">Parker Solar Probe</a></li>
-            <li><a href="./index.html#corona">Corona</a></li>
-            <li><a href="./index.html#wispr">WISPR</a></li>
-            <li><a href="./index.html#sweap">SWEAP</a></li>
-            <li><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank" style="font-family:Lucida Console,Courier New,monospace; font-weight:200; font-size:10px; letter-spacing:4px; padding-top:15px; opacity:0.8;">SOURCE CODE</a></li>
-          </ul>
-        </div>
-      </nav>
+        </section>
+      </div>
+
+      <div>
+        <nav class="navbar">
+          <div class="navbar-container container">
+            <input type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+              <li><a href="./index.html#home">Home</a></li>
+              <li><a href="./index.html#thesun">The Sun</a></li>
+              <li><a href="./index.html#psp">Parker Solar Probe</a></li>
+              <li><a href="./index.html#corona">Corona</a></li>
+              <li><a href="./index.html#wispr">WISPR</a></li>
+              <li><a href="./index.html#sweap">SWEAP</a></li>
+              <li><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank" style="font-family:Lucida Console,Courier New,monospace; font-weight:200; font-size:10px; letter-spacing:4px; padding-top:15px; opacity:0.8;">SOURCE CODE</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </body>
+
+    <script>
+      function resizeDisplay2(){
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        if (w <= 1000){
+          document.getElementById("about").style.gridTemplateColumns = "100%";
+          document.getElementById("about").style.textAlign = "left";
+          document.getElementById("about").style.setProperty("--vw", (w * 0.3 / 12) + "px");
+          document.getElementById("adamzhengimg").style.marginLeft = "auto";
+          document.getElementById("adamzhengimg").style.marginRight = "auto";
+          document.querySelectorAll("profileimg").forEach((el) => el.style.marginLeft = "auto");
+          document.querySelectorAll("profileimg").forEach((el) => el.style.marginRight = "auto");
+        } else {
+          document.getElementById("about").style.gridTemplateColumns = "16% 75%";
+          document.getElementById("about").style.setProperty("--vw", (w / 100) + "px");
+          document.getElementById("about").style.textAlign = "center";
+        }
+      }
+      resizeDisplay2();
+      window.addEventListener("resize", resizeDisplay2);
+    </script>
 </html>

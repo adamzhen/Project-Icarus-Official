@@ -161,6 +161,7 @@ body {
 
 .html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 .navbar input[type="checkbox"],
@@ -169,7 +170,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 200px;
   width: 90%;
   left: 20px;
 }
@@ -179,6 +180,7 @@ body {
   width: 100%;
   background: transparent;
   color: #fff;
+  z-index: 4;
 }
 
 .navbar-container {
@@ -203,7 +205,6 @@ button {
 }
 
 .navbar a {
-  z-index: 6;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -222,7 +223,7 @@ button {
 
   .navbar-container {
     display: block;
-    position: relative;
+    position: absolute;
     height: 64px;
   }
 
@@ -233,14 +234,12 @@ button {
     width: 30px;
     top: 20px;
     left: 0px;
-    z-index: 6;
+    z-index: 9;
     opacity: 0;
-
     cursor: pointer;
   }
 
   .navbar-container .hamburger-lines {
-    display: block;
     height: 23px;
     width: 30px;
     position: absolute;
@@ -295,7 +294,7 @@ button {
 
   .navbar .menu-items a {
     margin-bottom: 1.8rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: 1rem;
     font-weight: 500;
   }
@@ -316,33 +315,38 @@ button {
     transform: rotate(-45deg);
   }
 }
+
 #title {
   margin-bottom: 50px;
 }
 #title h1 {
   position: relative;
   color: white;
-  padding-top: 70px;
+  padding-top: 75px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 65px;
-  font-weight: 300;
-  letter-spacing: 12px;
+  font-size: 75px;
+  font-weight: 800;
+  letter-spacing: 8px;
+  line-height: 80px;
   text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
   color: #4cdbff;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 18% 75%;
   justify-content: center;
-  text-align: left;
-  gap: 40px;
+  gap: 30px;
   background-color: transparent;
   padding: 10px;
 }
 #about {
+  --vw: 1vw;
+  grid-template-columns: 16% 75%;
   margin-top: 0px;
-  width: 67%;
+  width: 75%;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -378,30 +382,19 @@ button {
   font-weight: 300;
   color: white;
 }
-#adamzhengimg {
-  border: solid rgb(227, 227, 227) 3px;
-  width: 12vmax;
-  height: 12vmax;
+.imgdiv {
+  width: calc(var(--vw)*12);
+  height: calc(var(--vw)*12);
 }
-#warrenwuimg {
-  border: solid rgb(227, 227, 227) 3px;
-  width: 12vmax;
-  height: 12vmax;
-}
-.imgoverlay {
-  position: relative;
-  bottom: 12.3vw;
-  right: 0.1vw;
-  margin-left: auto;
-  margin-right: auto;
-  width: 12.2vw;
-  height: 12.5vw;
-  box-shadow: 20px 20px 20px black inset,-20px -20px 20px black inset;
+.profileimg {
+  border: solid rgb(227, 227, 227) 0.2vw;
+  width: calc(var(--vw)*12);
+  height: calc(var(--vw)*12);
 }
 .linkedinicon {
-  width: 1vmax;
-  height: 1vmax;
+  width: calc(var(--vw));
+  height: calc(var(--vw));
   position: relative;
-  bottom: 1.5vmax;
-  left: 0.5vmax;
+  bottom: calc(var(--vw)*1.5);
+  left: calc(var(--vw)*0.5);
 }
