@@ -32,7 +32,7 @@
             <section style="margin-left:auto; margin-right:auto;">
               <div class="imagediv">
                 <img src="public/adamzhengimgBW.png" alt="Profile Pic: Adam Zheng" id="adamzhengimg" class="profileimg" onclick="changeColor(0)">
-                <a href="https://www.linkedin.com/in/adam-zheng/" target="_blank"><img src="public/linkedinicon.png" alt="LinkedIn" class="linkedinicon"></a>
+                <a href="https://www.linkedin.com/in/adam-zheng/" target="_blank"><img src="public/linkedinicon.png" alt="LinkedIn" class="icon"></a>
                 <!--p class="imgoverlay"></p-->
               </div>
             </section>
@@ -48,10 +48,11 @@
             <section style="margin-left:auto; margin-right:auto;">
               <div class="imagediv">
                 <img src="public/warrenwuimgBW.png" alt="Profile Pic: Warren Wu" id="warrenwuimg" class="profileimg" onclick="changeColor(1)">
+                <a href="https://github.com/WarrenWu4" target="_blank"><img src="public/github-mark-white.png" alt="GitHub" class="icon"></a>
               </div>
             </section>
             <div id="text2">
-              <p>Howdy, I'm <b><font color="#4cdbff"><b>Warren Wu</b></font></b>, a freshman at Texas A&M planning to major in computer science. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Howdy, I'm <b><font color="#4cdbff"><b>Warren Wu</b></font></b>, a freshman at Texas A&M planning to major in computer science. Working on this project taught me a lot, not just about the web developing experience, but also about space exploration and astronomy in general. The web development itself was a challenge as we wanted to have many different functionalities, with certain components that required tools outside my expertise. The 3D interactive model of the Parker Solar Probe was such an example where I had to use Three.JS, which was a new javascript framework that I ended up learning specifically for the purpose of integrating this interactive model into our website.</p>
             </div>
             <script>
               var colored = false;
@@ -105,7 +106,7 @@
           document.querySelectorAll("profileimg").forEach((el) => el.style.marginLeft = "auto");
           document.querySelectorAll("profileimg").forEach((el) => el.style.marginRight = "auto");
         } else {
-          document.getElementById("about").style.gridTemplateColumns = "16% 75%";
+          document.getElementById("about").style.gridTemplateColumns = "16% 79%";
           document.getElementById("about").style.setProperty("--vw", (w / 100) + "px");
           document.getElementById("about").style.textAlign = "center";
         }
