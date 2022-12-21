@@ -240,11 +240,11 @@ button {
   }
 
   .navbar-container .hamburger-lines {
-    height: 23px;
-    width: 30px;
+    height: 18px;
+    width: 23.5px;
     position: absolute;
     top: 20px;
-    left: 0px;
+    left: -2px;
     z-index: 5;
     display: flex;
     flex-direction: column;
@@ -254,9 +254,9 @@ button {
 
   .navbar-container .hamburger-lines .line {
     display: block;
-    height: 4px;
+    height: 2px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     background: #f8860d;
   }
 
@@ -275,32 +275,35 @@ button {
   }
 
   .navbar .menu-items {
-    padding-top: 90px;
-    background: rgba(0, 0, 0, 0.55);
-    opacity: 1;
-    border-right: solid;
-    border-width: 1px;
-    border-color: #f8860d;
-    height: 100vh;
-    max-width: 240px;
-    transform: translate(-150%);
+    padding-top: 80px;
+    background: rgba(0, 0, 0, 1);
+    opacity: 0;
+    filter: blur(2px);
+    border-right: solid 2px #f8860d;
+    border-bottom: solid 4px #f8860d;
+    border-radius: 30px;
+    height: 500px;
+    max-width: 200px;
+    transform: translateX(-250px) translateY(-250px);
     display: flex;
     flex-direction: column;
     margin-left: -50px;
     padding-left: 35px;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     overflow: hidden;
   }
 
   .navbar .menu-items a {
-    margin-bottom: 1.8rem;
+    margin-bottom: 28px;
     font-family: 'Montserrat';
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .navbar-container input[type="checkbox"]:checked ~ .menu-items {
-    transform: translateX(0);
+    transform: translateX(0) translateY(-2px);
+    opacity: 1;
+    filter: blur(0);
   }
 
   .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
