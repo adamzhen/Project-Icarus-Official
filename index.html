@@ -20,8 +20,9 @@
       <script>
         function changesize(){
           if (window.scrollY < window.innerHeight){
+            var h = document.getElementById("logo").style.getPropertyValue("--h");
             document.getElementById("logo").style.width = (80 - window.scrollY / window.innerHeight * 30) + "vw";
-            document.getElementById("logo").style.height = (40 - window.scrollY / window.innerHeight * 15) + "vw";
+            document.getElementById("logo").style.height = (h/vw - window.scrollY / window.innerHeight * 15) + "vw";
             document.getElementById("logo").style.opacity = (1 - window.scrollY / window.innerHeight);
             document.getElementById("scrollbutton").style.opacity = (1 - window.scrollY / window.innerHeight * 2);
           }
@@ -29,7 +30,6 @@
         window.addEventListener("scroll", changesize);
         changesize();
       </script>
-      <p id="scrolltest" style="display:none; color:white; position:fixed; z-index:5; font-size:30px;">thing</p>
       <nav class="navbar">
         <div class="navbar-container container">
           <input type="checkbox" name="" id="" />
@@ -53,10 +53,12 @@
     </div>
 
     <!--Scroll Down Button-->
-    <div class="scroll-down" id="scrollbutton" onclick="scrolltosun()"></div>
-    <script>
-      function scrolltosun(){ document.getElementById("sun").scrollIntoView({behavior: "smooth", block: "center"}); }
-    </script>
+    <section id="scrollbuttonsection">
+      <div class="scroll-down" id="scrollbutton" onclick="scrolltosun()"></div>
+      <script>
+        function scrolltosun(){ document.getElementById("sun").scrollIntoView({behavior: "smooth", block: "center"}); }
+      </script>
+    </section>
 
     <!--hr id="sunline"-->
     <!--Sun :D-->
@@ -67,7 +69,7 @@
       <h3 class="suntext" ><em>ever wondered what it'd be like to touch it?</em></h3>
       <h4 class="suntext" >(plz don't click this image)</h4>
       <p id="sunsource"><a href="https://sdo.gsfc.nasa.gov/data/" target="_blank">Source<sup>1</sup></a></p>
-      <img src="public/circle.png" id="thesun" style="position:absolute; top:24%; width:1px; height:1px;">
+      <img src="public/circle.png" id="thesun" style="position:absolute; top:25%; width:1px; height:1px;">
       <script>
         var imgnames = ['0304', '0193', '0131', '0094', '0211'];
         var i = 1;
@@ -152,7 +154,7 @@
         <h2><em>soooooooooooo. . .</em></h2>
         <h1>How do you touch the sun?</h1>
       </section>
-      <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:#ffe7d7; height:1px; border-style:none;">
+      <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:#ffa564; height:1px; border-style:none;">
       <section class="hidden">
         <p>Well, your best bet is probably to reach the <b>corona.</b></p>
         <h8 id="hinthint"><em>(that might be a word you've heard of somewhere)</em></h8>

@@ -54693,3 +54693,4 @@ outerURL = png_url(orbit, "outer");
 document.getElementById("innerimg").src = innerURL + innerPNGs[0]; //CHANGE
 document.getElementById("outerimg").src = outerURL + outerPNGs[0]; //CHANGE
 update_data();
+
