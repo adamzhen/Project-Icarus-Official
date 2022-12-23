@@ -41,10 +41,10 @@
           <ul class="menu-items">
             <li><a href="#home">Home</a></li>  
             <li><a href="#thesun">The Sun</a></li>
-            <li><a href="#psp">The PSP</a></li>
+            <li><a href="#thepsp">The PSP</a></li>
             <li><a href="#corona">Corona</a></li>
-            <li><a href="#wispr">WISPR</a></li>
-            <li><a href="#sweap">SWEAP</a></li>
+            <li><a href="#thewispr">WISPR</a></li>
+            <li><a href="#thesweap">SWEAP</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank" style="font-family:Lucida Console,Courier New,monospace; font-weight:200; font-size:9px; letter-spacing:3px; padding-top:15px; opacity:0.8;">SOURCE CODE</a></li>
           </ul>
@@ -124,7 +124,7 @@
     </section>
 
     <!--3D Interactive Model-->
-    <div class="modelcontainer" id="psp">
+    <div class="modelcontainer" id="thepsp">
       <section id="pspsection">
         <div>
           <h2 class="hidden">ㅤINTRODUCING THE</h2>
@@ -168,7 +168,7 @@
       <section class="hidden">
         <h8 id="waithowbig">Wait, so <em>how big</em> is the corona?</h8>
       </section>
-      <section class="hidden0">
+      <section class="hidden0" id="elfvansection">
         <div id="elfvandisplay">
           <img src="public/ElfVanBackground.png" alt="sun" id="elfsun">
           <h5 id="coronalabel"><span><em>ㅤcoronaㅤ</em></span></h5>
@@ -218,20 +218,20 @@
       </div>
     </div>
 
-    <!--WISPR-->
+    <!--Instruments-->
     <div id="wisprtext">
       <section class="hidden2">
         <h2><em>soooooooooooo. . .</em></h2>
         <h1>What instruments does the Parker Solar Probe have?</h1>
-        <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:#ffe7d7; height:1px; border-style:none;">
+        <hr style="width:2%; margin-bottom:35px; margin-top:35px; position:relative; left:49%; background:#fff0d7; height:1px; border-style:none;">
       </section>
       <section class="hidden2">
         <p style="margin-bottom: 5px;">Well, there are <b>4 main instruments.</b></p>
         <ol id="instrumlist">
-          <li>1. WISPR</li>
-          <li>2. SWEAP</li>
-          <li>3. FIELDS</li>
-          <li>4. IS☉IS</li>
+          <li>WISPR</li>
+          <li>SWEAP</li>
+          <li>FIELDS</li>
+          <li>IS☉IS</li>
         </ol>  
         <br>
         <a href="https://www.nasa.gov/content/goddard/parker-solar-probe-instruments" target="_blank"><img src="public/PSPinstruments2.png" alt="PSP Instruments Diagram" id="PSPinstruments"></a>
@@ -239,103 +239,109 @@
         <p style="margin-top: 10px;">ok ok, let's take this one at a time...</b></p>
       </section>
     </div>
+
+    <!--WISPR-->
     <div id="wispr">
       <!--h8 id='warning' style="color:white; font-size:15px; margin-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8-->
-      <section class="hidden">
-        <h8 style="position:relative; top:10px; color:white; font-size:15px; font-family:Times New Roman;">exhibit 1:</h8>
-      </section>
       <section class="hidden2">
-        <h1 style="margin-top:15px;" id="wisprtitle"><em>THE WISPR</em></h1>
-        <h8 style="position:relative; bottom:25px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing:5px;"><em>Wide-field Imager for Solar PRobe (aka cameras)</em></h8>
-        <div id="camera">
-          <!--h1><em>- camera -</em></h1-->
-          <div id="camimg"></div>
-        </div>
+        <h8 id="exhibit1" class="exhibitnum">exhibit 1:</h8>
       </section>
-      <section class="hidden2">
-        <button id = 'playbutton' class='button' onclick="playclick()"></button>
-        <section id="speedsection">
-          <div id="speedbuttons">
-            <p id="speeddisplay">8 FPS</p>
-            <button id = 'fasterbutton1' class='fasterbutton' onclick="playfaster(1)"></button>
-            <button id = 'fasterbutton2' class='fasterbutton' onclick="playfaster(5)"></button>
-            <button id = 'slowerbutton1' class='slowerbutton' onclick="playslower(1)"></button>
-            <button id = 'slowerbutton2' class='slowerbutton' onclick="playslower(5)"></button>
+      <div id="thewispr">
+        <section class="hidden2">
+          <h1 style="margin-top:15px;" id="wisprtitle"><em>THE WISPR</em></h1>
+          <h8 style="position:relative; bottom:25px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing:5px;"><em>Wide-field Imager for Solar PRobe (aka cameras)</em></h8>
+          <div id="camera">
+            <!--h1><em>- camera -</em></h1-->
+            <div id="camimg"></div>
           </div>
         </section>
-        <div class="slidecontainer" id="theslider">
-          <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
+        <section class="hidden2">
+          <button id = 'playbutton' class='button' onclick="playclick()"></button>
+          <section id="speedsection">
+            <div id="speedbuttons">
+              <p id="speeddisplay">8 FPS</p>
+              <button id = 'fasterbutton1' class='fasterbutton' onclick="playfaster(1)"></button>
+              <button id = 'fasterbutton2' class='fasterbutton' onclick="playfaster(5)"></button>
+              <button id = 'slowerbutton1' class='slowerbutton' onclick="playslower(1)"></button>
+              <button id = 'slowerbutton2' class='slowerbutton' onclick="playslower(5)"></button>
+            </div>
+          </section>
+          <div class="slidecontainer" id="theslider">
+            <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
+            <script src="wispr_display.js"></script>
+          </div>
+        </section>
+        <div id="wisprdisplay">
+          <section class="hiddenInner">
+            <div class="innerdiv">
+              <h3 id="innerlabel">Inner Camera</h3>
+              <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+            </div>
+          </section>
+          <section class="hiddenOuter">
+            <div class="outerdiv">
+              <h3 id="outerlabel">Outer Camera</h3>
+              <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+            </div>
+          </section>
+          <section class="hidden2">
+            <div id = "positiondisplay">
+              <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
+              <div id="datecontainer"><h2 id="datetxt">11/01/2018</h2></div>
+              <div id="psploc">
+                <div id="fov1"></div>
+                <div id="fov2"></div>
+                <div class="triangle" id="psptriangle"></div>
+              </div>
+              <div class="sunicon"></div>
+              <h3 id="disttxt">Distance</h3>
+              <h3 id="AUinfo"><em>1 AU = average distance from Earth to Sun</em></h3>
+              <h3 id="wisprsource"><a href="https://wispr.nrl.navy.mil/wisprdata" target="_blank">Source<sup>3</sup></a></h3>
+              <form>
+                <select name="orbit" id="orbit_num" class="selector">
+                  <option value="1">Orbit 1</option>
+                  <option value="2">Orbit 2</option>
+                  <option value="3">Orbit 3</option>
+                  <option value="4">Orbit 4</option>
+                  <option value="5">Orbit 5</option>
+                  <option value="6">Orbit 6</option>
+                  <option value="7">Orbit 7</option>
+                  <option value="8">Orbit 8</option>
+                  <option value="9">Orbit 9</option>
+                  <option value="10">Orbit 10</option>
+                  <option value="11">Orbit 11</option>
+                  <option value="12">Orbit 12</option>
+                </select>
+                <br>
+              </form>
+            </div>
+          </section>
           <script src="wispr_display.js"></script>
         </div>
-      </section>
-      <div id="wisprdisplay">
-        <section class="hiddenInner">
-          <div class="innerdiv">
-            <h3 id="innerlabel">Inner Camera</h3>
-            <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
-          </div>
-        </section>
-        <section class="hiddenOuter">
-          <div class="outerdiv">
-            <h3 id="outerlabel">Outer Camera</h3>
-            <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
-          </div>
-        </section>
-        <section class="hidden2">
-          <div id = "positiondisplay">
-            <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
-            <div id="datecontainer"><h2 id="datetxt">11/01/2018</h2></div>
-            <div id="psploc">
-              <div id="fov1"></div>
-              <div id="fov2"></div>
-              <div class="triangle" id="psptriangle"></div>
-            </div>
-            <div class="sunicon"></div>
-            <h3 id="disttxt">Distance</h3>
-            <h3 id="AUinfo"><em>1 AU = average distance from Earth to Sun</em></h3>
-            <h3 id="wisprsource"><a href="https://wispr.nrl.navy.mil/wisprdata" target="_blank">Source<sup>3</sup></a></h3>
-            <form>
-              <select name="orbit" id="orbit_num" class="selector">
-                <option value="1">Orbit 1</option>
-                <option value="2">Orbit 2</option>
-                <option value="3">Orbit 3</option>
-                <option value="4">Orbit 4</option>
-                <option value="5">Orbit 5</option>
-                <option value="6">Orbit 6</option>
-                <option value="7">Orbit 7</option>
-                <option value="8">Orbit 8</option>
-                <option value="9">Orbit 9</option>
-                <option value="10">Orbit 10</option>
-                <option value="11">Orbit 11</option>
-                <option value="12">Orbit 12</option>
-              </select>
-              <br>
-            </form>
-          </div>
-        </section>
-        <script src="wispr_display.js"></script>
-      </div>
-      <div id="wisprinfo">
-        <section class="hidden2">
-          <p>What the <b>WISPR</b> (Wide-field Imager for Solar PRobe) essentially does is it uses its <b>2 telescope cameras</b> to take <b>never-before-seen</b> images of the <b>corona and solar wind</b> that other instruments will later be measuring directly. And in case you were wondering, the reason why these cameras are inside a <b>wacky, shoebox-sized</b> contraption is so that each camera has a <b>protective door</b> to hide behind during launch.</p>
-          <br>
-          <p>Now, if you've ever pointed a camera at the sun, you'll know that it just blows out everything else because it's <b>so absurdly bright</b>. This is why the WISPR points at an angle <b>away from the sun</b> <em>(click the triangle probe icon above to see the field of view)</em>, just barely catching the corona on thr left edge of the inner camera. And interestingly, the <b>heat shield</b> serves not only to shelter the WISPR from a blistering heat death, but also to <b>block</b> most of the sun's light, allowing the WISPR to effectively capture the <b>much fainter corona.</b></p>
-        </section>
+        <div id="wisprinfo">
+          <section class="hidden2">
+            <p>What the <b>WISPR</b> (Wide-field Imager for Solar PRobe) essentially does is it uses its <b>2 telescope cameras</b> to take <b>never-before-seen</b> images of the <b>corona and solar wind</b> that other instruments will later be measuring directly. And in case you were wondering, the reason why these cameras are inside a <b>wacky, shoebox-sized</b> contraption is so that each camera has a <b>protective door</b> to hide behind during launch.</p>
+            <br>
+            <p>Now, if you've ever pointed a camera at the sun, you'll know that it just blows out everything else because it's <b>so absurdly bright</b>. This is why the WISPR points at an angle <b>away from the sun</b> <em>(click the triangle probe icon above to see the field of view)</em>, just barely catching the corona on thr left edge of the inner camera. And interestingly, the <b>heat shield</b> serves not only to shelter the WISPR from a blistering heat death, but also to <b>block</b> most of the sun's light, allowing the WISPR to effectively capture the <b>much fainter corona.</b></p>
+          </section>
+        </div>
       </div>
     </div>
 
     <div id="sweap">
-      <section class="hidden">
-        <h8 style="position:relative; top:10px; color:white; font-size:15px; font-family:Times New Roman;">exhibit 2:</h8>
-      </section>
       <section class="hidden2">
-        <h1 style="margin-top:15px;" id="sweaptitle"><em>THE SWEAP</em></h1>
-        <h8 style="position:relative; bottom:25px; color:rgb(217, 54, 0); font-size:14px; letter-spacing:5px;"><em>Solar Wind Electrons Alphas and Protons investigation</em></h8>
-        <div id="sweapinstruments">
-          <div id="sweapinstrumentsimg"></div>
-        </div>
+        <h8 id="exhibit2" class="exhibitnum">exhibit 2:</h8>
       </section>
-      <h8 id='warning' style="color:white; font-size:15px; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
+      <div id="thesweap">
+        <section class="hidden2">
+          <h1 style="margin-top:15px;" id="sweaptitle"><em>THE SWEAP</em></h1>
+          <h8 style="position:relative; bottom:25px; color:rgb(217, 54, 0); font-size:14px; letter-spacing:5px;"><em>Solar Wind Electrons Alphas and Protons investigation</em></h8>
+          <div id="sweapinstruments">
+            <div id="sweapinstrumentsimg"></div>
+          </div>
+        </section>
+        <h8 id='warning' style="color:white; font-size:15px; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
+      </div>
     </div>
 
     <div id="acknowledgments">

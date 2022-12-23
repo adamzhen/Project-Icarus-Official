@@ -602,15 +602,15 @@ a:active { text-decoration: underline; }
 .modelcontainer a:hover {color: #ff9421;}
 .modelcontainer a:active {color: #ff9421;}
 .modelcontainer {
-  width: 100%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 4px #F86800;
+  border-radius: 5vw;
   background-color: #ebebeb;
   justify-content: center;
   padding-top: 1px;
-  border-top: solid;
-  border-bottom: solid;
-  border-width: 4px;
-  border-color: #F86800;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
 .modelcontainer h1 {
@@ -679,8 +679,8 @@ a:active { text-decoration: underline; }
   line-height: 15px;
   padding-top: 50px;
   padding-bottom: 50px;
-  padding-left: 17%;
-  padding-right: 17%;
+  padding-left: 14%;
+  padding-right: 14%;
 }
 
 canvas {
@@ -702,13 +702,18 @@ canvas {
   border-left: 3px solid #F86800;
 }
 #corona {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  border-left: dashed 2px #F86800;
+  border-right: dashed 2px #F86800;
   position: relative;
   color: #ff6a00;
   padding-top: 100px;
   text-align: center;
   justify-content: center;
-  width: 100%;
-  display: block; 
 }
 #corona h1 {
   font-family: 'Montserrat', sans-serif;
@@ -717,6 +722,8 @@ canvas {
   letter-spacing: 0px;
   padding-top: 2px;
   line-height: 40pt;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #corona h2 {
   color:#ff9950;
@@ -772,6 +779,8 @@ canvas {
   position: relative;
   z-index: 2;
   margin-top: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
   bottom: 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
@@ -807,7 +816,7 @@ canvas {
   bottom: 68px;
   left: 192px;
   z-index: 3;
-  color: #ffe7d7;
+  color: #ff6a00;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -822,7 +831,7 @@ canvas {
   left: 162px;
   z-index: 3; 
   transform: rotate(45deg);
-  background:#ffe7d7; 
+  background:#ff6a00; 
   height: 1px; 
   border-style:none;
 }
@@ -863,7 +872,7 @@ canvas {
 }
 #alfventext {
   display: block;
-  width: 43%;
+  width: 55%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -937,12 +946,18 @@ canvas {
 }
 
 #wisprtext {
-  margin-top: 200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #000217;
+  border: solid 4px white;
+  border-radius: 5vw;
+  padding-top: 50px;
   text-align: center;
-  margin-bottom: 180px;
+  padding-bottom: 50px;
 }
 #wisprtext h1 {
-  color:  #ffffff;
+  color:  white;
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -952,7 +967,7 @@ canvas {
   margin-right: 20px;
 }
 #wisprtext h2 {
-  color: #ead3c4; 
+  color: #fff0d7; 
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -960,7 +975,16 @@ canvas {
   margin-bottom: 10px;
 }
 #wisprtext p {
-  color:  #ffe7d7;
+  color:  #fff0d7;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+#istrumlist li {
+  text-align: center;
+  color:  #fff0d7;
   z-index: 2;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
@@ -968,32 +992,54 @@ canvas {
   letter-spacing: 0px;
 }
 #instrumlist {
-  color: #ffe7d7;
+  display: inline-block;
+  text-align: center;
+  color: #fff0d7;
 }
 #PSPinstruments {
   position: relative;
-  bottom: 10px;
+  margin-top: 15px;
   width: 300px;
   height: 200px;
-  border: 4px dashed #ffe7d7;
+  border: 4px dashed #fff0d7;
 }
 #waitwuthuh{
-  color: #ffe7d7;
+  color: #fff0d7;
   position: relative;
   z-index: 2;
   margin-top: 15px;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0px;
 }
 
+.exhibitnum {
+  z-index: 2;
+  width: 80%;
+  display: inline-block;
+  border-left: dashed 1px rgba(255, 255, 255, 0.7);
+  border-right: dashed 1px rgba(255, 255, 255, 0.7);
+  color: white; 
+  font-size: 1vw; 
+  font-family: Times New Roman;
+  font-weight: 300;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
 #wispr {
-  padding-top: 50px;
   text-align: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 150px;
+}
+#thewispr {
+  background-color: black;
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 4px #5bacf3;
+  border-radius: 5vw;
 }
 #wispr h1{
   position: relative;
@@ -1012,27 +1058,37 @@ canvas {
   right: 5px;
   width: 100%;
   height: 180px;
-  background-color: black;
+  background-color: transparent;
   justify-content: center;
   display: block;
   text-align: center;
   color: rgb(0, 147, 239);
 }
 #camimg {
+  position: relative;
+  display: inline-block;
   width: 100%;
+  z-index: 2;
   height: 180px;
   background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
   background-size: 359px 180px;
   background-position: center;
   background-repeat: no-repeat;
+  object-fit: contain;
 }
 #camimg:hover {
+  position: relative;
+  display: block;
   width: 100%;
+  z-index: 2;
+  margin-left: auto;
+  margin-right:auto;
   background-repeat:no-repeat;
   height: 180px;
   background-image: url("public/WISPR_Camera_ON_5.1.1.png");
   background-size: 359px 180px;
   background-position: center;
+  object-fit: contain;
 }
 .button {
   position: relative;
@@ -1195,7 +1251,7 @@ canvas {
 .innerdiv{
   position: relative;
   bottom: 150px;
-  left: 9%;
+  left: 7%;
   width: 250px;
   float: left;
 }
@@ -1220,7 +1276,7 @@ canvas {
 .outerdiv{
   position: relative;
   bottom: 150px;
-  right: 9%;
+  right: 7%;
   width: 250px;
   float: right;
 }
@@ -1405,7 +1461,7 @@ canvas {
   width: 50%; 
   margin-left: auto; 
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 #wisprinfo p {
   color: #5bacf3;
@@ -1417,11 +1473,21 @@ canvas {
 }
 
 #sweap {
-  padding-top: 50px;
   text-align: center;
   justify-content: center;
   width: 100%;
   margin-bottom: 150px;
+}
+#thesweap {
+  position: relative;
+  width: 90%;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border: solid 4px rgb(217, 54, 0);
+  border-radius: 5vw;
 }
 #sweap h1{
   position: relative;
@@ -1431,7 +1497,6 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-top: 80px;
   padding-bottom: 38px;
 }
 #sweapinstruments {
@@ -1440,7 +1505,7 @@ canvas {
   right: 5px;
   width: 100%;
   height: 180px;
-  background-color: black;
+  background-color: transparent;
   justify-content: center;
   display: block;
   text-align: center;

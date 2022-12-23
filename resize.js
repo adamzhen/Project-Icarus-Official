@@ -31,6 +31,11 @@ function resizeDisplay(){
     document.getElementById("cmecontainer").style.setProperty("--w", "360px");
     document.getElementById("carringtoncontainer").style.setProperty("--w", "330px");
   }
+  if (w <= 800){
+    document.getElementById("elfvansection").style.transform = "scale(" + w / 800 +")";
+  } else {
+    document.getElementById("elfvansection").style.transform = "scale(1)";
+  }
   // WISPR
   document.getElementById("fasterbutton1").style.left = (w/2 + 30) + "px";
   document.getElementById("fasterbutton2").style.left = (w/2 + 40) + "px";
