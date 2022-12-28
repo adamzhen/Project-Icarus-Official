@@ -37,14 +37,27 @@ function resizeDisplay(){
     document.getElementById("elfvansection").style.transform = "scale(1)";
   }
   // WISPR
-  document.getElementById("fasterbutton1").style.left = (w/2 + 30) + "px";
-  document.getElementById("fasterbutton2").style.left = (w/2 + 40) + "px";
-  document.getElementById("slowerbutton1").style.right = (w/2 + 30) + "px";
-  document.getElementById("slowerbutton2").style.right = (w/2 + 40) + "px";
-  if (w <= 1536){
-    document.getElementById("positiondisplay").style.transform = "scale(" + w / 1536 +")";
+  document.getElementById("wisprfasterbutton1").style.left = (w/2 + 10) + "px";
+  document.getElementById("wisprfasterbutton2").style.left = (w/2 + 20) + "px";
+  document.getElementById("wisprslowerbutton1").style.right = (w/2 + 10) + "px";
+  document.getElementById("wisprslowerbutton2").style.right = (w/2 + 20) + "px";
+  if (w <= 1450){
+    document.getElementById("innersection").style.transform = "scale(" + w / 1450 + ") translateX(" + (-(1450 - w) / 1450 * (270 + w*0.3)) + "px)";
+    document.getElementById("outersection").style.transform = "scale(" + w / 1450 + ") translateX(" + ((1450 - w) / 1450 * (270 + w*0.3)) + "px)";
+  } else {
+    document.getElementById("innersection").style.transform = "scale(1)";
+    document.getElementById("outersection").style.transform = "scale(1)";
+  }
+  if (w <= 900){
+    document.getElementById("positiondisplay").style.transform = "scale(" + w / 900 +")";
   } else {
     document.getElementById("positiondisplay").style.transform = "scale(1)";
+  }
+  // SWEAP
+  if (w <= 900){
+    document.getElementById("positiondisplay2").style.transform = "scale(" + w / 900 +")";
+  } else {
+    document.getElementById("positiondisplay2").style.transform = "scale(1)";
   }
 }
 

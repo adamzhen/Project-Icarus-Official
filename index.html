@@ -260,29 +260,32 @@
           <section id="speedsection">
             <div id="speedbuttons">
               <p id="speeddisplay">8 FPS</p>
-              <button id = 'fasterbutton1' class='fasterbutton' onclick="playfaster(1)"></button>
-              <button id = 'fasterbutton2' class='fasterbutton' onclick="playfaster(5)"></button>
-              <button id = 'slowerbutton1' class='slowerbutton' onclick="playslower(1)"></button>
-              <button id = 'slowerbutton2' class='slowerbutton' onclick="playslower(5)"></button>
+              <button id = 'wisprfasterbutton1' class='fasterbutton' onclick="playfaster(1)"></button>
+              <button id = 'wisprfasterbutton2' class='fasterbutton' onclick="playfaster(5)"></button>
+              <button id = 'wisprslowerbutton1' class='slowerbutton' onclick="playslower(1)"></button>
+              <button id = 'wisprslowerbutton2' class='slowerbutton' onclick="playslower(5)"></button>
             </div>
           </section>
           <div class="slidecontainer" id="theslider">
             <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr">
-            <script src="wispr_display.js"></script>
           </div>
         </section>
         <div id="wisprdisplay">
           <section class="hiddenInner">
-            <div class="innerdiv">
-              <h3 id="innerlabel">Inner Camera</h3>
-              <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
-            </div>
+            <section id="innersection">
+              <div class="innerdiv">
+                <h3 id="innerlabel">Inner Camera</h3>
+                <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+              </div>
+            </section>
           </section>
           <section class="hiddenOuter">
-            <div class="outerdiv">
-              <h3 id="outerlabel">Outer Camera</h3>
-              <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
-            </div>
+            <section id="outersection">
+              <div class="outerdiv">
+                <h3 id="outerlabel">Outer Camera</h3>
+                <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+              </div>
+            </section>
           </section>
           <section class="hidden2">
             <div id = "positiondisplay">
@@ -340,7 +343,61 @@
             <div id="sweapinstrumentsimg"></div>
           </div>
         </section>
-        <h8 id='warning' style="color:white; font-size:15px; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
+        
+        <section class="hidden2">
+          <button id = 'playbutton2' class='button' onclick="playclick2()"></button>
+          <section id="speedsection2">
+            <div id="speedbuttons2">
+              <p id="speeddisplay2">8 FPS</p>
+              <button id = 'sweapfasterbutton1' class='fasterbutton' onclick="playfaster2(1)"></button>
+              <button id = 'sweapfasterbutton2' class='fasterbutton' onclick="playfaster2(5)"></button>
+              <button id = 'sweapslowerbutton1' class='slowerbutton' onclick="playslower2(1)"></button>
+              <button id = 'sweapslowerbutton2' class='slowerbutton' onclick="playslower2(5)"></button>
+            </div>
+          </section>
+          <div class="slidecontainer" id="theslider2">
+            <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr2">
+          </div>
+        </section>
+        <div id="sweapdisplay">
+          <section class="hidden2">
+            <div id = "positiondisplay2">
+              <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot2">
+              <div id="datecontainer"><h2 id="datetxt2">11/01/2018</h2></div>
+              <div id="psploc2">
+                <div class="triangle2" id="psptriangle2"></div>
+              </div>
+              <div class="sunicon"></div>
+              <h3 id="disttxt2">Distance</h3>
+              <h3 id="AUinfo2"><em>1 AU = average distance from Earth to Sun</em></h3>
+              <h3 id="sweapsource"><a href="http://sweap.cfa.harvard.edu/Data.html" target="_blank">Source<sup>4</sup></a></h3>
+              <form>
+                <select name="orbit" id="orbit_num2" class="selector">
+                  <option value="1">Orbit 1</option>
+                  <option value="2">Orbit 2</option>
+                  <option value="3">Orbit 3</option>
+                  <option value="4">Orbit 4</option>
+                  <option value="5">Orbit 5</option>
+                  <option value="6">Orbit 6</option>
+                  <option value="7">Orbit 7</option>
+                  <option value="8">Orbit 8</option>
+                  <option value="9">Orbit 9</option>
+                  <option value="10">Orbit 10</option>
+                  <option value="11">Orbit 11</option>
+                  <option value="12">Orbit 12</option>
+                </select>
+                <br>
+              </form>
+          </section>
+          <script src="sweap_display.js"></script>
+        </div>
+        <div id="sweapinfo">
+          <section class="hidden2">
+            <h8 id='warning' style="color:white; font-size:15px; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <br>
+          </section>
+        </div>        
       </div>
     </div>
 
@@ -348,8 +405,9 @@
       <h1>Acknowledgements</h1>
       <hr id="bottomline">
       <p id="sdoacknowledgments"><sup><a href="#thesun">1</a></sup> <em>Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams.</em></p>
-      <p id="pspacknowledgments"><sup><a href="#psp">2</a></sup> <em>Parker Solar Probe was designed, built, and is now operated by the Johns Hopkins Applied Physics Laboratory as part of NASA’s Living with a Star (LWS) program (contract NNN06AA01C). Support from the LWS management and technical team has played a critical role in the success of the Parker Solar Probe mission.</em></p>
-      <p id="wispracknowledgments"><sup><a href="#wispr">3</a></sup> <em>The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology. <a href="https://ui.adsabs.harvard.edu/abs/2016SSRv..204...83V/abstract" target="_blank">Vourlidas, A. et al. (2016), The Wide-Field Imager for Solar Probe Plus (WISPR), Space Science Reviews, 204, 88–130, 10.1007/s11214-014-0114-y</a></em></p>
+      <p id="pspacknowledgments"><sup><a href="#thepsp">2</a></sup> <em>Parker Solar Probe was designed, built, and is now operated by the Johns Hopkins Applied Physics Laboratory as part of NASA’s Living with a Star (LWS) program (contract NNN06AA01C). Support from the LWS management and technical team has played a critical role in the success of the Parker Solar Probe mission.</em></p>
+      <p id="wispracknowledgments"><sup><a href="#thewispr">3</a></sup> <em>The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology. <a href="https://ui.adsabs.harvard.edu/abs/2016SSRv..204...83V/abstract" target="_blank">Vourlidas, A. et al. (2016), The Wide-Field Imager for Solar Probe Plus (WISPR), Space Science Reviews, 204, 88–130, 10.1007/s11214-014-0114-y</a></em></p>
+      <p id="sweapacknowledgments"><sup><a href="#thesweap">4</a></sup> <em>We acknowledge the NASA Parker Solar Probe Mission and the SWEAP team led by J. Kasper for use of data.</em></p>
     </div>
     <p id="github"><a href="https://github.com/adz888/Project-Icarus-Official" target="_blank">SEE SOURCE CODE ON GITHUB</a></p>
 

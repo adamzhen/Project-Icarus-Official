@@ -1,4 +1,4 @@
-// import { readFileSync, promises as fsPromises } from 'fs';
+// Controls all animation, interactivity, etc. for the WISPR section
 
 var selector = document.getElementById("orbit_num");
 var orbit = '1';
@@ -19,21 +19,6 @@ function png_url(orb, camera){ // Converts '2' to '02', '10' to '10', etc.
   }
 }
 
-// function syncReadFITS(filename) {
-//   const contents = readFileSync(filename, 'utf-8');
-//   const arr1 = contents.split(/\r?\n/);
-//   const arr2 = [];
-//   for (var i=0; i<arr1.length; i++){
-//     arr2.push(arr1[i].split(", "));
-//   }
-//   return arr2;
-// }
-
-// function syncReadPNGs(filename) {
-//   const contents = readFileSync(filename, 'utf-8');
-//   const arr = contents.split(/\r?\n/);
-//   return arr;
-// }
 function update_data(){ // updates the images, location, etc. every time the slider changes
   fits = fitsLists[orbit_ind][slider_val]; 
   var date = fits[0].substring(0,12);
@@ -131,20 +116,20 @@ function playclick(){
     slider.style.opacity = 0;
     stopplay = false;
     timer = setInterval(play_loop, 1000 / curr_speed);
-    document.getElementById("fasterbutton1").style.left = (window.innerWidth/2 + 30) + "px";
-    document.getElementById("fasterbutton2").style.left = (window.innerWidth/2 + 40) + "px";
-    document.getElementById("slowerbutton1").style.right = (window.innerWidth/2 + 30) + "px";
-    document.getElementById("slowerbutton2").style.right = (window.innerWidth/2 + 40) + "px";
+    document.getElementById("wisprfasterbutton1").style.left = (window.innerWidth/2 + 10) + "px";
+    document.getElementById("wisprfasterbutton2").style.left = (window.innerWidth/2 + 20) + "px";
+    document.getElementById("wisprslowerbutton1").style.right = (window.innerWidth/2 + 10) + "px";
+    document.getElementById("wisprslowerbutton2").style.right = (window.innerWidth/2 + 20) + "px";
     document.getElementById("speedsection").style.opacity = 1;
   } else{
     // document.getElementById("clicktoplay").innerHTML = "stopped";
     slider.style.opacity = 1;
     stopplay = true;
     clearInterval(timer);
-    document.getElementById("fasterbutton1").style.left = "50%";
-    document.getElementById("fasterbutton2").style.left = "50%";
-    document.getElementById("slowerbutton1").style.right = "50%";
-    document.getElementById("slowerbutton2").style.right = "50%";
+    document.getElementById("wisprfasterbutton1").style.left = "50%";
+    document.getElementById("wisprfasterbutton2").style.left = "50%";
+    document.getElementById("wisprslowerbutton1").style.right = "50%";
+    document.getElementById("wisprslowerbutton2").style.right = "50%";
     document.getElementById("speedsection").style.opacity = 0;
   }
 }
@@ -183,16 +168,15 @@ function playslower(n){
   }
 }
 
+// Shows/hides the PSP's FOV on click
 var psp = document.getElementById('psptriangle');
 var pspON = false; 
 psp.onclick = function(){
   pspON = !pspON
   if (pspON){
-    //psp.style.borderLeftColor = "#1399FF";
     document.getElementById("fov1").style.opacity = 0.5;
     document.getElementById("fov2").style.opacity = 0.5;
   } else {
-    //psp.style.borderLeftColor = "#FF7913";
     document.getElementById("fov1").style.opacity = 0;
     document.getElementById("fov2").style.opacity = 0;
   }

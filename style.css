@@ -1148,11 +1148,11 @@ canvas {
 .fasterbutton:hover {
   border-color: transparent transparent transparent rgb(255, 145, 42);
 }
-#fasterbutton1 {
+#wisprfasterbutton1 {
   left: 50%;
   bottom: -4px;
 }
-#fasterbutton2 {
+#wisprfasterbutton2 {
   left: 50%;
   bottom: -4px;
 }
@@ -1177,11 +1177,11 @@ canvas {
 .slowerbutton:hover {
   border-color: transparent transparent transparent rgb(255, 145, 42);
 }
-#slowerbutton1 {
+#wisprslowerbutton1 {
   right: 50%;
   bottom: -4px;
 }
-#slowerbutton2 {
+#wisprslowerbutton2 {
   right: 50%;
   bottom: -4px;
 }
@@ -1235,10 +1235,7 @@ canvas {
   background: rgb(255, 111, 0); 
   cursor: pointer; /* Cursor on hover */
 }
-#sliderplaceholder {
-  font-size: 1px;
-  margin-top: 30px;
-}
+
 #wisprdisplay{
   margin-bottom: 0px;
   justify-content: center;
@@ -1509,7 +1506,6 @@ canvas {
   justify-content: center;
   display: block;
   text-align: center;
-  color: rgb(0, 147, 239);
 }
 #sweapinstrumentsimg {
   width: 100%;
@@ -1526,6 +1522,148 @@ canvas {
   background-image: url("public/SWEAP_instruments_ON.jpg");
   background-size: 359px 180px;
   background-position: center;
+}
+
+#sweapdisplay{
+  margin-bottom: 0px;
+  justify-content: center;
+}
+#sweapdisplay a:link {color: rgb(173, 84, 0);}
+#sweapdisplay a:visited {color: rgb(173, 84, 0);}
+#sweapdisplay a:hover {color: rgb(255, 123, 0);}
+#sweapdisplay a:active {color: rgb(255, 123, 0);}
+#speedsection2 {
+  opacity: 0;
+  transition: 200ms all ease;
+}
+#speedbuttons2 {
+  background-color: white;
+  height: 0px;
+  justify-content: center;
+}
+#speeddisplay2 {
+  position: relative;
+  z-index: 6;
+  top: 12px;
+  color: rgb(255, 122, 0);
+}
+#sweapfasterbutton1 {
+  left: 50%;
+  bottom: -4px;
+}
+#sweapfasterbutton2 {
+  left: 50%;
+  bottom: -4px;
+}
+#sweapslowerbutton1 {
+  right: 50%;
+  bottom: -4px;
+}
+#sweapslowerbutton2 {
+  right: 50%;
+  bottom: -4px;
+}
+#locplot2{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 500px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px solid rgb(255, 122, 0);
+}
+#psploc2 {
+  position: relative;
+  z-index: 4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.triangle2 {
+  position: relative;
+  z-index: 4;
+  width: 0;
+	height: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 16px solid #FF7913;
+  transition: all 0.5s;
+}
+/* sun icon in wispr style */
+#positiondisplay2 {
+  position: relative;
+  transform: scale(1);
+}
+#positiondisplay2 h3 {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+#datecontainer2 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 0px;
+  height: 26px;
+}
+#datetxt2{
+  text-align: left;
+  z-index: 3;
+  position: relative;
+  bottom: 485px;
+  right: 232px;
+  color: rgb(255, 122, 0);
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+#disttxt2 {
+  font-size: 10px;
+  z-index: 3;
+  position: relative;
+  text-align: center;
+  left: 48px;
+  bottom: 306px;
+}
+#AUinfo2 {
+  font-size: 11px;
+  z-index: 3;
+  text-align: center;
+  position: relative;
+  right: 119px;
+  bottom: 87px;
+}
+#sweapsource {
+  font-size: 11px;
+  z-index: 3;
+  text-align: center;
+  position: relative;
+  left: 216px;
+  bottom: 105px;
+}
+
+#sweapinfo {
+  position: relative;
+  bottom: 80px;
+  width: 50%; 
+  margin-left: auto; 
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+#sweapinfo p {
+  color: rgb(255, 106, 56);
+  z-index: 5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
 }
 
 #acknowledgments a:link {color: rgb(173, 84, 0);}
@@ -1579,6 +1717,16 @@ canvas {
   margin-bottom: 10px;
 }
 #wispracknowledgments {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-bottom: 10px;
+}
+#sweapacknowledgments {
   color: rgb(173, 84, 0);
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
