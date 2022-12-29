@@ -10,7 +10,7 @@ function update_data2(){ // updates the images, location, etc. every time the sl
   document.getElementById("locplot2").src = "public/orbit_plot_" + orbit2 + ".png"; // updates image for position display
   document.getElementById("disttxt2").innerHTML = "Distance: " + dist.toString() + " AU";
   document.getElementById("datetxt2").innerHTML = fits[1];
-  var scale_factor = 193000000;
+  var scale_factor = 192000000;
   var x = fitsLists[orbit_ind2][slider_val2][3];
   var y = fitsLists[orbit_ind2][slider_val2][4];
   var angle;
