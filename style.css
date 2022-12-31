@@ -1648,13 +1648,19 @@ canvas {
   left: 216px;
   bottom: 105px;
 }
+#c {
+  position: relative;
+  bottom: 50px;
+  padding: 0;
+  background-color: black;
+}
 
 #sweapinfo {
   position: relative;
-  bottom: 80px;
   width: 50%; 
   margin-left: auto; 
   margin-right: auto;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 #sweapinfo p {
