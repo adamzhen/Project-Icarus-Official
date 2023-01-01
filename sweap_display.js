@@ -1,5 +1,188 @@
 // Controls all animation, interactivity, etc. for the SWEAP section
 
+// Proton particle animation
+/*
+Code derived from:
+https://codepen.io/aecend/pen/WbONyK
+*/
+
+(function(w) {
+    var canvas, ctx;
+    /*
+    These are the variable definitions for the values that will be used 
+    throughout the rest of the script.
+    */
+    var canvas_width = 900; 
+    var canvas_height = 300;
+    var pdensity = 3000; //This determines how many particles will be made.
+    var pvelocity = 5; //This determines the velocity of the particles.
+    var psize = 5; //This determines the size of the particles.
+    var pcolor = "#00FFFF"; // This varies the particle color according to temperature
+    var particles = []; //The array that will contain the particles
+    var sunradius = 10; //The radius of the sun
+    /*
+    This is the main function. It is triggered to start the process of constructing the
+    the grid and creating the particles, attaching event handlers, and starting the
+    animation loop.
+    */
+    function init() {
+        //These lines get the canvas DOM element and canvas context, respectively.
+        canvas = document.getElementById("c");
+        ctx = canvas.getContext("2d");
+        //These lines set the width, height, & border of the canvas.
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        canvas.style.border = "2px solid rgb(255, 122, 0)";
+        for (i = 0; i < pdensity; i++) {
+            /*
+            This calls the function particle() with random X and Y values. It then
+            takes the returned object and pushes it into the particles array at the
+            end.
+            */
+            particles.push(new particle(Math.random() * canvas_width, Math.random() * canvas_height));
+        }
+        //When the page is finished loading, run the draw() function.
+        w.onload = draw;
+    }
+    /*
+    This is the main animation loop. It is run once from the init() function when the page is fully loaded and 
+    uses RequestAnimationFrame to run itself again and again.
+    */
+    function draw() {
+        /*
+        This line clears the canvas. It needs to be cleared every time a new frame is drawn
+        so the particles move. Otherwise, the particles would just look like long curvy lines.
+        */
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Draws the sun
+        ctx.fillStyle = "#fcb603";
+        ctx.shadowColor = "rgb(255, 122, 0)";
+        ctx.shadowBlur = sunradius;
+        ctx.beginPath();
+        ctx.ellipse(canvas_width/2, canvas_height/2, sunradius, sunradius, 0, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        //This sets the color to draw with.
+        ctx.strokeStyle = pcolor;
+        var maxr = Math.sqrt((canvas_width*canvas_width/4) + (canvas_height*canvas_height/4));
+        var pradius;
+        //Loops through all of the particles in the array
+        for (i = 0; i < particles.length; i++) {
+
+            //Sets this variable to the current particle so we can refer to the particle easier.
+            var p = particles[i];
+
+            //If the particle's X and Y coordinates are within the bounds of the canvas...
+            if (p.x >= 0 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
+              if (i % 9 == 0){
+                p.v = pvelocity * (p.r / maxr) * (p.r / maxr) * 2 + Math.random()*pvelocity/8;
+                p.r += p.v; 
+                ctx.fillStyle = pcolor;
+                //This recalculates the position coordinates of the particle.
+                p.x = p.r * Math.cos(p.theta) + canvas_width/2;
+                p.y = p.r * Math.sin(p.theta) + canvas_height/2;
+                pradius = psize * (p.r / maxr) * (p.r / maxr);
+                ctx.beginPath();
+                ctx.ellipse(p.x, p.y, pradius, pradius, 0, 0, 2 * Math.PI);
+                ctx.fill();
+              }
+              else {
+                if (i % 4 == 0) {
+                  ctx.lineWidth = psize * (p.r / maxr) * Math.sqrt(p.r / maxr);
+                  p.v = pvelocity * (p.r / maxr) * Math.sqrt(p.r / maxr) + Math.random()*pvelocity/10;
+                } else if (i % 4 == 2) {
+                  ctx.lineWidth = psize * Math.sqrt(p.r / maxr);
+                  p.v = pvelocity * (p.r / maxr) + Math.random()*pvelocity/9;
+                } else {
+                  ctx.lineWidth = psize * (p.r / maxr) * (p.r / maxr) * 2; 
+                  p.v = pvelocity * (p.r / maxr) + Math.random()*pvelocity/8;
+                }
+                p.r += p.v; 
+                //This recalculates the position coordinates of the particle.
+                p.x = p.r * Math.cos(p.theta) + canvas_width/2;
+                p.y = p.r * Math.sin(p.theta) + canvas_height/2;
+                
+                ctx.beginPath(); //Begin a new path on the canvas
+                ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
+                ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
+                ctx.stroke(); //Draw the path to the canvas
+              }
+              //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
+              p.px = p.x;
+              p.py = p.y;              
+            }
+            else {
+                //If the particle's X and Y coordinates are outside the bounds of the canvas...
+
+                //Place the particle back at the start
+                p.r = sunradius;
+                p.theta = Math.random() * 2*Math.PI;
+                p.px = p.x = p.r * Math.cos(p.theta) + canvas_width/2;
+                p.py = p.y = p.r * Math.sin(p.theta) + canvas_height/2;
+            }
+        }
+
+        //This requests the next animation frame which runs the draw() function again.
+        // requestAnimationFrame(draw);
+    }
+    
+    //This function calculates theta given x, y
+    function calctheta(x, y) {
+      if (x > 0 && y > 0) {
+        return Math.atan(y/x);
+      } else if (x < 0 && y > 0) {
+        return Math.PI - Math.atan(y/-x);
+      } else if (x < 0 && y < 0) {
+        return Math.PI + Math.atan(-y/-x);
+      } else if (x > 0 && y < 0) {
+        return 2 * Math.PI - Math.atan(-y/x);
+      } else if (x == 0 && y > 0) {
+        return Math.PI/2;
+      } else if (x == 0 && y < 0) {
+        return 3 * Math.PI/2;
+      } else if (x > 0 && y == 0) {
+        return 0;
+      } else if (x < 0 && y == 0) {
+        return Math.PI;
+      } else {
+        return 0;
+      }
+    }
+    //This function is used to create a particle object.
+    function particle(x, y) {
+      var truex = x - (canvas_width/2);
+      var truey = y - (canvas_height/2);
+      this.theta = calctheta(truex, truey);
+      this.r = Math.sqrt(truex * truex + truey * truey);
+      this.x = this.px = x;
+      this.y = this.py = y;
+      this.v = pvelocity;
+    }
+    
+  
+    /*
+    And this line attaches an object called "Protons" to the global scope. "window" was passed into
+    the self-invoking function as "w", so setting "w.Protons" adds it to "window".
+    */
+    w.Protons = {
+        initialize: init,
+        drawProtons: draw
+    }
+
+}(window)); //Passes "window" into the self-invoking function.
+
+
+/*
+Request animation frame polyfill. This enables you to use "requestAnimationFrame" 
+regardless of the browser the script is running in.
+*/
+window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+
+
+//And this line calls the init() function defined above to start the script.
+Protons.initialize();
+
 var selector2 = document.getElementById("orbit_num2");
 var orbit2 = '1';
 var NUMORBITS = 12;
@@ -22,6 +205,7 @@ function update_data2(){ // updates the images, location, etc. every time the sl
     angle = Math.PI - Math.atan(y/-x);
   }
   loc2.style.transform = "rotate(" + (2*Math.PI-angle) + "rad)";
+  Protons.drawProtons();
 }
 function play_loop2(){
   if (!stopplay2){
@@ -15905,160 +16089,3 @@ var fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 339102
 ]];
 
 update_data2();
-
-
-// Proton particle animation
-/*
-Code derived from:
-https://codepen.io/aecend/pen/WbONyK
-*/
-
-(function(w) {
-    var canvas, ctx;
-    /*
-    These are the variable definitions for the values that will be used 
-    throughout the rest of the script.
-    */
-    var canvas_width = 900; 
-    var canvas_height = 300;
-    var pdensity = 2000; //This determines how many particles will be made.
-    var pvelocity = 8; //This determines the velocity of the particles.
-    var psize = 5; //This determines the size of the particles.
-    var particles = []; //The array that will contain the particles
-    var sunradius = 10; //The radius of the sun
-    /*
-    This is the main function. It is triggered to start the process of constructing the
-    the grid and creating the particles, attaching event handlers, and starting the
-    animation loop.
-    */
-    function init() {
-        //These lines get the canvas DOM element and canvas context, respectively.
-        canvas = document.getElementById("c");
-        ctx = canvas.getContext("2d");
-        //These lines set the width, height, & border of the canvas.
-        canvas.width = canvas_width;
-        canvas.height = canvas_height;
-        canvas.style.border = "2px solid rgb(255, 122, 0)";
-        for (i = 0; i < pdensity; i++) {
-            /*
-            This calls the function particle() with random X and Y values. It then
-            takes the returned object and pushes it into the particles array at the
-            end.
-            */
-            particles.push(new particle(Math.random() * canvas_width, Math.random() * canvas_height));
-        }
-        //When the page is finished loading, run the draw() function.
-        w.onload = draw;
-    }
-    /*
-    This is the main animation loop. It is run once from the init() function when the page is fully loaded and 
-    uses RequestAnimationFrame to run itself again and again.
-    */
-    function draw() {
-        /*
-        This line clears the canvas. It needs to be cleared every time a new frame is drawn
-        so the particles move. Otherwise, the particles would just look like long curvy lines.
-        */
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Draws the sun
-        ctx.fillStyle = "#fcb603";
-        ctx.beginPath();
-        ctx.ellipse(canvas_width/2, canvas_height/2, sunradius, sunradius, 0, 0, 2 * Math.PI);
-        ctx.fill();
-
-        //This sets the color to draw with.
-        ctx.strokeStyle = "#00FFFF";
-        var maxr = Math.sqrt((canvas_width*canvas_width/4) + (canvas_height*canvas_height/4));
-        //Loops through all of the particles in the array
-        for (i = 0; i < particles.length; i++) {
-
-            //Sets this variable to the current particle so we can refer to the particle easier.
-            var p = particles[i];
-
-            //If the particle's X and Y coordinates are within the bounds of the canvas...
-            if (p.x >= 0 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
-                p.v = pvelocity * (p.r / maxr) + Math.random(0, pvelocity/2)
-                p.r += p.v; 
-                //This recalculates the position coordinates of the particle.
-                p.x = p.r * Math.cos(p.theta) + canvas_width/2;
-                p.y = p.r * Math.sin(p.theta) + canvas_height/2;
-                
-                ctx.lineWidth = psize * (p.r / maxr);
-                ctx.beginPath(); //Begin a new path on the canvas
-                ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
-                ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
-                ctx.stroke(); //Draw the path to the canvas
-                
-                //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
-                p.px = p.x;
-                p.py = p.y;
-            }
-            else {
-                //If the particle's X and Y coordinates are outside the bounds of the canvas...
-
-                //Place the particle back at the start
-                p.r = sunradius;
-                p.theta = Math.random() * 2*Math.PI;
-                p.px = p.x = p.r * Math.cos(p.theta) + canvas_width/2;
-                p.py = p.y = p.r * Math.sin(p.theta) + canvas_height/2;
-            }
-        }
-
-        //This requests the next animation frame which runs the draw() function again.
-        requestAnimationFrame(draw);
-    }
-    
-    //This function calculates theta given x, y
-    function calctheta(x, y) {
-      if (x > 0 && y > 0) {
-        return Math.atan(y/x);
-      } else if (x < 0 && y > 0) {
-        return Math.PI - Math.atan(y/-x);
-      } else if (x < 0 && y < 0) {
-        return Math.PI + Math.atan(-y/-x);
-      } else if (x > 0 && y < 0) {
-        return 2 * Math.PI - Math.atan(-y/x);
-      } else if (x == 0 && y > 0) {
-        return Math.PI/2;
-      } else if (x == 0 && y < 0) {
-        return 3 * Math.PI/2;
-      } else if (x > 0 && y == 0) {
-        return 0;
-      } else if (x < 0 && y == 0) {
-        return Math.PI;
-      } else {
-        return 0;
-      }
-    }
-    //This function is used to create a particle object.
-    function particle(x, y) {
-      var truex = x - (canvas_width/2);
-      var truey = y - (canvas_height/2);
-      this.theta = calctheta(truex, truey);
-      this.r = Math.sqrt(truex * truex + truey * truey);
-      this.x = this.px = x;
-      this.y = this.py = y;
-      this.v = pvelocity;
-    }
-    
-  
-    /*
-    And this line attaches an object called "Protons" to the global scope. "window" was passed into
-    the self-invoking function as "w", so setting "w.Protons" adds it to "window".
-    */
-    w.Protons = {
-        initialize: init
-    }
-
-}(window)); //Passes "window" into the self-invoking function.
-
-
-/*
-Request animation frame polyfill. This enables you to use "requestAnimationFrame" 
-regardless of the browser the script is running in.
-*/
-window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
-
-
-//And this line calls the init() function defined above to start the script.
-Protons.initialize();
