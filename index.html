@@ -296,7 +296,7 @@
                 <div id="fov2"></div>
                 <div class="triangle" id="psptriangle"></div>
               </div>
-              <div class="sunicon"></div>
+              <div class="sunicon" id="sunicon1"></div>
               <h3 id="disttxt">Distance</h3>
               <h3 id="AUinfo"><em>1 AU = average distance from Earth to Sun</em></h3>
               <h3 id="wisprsource"><a href="https://wispr.nrl.navy.mil/wisprdata" target="_blank">Source<sup>3</sup></a></h3>
@@ -348,28 +348,33 @@
           <button id = 'playbutton2' class='button' onclick="playclick2()"></button>
           <section id="speedsection2">
             <div id="speedbuttons2">
-              <p id="speeddisplay2">8 FPS</p>
-              <button id = 'sweapfasterbutton1' class='fasterbutton' onclick="playfaster2(1)"></button>
-              <button id = 'sweapfasterbutton2' class='fasterbutton' onclick="playfaster2(5)"></button>
-              <button id = 'sweapslowerbutton1' class='slowerbutton' onclick="playslower2(1)"></button>
-              <button id = 'sweapslowerbutton2' class='slowerbutton' onclick="playslower2(5)"></button>
+              <p id="speeddisplay2">x10000 speed</p>
+              <button id = 'sweapfasterbutton1' class='fasterbutton' onclick="playfaster2(1000)"></button>
+              <button id = 'sweapfasterbutton2' class='fasterbutton' onclick="playfaster2(5000)"></button>
+              <button id = 'sweapslowerbutton1' class='slowerbutton' onclick="playslower2(1000)"></button>
+              <button id = 'sweapslowerbutton2' class='slowerbutton' onclick="playslower2(5000)"></button>
             </div>
           </section>
           <div class="slidecontainer" id="theslider2">
-            <input type="range" min="0" max="907" value="0" class="slider" id="sliderrr2">
+            <input type="range" min="0" max="14316" value="0" class="slider" id="sliderrr2">
           </div>
         </section>
-        <div id="sweapdisplay">
+        <div id="sweapdisplay" class="sweap-grid">
           <section class="hidden2">
             <div id = "positiondisplay2">
-              <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot2">
-              <div id="datecontainer"><h2 id="datetxt2">11/01/2018</h2></div>
+              <img src="public/orbit_plot2_1.png" alt="Location Plot" id="locplot2">
+              <div class="textcontainer">
+                <h2 id="datetxt2">11/01/2018</h2>
+                <h4 id="timetxt">05:04</h4>
+              </div>
               <div id="psploc2">
                 <div class="triangle2" id="psptriangle2"></div>
               </div>
-              <div class="sunicon"></div>
-              <h3 id="disttxt2">Distance</h3>
-              <h3 id="AUinfo2"><em>1 AU = average distance from Earth to Sun</em></h3>
+              <div class="sunicon" id="sunicon2"></div>
+              <div class="textcontainer">
+                <h3 id="disttxt2">Distance</h3>
+                <h3 id="pspspeed">Speed</h3>
+              </div>
               <h3 id="sweapsource"><a href="http://sweap.cfa.harvard.edu/Data.html" target="_blank">Source<sup>4</sup></a></h3>
               <form>
                 <select name="orbit" id="orbit_num2" class="selector">
@@ -389,7 +394,7 @@
                 <br>
               </form>
           </section>
-          <section class="hidden0" style="filter: blur(1px);">
+          <section class="hidden0" style="filter: blur(0px);">
             <canvas id="c"></canvas>
           </section>
         </div>

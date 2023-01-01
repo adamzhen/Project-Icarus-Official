@@ -1365,13 +1365,15 @@ canvas {
 .sunicon {
   position: relative;
   z-index: 3;
-  height: 8px;
-  width: 8px;
   background-color: rgb(255, 208, 0);
   border-radius: 50%;
-  box-shadow: 0px 0px 80px 30px #ffa600c9;
   margin-left: auto;
   margin-right: auto;
+}
+#sunicon1 {
+  height: 8px;
+  width: 8px;
+  box-shadow: 0px 0px 80px 30px #ffa600c9;
   bottom: 296px;
   right: 12px;
 }
@@ -1381,9 +1383,6 @@ canvas {
   -o-appearance: none;
   -ms-appearance: none;
   z-index: 3;
-  position: relative;
-  bottom: 581px;
-  left: 192px;
   appearance: none;
   padding: 2px 5px 2px 7px;
   margin-left: auto;
@@ -1398,6 +1397,11 @@ canvas {
   border: 2px solid rgb(255, 122, 0);
   width: 80px;
 }
+#orbit_num {
+  position: relative;
+  bottom: 581px;
+  left: 192px;
+}
 #positiondisplay {
   position: relative;
   transform: scale(1);
@@ -1408,12 +1412,12 @@ canvas {
   font-weight: 500;
   letter-spacing: 0px;
 }
-#datecontainer {
+.textcontainer {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 0px;
-  height: 26px;
+  height: 30px;
 }
 #datetxt{
   text-align: left;
@@ -1528,6 +1532,14 @@ canvas {
   margin-bottom: 0px;
   justify-content: center;
 }
+.sweap-grid {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  gap: 25px;
+  background-color: transparent;
+  padding: 0px;
+}
 #sweapdisplay a:link {color: rgb(173, 84, 0);}
 #sweapdisplay a:visited {color: rgb(173, 84, 0);}
 #sweapdisplay a:hover {color: rgb(255, 123, 0);}
@@ -1565,13 +1577,13 @@ canvas {
 }
 #locplot2{
   position: relative;
-  z-index: 1;
-  display: flex;
-  width: 500px;
-  height: 500px;
   margin-left: auto;
   margin-right: auto;
-  border: 4px solid rgb(255, 122, 0);
+  z-index: 1;
+  display: flex;
+  width: var(--l);
+  height: var(--l);
+  border: 3px solid rgb(255, 122, 0);
 }
 #psploc2 {
   position: relative;
@@ -1594,69 +1606,98 @@ canvas {
 	border-left: 16px solid #FF7913;
   transition: all 0.5s;
 }
-/* sun icon in wispr style */
+#sunicon2 {
+  height: 4.8px;
+  width: 4.8px;
+  box-shadow: 0px 0px 48px 18px #ffa600c9;
+  bottom: 208px;
+  left: 9px;
+}
+
 #positiondisplay2 {
+  --l: 300px;
   position: relative;
+  height: var(--l);
   transform: scale(1);
+  margin-left: auto;
+  margin-right: auto;
 }
 #positiondisplay2 h3 {
   color: rgb(173, 84, 0);
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0px;
 }
 #datecontainer2 {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 0px;
-  height: 26px;
 }
 #datetxt2{
   text-align: left;
   z-index: 3;
   position: relative;
-  bottom: 485px;
-  right: 232px;
+  bottom: 287px;
+  right: 137px;
   color: rgb(255, 122, 0);
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   letter-spacing: 0px;
+}
+#timetxt{
+  text-align: left;
+  inline-size: 200px; 
+  z-index: 3;
+  position: relative;
+  bottom: 287px;
+  right: 137px;
+  color: rgb(255, 122, 0);
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+#orbit_num2 {
+  position: relative;
+  bottom: 383px;
+  left: 98px;
 }
 #disttxt2 {
   font-size: 10px;
   z-index: 3;
   position: relative;
-  text-align: center;
-  left: 48px;
-  bottom: 306px;
+  text-align: left;
+  inline-size: 200px; 
+  right: 138px;
+  bottom: 85px;
 }
-#AUinfo2 {
-  font-size: 11px;
+#pspspeed {
+  font-size: 10px;
   z-index: 3;
-  text-align: center;
   position: relative;
-  right: 119px;
-  bottom: 87px;
+  text-align: left;
+  inline-size: 200px; 
+  right: 138px;
+  bottom: 85px;
 }
 #sweapsource {
   font-size: 11px;
   z-index: 3;
   text-align: center;
   position: relative;
-  left: 216px;
+  left: 115px;
   bottom: 105px;
 }
 #c {
   position: relative;
-  bottom: 50px;
+  left: 0px;
   padding: 0;
   background-color: black;
 }
 
 #sweapinfo {
-  position: relative;
+  position: relative; 
   width: 50%; 
   margin-left: auto; 
   margin-right: auto;

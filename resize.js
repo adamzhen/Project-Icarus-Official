@@ -54,6 +54,10 @@ function resizeDisplay(){
     document.getElementById("positiondisplay").style.transform = "scale(1)";
   }
   // SWEAP
+  document.getElementById("sweapfasterbutton1").style.left = (w/2 + 10) + "px";
+  document.getElementById("sweapfasterbutton2").style.left = (w/2 + 20) + "px";
+  document.getElementById("sweapslowerbutton1").style.right = (w/2 + 10) + "px";
+  document.getElementById("sweapslowerbutton2").style.right = (w/2 + 20) + "px";
   if (w <= 900){
     document.getElementById("positiondisplay2").style.transform = "scale(" + w / 900 +")";
   } else {

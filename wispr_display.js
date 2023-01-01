@@ -38888,7 +38888,7 @@ var allOuterPNGsMatch = [['20181101_0045',
 '20220606_210',
 '20220606_212'],
 ];
-// 3D array of FITS data (obtained via WISPR Level-3 FITS Data -> wispr_data.py -> txt files -> read_txt.py -> formatted 3D array)
+// 3D array of FITS data (obtained via WISPR Level-3 FITS Data -> wispr_data.py -> txt files -> read_wisprtxt.py -> formatted 3D array)
 // SOURCE: wispr_data/fits_lists.txt
 // DESCRIPTION:     YYYYMMDD_HHMM | MM/DD/YYYY |  HH:MM  |    HAEX_OBS  |   HAEY_OBS   |    HAEZ_OBS   | DIST FROM SUN (AU) 
 var fitsLists = [[['20181101_0047', '11/01/2018', '00:47', 10919616297.8, 33910290684.3, -646735457.996, 0.2381781429260924],
