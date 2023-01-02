@@ -1124,9 +1124,11 @@ canvas {
 }
 #speeddisplay {
   position: relative;
+  font-size: 15px;
+  font-family: "Courier New", monospace;
   z-index: 6;
-  top: 12px;
-  color: rgb(255, 122, 0);
+  top: 17px;
+  color:#ffe7d7;
 }
 .fasterbutton {
   position: absolute;
@@ -1139,14 +1141,14 @@ canvas {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  border-color: transparent transparent transparent #ffe7d7;
+  border-color: transparent transparent transparent  rgb(255, 122, 0);
   transition: 200ms all ease;
   cursor: pointer;
   border-style: solid;
-  border-width: 10px 0 10px 11px;
+  border-width: 9px 0 9px 15px;
 }
 .fasterbutton:hover {
-  border-color: transparent transparent transparent rgb(255, 145, 42);
+  border-color: transparent transparent transparent #ffe7d7;
 }
 #wisprfasterbutton1 {
   left: 50%;
@@ -1167,15 +1169,15 @@ canvas {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  border-color: transparent transparent transparent #ffe7d7;
+  border-color: transparent transparent transparent  rgb(255, 122, 0);
   transition: 200ms all ease;
   cursor: pointer;
   border-style: solid;
-  border-width: 10px 0 10px 11px;
+  border-width: 9px 0 9px 15px;
   transform: rotate(180deg);
 }
 .slowerbutton:hover {
-  border-color: transparent transparent transparent rgb(255, 145, 42);
+  border-color: transparent transparent transparent #ffe7d7;
 }
 #wisprslowerbutton1 {
   right: 50%;
@@ -1193,18 +1195,20 @@ canvas {
   margin-bottom: 18px;
 }
 /* The slider */
-.slider {
+#sliderrr {
   position: relative;
   bottom: 3px;
+  width: 140px;
+  height: 7px;
+  border-radius: 2px;  
+}
+.slider {
   z-index: 3;
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 140px;
-  height: 7px; /* Specified height */
-  border-radius: 1px;  
   background: rgb(239, 239, 239);
   outline: none; /* Remove outline */
   opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
@@ -1221,17 +1225,17 @@ canvas {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 18px; /* Set a specific slider handle width */
-  height: 18px; /* Slider handle height */
-  border-radius: 10%; 
+  width: 16px; /* Set a specific slider handle width */
+  height: 16px; /* Slider handle height */
+  border-radius: 30%; 
   background: rgb(255, 121, 0);
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-  width: 18px; /* Set a specific slider handle width */
-  height: 18px; /* Slider handle height */
-  border-radius: 10%; 
+  width: 16px; /* Set a specific slider handle width */
+  height: 16px; /* Slider handle height */
+  border-radius: 30%; 
   background: rgb(255, 111, 0); 
   cursor: pointer; /* Cursor on hover */
 }
@@ -1374,7 +1378,7 @@ canvas {
   height: 8px;
   width: 8px;
   box-shadow: 0px 0px 80px 30px #ffa600c9;
-  bottom: 296px;
+  bottom: 300px;
   right: 12px;
 }
 .selector {
@@ -1399,7 +1403,7 @@ canvas {
 }
 #orbit_num {
   position: relative;
-  bottom: 581px;
+  bottom: 587px;
   left: 192px;
 }
 #positiondisplay {
@@ -1432,12 +1436,12 @@ canvas {
   letter-spacing: 0px;
 }
 #disttxt {
-  font-size: 10px;
+  font-size: 12px;
   z-index: 3;
   position: relative;
   text-align: center;
-  left: 48px;
-  bottom: 306px;
+  left: 56px;
+  bottom: 312px;
 }
 #AUinfo {
   font-size: 11px;
@@ -1445,7 +1449,7 @@ canvas {
   text-align: center;
   position: relative;
   right: 119px;
-  bottom: 87px;
+  bottom: 94px;
 }
 #wisprsource {
   font-size: 11px;
@@ -1453,7 +1457,7 @@ canvas {
   text-align: center;
   position: relative;
   left: 216px;
-  bottom: 105px;
+  bottom: 114px;
 }
 
 #wisprinfo {
@@ -1534,7 +1538,7 @@ canvas {
 }
 .sweap-grid {
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 100vw;
   justify-content: center;
   gap: 25px;
   background-color: transparent;
@@ -1555,25 +1559,38 @@ canvas {
 }
 #speeddisplay2 {
   position: relative;
+  font-size: 12px;
+  font-family: "Courier New", monospace;
   z-index: 6;
-  top: 12px;
-  color: rgb(255, 122, 0);
+  top: 20px;
+  color: #ffe7d7;
 }
 #sweapfasterbutton1 {
   left: 50%;
-  bottom: -4px;
+  bottom: -7px;
 }
 #sweapfasterbutton2 {
   left: 50%;
-  bottom: -4px;
+  bottom: -7px;
 }
 #sweapslowerbutton1 {
   right: 50%;
-  bottom: -4px;
+  bottom: -7px;
 }
 #sweapslowerbutton2 {
   right: 50%;
-  bottom: -4px;
+  bottom: -7px;
+}
+#playbutton2 {
+  position: relative;
+  top: 5px;
+}
+#sliderrr2 {
+  position: relative;
+  bottom: 0px;
+  width: 110px;
+  height: 5px;
+  border-radius: 1px;  
 }
 #locplot2{
   position: relative;
@@ -1583,7 +1600,7 @@ canvas {
   display: flex;
   width: var(--l);
   height: var(--l);
-  border: 3px solid rgb(255, 122, 0);
+  border: 1px solid rgb(255, 122, 0);
 }
 #psploc2 {
   position: relative;
@@ -1687,13 +1704,13 @@ canvas {
   text-align: center;
   position: relative;
   left: 115px;
-  bottom: 105px;
+  bottom: 107px;
 }
 #c {
   position: relative;
-  left: 0px;
+  margin-top: 30px;
   padding: 0;
-  background-color: black;
+  background-color: rgb(16, 3, 0);
 }
 
 #sweapinfo {

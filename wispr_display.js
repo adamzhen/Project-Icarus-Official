@@ -37,7 +37,7 @@ function update_data(){ // updates the images, location, etc. every time the sli
   var y = fitsLists[orbit_ind][slider_val][4];
   var angle;
   loc.style.left = (-13 + x / scale_factor).toString() + 'px';
-  loc.style.top = (-283 - y / scale_factor).toString() + 'px';
+  loc.style.top = (-287 - y / scale_factor).toString() + 'px';
   if (x>0){
     angle = Math.atan(y/x);
   } else {
@@ -116,10 +116,10 @@ function playclick(){
     slider.style.opacity = 0;
     stopplay = false;
     timer = setInterval(play_loop, 1000 / curr_speed);
-    document.getElementById("wisprfasterbutton1").style.left = (window.innerWidth/2 + 10) + "px";
-    document.getElementById("wisprfasterbutton2").style.left = (window.innerWidth/2 + 20) + "px";
-    document.getElementById("wisprslowerbutton1").style.right = (window.innerWidth/2 + 10) + "px";
-    document.getElementById("wisprslowerbutton2").style.right = (window.innerWidth/2 + 20) + "px";
+    document.getElementById("wisprfasterbutton1").style.left = (window.innerWidth*0.9/2 + 28) + "px";
+    document.getElementById("wisprfasterbutton2").style.left = (window.innerWidth*0.9/2 + 28 + 14) + "px";
+    document.getElementById("wisprslowerbutton1").style.right = (window.innerWidth*0.9/2 + 28) + "px";
+    document.getElementById("wisprslowerbutton2").style.right = (window.innerWidth*0.9/2 + 28 + 14) + "px";
     document.getElementById("speedsection").style.opacity = 1;
   } else{
     // document.getElementById("clicktoplay").innerHTML = "stopped";

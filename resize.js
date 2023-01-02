@@ -37,10 +37,10 @@ function resizeDisplay(){
     document.getElementById("elfvansection").style.transform = "scale(1)";
   }
   // WISPR
-  document.getElementById("wisprfasterbutton1").style.left = (w/2 + 10) + "px";
-  document.getElementById("wisprfasterbutton2").style.left = (w/2 + 20) + "px";
-  document.getElementById("wisprslowerbutton1").style.right = (w/2 + 10) + "px";
-  document.getElementById("wisprslowerbutton2").style.right = (w/2 + 20) + "px";
+  document.getElementById("wisprfasterbutton1").style.left = (w*0.9/2 + 28) + "px";
+  document.getElementById("wisprfasterbutton2").style.left = (w*0.9/2 + 28 + 14) + "px";.1
+  document.getElementById("wisprslowerbutton1").style.right = (w*0.9/2 + 28) + "px";
+  document.getElementById("wisprslowerbutton2").style.right = (w*0.9/2 + 28 + 14) + "px";
   if (w <= 1450){
     document.getElementById("innersection").style.transform = "scale(" + w / 1450 + ") translateX(" + (-(1450 - w) / 1450 * (270 + w*0.3)) + "px)";
     document.getElementById("outersection").style.transform = "scale(" + w / 1450 + ") translateX(" + ((1450 - w) / 1450 * (270 + w*0.3)) + "px)";
@@ -54,10 +54,10 @@ function resizeDisplay(){
     document.getElementById("positiondisplay").style.transform = "scale(1)";
   }
   // SWEAP
-  document.getElementById("sweapfasterbutton1").style.left = (w/2 + 10) + "px";
-  document.getElementById("sweapfasterbutton2").style.left = (w/2 + 20) + "px";
-  document.getElementById("sweapslowerbutton1").style.right = (w/2 + 10) + "px";
-  document.getElementById("sweapslowerbutton2").style.right = (w/2 + 20) + "px";
+  document.getElementById("sweapfasterbutton1").style.left = (w*0.9/2 + 22) + "px";
+  document.getElementById("sweapfasterbutton2").style.left = (w*0.9/2 + 22 + 14) + "px";
+  document.getElementById("sweapslowerbutton1").style.right = (w*0.9/2 + 22) + "px";
+  document.getElementById("sweapslowerbutton2").style.right = (w*0.9/2 + 22 + 14) + "px";
   if (w <= 900){
     document.getElementById("positiondisplay2").style.transform = "scale(" + w / 900 +")";
   } else {
