@@ -1706,13 +1706,34 @@ canvas {
   left: 115px;
   bottom: 107px;
 }
+#canvascontainer {
+  display: grid;
+  grid-template-columns: 100% 1%;
+  margin: 0;
+  padding: 0;
+}
 #c {
-  position: relative;
   margin-top: 30px;
   padding: 0;
-  background-color: rgb(16, 3, 0);
+  background-color: black;
 }
-
+#fullscreenbuttoncontainer {
+  height: 0px;
+}
+#fullscreenbutton {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: 300px;
+  top: 100px;
+  transform: scale(1);
+  opacity: 0.8;
+  animation: all 3s ease-in-out;
+}
+#fullscreenbutton:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
 #sweapinfo {
   position: relative; 
   width: 50%; 

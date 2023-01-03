@@ -2,9 +2,10 @@
 
 import os
 import numpy as np
+from matplotlib import pyplot as plt
 
 # orbits_list = os.listdir(f'wispr_txt_data')
-arr = []
+temp = []
 NUMORBITS = 12
 count_nan = 0
 with open(f'sweap_data/spc_list.txt', 'w') as l:
@@ -17,7 +18,10 @@ with open(f'sweap_data/spc_list.txt', 'w') as l:
             line = lines[i]
             output = "["
             rline = line.replace('\n','').split(', ')
-            for j in rline:
+            for p in range(len(rline)):
+                j = rline[p]
+                if p==3:
+                    temp.append(float(j))
                 if j == "nan":
                     count_nan += 1
                 elif '.' in j: #converts to float if the string is a float, since only the floats contain '.'
@@ -35,6 +39,8 @@ with open(f'sweap_data/spc_list.txt', 'w') as l:
         else:
             l.write('],\n')
         f.close()
-print("Number of nan values: ", count_nan)
-
-
+        print(f"Minimum Temp: {min(temp)}")
+        print(f"Maximum Temp: {max(temp)}")
+        print("Number of nan values: ", count_nan)
+        plt.plot(np.arange(0, len(temp)), temp)
+        plt.show()
