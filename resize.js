@@ -54,14 +54,16 @@ function resizeDisplay(){
     document.getElementById("positiondisplay").style.transform = "scale(1)";
   }
   // SWEAP
-  document.getElementById("sweapfasterbutton1").style.left = (w*0.9/2 + 22) + "px";
-  document.getElementById("sweapfasterbutton2").style.left = (w*0.9/2 + 22 + 14) + "px";
-  document.getElementById("sweapslowerbutton1").style.right = (w*0.9/2 + 22) + "px";
-  document.getElementById("sweapslowerbutton2").style.right = (w*0.9/2 + 22 + 14) + "px";
-  if (w <= 900){
-    document.getElementById("positiondisplay2").style.transform = "scale(" + w / 900 +")";
+  document.getElementById("sweapfasterbutton1").style.left = (60 + 22) + "px";
+  document.getElementById("sweapfasterbutton2").style.left = (60 + 22 + 14) + "px";
+  document.getElementById("sweapslowerbutton1").style.right = (60 + 22) + "px";
+  document.getElementById("sweapslowerbutton2").style.right = (60 + 22 + 14) + "px";
+  if (w <= 1100){
+    document.getElementById("positiondisplay2").style.transform = "scale(" + w / 1100 +")";
+    document.getElementById("instrumentdisplay").style.transform = "scale(" + w / 1100 +")";
   } else {
     document.getElementById("positiondisplay2").style.transform = "scale(1)";
+    document.getElementById("instrumentdisplay").style.transform = "scale(1)";
   }
 }
 

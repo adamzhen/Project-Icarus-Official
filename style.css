@@ -293,7 +293,7 @@ body {
 }
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: none; }
 a:active { text-decoration: underline; }
 
 .hero {
@@ -1188,11 +1188,10 @@ canvas {
   bottom: -4px;
 }
 .slidecontainer {
+  justify-content: center;
   z-index: 5;
   position: relative;
   width: 100%; /* Width of the outside container */
-  margin-top: 24px;
-  margin-bottom: 18px;
 }
 /* The slider */
 #sliderrr {
@@ -1200,7 +1199,9 @@ canvas {
   bottom: 3px;
   width: 140px;
   height: 7px;
-  border-radius: 2px;  
+  border-radius: 2px; 
+  margin-top: 24px;
+  margin-bottom: 18px; 
 }
 .slider {
   z-index: 3;
@@ -1399,12 +1400,12 @@ canvas {
   color: #ff9800;
   border-radius: 7px;
   border: 2px solid rgb(255, 122, 0);
-  width: 80px;
 }
 #orbit_num {
   position: relative;
   bottom: 587px;
   left: 192px;
+  width: 80px;
 }
 #positiondisplay {
   position: relative;
@@ -1502,11 +1503,11 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-bottom: 38px;
+  padding-bottom: 14px;
 }
 #sweapinstruments {
   position: relative;
-  bottom: 15px;
+  top: 5px;
   right: 5px;
   width: 100%;
   height: 180px;
@@ -1538,59 +1539,111 @@ canvas {
 }
 .sweap-grid {
   display: grid;
-  grid-template-columns: 100vw;
+  grid-template-columns: 300px 100px 300px;
   justify-content: center;
-  gap: 25px;
+  gap: 40px;
   background-color: transparent;
-  padding: 0px;
+  padding: 30px;
 }
 #sweapdisplay a:link {color: rgb(173, 84, 0);}
 #sweapdisplay a:visited {color: rgb(173, 84, 0);}
 #sweapdisplay a:hover {color: rgb(255, 123, 0);}
 #sweapdisplay a:active {color: rgb(255, 123, 0);}
-#speedsection2 {
-  opacity: 0;
-  transition: 200ms all ease;
+
+#instrumentdisplay {
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgb(255, 122, 0);
 }
-#speedbuttons2 {
-  background-color: white;
-  height: 0px;
-  justify-content: center;
+#instrumentdisplay p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: rgb(173, 84, 0);
+  font-weight: 600;
+  letter-spacing: 0px;
 }
-#speeddisplay2 {
+#moreinfo {
   position: relative;
-  font-size: 12px;
-  font-family: "Courier New", monospace;
-  z-index: 6;
-  top: 20px;
-  color: #ffe7d7;
+  bottom: 25px;
+  left: 275px;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
 }
-#sweapfasterbutton1 {
-  left: 50%;
-  bottom: -7px;
-}
-#sweapfasterbutton2 {
-  left: 50%;
-  bottom: -7px;
-}
-#sweapslowerbutton1 {
-  right: 50%;
-  bottom: -7px;
-}
-#sweapslowerbutton2 {
-  right: 50%;
-  bottom: -7px;
-}
-#playbutton2 {
+#sweapdescription {
   position: relative;
-  top: 5px;
+  bottom: 40px;
+  margin: 15px;
 }
-#sliderrr2 {
+#sweapinstrument {
   position: relative;
   bottom: 0px;
-  width: 110px;
-  height: 5px;
-  border-radius: 1px;  
+  width: 100%;
+  height: 75%;
+  justify-content: center;
+  display: block;
+  text-align: left;
+  background-image: url("public/SPC_instrument.jpg");
+  background-size: 210px 210px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#sweap_selector {
+  position: relative;
+  top: 8px;
+  left: 8px;
+  width: 96px;
+}
+
+#positiondisplay2 {
+  --l: 300px;
+  position: relative;
+  height: var(--l);
+  transform: scale(1);
+  margin-left: auto;
+  margin-right: auto;
+}
+#positiondisplay2 h3 {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+#datecontainer2 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+#datetxt2{
+  text-align: left;
+  z-index: 3;
+  position: relative;
+  bottom: 292px;
+  right: 139px;
+  color: rgb(255, 122, 0);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+#timetxt{
+  text-align: left;
+  inline-size: 200px; 
+  z-index: 3;
+  position: relative;
+  bottom: 292px;
+  right: 139px;
+  color: rgb(255, 122, 0);
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+#orbit_num2 {
+  position: relative;
+  bottom: 387px;
+  left: 100px;
+  width: 80px;
 }
 #locplot2{
   position: relative;
@@ -1630,64 +1683,14 @@ canvas {
   bottom: 208px;
   left: 9px;
 }
-
-#positiondisplay2 {
-  --l: 300px;
-  position: relative;
-  height: var(--l);
-  transform: scale(1);
-  margin-left: auto;
-  margin-right: auto;
-}
-#positiondisplay2 h3 {
-  color: rgb(173, 84, 0);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0px;
-}
-#datecontainer2 {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-#datetxt2{
-  text-align: left;
-  z-index: 3;
-  position: relative;
-  bottom: 287px;
-  right: 137px;
-  color: rgb(255, 122, 0);
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0px;
-}
-#timetxt{
-  text-align: left;
-  inline-size: 200px; 
-  z-index: 3;
-  position: relative;
-  bottom: 287px;
-  right: 137px;
-  color: rgb(255, 122, 0);
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0px;
-}
-#orbit_num2 {
-  position: relative;
-  bottom: 383px;
-  left: 98px;
-}
 #disttxt2 {
   font-size: 10px;
   z-index: 3;
   position: relative;
   text-align: left;
   inline-size: 200px; 
-  right: 138px;
-  bottom: 85px;
+  right: 140px;
+  bottom: 83px;
 }
 #pspspeed {
   font-size: 10px;
@@ -1695,8 +1698,8 @@ canvas {
   position: relative;
   text-align: left;
   inline-size: 200px; 
-  right: 138px;
-  bottom: 85px;
+  right: 140px;
+  bottom: 83px;
 }
 #sweapsource {
   font-size: 11px;
@@ -1704,8 +1707,69 @@ canvas {
   text-align: center;
   position: relative;
   left: 115px;
-  bottom: 107px;
+  bottom: 105px;
 }
+
+#sweapcontrols {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 100px;
+  justify-content: center;
+  display: inline-block;
+}
+#speedsection2 {
+  opacity: 0;
+  transition: 200ms all ease;
+}
+#speedbuttons2 {
+  background-color: white;
+  height: 0px;
+  justify-content: center;
+}
+#speeddisplay2 {
+  position: relative;
+  font-size: 12px;
+  font-family: "Courier New", monospace;
+  z-index: 6;
+  top: -2px;
+  color: #ffe7d7;
+}
+#sweapfasterbutton1 {
+  left: 50%;
+  bottom: 3px;
+}
+#sweapfasterbutton2 {
+  left: 50%;
+  bottom: 3px;
+}
+#sweapslowerbutton1 {
+  right: 50%;
+  bottom: 3px;
+}
+#sweapslowerbutton2 {
+  right: 50%;
+  bottom: 3px;
+}
+#playbutton2 {
+  position: relative;
+  margin-top: 10px;
+  bottom: 20px;
+}
+#sliderrr2 {
+  position: relative;
+  bottom: 0px;
+  width: 100px;
+  height: 7px;
+  border-radius: 1px;  
+}
+#theslider2 {
+  position: relative;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #canvascontainer {
   display: grid;
   grid-template-columns: 100% 1%;
@@ -1713,7 +1777,7 @@ canvas {
   padding: 0;
 }
 #c {
-  margin-top: 30px;
+  margin-top: 0px;
   padding: 0;
   background-color: black;
 }
