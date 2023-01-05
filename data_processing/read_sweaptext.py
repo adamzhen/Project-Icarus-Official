@@ -8,10 +8,11 @@ from matplotlib import pyplot as plt
 temp = []
 NUMORBITS = 12
 count_nan = 0
-with open(f'sweap_data/spc_list.txt', 'w') as l:
+instr = "spane"
+with open(f'sweap_data/{instr}_list.txt', 'w') as l:
     l.write('[')
     for n in range(1,NUMORBITS+1):
-        f = open(f'sweap_data/sweap_txt_data/orbit{n}.txt','r')
+        f = open(f'sweap_data/sweap_txt_data/{instr}_orbit{n}.txt','r')
         lines = f.readlines()
         l.write('[')
         for i in range(len(lines)):
@@ -39,8 +40,8 @@ with open(f'sweap_data/spc_list.txt', 'w') as l:
         else:
             l.write('],\n')
         f.close()
-        print(f"Minimum Temp: {min(temp)}")
-        print(f"Maximum Temp: {max(temp)}")
-        print("Number of nan values: ", count_nan)
-        plt.plot(np.arange(0, len(temp)), temp)
-        plt.show()
+        # print(f"Minimum Temp: {min(temp)}")
+        # print(f"Maximum Temp: {max(temp)}")
+        # print("Number of nan values: ", count_nan)
+        # plt.plot(np.arange(0, len(temp)), temp)
+        # plt.show()
