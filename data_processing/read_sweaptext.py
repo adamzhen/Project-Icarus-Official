@@ -8,9 +8,14 @@ from matplotlib import pyplot as plt
 temp = []
 NUMORBITS = 12
 count_nan = 0
-instr = "spane"
-with open(f'sweap_data/{instr}_list.txt', 'w') as l:
-    l.write('[')
+instr = "spc" # change this to "spc", "spane", or "spani" depending on which instrument you are using
+
+with open(f'sweap_data/{instr}_list.js', 'w') as l:
+    l.write(f"// 3D array of {instr.upper()} data (obtained via SWEAP Level-3 FITS Data -> pyspedas_data_analysis.ipynb -> txt files -> read_sweaptxt.py -> formatted 3D array)\n")
+    if instr == "spc":
+        l.write("// INDICES:      0                1                    2                     3                4          5            6                   7 \n")
+        l.write("// DESCRIPTION:  YYYYMMDD_HHMM |  P VELOCITY (km/s)  | P DENSITY (cm^-2)  |  P TEMP (K)     | X-COORD  | Y-COORD    | DISTANCE (km)     | PSP VELOCITY (km/s)\n")
+    l.write(f'var {instr}List = [')
     for n in range(1,NUMORBITS+1):
         f = open(f'sweap_data/sweap_txt_data/{instr}_orbit{n}.txt','r')
         lines = f.readlines()
@@ -26,7 +31,7 @@ with open(f'sweap_data/{instr}_list.txt', 'w') as l:
                 if j == "nan":
                     count_nan += 1
                 elif '.' in j: #converts to float if the string is a float, since only the floats contain '.'
-                    output += f'{j}, '
+                    output += f'{float(j)}, ' # add :.0f for spane to reduce the number of decimal places
                 else:
                     output += f"'{j}', "
             output = output[:-2] # removes the last comma and space
@@ -36,7 +41,7 @@ with open(f'sweap_data/{instr}_list.txt', 'w') as l:
                 output += '],\n'
             l.write(output)
         if n==NUMORBITS:
-            l.write(']]')
+            l.write(']];')
         else:
             l.write('],\n')
         f.close()
