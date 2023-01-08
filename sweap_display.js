@@ -230,8 +230,8 @@ https://codepen.io/aecend/pen/WbONyK
         // requestAnimationFrame(draw);
     }
     
-    var spacingh = 30; // outer spacing on the bottom & top
-    var spacingw = 30; // outer spacing on the left & right side
+    var spacingh = 35; // outer spacing on the bottom & top
+    var spacingw = 35; // outer spacing on the left & right side
     var barw = (canvas_width-spacingw) / 32; // width of a single bar in the electron display
     var barh; // represents the height of a single bar
     var marginw = 6; // horizontal spacing between bars
@@ -253,13 +253,13 @@ https://codepen.io/aecend/pen/WbONyK
           barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the energy
 
           // Draws the bar
-          ctx.fillStyle = calcColor(i, 1, 32); // calcColor(Math.log10(e), emin, emax)
+          ctx.fillStyle = calcColor(i, 1, 32); // calcColor(Math.log10(e), emin, emax);
           ctx.fillRect(marginw+(i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
         }
         ctx.fillStyle = "rgb(0,0,0)";
         ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
-        var textw = 230;
+        var textw = 265;
         var texth = 36;
         // Draws a text box
         ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -275,24 +275,29 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = "white";
         ctx.font = "12px Montserrat";
         ctx.textAlign = 'left';
-        ctx.fillText("Density: " + totalelectrons + " million electrons/cm²", 10, 22);
+        ctx.fillText("Total Density: " + totalelectrons + " million electrons/cm²", 10, 22);
 
-        // Draws horizontal axis & label
-        ctx.fillStyle = "rgba(255,0,0,0.9)";
+        // Create a linear gradient
+        // The start gradient point is at x=20, y=0
+        // The end gradient point is at x=220, y=0
+        const gradient = ctx.createLinearGradient(marginw, canvas_height-(spacingh-marginw), canvas_width-spacingw, canvas_height-(spacingh-marginw));
+        // Add color stops
+        // gradient.addColorStop(0, "black");
+        // gradient.addColorStop(0.7, "rgba(255,0,0,0.9)");
+        for (i = 1; i <= 32; i++) {
+          gradient.addColorStop((i-1)/32, calcColor(i, 1, 32));
+        }
+
+        // Draws horizontal & vertical axis
+        ctx.fillStyle = gradient;
         ctx.fillRect(marginw, canvas_height-(spacingh-marginw), canvas_width-spacingw-marginw, spacingh-2*marginw);
         let region = new Path2D();
-        region.moveTo(canvas_width - spacingw + (spacingh/2-marginw), canvas_height-(spacingh/2));
+        region.moveTo(canvas_width - spacingw + (spacingw/2-marginw), canvas_height-(spacingh/2));
         region.lineTo(canvas_width - spacingw, canvas_height-(spacingh-marginw));
         region.lineTo(canvas_width - spacingw, canvas_height-(marginw));
         region.closePath();
         ctx.fill(region);
 
-        ctx.fillStyle = 'white';
-        ctx.font = "11px Montserrat";
-        ctx.textAlign = 'center';
-        ctx.fillText("Electron Energy", canvas_width/2, canvas_height-11);
-
-        // Draws vertical axis & label
         ctx.fillStyle = "rgba(255,0,0,0.9)";
         ctx.fillRect(canvas_width - (spacingw-marginw), marginw, spacingw-2*marginw, canvas_height-spacingh-marginw);
         let region2 = new Path2D();
@@ -301,6 +306,32 @@ https://codepen.io/aecend/pen/WbONyK
         region2.lineTo(canvas_width - marginw, canvas_height-spacingh);
         region2.closePath();
         ctx.fill(region2);
+
+        // Draws the labels
+        ctx.fillStyle = 'black';
+        ctx.font = "11px Montserrat";
+        ctx.textAlign = 'center';
+        for (i = 0; i < 3; i++) {
+          ctx.fillText("Electron Energy", canvas_width/2, canvas_height-(spacingh/2-4));
+        }
+
+        ctx.font = "10px Montserrat";
+        var superscripts = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"];
+        for (i = 0; i < 2; i++) {
+          for (j = emin; j <= emax; j++) {
+            ctx.fillText("10"+superscripts[j], canvas_width - (spacingw/2), canvas_height-spacingh-4 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
+          }
+        }
+        ctx.fillStyle = 'rgba(255,0,0,1)';
+        ctx.textAlign = 'right';
+        ctx.translate(canvas_width - (spacingw-2), marginw);
+        ctx.rotate(270 * Math.PI / 180);
+        ctx.translate(-(canvas_width - (spacingw-2)), -marginw);
+        for (i = 0; i < 3; i++) {
+          ctx.fillText("electrons / cm²", canvas_width - (spacingw-2), marginw);
+        }
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+
     }
 
     //This function draws the canvas for the alphas/ions
@@ -425,7 +456,7 @@ function update_data2(){ // updates the images, location, etc. every time the sl
     angle = Math.PI - Math.atan(y/-x);
   }
   loc2.style.transform = "rotate(" + (2*Math.PI-angle) + "rad)";
-  
+  // document.getElementById("warning").innerHTML = spcdateList[orbit_ind2][slider_val2];
 }
 function play_loop2(){
   if (!stopplay2){
@@ -449,7 +480,15 @@ selector2.oninput = function(){
   orbit_ind2 = parseInt(orbit2)-1;
   slider2.value = '0'; // resets slider value to 0 every time orbit is changed
   slider_val2 = 0;
-  slider2.max = spcList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+  if (sweapmode == "p"){ // Protons
+    slider2.max = spcList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+  } 
+  else if (sweapmode == "e") { // Electrons
+    slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+  } 
+  else if (sweapmode == "a") { // Alphas/Ions
+    slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+  } 
   update_data2();
 }
 
@@ -461,16 +500,19 @@ instrumentselector.oninput = function(){
   if (sweapmode == "p"){ // Protons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPC_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "The Solar Probe Cup (SPC) points directly at the sun, enduring temperatures thousands of times greater than the hottest place on Earth (Death Valley) in order to measure protons and alpha particles in the solar wind (only data for protons is shown here).";
+    slider2.max = spcList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     SWEAP.drawProtons();
   } 
   else if (sweapmode == "e") { // Electrons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANe_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "The two Solar Probe ANalyzer (SPAN) instruments both measure electrons. SPAN-A points in the direction that the PSP is traveling, while SPAN-B points the opposite way. Together, their field of view covers almost the entire sky (except for the heat shield).";
+    slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     SWEAP.drawElectrons();
   } 
   else if (sweapmode == "a") { // Alphas/Ions
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). Now, when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so we'll just call them alphas.";
+    slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     SWEAP.drawAlphas();
   } 
 }
