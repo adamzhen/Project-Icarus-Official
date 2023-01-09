@@ -51,10 +51,10 @@ function play_loop(){
     max = parseInt(slider.max);
     if (slider_val < max-increment){
       slider_val += increment;
-      slider.value = toString(slider_val);
+      slider.value = slider_val.toString();
     } else {
       slider_val = 0;
-      slider.value = toString(slider_val);
+      slider.value = slider_val.toString();
     }
     update_data();
   }
@@ -131,6 +131,7 @@ function playclick(){
     document.getElementById("wisprslowerbutton1").style.right = "50%";
     document.getElementById("wisprslowerbutton2").style.right = "50%";
     document.getElementById("speedsection").style.opacity = 0;
+    
   }
 }
 function playfaster(n){

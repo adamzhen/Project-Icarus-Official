@@ -8,20 +8,27 @@ from matplotlib import pyplot as plt
 temp = []
 NUMORBITS = 12
 count_nan = 0
-instr = "spc" # change this to "spc", "spane", or "spani" depending on which instrument you are using
-mode = "normal" # change this to "normal" or "spcdate" depending on which mode you are using
+instr = "spani" # change this to "spc", "spane", or "spani" depending on which instrument you are using
+mode = "date" # change this to "normal" or "date" depending on which mode you are using
 
-if mode == "spcdate":
+if instr == "spani": # only orbits 2-8 have data for spani
+    start = 2
+    end = 8
+else:
+    start = 1
+    end = NUMORBITS
+if mode == "date":
     instr += "date"
+    
 with open(f'sweap_data/{instr}_list.js', 'w') as l:
     l.write(f"// 3D array of {instr.upper()} data (obtained via SWEAP Level-3 FITS Data -> pyspedas_data_analysis.ipynb -> txt files -> read_sweaptxt.py -> formatted 3D array)\n")
     if instr == "spc":
         l.write("// INDICES:      0                1                    2                     3                4          5            6                   7 \n")
         l.write("// DESCRIPTION:  YYYYMMDD_HHMM |  P VELOCITY (km/s)  | P DENSITY (cm^-2)  |  P TEMP (K)     | X-COORD  | Y-COORD    | DISTANCE (km)     | PSP VELOCITY (km/s)\n")
     l.write(f'var {instr}List = [')
-    if mode=="spcdate":
+    if mode=="date":
         instr = instr.replace("date", '')
-    for n in range(1,NUMORBITS+1):
+    for n in range(start, end+1): 
         f = open(f'sweap_data/sweap_txt_data/{instr}_orbit{n}.txt','r')
         lines = f.readlines()
         l.write('[')
@@ -46,9 +53,9 @@ with open(f'sweap_data/{instr}_list.js', 'w') as l:
                 else:
                     output += '],\n'
                 l.write(output)
-            elif mode=="spcdate":
+            elif mode=="date":
                 l.write(f'"{rline[0]}",\n')
-        if n==NUMORBITS:
+        if n==end:
             l.write(']];')
         else:
             l.write('],\n')

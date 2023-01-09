@@ -421,42 +421,69 @@ function formattime(hr, min){ // formats the time to 12-hour format
     return (hr % 12).toString() + ":" + min + " pm";
   }
 }
+var datetime; // holds the string of the date and time
 function update_data2(){ // updates the images, location, etc. every time the slider changes
-  if (sweapmode == "p"){
+  var scale_factor = 355000;
+  var angle;
+  if (sweapmode == "p"){ // PROTONS
+    var data = spcList[orbit_ind2][slider_val2]; 
+    var dist = data[6].toFixed(3).toString();
+    var speed = data[7].toFixed(1).toString();
+    datetime = data[0];
+    document.getElementById("locplot2").src = "public/orbit_plot2_" + orbit2 + ".png"; // updates image for position display
+    document.getElementById("locplot2").style.opacity = "1";
+    var x = data[4];
+    var y = data[5];
+    loc2.style.left = (8 + x / scale_factor).toString() + 'px'; //
+    loc2.style.top = (-198 - y / scale_factor).toString() + 'px'; //
+    if (x>0){
+      angle = Math.atan(y/x);
+    } else {
+      angle = Math.PI - Math.atan(y/-x);
+    }
+    loc2.style.transform = "rotate(" + (2*Math.PI-angle) + "rad)";
     SWEAP.drawProtons();
-  } else if (sweapmode == "e"){
-    SWEAP.drawElectrons();
-  } else if (sweapmode == "a"){
-    SWEAP.drawAlphas();
-  } 
-  var data = spcList[orbit_ind2][slider_val2]; 
-  var dist = data[6].toFixed(3);
-  var speed = data[7].toFixed(1);
-  var datetime = data[0];
+  } else {
+    if (sweapmode == "e"){ // ELECTRONS
+      datetime = spaneList[orbit_ind2][slider_val2][0]; 
+      SWEAP.drawElectrons();
+    } else if (sweapmode == "a"){ // ALPHAS/IONS
+      SWEAP.drawAlphas();
+    } 
+    var spcdateind = spcdateList[orbit_ind2].indexOf(datetime);
+    if (spcdateind != -1){ // if the date is found in the spc date list
+      var data = spcList[orbit_ind2][spcdateind]; 
+      var dist = data[6].toFixed(3).toString();
+      var speed = data[7].toFixed(1).toString();
+      document.getElementById("locplot2").src = "public/orbit_plot2_" + orbit2 + ".png"; // updates image for position display
+      document.getElementById("locplot2").style.opacity = "1";
+      var x = data[4];
+      var y = data[5];
+      loc2.style.left = (8 + x / scale_factor).toString() + 'px'; //
+      loc2.style.top = (-198 - y / scale_factor).toString() + 'px'; //
+      if (x>0){
+        angle = Math.atan(y/x);
+      } else {
+        angle = Math.PI - Math.atan(y/-x);
+      }
+      loc2.style.transform = "rotate(" + (2*Math.PI-angle) + "rad)";
+    } 
+    else { // if the date is NOT found in the spc date list
+      document.getElementById("locplot2").style.opacity = "0.8";
+      dist = speed = "____";
+    }
+  }
   var yr = datetime.substring(0, 4);
   var mth = datetime.substring(4, 6);
   var day = datetime.substring(6, 8);
   var hr = parseInt(datetime.substring(9, 11));
   var min = datetime.substring(11, 13);
-  document.getElementById("locplot2").src = "public/orbit_plot2_" + orbit2 + ".png"; // updates image for position display
-  document.getElementById("disttxt2").innerHTML = "Distance: " + dist.toString() + " AU";
-  document.getElementById("pspspeed").innerHTML = "Speed: " + speed.toString() + " km/s";
   document.getElementById("datetxt2").innerHTML = mth + "/" + day + "/" + yr;
   document.getElementById("timetxt").innerHTML = formattime(hr, min);
-  
-  var scale_factor = 355000;
-  var x = data[4];
-  var y = data[5];
-  var angle;
-  loc2.style.left = (8 + x / scale_factor).toString() + 'px'; //
-  loc2.style.top = (-198 - y / scale_factor).toString() + 'px'; //
-  if (x>0){
-    angle = Math.atan(y/x);
-  } else {
-    angle = Math.PI - Math.atan(y/-x);
-  }
-  loc2.style.transform = "rotate(" + (2*Math.PI-angle) + "rad)";
-  // document.getElementById("warning").innerHTML = spcdateList[orbit_ind2][slider_val2];
+
+  document.getElementById("disttxt2").innerHTML = "Distance: " + dist + " AU";
+  document.getElementById("pspspeed").innerHTML = "Speed: " + speed + " km/s";
+  // document.getElementById("warning").innerHTML = datetime;
 }
 function play_loop2(){
   if (!stopplay2){
@@ -464,10 +491,10 @@ function play_loop2(){
     max2 = parseInt(slider2.max);
     if (slider_val2 < max2-increment){
       slider_val2 += increment;
-      slider2.value = toString(slider_val2);
+      slider2.value = slider_val2.toString();
     } else {
       slider_val2 = 0;
-      slider2.value = toString(slider_val2);
+      slider2.value = slider_val2.toString();
     }
     update_data2();
   }
@@ -499,22 +526,31 @@ instrumentselector.oninput = function(){
   SWEAP.changeMode(sweapmode);
   if (sweapmode == "p"){ // Protons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPC_instrument.jpg)";
-    document.getElementById("sweapdescription").innerHTML = "The Solar Probe Cup (SPC) points directly at the sun, enduring temperatures thousands of times greater than the hottest place on Earth (Death Valley) in order to measure protons and alpha particles in the solar wind (only data for protons is shown here).";
+    document.getElementById("sweapdescription").innerHTML = "The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).";
     slider2.max = spcList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
-    SWEAP.drawProtons();
+    var dateind = spcdateList[orbit_ind2].indexOf(datetime);
   } 
   else if (sweapmode == "e") { // Electrons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANe_instrument.jpg)";
-    document.getElementById("sweapdescription").innerHTML = "The two Solar Probe ANalyzer (SPAN) instruments both measure electrons. SPAN-A points in the direction that the PSP is traveling, while SPAN-B points the opposite way. Together, their field of view covers almost the entire sky (except for the heat shield).";
+    document.getElementById("sweapdescription").innerHTML = "Both of the two Solar Probe ANalyzers (SPAN) measure electrons by sorting them into 32 different energy bins. SPAN-A points in the direction that the PSP is traveling, while SPAN-B points the opposite way. Together, their field of view covers almost the entire sky (except for what the heat shield blocks).";
     slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
-    SWEAP.drawElectrons();
+    var dateind = spanedateList[orbit_ind2].indexOf(datetime);
   } 
   else if (sweapmode == "a") { // Alphas/Ions
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
-    document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). Now, when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so we'll just call them alphas.";
+    document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so here we just call them alphas.";
     slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
-    SWEAP.drawAlphas();
+    var dateind = spanidateList[orbit_ind2].indexOf(datetime);
   } 
+  // Updates slider index to match date/time, or resets slider to 0 if date/time is not found
+  if (dateind != -1){
+    slider2.value = dateind.toString();
+    slider_val2 = dateind;
+  } else {
+    slider2.value = '0'; // resets slider value to 0 if matching datetime is not found
+    slider_val2 = 0;
+  }
+  update_data2();
 }
 
 var slider2 = document.getElementById("sliderrr2");
@@ -555,6 +591,7 @@ function playclick2(){
     document.getElementById("sweapslowerbutton1").style.right = "50%";
     document.getElementById("sweapslowerbutton2").style.right = "50%";
     document.getElementById("speedsection2").style.opacity = 0;
+    slider2.value = slider_val2.toString();
   }
 }
 function playfaster2(n){
@@ -605,3 +642,4 @@ function playslower2(n){
 //     document.getElementById("c").height = 400;
 //   }
 // }
+update_data2();
