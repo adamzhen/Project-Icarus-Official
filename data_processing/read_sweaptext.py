@@ -9,7 +9,7 @@ temp = []
 NUMORBITS = 12
 count_nan = 0
 instr = "spani" # change this to "spc", "spane", or "spani" depending on which instrument you are using
-mode = "date" # change this to "normal" or "date" depending on which mode you are using
+mode = "normal" # change this to "normal" or "date" depending on which mode you are using
 
 if instr == "spani": # only orbits 2-8 have data for spani
     start = 2
@@ -28,6 +28,8 @@ with open(f'sweap_data/{instr}_list.js', 'w') as l:
     l.write(f'var {instr}List = [')
     if mode=="date":
         instr = instr.replace("date", '')
+    for n in range(1, start):
+        l.write("[],\n")
     for n in range(start, end+1): 
         f = open(f'sweap_data/sweap_txt_data/{instr}_orbit{n}.txt','r')
         lines = f.readlines()
@@ -55,7 +57,7 @@ with open(f'sweap_data/{instr}_list.js', 'w') as l:
                 l.write(output)
             elif mode=="date":
                 l.write(f'"{rline[0]}",\n')
-        if n==end:
+        if n==NUMORBITS:
             l.write(']];')
         else:
             l.write('],\n')
@@ -65,3 +67,8 @@ with open(f'sweap_data/{instr}_list.js', 'w') as l:
         # print("Number of nan values: ", count_nan)
         # plt.plot(np.arange(0, len(temp)), temp)
         # plt.show()
+    for n in range(end+1, NUMORBITS+1):
+        if n==NUMORBITS:
+            l.write('[]];')
+        else:
+            l.write('[],\n')

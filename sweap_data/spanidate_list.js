@@ -1,5 +1,6 @@
 // 3D array of SPANIDATE data (obtained via SWEAP Level-3 FITS Data -> pyspedas_data_analysis.ipynb -> txt files -> read_sweaptxt.py -> formatted 3D array)
-var spanidateList = [["20190330_0002",
+var spanidateList = [[],
+["20190330_0002",
 "20190330_0003",
 "20190330_0004",
 "20190330_0005",
@@ -111549,4 +111550,8 @@ var spanidateList = [["20190330_0002",
 "20210503_2357",
 "20210503_2358",
 "20210503_2359",
-]];
+],
+[],
+[],
+[],
+[]];

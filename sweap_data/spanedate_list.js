@@ -1,4 +1,4 @@
-// 3D array of SPANEDATE data (obtained via SWEAP Level-3 FITS Data -> pyspedas_data_analysis.ipynb -> txt files -> read_sweaptxt.py -> formatted 3D array)
+// 3D array of SPANEDATE data (obtained via SWEAP Level-2 FITS Data -> pyspedas_data_analysis.ipynb -> txt files -> read_sweaptxt.py -> formatted 3D array)
 var spanedateList = [["20181101_0001",
 "20181101_0002",
 "20181101_0003",

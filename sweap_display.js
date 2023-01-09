@@ -11,20 +11,30 @@ https://codepen.io/aecend/pen/WbONyK
 
     var canvas_width = 1000; 
     var canvas_height = 300;
-    var psize = 5; //This determines the size of the particles.
-    var particles = []; //The array that will contain the particles to display
-    var hiddenparticles = [];  //The array that will contain the particles that are hidden at any moment
-
+    
+    var particles = []; //The array that will contain the protons to display
+    var hiddenparticles = [];  //The array that will contain the protons that are hidden at any moment
+    var psize = 5; //This determines the size of the protons.
     var pdensity = 300; //This determines how many protons will be made.
     var pvelocity = 50; //This determines the velocity of the protons.
     var pcolor = "#00FFFF"; // This varies the proton color according to temperature
     var sunradius = 10; //The radius of the sun
+
+    var ions = []; //The array that will contain the ions to display
+    var hiddenions = []; //The array that will contain the ions that are hidden at any moment
+    var isize = 3; //This determines the size of the ions.
+    var idensity = 300; //This determines how many ions will be made.
+    var ivelocity = 20; //This determines the velocity of the ions.
+    var icolor = "#00FFFF"; // This varies the ion color according to temperature
 
     var evals = []; // This array will contain the 32 energy values of the different electrons
     var totalelectrons; // This represents the total number of electrons at any point in time
     // Switches the display mode between protons, electrons, & alphas
     function change_mode(m){
       DISPLAYMODE = m;
+      if (m == "a" && ions.length==0){
+        SWEAP.initialize(); // intializes ions & hidden ions
+      }
     }
 
     // Calculates the maximum radius within the canvas depending on the theta value
@@ -55,21 +65,34 @@ https://codepen.io/aecend/pen/WbONyK
         canvas.width = canvas_width;
         canvas.height = canvas_height;
         canvas.style.border = "4px outset rgb(217, 54, 0)";
-
-        for (i = 0; i < pdensity; i++) {
+        if (DISPLAYMODE == "p"){
+          for (i = 0; i < pdensity; i++) {
+            temptheta = Math.random() * 2*Math.PI; 
+            particles.push(new particle(temptheta, Math.random() * (maxradius(temptheta)-sunradius) + sunradius, "tr"));
+          }
+          var temptheta;
+          for (i = 0; i < (10000-pdensity); i++) {
+            /*
+            This creates the hidden particles that will appear when density increases
+            */
             temptheta = Math.random() * 2*Math.PI; 
             hiddenparticles.push(new particle(temptheta, Math.random() * (maxradius(temptheta)-sunradius) + sunradius, "tr"));
+          }
+          //When the page is finished loading, run the draw() function.
+          w.onload = draw_protons;
+        } 
+        else if (DISPLAYMODE == "a"){
+          for (i = 0; i < pdensity; i++) {
+            ions.push(new ion(Math.random() * canvas_width, Math.random() * canvas_height, "xy"));
+          }
+          var temptheta;
+          for (i = 0; i < (10000-pdensity); i++) {
+            /*
+            This creates the hidden particles that will appear when density increases
+            */
+            hiddenions.push(new ion(Math.random() * canvas_width, Math.random() * canvas_height, "xy"));
+          }
         }
-        var temptheta;
-        for (i = 0; i < (10000-pdensity); i++) {
-          /*
-          This creates the hidden particles that will appear when density increases
-          */
-          temptheta = Math.random() * 2*Math.PI; 
-          hiddenparticles.push(new particle(temptheta, Math.random() * (maxradius(temptheta)-sunradius) + sunradius, "tr"));
-        }
-        //When the page is finished loading, run the draw() function.
-        w.onload = draw_protons;
     }
     // Calculates a color from rgb(0,0,252) to rgb(252,0,0) based on the temperature
     function calcColor(x, low, high) {
@@ -336,17 +359,104 @@ https://codepen.io/aecend/pen/WbONyK
 
     //This function draws the canvas for the alphas/ions
     function draw_alphas() {
-
-      /*
-      This line clears the canvas. It needs to be cleared every time a new frame is drawn
-      so the particles move. Otherwise, the particles would just look like long curvy lines.
-      */
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only works with orbits 2-8
+        var iv = spaniList[orbit_ind2][slider_val2][1].toFixed(1);
+        var id = spaniList[orbit_ind2][slider_val2][2].toFixed(2);
+        var it = spaniList[orbit_ind2][slider_val2][3].toFixed(0);
+        // updates parameters
+        ivelocity = iv/15; // Proton velocity
+        idensity = id*100; // Proton density
+        icolor = calcColor(it, 1000000, 5000000); // Proton color based on temperature
 
-      ctx.fillStyle = 'rgb(255, 255, 255)';
-      ctx.font = "18px Montserrat";
-      ctx.textAlign = 'center';
-      ctx.fillText("Alpha display still under construction", canvas_width/2, canvas_height/2);
+        //This sets the color to draw with.
+        ctx.strokeStyle = icolor;
+
+        var diff = Math.abs(idensity - ions.length);
+        // Increase the particle amount if below density
+        if (ions.length < idensity){   
+          while (diff > 0) {
+              ions.push(hiddenions.pop());
+              diff -= 1;
+          }
+        }
+        // Decrease the particle amount if above density 
+        else if (ions.length > idensity){
+          while (diff > 0) {
+            // if (!(p.x >= 0 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height))
+            var p = ions.pop();
+            p.px = p.x = Math.random() * canvas_width;
+            p.py = p.y = Math.random() * canvas_height;
+            hiddenions.push(p);
+            diff -= 1;
+          }
+        }
+        // document.getElementById("warning").innerHTML = ions.length;
+        //Loops through all of the ions in the array
+        for (i = 0; i < ions.length; i++) {
+
+            //Sets this variable to the current particle so we can refer to the particle easier.
+            var p = ions[i];
+
+            //If the particle's X and Y coordinates are within the bounds of the canvas...
+            if (p.x >= -50 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
+                if (i % 4 == 0) {
+                  ctx.lineWidth = isize;
+                  p.vx = ivelocity * (Math.random()*0.2+1);;
+                } else if (i % 4 == 2) {
+                  ctx.lineWidth = isize*0.6;
+                  p.vx = ivelocity * (Math.random()*0.3+0.7);
+                } else {
+                  ctx.lineWidth = isize*0.4; 
+                  p.vx = ivelocity * (Math.random()*0.3+0.4);
+                }
+                //This recalculates the position coordinates of the particle.
+                p.x = p.x + p.vx;
+                p.y = p.y + (Math.random()*4-2);
+                
+                ctx.beginPath(); //Begin a new path on the canvas
+                ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
+                ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
+                ctx.stroke(); //Draw the path to the canvas
+                //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
+                p.px = p.x;
+                p.py = p.y;     
+            }
+            else {
+                //If the particle's X and Y coordinates are outside the bounds of the canvas...
+
+                //Place the particle back at the start
+                p.px = p.x = -50 * Math.random();
+                p.py = p.y = Math.random() * canvas_height;              
+            }
+        }
+        var textw = 180;
+        var texth = 70;
+        // Draws a text box
+        ctx.fillStyle = "rgba(0,0,0,0.8)";
+        ctx.fillRect(0, 0, textw, texth);
+        ctx.strokeStyle = "rgb(255, 100, 0)";
+        ctx.lineWidth = 1.2;
+        ctx.beginPath(); 
+        ctx.moveTo(0, texth); 
+        ctx.lineTo(textw, texth); 
+        ctx.lineTo(textw, 0); 
+        ctx.stroke(); //Draw the path to the canvas
+        // Draws the text
+        ctx.textAlign = 'left';
+        ctx.fillStyle = "white";
+        ctx.font = "12px Montserrat";
+        ctx.fillText("Velocity: " + iv + " km/s", 10, 56);
+        ctx.fillText("Density: " + id + " ions/cm³", 10, 39); 
+        ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
+        //This requests the next animation frame which runs the draw() function again.
+        // requestAnimationFrame(draw);
+      } else {
+        ctx.fillStyle = 'rgb(217, 54, 0)';
+        ctx.font = "24px Montserrat";
+        ctx.textAlign = 'center';
+        ctx.fillText("DATA ONLY AVAILABLE FOR ORBITS 2-8", canvas_width/2, canvas_height/2);
+      }
     }
     //This function calculates theta given x, y
     function calctheta(x, y) {
@@ -370,7 +480,7 @@ https://codepen.io/aecend/pen/WbONyK
         return 0;
       }
     }
-    //This function is used to create a particle object.
+    //This function is used to create a particle (proton) object.
     function particle(p1, p2, key) {
       if (key == "xy"){ // p1 = x, p2 = y
         var truex = p1 - (canvas_width/2);
@@ -388,7 +498,14 @@ https://codepen.io/aecend/pen/WbONyK
         this.v = pvelocity;
       }
     }
-  
+    //This function is used to create an ion object.
+    function ion(p1, p2, key) {
+      if (key == "xy"){ // p1 = x, p2 = y
+        this.x = this.px = p1;
+        this.y = this.py = p2;
+        this.vx = pvelocity;
+      }
+    }
     /*
     And this line attaches an object called "SWEAP" to the global scope. "window" was passed into
     the self-invoking function as "w", so setting "w.SWEAP" adds it to "window".
@@ -448,6 +565,9 @@ function update_data2(){ // updates the images, location, etc. every time the sl
       datetime = spaneList[orbit_ind2][slider_val2][0]; 
       SWEAP.drawElectrons();
     } else if (sweapmode == "a"){ // ALPHAS/IONS
+      if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
+        datetime = spaniList[orbit_ind2][slider_val2][0]; 
+      }
       SWEAP.drawAlphas();
     } 
     var spcdateind = spcdateList[orbit_ind2].indexOf(datetime);
@@ -514,7 +634,9 @@ selector2.oninput = function(){
     slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
   } 
   else if (sweapmode == "a") { // Alphas/Ions
-    slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+    if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
+      slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+    }
   } 
   update_data2();
 }
@@ -539,7 +661,9 @@ instrumentselector.oninput = function(){
   else if (sweapmode == "a") { // Alphas/Ions
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so here we just call them alphas.";
-    slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+    if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
+      slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
+    }
     var dateind = spanidateList[orbit_ind2].indexOf(datetime);
   } 
   // Updates slider index to match date/time, or resets slider to 0 if date/time is not found
