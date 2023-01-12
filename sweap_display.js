@@ -300,7 +300,7 @@ https://codepen.io/aecend/pen/WbONyK
         var textw = 265;
         var texth = 36;
         if (sweapUnit == "wacky"){
-          textw = 275;
+          textw = 290;
         } 
         // Draws a text box
         ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -323,7 +323,7 @@ https://codepen.io/aecend/pen/WbONyK
           ctx.fillText("Total Density: " + (totalelectrons/2.54/2.54/2.54).toFixed(2) + " million electrons/in²", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
-          ctx.fillText("Total Density: " + (totalelectrons/2.85).toFixed(0) + " million electrons/penny", 10, 22);
+          ctx.fillText("Total Density: " + (totalelectrons*0.643).toFixed(0) + " million electrons/eardrum", 10, 22);
         } 
         // Create a linear gradient
         // The start gradient point is at x=20, y=0
@@ -476,17 +476,17 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.font = "12px Montserrat";
         if (sweapUnit == "metric"){
           ctx.fillText("Velocity: " + (iv*3600).toFixed(0) + " kmph", 10, 56);
-          ctx.fillText("Density: " + id + " ions/cm²", 10, 39);
+          ctx.fillText("Density: " + id + " alphas/cm³", 10, 39);
           ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
         } 
         else if (sweapUnit == "imperial"){
           ctx.fillText("Velocity: " + (iv*3600*0.6214).toFixed(0) + " mph", 10, 56);
-          ctx.fillText("Density: " + (id/2.54/2.54/2.54).toFixed(4) + " ions/in²", 10, 39);
+          ctx.fillText("Density: " + (id/2.54/2.54/2.54).toFixed(4) + " alphas/in³", 10, 39);
           ctx.fillText("Temperature: " + (((it-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
           ctx.fillText("Velocity: Mach " + (iv*2.91545).toFixed(0) + "", 10, 56);
-          ctx.fillText("Density: " + (id*0.033814).toFixed(4) + " ions/party cup", 10, 39);
+          ctx.fillText("Density: " + (id/2.5).toFixed(4) + " alphas/acorn", 10, 39);
           ctx.fillText("Temperature: " + (it/329.817).toFixed(0) + " death valleys", 10, 22);
         } 
         //This requests the next animation frame which runs the draw() function again.
@@ -584,8 +584,14 @@ function update_data2(){ // updates the images, location, etc. every time the sl
   var angle;
   if (sweapmode == "p"){ // PROTONS
     var data = spcList[orbit_ind2][slider_val2]; 
-    var dist = data[6].toFixed(3).toString();
-    var speed = data[7].toFixed(1).toString();
+    var dist = (data[6]).toFixed(3).toString() + " AU";
+    if (sweapUnit=="metric"){
+      var speed = (data[7]*3600).toFixed(0).toString() + " kmph";
+    } else if (sweapUnit=="imperial"){
+      var speed = (data[7]*3600*0.6214).toFixed(0).toString() + " mph";
+    } else if (sweapUnit=="wacky"){
+      var speed = "Mach " + (data[7]*2.91545).toFixed(0).toString();
+    }
     datetime = data[0];
     document.getElementById("locplot2").src = "public/orbit_plot2_" + orbit2 + ".png"; // updates image for position display
     document.getElementById("locplot2").style.opacity = "1";
@@ -613,8 +619,14 @@ function update_data2(){ // updates the images, location, etc. every time the sl
     var spcdateind = spcdateList[orbit_ind2].indexOf(datetime);
     if (spcdateind != -1){ // if the date is found in the spc date list
       var data = spcList[orbit_ind2][spcdateind]; 
-      var dist = data[6].toFixed(3).toString();
-      var speed = data[7].toFixed(1).toString();
+      var dist = data[6].toFixed(3).toString() + " AU";
+      if (sweapUnit=="metric"){
+        var speed = (data[7]*3600).toFixed(0).toString() + " kmph";
+      } else if (sweapUnit=="imperial"){
+        var speed = (data[7]*3600*0.6214).toFixed(0).toString() + " mph";
+      } else if (sweapUnit=="wacky"){
+        var speed = "Mach " + (data[7]*2.91545).toFixed(0).toString();
+      }
       document.getElementById("locplot2").src = "public/orbit_plot2_" + orbit2 + ".png"; // updates image for position display
       document.getElementById("locplot2").style.opacity = "1";
       var x = data[4];
@@ -630,7 +642,7 @@ function update_data2(){ // updates the images, location, etc. every time the sl
     } 
     else { // if the date is NOT found in the spc date list
       document.getElementById("locplot2").style.opacity = "0.8";
-      dist = speed = "____";
+      dist = speed = "unknown";
     }
   }
   var yr = datetime.substring(0, 4);
@@ -641,8 +653,8 @@ function update_data2(){ // updates the images, location, etc. every time the sl
   document.getElementById("datetxt2").innerHTML = mth + "/" + day + "/" + yr;
   document.getElementById("timetxt").innerHTML = formattime(hr, min);
 
-  document.getElementById("disttxt2").innerHTML = "Distance: " + dist + " AU";
-  document.getElementById("pspspeed").innerHTML = "Speed: " + speed + " km/s";
+  document.getElementById("disttxt2").innerHTML = "Distance: " + dist;
+  document.getElementById("pspspeed").innerHTML = "Speed: " + speed;
   // document.getElementById("warning").innerHTML = datetime;
 }
 function play_loop2(){
@@ -798,11 +810,9 @@ function sweapUnitDisplay(){ // shows/hides sweap unit controls
   showSweapUnitDisplay = !showSweapUnitDisplay;
   const unitlist = document.querySelectorAll('.sweapunit');
   if (showSweapUnitDisplay){
-    unitlist.forEach((el) => el.style.opacity = 0.8);
     unitlist.forEach((el) => el.style.display = "block");
     //unitlist.forEach((el) => el.classList.add('.sweapunitshow'));
   } else {
-    unitlist.forEach((el) => el.style.opacity = 0);
     unitlist.forEach((el) => el.style.display = "none");
     //unitlist.forEach((el) => el.classList.remove('.sweapunitshow'));
   }

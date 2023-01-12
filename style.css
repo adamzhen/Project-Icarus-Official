@@ -1563,8 +1563,8 @@ canvas {
   background-color: transparent;
   padding: 30px;
 }
-#sweapdisplay a:link {color: rgb(173, 84, 0);text-decoration: none;}
-#sweapdisplay a:visited {color: rgb(173, 84, 0);text-decoration: none;}
+#sweapdisplay a:link {color: rgb(167, 81, 0);text-decoration: none;}
+#sweapdisplay a:visited {color: rgb(167, 81, 0);text-decoration: none;}
 #sweapdisplay a:hover {color: rgb(255, 123, 0);text-decoration: none;}
 #sweapdisplay a:active {color: rgb(255, 123, 0);text-decoration: none;}
 
@@ -1583,10 +1583,11 @@ canvas {
 }
 #moreinfo {
   position: relative;
-  bottom: 25px;
-  left: 275px;
+  text-align: right;
+  bottom: 63px;
+  left: 138px;
   font-family: 'Arial', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 300;
 }
 #sweapdisplay span {
@@ -1628,6 +1629,7 @@ canvas {
   color: rgb(255, 123, 0);
   font-weight: 500;
   margin-bottom: 2px;
+  opacity: 0.8;
   animation: all 1s ease-in-out;
 }
 .sweapunit {
@@ -1635,11 +1637,12 @@ canvas {
 }
 #instrumentdisplay h4:hover {
   transform: translateX(-2px);
+  opacity: 1;
   cursor: pointer;
 }
 #sweapdescription {
   position: relative;
-  bottom: 40px;
+  bottom: 45px;
   margin: 12px;
 }
 #sweapinstrument {
