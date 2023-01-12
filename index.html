@@ -274,16 +274,28 @@
           <section class="hiddenInner">
             <section id="innersection">
               <div class="innerdiv">
-                <h3 id="innerlabel">Inner Camera</h3>
                 <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_inner/20181101_004548_1suff.png" alt="WISPR Inner Camera" id = "innerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+                <h3 id="innerlabel">Inner Camera</h3>
               </div>
             </section>
           </section>
           <section class="hiddenOuter">
             <section id="outersection">
               <div class="outerdiv">
-                <h3 id="outerlabel">Outer Camera</h3>
+                <p id="laginfo" onclick="showinfo()">images lagging?</p>
                 <img src="https://wispr.nrl.navy.mil/data/rel/pngs/PNGs_Orbit01_outer/20181101_004530_2suff.png" alt="WISPR Outer Camera" id = "outerimg" onerror="this.onerror=null; this.src='public/file-not-found.png'">
+                <h3 id="outerlabel">Outer Camera</h3>
+                <script>
+                  var show = false;
+                  function showinfo(){
+                    show = !show;
+                    if(show){
+                      document.getElementById("laginfo").innerHTML = "images lagging? try lowering the fps or using the slider";
+                    } else {
+                      document.getElementById("laginfo").innerHTML = "images lagging?";
+                    }
+                  }
+                </script>
               </div>
             </section>
           </section>
@@ -358,7 +370,12 @@
                         <option value="a">Alphas</option>
                       </select>
                     </form>
-                    <a href="http://sweap.cfa.harvard.edu/SWEAP.html" target="_blank"><h7 id="moreinfo">🛈</h7></a>
+                    <!--a href="http://sweap.cfa.harvard.edu/SWEAP.html" target="_blank"><h8 id="moreinfo">🛈</h8></a-->
+                    <h8 id="sweapunits" onclick="sweapUnitDisplay()">Units</h8>
+                    <hr id="unitsline">
+                    <h4 id="sweapmetric" class="sweapunit" onclick="switchSWEAPunit('metric')">Metric</h4>
+                    <h4 id="sweapimperial" class="sweapunit" onclick="switchSWEAPunit('imperial')">Imperial</h4>
+                    <h4 id="sweapwacky" class="sweapunit" onclick="switchSWEAPunit('wacky')">Wacky</h4>
                   </div>
                   <p id="sweapdescription">The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).</p>
                 </div>
@@ -439,8 +456,8 @@
           <section class="hidden2">
             <p>What the <b>SWEAP</b> (Solar Wind Electrons Alphas and Protons investigation) essentially does is it counts the <b>3 most common plasma particles</b> in the solar wind <b>(electrons, protons, and alpha particles)</b>, and measures their temperature, density, velocity, etc. This data allows us to <b>understand how the solar wind behaves</b> as it accelerates in the corona of the sun, which will then allow us to better be able to <b>predict</b> what the solar wind will be like when it hits Earth (like a <b>weather forecast</b>, but for <b>solar weather</b>).</p>
             <br>
+            <p>And the results have already started to show. Scientists at the <b>Johns Hopkins Applied Physics Laboratory</b> (APL) used Parker Solar Probe's data to discern evidence that <em><b>"small-scale jetting</b> in the Sun's corona, driven by a process called magnetic reconnection, is responsible for the <b>heating and acceleration of the solar wind."</b></em> Read more about this stirring discovery <a href="https://www.jhuapl.edu/PressRelease/230110b-scientists-may-have-solved-mystery-of-origins-of-solar-wind" target="_blank"><b>here</b></a>.</p>
             <!--h8 id='warning' style="color:white; font-size:20px; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8-->
-            <p></p>
           </section>
         </div>        
       </div>

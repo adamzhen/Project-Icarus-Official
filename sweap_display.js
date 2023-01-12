@@ -126,9 +126,9 @@ https://codepen.io/aecend/pen/WbONyK
 
     // Draws the proton display
     function draw_protons() {
-        var pv = spcList[orbit_ind2][slider_val2][1].toFixed(1);
-        var pd = spcList[orbit_ind2][slider_val2][2].toFixed(0);
-        var pt = spcList[orbit_ind2][slider_val2][3].toFixed(0);
+        var pv = spcList[orbit_ind2][slider_val2][1].toFixed(1); // km/s
+        var pd = spcList[orbit_ind2][slider_val2][2].toFixed(0); // cm^-2
+        var pt = spcList[orbit_ind2][slider_val2][3].toFixed(0); // K
         var pdist = spcList[orbit_ind2][slider_val2][6].toFixed(3);
         // updates parameters
         pvelocity = pv/10; // Proton velocity
@@ -232,6 +232,9 @@ https://codepen.io/aecend/pen/WbONyK
         }
         var textw = 180;
         var texth = 70;
+        if (sweapUnit == "wacky"){
+          textw = 210;
+        }
         // Draws a text box
         ctx.fillStyle = "rgba(0,0,0,0.8)";
         ctx.fillRect(0, 0, textw, texth);
@@ -246,9 +249,21 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.textAlign = 'left';
         ctx.fillStyle = "white";
         ctx.font = "12px Montserrat";
-        ctx.fillText("Velocity: " + pv + " km/s", 10, 56);
-        ctx.fillText("Density: " + pd + " protons/cm²", 10, 39);
-        ctx.fillText("Temperature: " + (pt-273) + " ℃", 10, 22);
+        if (sweapUnit == "metric"){
+          ctx.fillText("Velocity: " + (pv*3600).toFixed(0) + " kmph", 10, 56);
+          ctx.fillText("Density: " + pd + " protons/cm²", 10, 39);
+          ctx.fillText("Temperature: " + (pt-273) + " ℃", 10, 22);
+        } 
+        else if (sweapUnit == "imperial"){
+          ctx.fillText("Velocity: " + (pv*3600*0.6214).toFixed(0) + " mph", 10, 56);
+          ctx.fillText("Density: " + (pd/2.54/2.54).toFixed(0) + " protons/in²", 10, 39);
+          ctx.fillText("Temperature: " + (((pt-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
+        } 
+        else if (sweapUnit == "wacky"){
+          ctx.fillText("Velocity: Mach " + (pv*2.91545).toFixed(0) + "", 10, 56);
+          ctx.fillText("Density: " + (pd/2.85).toFixed(0) + " protons/penny", 10, 39);
+          ctx.fillText("Temperature: " + (pt/329.817).toFixed(0) + " death valleys", 10, 22);
+        } 
         //This requests the next animation frame which runs the draw() function again.
         // requestAnimationFrame(draw);
     }
@@ -284,6 +299,9 @@ https://codepen.io/aecend/pen/WbONyK
 
         var textw = 265;
         var texth = 36;
+        if (sweapUnit == "wacky"){
+          textw = 275;
+        } 
         // Draws a text box
         ctx.fillStyle = "rgba(0,0,0,0.8)";
         ctx.fillRect(0, 0, textw, texth);
@@ -298,8 +316,15 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = "white";
         ctx.font = "12px Montserrat";
         ctx.textAlign = 'left';
-        ctx.fillText("Total Density: " + totalelectrons + " million electrons/cm²", 10, 22);
-
+        if (sweapUnit == "metric"){
+          ctx.fillText("Total Density: " + totalelectrons + " million electrons/cm²", 10, 22);
+        } 
+        else if (sweapUnit == "imperial"){
+          ctx.fillText("Total Density: " + (totalelectrons/2.54/2.54/2.54).toFixed(2) + " million electrons/in²", 10, 22);
+        } 
+        else if (sweapUnit == "wacky"){
+          ctx.fillText("Total Density: " + (totalelectrons/2.85).toFixed(0) + " million electrons/penny", 10, 22);
+        } 
         // Create a linear gradient
         // The start gradient point is at x=20, y=0
         // The end gradient point is at x=220, y=0
@@ -332,17 +357,17 @@ https://codepen.io/aecend/pen/WbONyK
 
         // Draws the labels
         ctx.fillStyle = 'black';
-        ctx.font = "11px Montserrat";
+        ctx.font = "12px Montserrat";
         ctx.textAlign = 'center';
         for (i = 0; i < 3; i++) {
           ctx.fillText("Electron Energy", canvas_width/2, canvas_height-(spacingh/2-4));
         }
 
-        ctx.font = "10px Montserrat";
+        ctx.font = "11px Montserrat";
         var superscripts = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"];
         for (i = 0; i < 2; i++) {
           for (j = emin; j <= emax; j++) {
-            ctx.fillText("10"+superscripts[j], canvas_width - (spacingw/2), canvas_height-spacingh-4 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
+            ctx.fillText("10"+superscripts[j], canvas_width - (spacingw/2), canvas_height-spacingh-5 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
           }
         }
         ctx.fillStyle = 'rgba(255,0,0,1)';
@@ -432,6 +457,9 @@ https://codepen.io/aecend/pen/WbONyK
         }
         var textw = 180;
         var texth = 70;
+        if (sweapUnit == "wacky"){
+          textw = 220;
+        }
         // Draws a text box
         ctx.fillStyle = "rgba(0,0,0,0.8)";
         ctx.fillRect(0, 0, textw, texth);
@@ -446,9 +474,21 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.textAlign = 'left';
         ctx.fillStyle = "white";
         ctx.font = "12px Montserrat";
-        ctx.fillText("Velocity: " + iv + " km/s", 10, 56);
-        ctx.fillText("Density: " + id + " ions/cm³", 10, 39); 
-        ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
+        if (sweapUnit == "metric"){
+          ctx.fillText("Velocity: " + (iv*3600).toFixed(0) + " kmph", 10, 56);
+          ctx.fillText("Density: " + id + " ions/cm²", 10, 39);
+          ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
+        } 
+        else if (sweapUnit == "imperial"){
+          ctx.fillText("Velocity: " + (iv*3600*0.6214).toFixed(0) + " mph", 10, 56);
+          ctx.fillText("Density: " + (id/2.54/2.54/2.54).toFixed(4) + " ions/in²", 10, 39);
+          ctx.fillText("Temperature: " + (((it-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
+        } 
+        else if (sweapUnit == "wacky"){
+          ctx.fillText("Velocity: Mach " + (iv*2.91545).toFixed(0) + "", 10, 56);
+          ctx.fillText("Density: " + (id*0.033814).toFixed(4) + " ions/party cup", 10, 39);
+          ctx.fillText("Temperature: " + (it/329.817).toFixed(0) + " death valleys", 10, 22);
+        } 
         //This requests the next animation frame which runs the draw() function again.
         // requestAnimationFrame(draw);
       } else {
@@ -751,6 +791,25 @@ function playslower2(n){
     timer2 = setInterval(play_loop2, 60000 / curr_speed2);
     document.getElementById("speeddisplay2").innerHTML = "x" + curr_speed2;
   }
+}
+var sweapUnit = "metric";
+var showSweapUnitDisplay = false;
+function sweapUnitDisplay(){ // shows/hides sweap unit controls
+  showSweapUnitDisplay = !showSweapUnitDisplay;
+  const unitlist = document.querySelectorAll('.sweapunit');
+  if (showSweapUnitDisplay){
+    unitlist.forEach((el) => el.style.opacity = 0.8);
+    unitlist.forEach((el) => el.style.display = "block");
+    //unitlist.forEach((el) => el.classList.add('.sweapunitshow'));
+  } else {
+    unitlist.forEach((el) => el.style.opacity = 0);
+    unitlist.forEach((el) => el.style.display = "none");
+    //unitlist.forEach((el) => el.classList.remove('.sweapunitshow'));
+  }
+}
+function switchSWEAPunit(unitname){
+  sweapUnit = unitname;
+  update_data2();
 }
 // var fullscreen = False;
 // function togglefullscreen(){

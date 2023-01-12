@@ -393,7 +393,7 @@ a:active { text-decoration: underline; }
   position: absolute;
   width: 100vw;
   height: 89vw; 
-  box-shadow: 40px 40px 50px black inset,-40px -40px 50px black inset;
+  box-shadow: 40px 40px 50px black inset,-40px -70px 50px black inset;
 }
 #sun h1 {
   position: absolute;
@@ -1261,6 +1261,7 @@ canvas {
   text-align: left;
   position: relative;
   left: 4px;
+  bottom: 5px;
   z-index: 2;
   color: #0085FF;
   font-size: 18px;
@@ -1286,6 +1287,7 @@ canvas {
   text-align: right;
   position: relative;
   right: 4px;
+  bottom: 5px;
   color: #0057BD;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
@@ -1298,6 +1300,22 @@ canvas {
   width: 240px;
   height: 256px;
   border: 4px dashed #0057BD;
+}
+#laginfo{
+  z-index: 7;
+  text-align: left;
+  position: relative;
+  left: 5px;
+  bottom: 3px;
+  color: #0057BD;
+  font-size: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+#laginfo:hover{
+  color: #0077ff;
+  cursor: pointer;
 }
 
 #locplot{
@@ -1408,6 +1426,7 @@ canvas {
   width: 80px;
 }
 #positiondisplay {
+  z-index: 3;
   position: relative;
   transform: scale(1);
 }
@@ -1514,7 +1533,6 @@ canvas {
   background-color: transparent;
   justify-content: center;
   display: block;
-  text-align: center;
 }
 #sweapinstrumentsimg {
   width: 100%;
@@ -1545,10 +1563,10 @@ canvas {
   background-color: transparent;
   padding: 30px;
 }
-#sweapdisplay a:link {color: rgb(173, 84, 0);}
-#sweapdisplay a:visited {color: rgb(173, 84, 0);}
-#sweapdisplay a:hover {color: rgb(255, 123, 0);}
-#sweapdisplay a:active {color: rgb(255, 123, 0);}
+#sweapdisplay a:link {color: rgb(173, 84, 0);text-decoration: none;}
+#sweapdisplay a:visited {color: rgb(173, 84, 0);text-decoration: none;}
+#sweapdisplay a:hover {color: rgb(255, 123, 0);text-decoration: none;}
+#sweapdisplay a:active {color: rgb(255, 123, 0);text-decoration: none;}
 
 #instrumentdisplay {
   width: 300px;
@@ -1561,6 +1579,7 @@ canvas {
   color: rgb(173, 84, 0);
   font-weight: 600;
   letter-spacing: 0px;
+  text-align: center;
 }
 #moreinfo {
   position: relative;
@@ -1569,6 +1588,54 @@ canvas {
   font-family: 'Arial', sans-serif;
   font-size: 18px;
   font-weight: 300;
+}
+#sweapdisplay span {
+  background-color: #00000027;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+#sweapunits {
+  position: relative;
+  bottom: 30px;
+  left: 260px;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: rgb(255, 123, 0);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+#sweapunits:hover {
+  color: rgb(255, 147, 45);
+  cursor: pointer;
+}
+#unitsline {
+  position: relative;
+  bottom: 30px;
+  border: none;
+  height: 1px;
+  background: rgb(255, 123, 0);
+}
+#instrumentdisplay h4 {
+  position: relative;
+  display: none;
+  bottom: 25px;
+  right: 6px;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: rgb(255, 123, 0);
+  font-weight: 500;
+  margin-bottom: 2px;
+  animation: all 1s ease-in-out;
+}
+.sweapunit {
+  animation: all 1s ease-in-out;
+}
+#instrumentdisplay h4:hover {
+  transform: translateX(-2px);
+  cursor: pointer;
 }
 #sweapdescription {
   position: relative;
@@ -1798,12 +1865,16 @@ canvas {
   opacity: 1;
   transform: scale(1.03);
 }
+#sweapinfo a:link {color: rgb(255, 106, 56);;}
+#sweapinfo a:visited {color: rgb(255, 106, 56);}
+#sweapinfo a:hover {color: rgb(255, 162, 116);}
+#sweapinfo a:active {color: rgb(255, 162, 116);}
 #sweapinfo {
   position: relative; 
   width: 70%; 
   margin-left: auto; 
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 #sweapinfo p {
