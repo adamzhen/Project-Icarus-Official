@@ -282,7 +282,7 @@ button {
     border-right: solid 2px #f8860d;
     border-bottom: solid 4px #f8860d;
     border-radius: 30px;
-    height: 500px;
+    height: 530px;
     max-width: 200px;
     transform: translateX(-250px) translateY(-250px);
     display: flex;
