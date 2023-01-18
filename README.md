@@ -7,9 +7,6 @@
 *** Don't forget to give the project a star!
 *** Thanks again! Now go create something AMAZING! :D
 -->
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -19,15 +16,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://adamzhen.github.io/Project-Icarus-Official/">
-    <img src="public/ProjectIcarusHeader2.png"/>
-  </a>
-</div>
-
+# Project Icarus
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -35,9 +24,15 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-This interactive website was initially created for the 2022 NASA Space Apps Challenge (October 1-2). As a team of 2, <a href="https://github.com/WarrenWu4">Warren Wu<a> and I worked on a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details">Creative Data Display With the Parker Solar Probe</a>," but alas, our project was too ambitious to finish in 48 hours. So after the challenge ended, I decided to keep working on it on my own to steadily bring our original vision to fruition - that is, a vision of helping educate the public on the Parker Solar Probe's mission through an all-encompassing, interactive experience packed with visuals.
+<!-- PROJECT LOGO -->
+<div align="center">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/">
+    <img src="public/ProjectIcarusHeader2.png"/>
+  </a>
+</div>
 
 <p align="center">
+  <br/>
   <a href="https://adamzhen.github.io/Project-Icarus-Official/" target="_blank">View Website</a>
   ·
   <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Report Bug</a>
@@ -45,7 +40,6 @@ This interactive website was initially created for the 2022 NASA Space Apps Chal
   <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Request Feature</a>
   <br />
 </p>
-
 
 
 <!-- TABLE OF CONTENTS -->
@@ -76,39 +70,80 @@ This interactive website was initially created for the 2022 NASA Space Apps Chal
 
 
 <!-- ABOUT THE WEBSITE -->
-## About The Website
-### [Home](https://adamzhen.github.io/Project-Icarus-Official/#home)
+# About The Website
+This interactive website was initially created for the 2022 NASA Space Apps Challenge (October 1-2). As a team of 2, <a href="https://github.com/WarrenWu4">Warren Wu<a> and I worked on a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details">Creative Data Display With the Parker Solar Probe</a>," but alas, our project was too ambitious to finish in 48 hours. So after the challenge ended, I decided to keep working on it on my own to steadily bring our original vision to fruition - that is, a vision of helping educate the public on the Parker Solar Probe's mission through an all-encompassing, interactive experience packed with visuals.
+
+The website is best viewed on larger, horizontal screens (computers, laptops, tablets, etc.). Currently, it does has some responsiveness for viewing on smaller, vertical screens (i.e. phones); however, the viewing experience there is not quite ideal. Future improvements could certainly include added responsiveness.
+
+## [Home](https://adamzhen.github.io/Project-Icarus-Official/#home)
+This section simply displays one of two logos that I designed - one is for larger, horizontal displays and the other for smaller, vertical displays.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## [The Sun](https://adamzhen.github.io/Project-Icarus-Official/#thesun)
+This section loads the most recent image of the sun from the SDO (Solar Dynamics Observatory) website's ["The Sun Now"](https://sdo.gsfc.nasa.gov/data/). These images are supposed to be updated every 15 minutes, though I have experienced some glitches where the images disappear or are formatted weirdly. The user can click on the image to cycle amongst images of different wavelengths.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## [The PSP](https://adamzhen.github.io/Project-Icarus-Official/#thepsp)
+This section uses a [3D model](https://solarsystem.nasa.gov/resources/2356/parker-solar-probe-3d-model/) loaded directly from NASA's website. When we first made the website, we actually downloaded the 3D model file and used Three.js to display it to our liking; however, it refused to work once uploaded onto GitHub, so I had to replace it.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## [Corona](https://adamzhen.github.io/Project-Icarus-Official/#corona)
+This section provides some preliminary context on the corona - the part of the sun that the Parker Solar Probe is intended to explore. It covers information on the corona itself, the Alfvén surface (or the outer boundary of the corona), and the solar weather events that arise from the corona. 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## [WISPR](https://adamzhen.github.io/Project-Icarus-Official/#thewispr)
+This section displays the images captured by the WISPR's inner & outer cameras for all 12 available orbits, along with a position display showing the PSP's position, it's distance from the sun (AU), and the date. Interactivity is integrated using the [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js) file. Now, the slider acts as the main control point, representing the range of indices for the list of fits data that corresponds to the selected orbit. When you drag the slider, it finds the fits data (i.e. date, position, distance) at the index of the slider, updating the position display accordingly. It's a bit more complicated for the images, because not every fits data point corresponds with an inner/outer image. First, it searches the [PNG_match_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_match_lists) for an inner and/or outer image date matching the fits date. If one is found, it uses the index of the image date to get the name of the image from [PNG_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists), which is needed to load the image from the [WISPR website](https://wispr.nrl.navy.mil/data/rel/pngs/). Therefore, it should be noted that the images won't necessarily change every time you change the slider. And as for the play button, it simply automates dragging the slider at a specified speed (fps).
+
+#### Images
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thewispr">
+    <img src="public/readme_assets/wisprcameraimages.jpg" width=300px/>
+  </a>
+</div>
+
+The WISPR images displayed here are loaded from https://wispr.nrl.navy.mil/data/rel/pngs/ (I was unable to upload all of the images directly to the repository, as the file size was too large). As a result, the images can sometimes lag, and I have yet to find a workable solution other than enabling the user to lower/raise the frame rate as needed. 
+Now, in order to obtain the [PNG_match_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_match_lists) and [PNG_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists) mentioned above, I first downloaded all of the PNGs. Then, I ran a python script  ([get_png_names.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/get_png_names.py)) to compile all of the PNG names into [text files](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists) for each orbit & camera, which I copy & pasted into [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js). I used another python script ([exploring_fits_and_png_data.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/exploring_fits_and_png_data.py)) to find the matching dates between the fits & png data, and export them into text files for each camera, which I copy & pasted into [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js).
+
+#### Position Display
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thewispr">
+    <img src="public/readme_assets/wisprpositiondisplay.png" width=300px/>
+  </a>
+</div>
+
+In order to retrieve the date & position data, I first used [wget](https://www.gnu.org/software/wget/) to download the L3 fits data from https://wispr.nrl.navy.mil/data/rel/fits/L3/. Then, I ran a python script ([wispr_data.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/wispr_data.py)) using [Astropy](https://www.astropy.org/) to extract the data I wanted, calculated the distances using the position data, and stored it all in [text files](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/wispr_txt_data) for each of the orbits. Then, I ran another python script ([read_wisprtext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_wisprtext.py)) to format all of the data into a gigantic 3D array which I then copy & pasted into my [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js) file (later, when I was working on the SWEAP display, I realized that I could write the data directly into a JS file, so I did that for the SWEAP data, but did not feel the need to change it for the WISPR data). 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## [SWEAP](https://adamzhen.github.io/Project-Icarus-Official/#thesweap)
 ⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
-### [The Sun](https://adamzhen.github.io/Project-Icarus-Official/#thesun)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## [FIELDS](https://adamzhen.github.io/Project-Icarus-Official/#thefields)
 ⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
-### [The PSP](https://adamzhen.github.io/Project-Icarus-Official/#thepsp)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ISOIS
 ⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
-### [Corona](https://adamzhen.github.io/Project-Icarus-Official/#corona)
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### [WISPR](https://adamzhen.github.io/Project-Icarus-Official/#thewispr)
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
-
-### [SWEAP](https://adamzhen.github.io/Project-Icarus-Official/#thesweap)
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
-
-### [FIELDS](https://adamzhen.github.io/Project-Icarus-Official/#thefields)
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
-
-### ISOIS
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
-
-### Built With
+## Built With
 ![JavaScript][JavaScript]
 ![HTML][HTML]
 ![CSS][CSS]
 ![Python][Python]
 ![Jupyter][Jupyter]
 [![PySPEDAS][PySPEDAS]][PySPEDAS-url]
-
+[![AstroPy][ASTROPY]](http://www.astropy.org/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -184,3 +219,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [Jupyter]: https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white
 [PySPEDAS]: https://img.shields.io/badge/PYSPEDAS-blue?style=for-the-badge&logo=python&logoColor=orange
 [PySPEDAS-url]: https://pyspedas.readthedocs.io/en/latest/psp.html
+[ASTROPY]: http://img.shields.io/badge/AstroPy-orange.svg?style=for-the-badge&logo=python&logoColor=blue
