@@ -18,6 +18,16 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/">
+    <img src="public/ProjectIcarusHeader2.png"/>
+  </a>
+</div>
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -25,27 +35,17 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+This interactive website was initially created for the 2022 NASA Space Apps Challenge (October 1-2). As a team of 2, <a href="https://github.com/WarrenWu4">Warren Wu<a> and I worked on a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details">Creative Data Display With the Parker Solar Probe</a>," but alas, our project was too ambitious to finish in 48 hours. So after the challenge ended, I decided to keep working on it on my own to steadily bring our original vision to fruition - that is, a vision of helping educate the public on the Parker Solar Probe's mission through an all-encompassing, interactive experience packed with visuals.
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://adamzhen.github.io/Project-Icarus-Official/" target="_blank">
-    <img src="public/ProjectIcarusHeader2.png" width="1000" />
-  </a>
+<p align="center">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/" target="_blank">View Website</a>
+  ·
+  <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Request Feature</a>
+  <br />
+</p>
 
-  <p align="center">
-    <br />
-    <a href="https://adamzhen.github.io/Project-Icarus-Official/" target="_blank">View Website</a>
-    ·
-    <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Request Feature</a>
-    <br />
-    <br />
-    This interactive website was initially created for the 2022 NASA Space Apps Challenge (October 1-2). As a team of 2, <a href="https://github.com/WarrenWu4">Warren Wu<a> and I worked on a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details">Creative Data Display With the Parker Solar Probe</a>," but alas, our project was too ambitious to finish in 48 hours. So after the challenge ended, I decided to keep working on it on my own to steadily bring our original vision to fruition - that is, a vision of helping educate the public on the Parker Solar Probe's mission through an all-encompassing interactive, story-based experience packed with visuals. 
-    <br />
-  </p>
-</div>
 
 
 <!-- TABLE OF CONTENTS -->
@@ -53,8 +53,16 @@
   <summary><b>Table of Contents</b></summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-website">About The Website</a>
       <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#the-sun">The Sun</a></li>
+        <li><a href="#the-psp">The PSP</a></li>
+        <li><a href="#corona">Corona</a></li>
+        <li><a href="#wispr">WISPR</a></li>
+        <li><a href="#sweap">SWEAP</a></li>
+        <li><a href="#fields">FIELDS</a></li>
+        <li><a href="#isois">IS☉IS</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -67,24 +75,39 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
-UNDER CONSTRUCTION
-<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
+<!-- ABOUT THE WEBSITE -->
+## About The Website
+### [Home](https://adamzhen.github.io/Project-Icarus-Official/#home)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
-<p align="left"> 
-</p>
-<p align="right"> (<a href="#readme-top">back to top</a>) </p>
+### [The Sun](https://adamzhen.github.io/Project-Icarus-Official/#thesun)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
+### [The PSP](https://adamzhen.github.io/Project-Icarus-Official/#thepsp)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
+
+### [Corona](https://adamzhen.github.io/Project-Icarus-Official/#corona)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
+
+### [WISPR](https://adamzhen.github.io/Project-Icarus-Official/#thewispr)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
+
+### [SWEAP](https://adamzhen.github.io/Project-Icarus-Official/#thesweap)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
+
+### [FIELDS](https://adamzhen.github.io/Project-Icarus-Official/#thefields)
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
+
+### ISOIS
+⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
 ### Built With
-
-* ![JavaScript][JavaScript]
-* ![HTML][HTML]
-* ![CSS][CSS]
-* ![Python][Python]
-* ![Jupyter][Jupyter]
-* [![PySPEDAS][PySPEDAS]][PySPEDAS-url]
+![JavaScript][JavaScript]
+![HTML][HTML]
+![CSS][CSS]
+![Python][Python]
+![Jupyter][Jupyter]
+[![PySPEDAS][PySPEDAS]][PySPEDAS-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
