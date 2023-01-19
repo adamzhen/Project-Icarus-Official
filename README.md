@@ -33,11 +33,9 @@
 
 <p align="center">
   <br/>
-  <a href="https://adamzhen.github.io/Project-Icarus-Official/" target="_blank">View Website</a>
-  ·
-  <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Report Bug</a>
-  ·
-  <a href="https://github.com/adamzhen/Project-Icarus-Official/issues">Request Feature</a>
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/" target="_blank"><img src="https://img.shields.io/badge/-View%20Website-FFD700?style=for-the-badge"/></a>
+  <a href="https://github.com/adamzhen/Project-Icarus-Official/issues"><img src="https://img.shields.io/badge/-Report%20Bug-black?style=for-the-badge"/></a>
+  <a href="https://github.com/adamzhen/Project-Icarus-Official/issues"><img src="https://img.shields.io/badge/-Request%20Feature-black?style=for-the-badge"/></a>
   <br />
 </p>
 
@@ -107,7 +105,7 @@ This section displays the images captured by the WISPR's inner & outer cameras f
 </div>
 
 The WISPR images displayed here are loaded from https://wispr.nrl.navy.mil/data/rel/pngs/ (I was unable to upload all of the images directly to the repository, as the file size was too large). As a result, the images can sometimes lag, and I have yet to find a workable solution other than enabling the user to lower/raise the frame rate as needed. 
-Now, in order to obtain the [PNG_match_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_match_lists) and [PNG_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists) mentioned above, I first downloaded all of the PNGs. Then, I ran a python script  ([get_png_names.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/get_png_names.py)) to compile all of the PNG names into [text files](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists) for each orbit & camera, which I copy & pasted into [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js). I used another python script ([exploring_fits_and_png_data.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/exploring_fits_and_png_data.py)) to find the matching dates between the fits & png data, and export them into text files for each camera, which I copy & pasted into [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js).
+Now, in order to obtain the [PNG_match_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_match_lists) and [PNG_lists](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists) mentioned above, I first downloaded all of the PNGs. Then, I ran a python script  ([get_png_names.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/get_png_names.py)) to compile all of the PNG names into [text files](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/PNG_lists) for each orbit & camera, which I copy & pasted into [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js) (I know, very fancy). I used another python script ([exploring_fits_and_png_data.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/exploring_fits_and_png_data.py)) to find the matching dates between the fits & png data, and export them into text files for each camera, which I copy & pasted into [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js).
 
 #### Position Display
 
