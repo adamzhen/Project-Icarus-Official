@@ -115,12 +115,54 @@ Now, in order to obtain the [PNG_match_lists](https://github.com/adamzhen/Projec
   </a>
 </div>
 
-In order to retrieve the date & position data, I first used [wget](https://www.gnu.org/software/wget/) to download the L3 fits data from https://wispr.nrl.navy.mil/data/rel/fits/L3/. Then, I ran a python script ([wispr_data.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/wispr_data.py)) using [Astropy](https://www.astropy.org/) to extract the data I wanted, calculated the distances using the position data, and stored it all in [text files](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/wispr_txt_data) for each of the orbits. Then, I ran another python script ([read_wisprtext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_wisprtext.py)) to format all of the data into a gigantic 3D array which I then copy & pasted into my [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js) file (later, when I was working on the SWEAP display, I realized that I could write the data directly into a JS file, so I did that for the SWEAP data, but did not feel the need to change it for the WISPR data). 
+In order to retrieve the date & position data, I first used [wget](https://www.gnu.org/software/wget/) to download the L3 fits data from https://wispr.nrl.navy.mil/data/rel/fits/L3/. Then, I ran a python script ([wispr_data.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/wispr_data.py)) using [Astropy](https://www.astropy.org/) to extract the data I wanted, calculated the distances using the position data, and stored it all in [text files](https://github.com/adamzhen/Project-Icarus-Official/tree/main/wispr_data/wispr_txt_data) for each of the orbits. Then, I ran another python script ([read_wisprtext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_wisprtext.py)) to format all of the data into a gigantic 3D array which I then copy & pasted into my [wispr_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/wispr_display.js) file (later, when I was working on the SWEAP display, I realized that I could write the data directly into a JS file, so I did that for the SWEAP data, but did not feel the need to change it for the WISPR data). Finally, for the background images with the orbits, I used matplotlib to plot the PSP's position, and highlighted a different orbit for each image.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## [SWEAP](https://adamzhen.github.io/Project-Icarus-Official/#thesweap)
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
+This section visualizes data on the three most common particles in the solar wind - protons, electrons, and alphas - which are what SWEAP is measuring. There is a position display similar to the one in the WISPR section, but using data from SWEAP, which also includes the speed of the PSP. And finally, there are 3 units from which the user can pick: metric, imperial, and wacky (these will be explained further below). 
+
+Interactivity is controlled by [sweap_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_display.js), and all data analysis/extraction was done using pySPEDAS in [pyspedas_data_analysis.ipynb](https://github.com/adamzhen/Project-Icarus-Official/blob/main/pyspedas_data_analysis.ipynb), which contains more thorough documentation.
+
+#### Controls & Position Display
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
+    <img src="public/readme_assets/sweapcontrols.png" width=750px/>
+  </a>
+</div>
+
+The controls on the left allow the user to switch between protons, electrons, and alphas. Whenever you switch modes, it will try to keep the date & time the same as it was before, but if that's impossible, it will simply go to the start of the current orbit. The position display here uses data from the SPC dataset. It had to be different from the WISPR position display because for SWEAP, I was able to export one data point for every minute (for all data used in this section), which wouldn't have been compatible with the WISPR fits data. The reason the orbits look slightly different here is merely due to the usage of a different coordinate system. For the units here, I chose not to have the distance units (AU) change, so as to keep it consistent with the WISPR section. For speed, I converted it to KMPH for metric, MPH for imperial, and MACH NUMBER for wacky (speed of sound = 2.91545 km/s), which by the way, is supposed to wacky because sound cannot travel in the vacuum of space. 
+
+#### Protons (SPC)
+
+By decree of the Knights Who Say Ni, I shall be writing this very soon. 
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
+    <img src="public/readme_assets/sweapprotons.png" width=750px/>
+  </a>
+</div>
+
+#### Electrons (SPAN-e)
+
+By decree of the Knights Who Say Ni, I shall be writing this very soon. 
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
+    <img src="public/readme_assets/sweapelectrons.png" width=750px/>
+  </a>
+</div>
+
+#### Alphas (SPAN-i)
+
+By decree of the Knights Who Say Ni, I shall be writing this very soon. 
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
+    <img src="public/readme_assets/sweapalphas.png" width=750px/>
+  </a>
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
