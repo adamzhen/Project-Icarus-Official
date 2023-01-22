@@ -260,7 +260,7 @@ https://codepen.io/aecend/pen/WbONyK
           ctx.fillText("Temperature: " + (((pt-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
-          ctx.fillText("Velocity: Mach " + (pv*2.91545).toFixed(0) + "", 10, 56);
+          ctx.fillText("Velocity: Mach " + (pv/0.343).toFixed(0) + "", 10, 56);
           ctx.fillText("Density: " + (pd/2.85).toFixed(0) + " protons/penny", 10, 39);
           ctx.fillText("Temperature: " + (pt/329.817).toFixed(0) + " death valleys", 10, 22);
         } 
@@ -323,7 +323,7 @@ https://codepen.io/aecend/pen/WbONyK
           ctx.fillText("Total Density: " + (totalelectrons/2.54/2.54/2.54).toFixed(2) + " million electrons/in²", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
-          ctx.fillText("Total Density: " + (totalelectrons*0.643).toFixed(0) + " million electrons/eardrum", 10, 22);
+          ctx.fillText("Total Density: " + (totalelectrons/1.555).toFixed(0) + " million electrons/eardrum", 10, 22);
         } 
         // Create a linear gradient
         // The start gradient point is at x=20, y=0
@@ -485,7 +485,7 @@ https://codepen.io/aecend/pen/WbONyK
           ctx.fillText("Temperature: " + (((it-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
-          ctx.fillText("Velocity: Mach " + (iv*2.91545).toFixed(0) + "", 10, 56);
+          ctx.fillText("Velocity: Mach " + (iv/0.343).toFixed(0) + "", 10, 56);
           ctx.fillText("Density: " + (id/2.5).toFixed(4) + " alphas/acorn", 10, 39);
           ctx.fillText("Temperature: " + (it/329.817).toFixed(0) + " death valleys", 10, 22);
         } 
