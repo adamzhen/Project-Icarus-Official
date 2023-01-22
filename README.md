@@ -136,12 +136,12 @@ The controls on the left allow the user to switch between protons, electrons, an
 
 #### Protons (SPC)
 
-For SPC, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spc/l3/l3i/), quickly extract data from them, and export the data (date/time, proton velocity, proton density, proton temperature, x & y coordinates, distance, and spacecraft velocity) into text files which were compiled into [spc_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spc_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the protons display, I visualized the data by (1) scaling the protons velocity according to the actual velocty (2) making the number of protons on screen at any time match the density in protons/cm^2 (3) changing the color of the protons based on the temperature. I also changed the radius of the sun in the center based on how far the PSP is from it (r = 32 / (distance in AU / 0.075)). Below are the different units that I used:
+For SPC, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spc/l3/l3i/), quickly extract data from them, and export the data (date/time, proton velocity, proton density, proton temperature, x & y coordinates, distance, and spacecraft velocity) into text files which were compiled into [spc_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spc_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the protons display, I visualized the data by (1) scaling the proton velocity according to the actual velocty (2) making the number of protons on screen at any time match the density in protons/cm^2 (3) changing the color of the protons based on the temperature. I also changed the radius of the sun in the center based on how far the PSP is from it (r = 32 / (distance in AU / 0.075)). Below are the different units that I used:
 | Data Type     | Original  | Metric  | Imperial   | Wacky         |
 | :-----------  | --------  | ------- | --------   | --------      |
 | **Temperature** | K       | C       | F      | Death Valleys (1 death valley = 329.817 K) | 
 | **Density**     | 1/cm^2  | 1/cm^2  | 1/in^2  | 1/penny (area of penny = 2.85 cm^2)        | 
-| **Velocity**    | km/s    | kmph    | mph     | Mach Number (1 km/s = 2.91545 Mach 1) | 
+| **Velocity**    | km/s    | kmph    | mph     | Mach Number (Mach 1 = 0.343 km/s) | 
 
 <div align="left">
   <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
@@ -151,7 +151,10 @@ For SPC, I used pySPEDAS to download the cdf files from NASA's [website](https:/
 
 #### Electrons (SPAN-e)
 
-By decree of the Knights Who Say Ni, I shall be writing this very soon. 
+For SPAN-e, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spe/l2/spa_sf1_32e/), quickly extract data from them, and export the data (date/time, differential energy flux for each of the 32 energy bins, and total electron density) into text files which were compiled into [spane_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spane_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the electrons display, I visualized the data for each of the 32 energy bins by calculating approximate densities. However, I realized while writing this that I misunderstood the differential energy fluxes as being in eV/cm^2, when they are actually in eV/(cm^2 s ster eV) - I will try to figure this out and fix the issue as soon as I can. Below are the different units that I had used (I'll probably have to change these):
+| Data Type         | Original  | Metric  | Imperial   | Wacky         |
+| :-----------      | --------  | ------- | --------   | --------      |
+| **Total Density** | 1/cm^2    | 1/cm^2  | 1/in^2     | 1/eardrum (area of eardrum = 1.555 cm^2) | 
 
 <div align="left">
   <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
@@ -161,7 +164,12 @@ By decree of the Knights Who Say Ni, I shall be writing this very soon.
 
 #### Alphas (SPAN-i)
 
-By decree of the Knights Who Say Ni, I shall be writing this very soon. 
+For SPAN-i, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spi/l3/spi_sf0a_mom_inst/), quickly extract data from them, and export the data (date/time, proton velocity, proton density, proton temperature) into text files which were compiled into [spani_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spani_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). I also discovered that data is, as of now, only available for orbits 2-8, so I only have those on the website. In the alphas display, I visualized the data by (1) scaling the alpha velocity according to the actual velocty (2) making the number of alphas on screen at any time match the density in alphas/cm^2 (3) changing the color of the alphas based on the temperature. Overall, very similar to the protons display, but here the display shows that the instrument is pointed to the side, not directly at the sun. Below are the different units that I used:
+| Data Type     | Original  | Metric  | Imperial   | Wacky         |
+| :-----------  | --------  | ------- | --------   | --------      |
+| **Temperature** | K       | C       | F       | Death Valleys (1 death valley = 329.817 K) | 
+| **Density**     | 1/cm^3  | 1/cm^3  | 1/in^3  | 1/acorn (volume of acorn = 2.5 cm^3)        | 
+| **Velocity**    | km/s    | kmph    | mph     | Mach Number (Mach 1 = 0.343 km/s) | 
 
 <div align="left">
   <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
