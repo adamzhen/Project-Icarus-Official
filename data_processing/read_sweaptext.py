@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 temp = []
 NUMORBITS = 12
 count_nan = 0
-instr = "spani" # change this to "spc", "spane", or "spani" depending on which instrument you are using
+instr = "spane" # change this to "spc", "spane", or "spani" depending on which instrument you are using
 mode = "normal" # change this to "normal" or "date" depending on which mode you are using
 
 if instr == "spani": # only orbits 2-8 have data for spani

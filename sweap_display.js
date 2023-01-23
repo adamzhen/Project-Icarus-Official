@@ -28,7 +28,7 @@ https://codepen.io/aecend/pen/WbONyK
     var icolor = "#00FFFF"; // This varies the ion color according to temperature
 
     var evals = []; // This array will contain the 32 energy values of the different electrons
-    var totalelectrons; // This represents the total number of electrons at any point in time
+    var totalflux; // This represents the total number of electrons at any point in time
     // Switches the display mode between protons, electrons, & alphas
     function change_mode(m){
       DISPLAYMODE = m;
@@ -268,26 +268,27 @@ https://codepen.io/aecend/pen/WbONyK
         // requestAnimationFrame(draw);
     }
     
-    var spacingh = 35; // outer spacing on the bottom & top
-    var spacingw = 35; // outer spacing on the left & right side
+    var spacingh = 40; // outer spacing on the bottom & top
+    var spacingw = 40; // outer spacing on the left & right side
     var barw = (canvas_width-spacingw) / 32; // width of a single bar in the electron display
     var barh; // represents the height of a single bar
     var marginw = 6; // horizontal spacing between bars
-    var emin = 2; // minimum power of 10 for the electron energy (eV)
-    var emax = 9; // maximum power of 10 for the electron energy (eV)
+    var emin = 3; // minimum power of 10 for the electron energy (eV)
+    var emax = 10; // maximum power of 10 for the electron energy (eV)
     var ediff = emax - emin;
-    var energybins = [2,2.6,3.3,4.2,5.1,6.1,7.9,9.9,12.5,15,19,24,29,36,45,56,70,88,112,133,175,212,257,333,400,490,600,780,950,1200,1500,1800];
+    // var energybins = [2,2.6,3.3,4.2,5.1,6.1,7.9,9.9,12.5,15,19,24,29,36,45,56,70,88,112,133,175,212,257,333,400,490,600,780,950,1200,1500,1800];
 
     //This function draws the canvas for the electrons
     function draw_electrons() {
         // updates parameters
-        totalelectrons = (spaneList[orbit_ind2][slider_val2][33] / 1000000).toFixed(0);
+        totalflux = 0;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         //Loops through the 32 energy bins
         for (i = 1; i <= 32; i++) {
-          var e = spaneList[orbit_ind2][slider_val2][i] / energybins[i-1]; // reads in energy value (eV)
+          var e = spaneList[orbit_ind2][slider_val2][i] // reads in energy flux value
+          totalflux += e; // adds the energy flux to the total flux
           barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the energy
 
           // Draws the bar
@@ -297,7 +298,7 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = "rgb(0,0,0)";
         ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
-        var textw = 265;
+        var textw = 310;
         var texth = 36;
         if (sweapUnit == "wacky"){
           textw = 290;
@@ -317,13 +318,13 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.font = "12px Montserrat";
         ctx.textAlign = 'left';
         if (sweapUnit == "metric"){
-          ctx.fillText("Total Density: " + totalelectrons + " million electrons/cm²", 10, 22);
+          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million eV/(cm² s ster eV)", 10, 22);
         } 
         else if (sweapUnit == "imperial"){
-          ctx.fillText("Total Density: " + (totalelectrons/2.54/2.54/2.54).toFixed(2) + " million electrons/in²", 10, 22);
+          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million eV/(cm² s ster eV)", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
-          ctx.fillText("Total Density: " + (totalelectrons/1.555).toFixed(0) + " million electrons/eardrum", 10, 22);
+          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million eV/(cm² s ster eV)", 10, 22);
         } 
         // Create a linear gradient
         // The start gradient point is at x=20, y=0
@@ -363,8 +364,8 @@ https://codepen.io/aecend/pen/WbONyK
           ctx.fillText("Electron Energy", canvas_width/2, canvas_height-(spacingh/2-4));
         }
 
-        ctx.font = "11px Montserrat";
-        var superscripts = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"];
+        ctx.font = "10px Montserrat";
+        var superscripts = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹", "¹⁰"];
         for (i = 0; i < 2; i++) {
           for (j = emin; j <= emax; j++) {
             ctx.fillText("10"+superscripts[j], canvas_width - (spacingw/2), canvas_height-spacingh-5 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
@@ -376,10 +377,13 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.rotate(270 * Math.PI / 180);
         ctx.translate(-(canvas_width - (spacingw-2)), -marginw);
         for (i = 0; i < 3; i++) {
-          ctx.fillText("electrons / cm²", canvas_width - (spacingw-2), marginw);
+          ctx.fillText("energy flux", canvas_width - (spacingw-2), marginw);
         }
         ctx.setTransform(1, 0, 0, 1, 0, 0);
 
+        ctx.font = "18px Arial";
+        ctx.textAlign = 'center';
+        ctx.fillText("DISPLAY UNFINISHED", canvas_width/2, 28);
     }
 
     //This function draws the canvas for the alphas/ions
