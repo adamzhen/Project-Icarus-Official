@@ -149,12 +149,9 @@ For SPC, I used pySPEDAS to download the cdf files from NASA's [website](https:/
   </a>
 </div>
 
-#### Electrons (SPAN-e)
+#### Electrons (SPAN-e) [CURRENTLY FIXING THIS DISPLAY]
 
-For SPAN-e, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spe/l2/spa_sf1_32e/), quickly extract data from them, and export the data (date/time, differential energy flux for each of the 32 energy bins, and total electron density) into text files which were compiled into [spane_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spane_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the electrons display, I visualized the data for each of the 32 energy bins by calculating approximate densities. However, I realized while writing this that I misunderstood the differential energy fluxes as being in eV/cm^2, when they are actually in eV/(cm^2 s ster eV) - I will try to figure this out and fix the issue as soon as I can. Below are the different units that I had used (I'll probably have to change these):
-| Data Type         | Original  | Metric  | Imperial   | Wacky         |
-| :-----------      | --------  | ------- | --------   | --------      |
-| **Total Density** | 1/cm^2    | 1/cm^2  | 1/in^2     | 1/eardrum (area of eardrum = 1.555 cm^2) | 
+For SPAN-e, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spe/l3/spe_sf0_pad/), quickly extract data from them, and export the data (date/time, differential energy flux for each of the 32 energy bins, and total electron density) into text files which were compiled into [spane_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spane_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the electrons display, I visualized the data for each of the 32 energy bins by calculating approximate densities. However, I realized while writing this that I misunderstood the differential energy fluxes as being in eV/cm^2, when they are actually in eV/(cm^2 s ster eV) - I will try to figure this out and fix the issue as soon as I can. Below are the different units that I had used (I'll probably have to change these):
 
 <div align="left">
   <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
