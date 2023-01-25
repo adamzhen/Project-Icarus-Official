@@ -337,7 +337,7 @@ https://codepen.io/aecend/pen/WbONyK
           gradient.addColorStop((i-1)/32, calcColor(i, 1, 32));
         }
 
-        // Draws horizontal & vertical axis
+        // Draws horizontal axis
         ctx.fillStyle = gradient;
         ctx.fillRect(marginw, canvas_height-(spacingh-marginw), canvas_width-spacingw-marginw, spacingh-2*marginw);
         let region = new Path2D();
@@ -347,6 +347,7 @@ https://codepen.io/aecend/pen/WbONyK
         region.closePath();
         ctx.fill(region);
 
+        // Draws vertical axis
         ctx.fillStyle = "rgba(255,0,0,0.9)";
         ctx.fillRect(canvas_width - (spacingw-marginw), marginw, spacingw-2*marginw, canvas_height-spacingh-marginw);
         let region2 = new Path2D();
@@ -356,7 +357,7 @@ https://codepen.io/aecend/pen/WbONyK
         region2.closePath();
         ctx.fill(region2);
 
-        // Draws the labels
+        // Draws the Electron Energy label
         ctx.fillStyle = 'black';
         ctx.font = "12px Montserrat";
         ctx.textAlign = 'center';
@@ -364,6 +365,7 @@ https://codepen.io/aecend/pen/WbONyK
           ctx.fillText("Electron Energy", canvas_width/2, canvas_height-(spacingh/2-4));
         }
 
+        // Draws flux scale (logarithmic)
         ctx.font = "10px Montserrat";
         var superscripts = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹", "¹⁰"];
         for (i = 0; i < 2; i++) {
@@ -371,19 +373,18 @@ https://codepen.io/aecend/pen/WbONyK
             ctx.fillText("10"+superscripts[j], canvas_width - (spacingw/2), canvas_height-spacingh-5 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
           }
         }
+        // Draws the flux label
+        ctx.fillStyle = "rgba(0,0,0,0.75)";
+        ctx.fillRect(canvas_width - (spacingw+10), 0, 15, marginw+62);
         ctx.fillStyle = 'rgba(255,0,0,1)';
         ctx.textAlign = 'right';
         ctx.translate(canvas_width - (spacingw-2), marginw);
         ctx.rotate(270 * Math.PI / 180);
         ctx.translate(-(canvas_width - (spacingw-2)), -marginw);
         for (i = 0; i < 3; i++) {
-          ctx.fillText("energy flux", canvas_width - (spacingw-2), marginw);
+          ctx.fillText("energy flux", canvas_width - (spacingw-2), marginw); // canvas_width - (spacingw-2), marginw
         }
         ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-        ctx.font = "18px Arial";
-        ctx.textAlign = 'center';
-        ctx.fillText("DISPLAY UNFINISHED", canvas_width/2, 28);
     }
 
     //This function draws the canvas for the alphas/ions
@@ -705,18 +706,21 @@ instrumentselector.oninput = function(){
   if (sweapmode == "p"){ // Protons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPC_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).";
+    document.getElementById("fluxexplainer").style.opacity = 0;
     slider2.max = spcList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     var dateind = spcdateList[orbit_ind2].indexOf(datetime);
   } 
   else if (sweapmode == "e") { // Electrons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANe_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Both of the two Solar Probe ANalyzers (SPAN) measure electrons by sorting them into 32 different energy bins. SPAN-A points in the direction that the PSP is traveling, while SPAN-B points the opposite way. Together, their field of view covers almost the entire sky (except for what the heat shield blocks).";
+    document.getElementById("fluxexplainer").style.opacity = 1;
     slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     var dateind = spanedateList[orbit_ind2].indexOf(datetime);
   } 
   else if (sweapmode == "a") { // Alphas/Ions
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so here we just call them alphas.";
+    document.getElementById("fluxexplainer").style.opacity = 0;
     if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
       slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     }
