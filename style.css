@@ -247,7 +247,7 @@ button {
     border-right: solid 2px #f8860d;
     border-bottom: solid 4px #f8860d;
     border-radius: 30px;
-    height: 530px;
+    height: 580px;
     max-width: 200px;
     transform: translateX(-250px) translateY(-250px);
     display: flex;
@@ -1895,6 +1895,398 @@ canvas {
 }
 #sweapinfo p {
   color: rgb(255, 106, 56);
+  z-index: 5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+
+/* ISOIS */
+#isois {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+#theisois {
+  position: relative;
+  width: 90%;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border: solid 4px rgb(255, 166, 0);
+  border-radius: 5vw;
+}
+#isois h1{
+  position: relative;
+  top: 10px;
+  color: rgb(255, 166, 0);
+  font-size: 115px;
+  font-weight: 800;
+  letter-spacing: 0px;
+  line-height: 100px;
+  padding-bottom: 14px;
+}
+#isoisinstruments {
+  position: relative;
+  top: 5px;
+  right: 5px;
+  width: 100%;
+  height: 240px;
+  background-color: transparent;
+  justify-content: center;
+  display: block;
+}
+#isoisinstrumentsimg {
+  width: 100%;
+  height: 240px;
+  background-image: url("public/ISOIS_instruments_OFF.jpg");
+  background-size: 440px 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#isoisinstrumentsimg:hover {
+  width: 100%;
+  background-repeat:no-repeat;
+  height: 240px;
+  background-image: url("public/ISOIS_instruments_ON.jpg");
+  background-size: 440px 240px;
+  background-position: center;
+}
+
+#isoisdisplay{
+  margin-bottom: 0px;
+  justify-content: center;
+}
+.isois-grid {
+  display: grid;
+  grid-template-columns: 300px 100px 300px;
+  justify-content: center;
+  gap: 40px;
+  background-color: transparent;
+  padding: 30px;
+}
+#isoisdisplay a:link {color: rgb(167, 81, 0);text-decoration: none;}
+#isoisdisplay a:visited {color: rgb(167, 81, 0);text-decoration: none;}
+#isoisdisplay a:hover {color: rgb(255, 123, 0);text-decoration: none;}
+#isoisdisplay a:active {color: rgb(255, 123, 0);text-decoration: none;}
+
+#instrumentdisplay {
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgb(255, 122, 0);
+}
+#instrumentdisplay p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: rgb(173, 84, 0);
+  font-weight: 600;
+  letter-spacing: 0px;
+  text-align: center;
+}
+#moreinfo {
+  position: relative;
+  text-align: right;
+  bottom: 63px;
+  left: 138px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+#isoisdisplay span {
+  background-color: #00000027;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+#isoisunits {
+  position: relative;
+  bottom: 30px;
+  left: 260px;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: rgb(255, 123, 0);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+#isoisunits:hover {
+  color: rgb(255, 147, 45);
+  cursor: pointer;
+}
+#unitsline {
+  position: relative;
+  bottom: 30px;
+  border: none;
+  height: 1px;
+  background: rgb(255, 123, 0);
+}
+#instrumentdisplay h4 {
+  position: relative;
+  display: none;
+  bottom: 25px;
+  right: 6px;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: rgb(255, 123, 0);
+  font-weight: 500;
+  margin-bottom: 2px;
+  opacity: 0.8;
+  animation: all 1s ease-in-out;
+}
+.isoisunit {
+  animation: all 1s ease-in-out;
+}
+#instrumentdisplay h4:hover {
+  transform: translateX(-2px);
+  opacity: 1;
+  cursor: pointer;
+}
+#isoisdescription {
+  position: relative;
+  bottom: 45px;
+  margin: 12px;
+}
+#isoisinstrument {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 75%;
+  justify-content: center;
+  display: block;
+  text-align: left;
+  background-image: url("public/SPC_instrument.jpg");
+  background-size: 210px 210px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#isois_selector {
+  position: relative;
+  top: 8px;
+  left: 8px;
+  width: 96px;
+}
+
+#positiondisplay2 {
+  --l: 300px;
+  position: relative;
+  height: var(--l);
+  transform: scale(1);
+  margin-left: auto;
+  margin-right: auto;
+}
+#positiondisplay2 h3 {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+#datecontainer2 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+#datetxt2{
+  text-align: left;
+  z-index: 3;
+  position: relative;
+  bottom: 292px;
+  right: 139px;
+  color: rgb(255, 122, 0);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+#timetxt{
+  text-align: left;
+  inline-size: 200px; 
+  z-index: 3;
+  position: relative;
+  bottom: 292px;
+  right: 139px;
+  color: rgb(255, 122, 0);
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+#orbit_num2 {
+  position: relative;
+  bottom: 387px;
+  left: 100px;
+  width: 80px;
+}
+#locplot2{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  display: flex;
+  width: var(--l);
+  height: var(--l);
+  border: 1px solid rgb(255, 122, 0);
+}
+#psploc2 {
+  position: relative;
+  z-index: 4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.triangle2 {
+  position: relative;
+  z-index: 4;
+  width: 0;
+	height: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 16px solid #FF7913;
+  transition: all 0.5s;
+}
+#sunicon2 {
+  height: 4.8px;
+  width: 4.8px;
+  box-shadow: 0px 0px 48px 18px #ffa600c9;
+  bottom: 208px;
+  left: 9px;
+}
+#disttxt2 {
+  font-size: 10px;
+  z-index: 3;
+  position: relative;
+  text-align: left;
+  inline-size: 200px; 
+  right: 140px;
+  bottom: 81px;
+}
+#pspspeed {
+  font-size: 10px;
+  z-index: 3;
+  position: relative;
+  text-align: left;
+  inline-size: 200px; 
+  right: 140px;
+  bottom: 81px;
+}
+#isoissource {
+  font-size: 11px;
+  z-index: 3;
+  text-align: center;
+  position: relative;
+  left: 119px;
+  bottom: 102px;
+}
+
+#isoiscontrols {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 100px;
+  justify-content: center;
+  display: inline-block;
+}
+#speedsection2 {
+  opacity: 0;
+  transition: 200ms all ease;
+}
+#speedbuttons2 {
+  background-color: white;
+  height: 0px;
+  justify-content: center;
+}
+#speeddisplay2 {
+  position: relative;
+  font-size: 12px;
+  font-family: "Courier New", monospace;
+  z-index: 6;
+  top: -2px;
+  color: #ffe7d7;
+}
+#isoisfasterbutton1 {
+  left: 50%;
+  bottom: 3px;
+}
+#isoisfasterbutton2 {
+  left: 50%;
+  bottom: 3px;
+}
+#isoisslowerbutton1 {
+  right: 50%;
+  bottom: 3px;
+}
+#isoisslowerbutton2 {
+  right: 50%;
+  bottom: 3px;
+}
+#playbutton2 {
+  position: relative;
+  margin-top: 10px;
+  bottom: 20px;
+}
+#sliderrr2 {
+  position: relative;
+  bottom: 0px;
+  width: 100px;
+  height: 7px;
+  border-radius: 1px;  
+}
+#theslider2 {
+  position: relative;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvascontainer {
+  display: grid;
+  grid-template-columns: 100% 1%;
+  margin: 0;
+  padding: 0;
+}
+#c {
+  margin-top: 0px;
+  padding: 0;
+  background-color: black;
+}
+#fullscreenbuttoncontainer {
+  height: 0px;
+}
+#fullscreenbutton {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: 300px;
+  top: 100px;
+  transform: scale(1);
+  opacity: 0.8;
+  animation: all 3s ease-in-out;
+}
+#fullscreenbutton:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+#isoisinfo a:link {color: rgb(255, 194, 80);}
+#isoisinfo a:visited {color: rgb(255, 194, 80);}
+#isoisinfo a:hover {color: rgb(255, 238, 207);}
+#isoisinfo a:active {color: rgb(255, 238, 207);}
+#isoisinfo {
+  position: relative; 
+  width: 70%; 
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+#isoisinfo p {
+  color: rgb(255, 194, 80);
   z-index: 5;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;

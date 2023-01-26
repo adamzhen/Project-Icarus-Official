@@ -45,6 +45,7 @@
             <li><a href="#corona">Corona</a></li>
             <li><a href="#thewispr">WISPR</a></li>
             <li><a href="#thesweap">SWEAP</a></li>
+            <li><a href="#theisois">ISOIS</a></li>
             <li><a href="#thefields">FIELDS</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="https://github.com/adamzhen/Project-Icarus-Official" target="_blank" style="font-family:Lucida Console,Courier New,monospace; font-weight:200; font-size:9px; letter-spacing:3px; padding-top:15px; opacity:0.8;">SOURCE CODE</a></li>
@@ -467,10 +468,114 @@
       </div>
     </div>
 
+    <!--ISOIS-->
+    <div id="isois">
+      <section class="hidden2">
+        <h8 id="exhibit3" class="exhibitnum">exhibit 3:</h8>
+      </section>
+      <div id="theisois">
+        <section class="hidden2">
+          <h1 style="margin-top:15px;" id="isoistitle"><em>THE ISOIS</em></h1>
+          <h8 style="position:relative; bottom:0px; color:rgb(255, 179, 0); font-size:14px; letter-spacing:5px;"><em>Integrated Science Investigation of the Sun</em></h8>
+          <div id="isoisinstruments">
+            <div id="isoisinstrumentsimg"></div>
+          </div>
+        </section>
+        
+        <h8 id='warning' style="color:white; font-size:20px; position: relative; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
+        <!--div id="isoisdisplay" class="">
+          <section class="hidden2">
+            <div class="isois-grid">
+              <section class="hiddenInner">
+                <div id="instrumentdisplay">
+                  <div id="isoisinstrument">
+                    <h8 id="isoisunits" onclick="isoisUnitDisplay()">Units</h8>
+                    <hr id="unitsline">
+                    <h4 id="isoismetric" class="isoisunit" onclick="switchISOISunit('metric')">Metric</h4>
+                    <h4 id="isoisimperial" class="isoisunit" onclick="switchISOISunit('imperial')">Imperial</h4>
+                    <h4 id="isoiswacky" class="isoisunit" onclick="switchISOISunit('wacky')">Wacky</h4>
+                  </div>
+                  <p id="isoisdescription">The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).</p>
+                  <a href="http://sweap.cfa.harvard.edu/SWEAP.html" target="_blank"><h8 id="moreinfo">🛈</h8></a>
+                </div>
+              </section>
+
+              <section class="hidden2">
+                <div id="isoiscontrols">
+                  <button id = 'playbutton3' class='button' onclick="playclick2()"></button>
+                  <section id="speedsection3">
+                    <div id="speedbuttons3">
+                      <p id="speeddisplay3">x10000</p>
+                      <button id = 'isoisfasterbutton1' class='fasterbutton' onclick="playfaster2(1000)"></button>
+                      <button id = 'isoisfasterbutton2' class='fasterbutton' onclick="playfaster2(10000)"></button>
+                      <button id = 'isoisslowerbutton1' class='slowerbutton' onclick="playslower2(1000)"></button>
+                      <button id = 'isoisslowerbutton2' class='slowerbutton' onclick="playslower2(10000)"></button>
+                    </div>
+                  </section>
+                  <div class="slidecontainer" id="theslider3">
+                    <input type="range" min="0" max="14316" value="0" class="slider" id="sliderrr3">
+                  </div>
+                </div>
+              </section>
+
+              <section class="hiddenOuter">
+                <div id = "positiondisplay2">
+                  <img src="public/orbit_plot2_1.png" alt="Location Plot" id="locplot2">
+                  <div class="textcontainer">
+                    <h2 id="datetxt2">11/01/2018</h2>
+                    <h4 id="timetxt">05:04</h4>
+                  </div>
+                  <div id="psploc2">
+                    <div class="triangle2" id="psptriangle2"></div>
+                  </div>
+                  <div class="sunicon" id="sunicon2"></div>
+                  <div class="textcontainer">
+                    <h3 id="disttxt2">Distance</h3>
+                    <h3 id="pspspeed">Speed</h3>
+                  </div>
+                  <h3 id="isoissource"><a href="https://fields.ssl.berkeley.edu/data/" target="_blank">Source<sup>4</sup></a></h3>
+                  <form>
+                    <select name="orbit" id="orbit_num2" class="selector">
+                      <option value="1">Orbit 1</option>
+                      <option value="2">Orbit 2</option>
+                      <option value="3">Orbit 3</option>
+                      <option value="4">Orbit 4</option>
+                      <option value="5">Orbit 5</option>
+                      <option value="6">Orbit 6</option>
+                      <option value="7">Orbit 7</option>
+                      <option value="8">Orbit 8</option>
+                      <option value="9">Orbit 9</option>
+                      <option value="10">Orbit 10</option>
+                      <option value="11">Orbit 11</option>
+                      <option value="12">Orbit 12</option>
+                    </select>
+                  </form>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section class="hidden0" style="filter: blur(0px);">
+            <div id="canvascontainer"></div>
+            <canvas id="c"></canvas>
+            <div id="fullscreenbuttoncontainer">
+              
+            </div>
+          </section>
+        </div-->
+        
+        <div id="isoisinfo">
+          <section class="hidden2">
+            <p></p>
+          </section>
+        </div>        
+      </div>
+    </div>
+
     <!--FIELDS-->
     <div id="fields">
       <section class="hidden2">
-        <h8 id="exhibit3" class="exhibitnum">exhibit 3:</h8>
+        <h8 id="exhibit4" class="exhibitnum">exhibit 4:</h8>
       </section>
       <div id="thefields">
         <section class="hidden2">
@@ -501,18 +606,18 @@
 
               <section class="hidden2">
                 <div id="fieldscontrols">
-                  <button id = 'playbutton3' class='button' onclick="playclick2()"></button>
-                  <section id="speedsection3">
-                    <div id="speedbuttons3">
-                      <p id="speeddisplay3">x10000</p>
+                  <button id = 'playbutton4' class='button' onclick="playclick2()"></button>
+                  <section id="speedsection4">
+                    <div id="speedbuttons4">
+                      <p id="speeddisplay4">x10000</p>
                       <button id = 'fieldsfasterbutton1' class='fasterbutton' onclick="playfaster2(1000)"></button>
                       <button id = 'fieldsfasterbutton2' class='fasterbutton' onclick="playfaster2(10000)"></button>
                       <button id = 'fieldsslowerbutton1' class='slowerbutton' onclick="playslower2(1000)"></button>
                       <button id = 'fieldsslowerbutton2' class='slowerbutton' onclick="playslower2(10000)"></button>
                     </div>
                   </section>
-                  <div class="slidecontainer" id="theslider3">
-                    <input type="range" min="0" max="14316" value="0" class="slider" id="sliderrr3">
+                  <div class="slidecontainer" id="theslider4">
+                    <input type="range" min="0" max="14316" value="0" class="slider" id="sliderrr4">
                   </div>
                 </div>
               </section>
