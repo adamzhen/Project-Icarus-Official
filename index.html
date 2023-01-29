@@ -438,14 +438,15 @@
             </div>
           </section>
 
-          <section class="hidden0" style="filter: blur(0px);">
+          <section id="sweapcanvas" class="hidden0" style="filter: blur(0px);">
             <div id="canvascontainer"></div>
             <canvas id="c"></canvas>
             <div id="fullscreenbuttoncontainer">
               <!--img src="public/fullscreen.png" alt="Fullscreen Button" id="fullscreenbutton" onclick="togglefullscreen()"-->
             </div>
             <div style="height:0px;">
-              <p id="fluxexplainer"><em>WHAT IS ENERGY FLUX?!</em></p>
+              <p id="whatisflux" onclick="fluxInfo()"><em>WHAT IS ENERGY FLUX?!</em></p>
+              <p  id="fluxinfo" onclick="fluxInfo()">TLDR: <em>It's just a value proportional to the number of electrons hitting the sensor per second <a href="https://pds-smallbodies.astro.umd.edu/holdings/ro-c-rpcies-5-esc4-v1.0/document/flux_calculation/flux_calculation.pdf" target="_blank">(read more here)</a></em></p>
             </div>
           </section>
         </div>

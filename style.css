@@ -1867,20 +1867,42 @@ canvas {
   opacity: 1;
   transform: scale(1.03);
 }
-#fluxexplainer {
+#sweapcanvas a:link {color: rgb(255, 64, 0);}
+#sweapcanvas a:visited {color: rgb(255, 64, 0);}
+#sweapcanvas a:hover {color: rgb(255, 202, 185); text-decoration: none;}
+#sweapcanvas a:active {color: rgb(255, 202, 185); text-decoration: none;}
+
+#whatisflux {
   position: relative;
+  display: none;
   font-size: 14px;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
   z-index: 6;
-  opacity: 0;
+  opacity: 1;
   top: 3px;
-  color: rgb(255, 64, 0);
+  color: rgb(231, 58, 0);
 }
-#fluxexplainer:hover {
-  color: rgb(0, 225, 255);
+#whatisflux:hover {
+  color: rgb(255, 126, 71);
   cursor: pointer;
 }
+#fluxinfo {
+  position: relative;
+  display: none;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  z-index: 6;
+  opacity: 1;
+  top: 3px;
+  color: rgb(207, 52, 0);
+}
+#fluxinfo:hover {
+  color: rgb(255, 104, 54);
+  cursor: pointer;
+}
+
 #sweapinfo a:link {color: rgb(255, 106, 56);;}
 #sweapinfo a:visited {color: rgb(255, 106, 56);}
 #sweapinfo a:hover {color: rgb(255, 162, 116);}

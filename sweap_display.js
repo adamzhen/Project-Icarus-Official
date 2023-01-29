@@ -298,10 +298,10 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = "rgb(0,0,0)";
         ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
-        var textw = 310;
+        var textw = 335;
         var texth = 36;
         if (sweapUnit == "wacky"){
-          textw = 290;
+          textw = 360;
         } 
         // Draws a text box
         ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -318,13 +318,13 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.font = "12px Montserrat";
         ctx.textAlign = 'left';
         if (sweapUnit == "metric"){
-          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million eV/(cm² s ster eV)", 10, 22);
+          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million electrons/(cm² s ster)", 10, 22);
         } 
         else if (sweapUnit == "imperial"){
-          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million eV/(cm² s ster eV)", 10, 22);
+          ctx.fillText("Total Energy Flux: " + (totalflux/10e6/2.54/2.54).toFixed(0) + " million electrons/(in² s ster)", 10, 22);
         } 
         else if (sweapUnit == "wacky"){
-          ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million eV/(cm² s ster eV)", 10, 22);
+          ctx.fillText("Total Energy Flux: " + (totalflux/10e6/1.555).toFixed(0) + " million electrons/(eardrum s ster)", 10, 22);
         } 
         // Create a linear gradient
         // The start gradient point is at x=20, y=0
@@ -706,21 +706,21 @@ instrumentselector.oninput = function(){
   if (sweapmode == "p"){ // Protons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPC_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).";
-    document.getElementById("fluxexplainer").style.opacity = 0;
+    document.getElementById("whatisflux").style.display = "none";
     slider2.max = spcList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     var dateind = spcdateList[orbit_ind2].indexOf(datetime);
   } 
   else if (sweapmode == "e") { // Electrons
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANe_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Both of the two Solar Probe ANalyzers (SPAN) measure electrons by sorting them into 32 different energy bins. SPAN-A points in the direction that the PSP is traveling, while SPAN-B points the opposite way. Together, their field of view covers almost the entire sky (except for what the heat shield blocks).";
-    document.getElementById("fluxexplainer").style.opacity = 1;
+    document.getElementById("whatisflux").style.display = "block";
     slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     var dateind = spanedateList[orbit_ind2].indexOf(datetime);
   } 
   else if (sweapmode == "a") { // Alphas/Ions
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so here we just call them alphas.";
-    document.getElementById("fluxexplainer").style.opacity = 0;
+    document.getElementById("whatisflux").style.display = "none";
     if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
       slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     }
@@ -828,6 +828,17 @@ function sweapUnitDisplay(){ // shows/hides sweap unit controls
 function switchSWEAPunit(unitname){
   sweapUnit = unitname;
   update_data2();
+}
+var showFluxInfo = false;
+function fluxInfo(){ // shows/hides flux info
+  showFluxInfo = !showFluxInfo;
+  if (showFluxInfo){
+    document.getElementById("fluxinfo").style.display = "block";
+    document.getElementById("whatisflux").style.display = "none";
+  } else {
+    document.getElementById("fluxinfo").style.display = "none";
+    document.getElementById("whatisflux").style.display = "block";
+  }
 }
 // var fullscreen = False;
 // function togglefullscreen(){
