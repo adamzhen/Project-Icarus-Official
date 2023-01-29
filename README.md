@@ -151,8 +151,11 @@ For SPC, I used pySPEDAS to download the cdf files from NASA's [website](https:/
 
 #### Electrons (SPAN-e)
 
-For SPAN-e, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spe/l3/spe_sf0_pad/), quickly extract data from them, and export the data (date/time, differential energy flux for each of the 32 energy bins, and total electron density) into text files which were compiled into [spane_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spane_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the electrons display, I visualized the data for each of the 32 energy bins by plotting the energy flux on a logarithmic scale. Of course, the flux units of eV/(cm^2 s ster eV) are essentially nonsensical to an average reader, so I'm working on an explanation for that right now.
-
+For SPAN-e, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/sweap/spe/l3/spe_sf0_pad/), quickly extract data from them, and export the data (date/time, differential energy flux for each of the 32 energy bins, and total electron density) into text files which were compiled into [spane_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spane_list.js) using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). In the electrons display, I visualized the data for each of the 32 energy bins by plotting the energy flux on a logarithmic scale. I've also included a short blurb (with additional resources) to help the reader understand basically what energy flux represents here.
+| Data Type               | Original        | Metric          | Imperial          | Wacky         |
+| :-----------            | --------        | -------         | --------          | --------      |
+| **Total Energy Flux**   | 1/cm^2-s-ster    | 1/cm^2-s-ster  | 1/in^2-s-ster     | 1/eardrum-s-ster (area of eardrum = 1.555 cm^2) | 
+ 
 <div align="left">
   <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
     <img src="public/readme_assets/sweapelectrons.png" width=750px/>
