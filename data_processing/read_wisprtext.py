@@ -1,4 +1,4 @@
-# STEP 2 of data processing
+# STEP 2 of WISPR data processing
 
 import os
 

@@ -1,4 +1,4 @@
-# STEP 2 of data processing
+# STEP 2 of SWEAP data processing
 
 import os
 import numpy as np
