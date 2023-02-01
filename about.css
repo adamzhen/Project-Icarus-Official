@@ -295,9 +295,9 @@ button {
 
   .navbar .menu-items a {
     margin-bottom: 28px;
-    font-family: 'Montserrat';
-    font-size: 1rem;
-    font-weight: 400;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .navbar-container input[type="checkbox"]:checked ~ .menu-items {
