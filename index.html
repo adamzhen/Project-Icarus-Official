@@ -83,7 +83,11 @@
           } else {
             i++;
           }
-          document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_" + imgnames[i] + ".jpg";
+          if (window.innerWidth > 1500){
+            document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_" + imgnames[i] + ".jpg";
+          } else {
+            document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_" + imgnames[i] + ".jpg";
+          }
         }
       </script>
     </div>
@@ -201,7 +205,9 @@
         </section>
         <section class="hidden0">
           <div style="margin-left:auto; margin-right:auto;" id="cmecontainer">
-            <img src="public/CME.gif" alt="Coronal Mass Ejection" id="cme">
+            <video autoplay loop muted playsinline id="cme">
+              <source src="public/CME.mp4" type="video/mp4"/>
+            </video>
             <a href="https://giphy.com/gifs/nasa-space-l2Sq7UcchYPqoR3vq" target="_blank"><p id="cmeoverlay"></p></a>
           </div>
         </section>
@@ -210,7 +216,9 @@
         </section>
         <section class="hidden0">
           <div style="margin-left:auto; margin-right:auto; margin-bottom:10px; margin-top:10px;" id="carringtoncontainer">
-            <img src="public/CarringtonEvent.gif" alt="Carrington Event" id="carrington">
+            <video autoplay loop muted playsinline id="carrington">
+              <source src="public/CarringtonEvent.mp4" type="video/mp4"/>
+            </video>
             <a href="https://youtu.be/dVS4Q4VgDxk?t=88" target="_blank"><p id="carringtonoverlay"></p></a>
           </div>
         </section>
@@ -236,7 +244,7 @@
           <li>IS☉IS</li>
         </ol>  
         <br>
-        <a href="https://www.nasa.gov/content/goddard/parker-solar-probe-instruments" target="_blank"><img src="public/PSPinstruments2.png" alt="PSP Instruments Diagram" id="PSPinstruments"></a>
+        <a href="https://www.nasa.gov/content/goddard/parker-solar-probe-instruments" target="_blank"><img src="public/PSPinstruments2.jpg" alt="PSP Instruments Diagram" id="PSPinstruments"></a>
         <h6 id="waitwuthuh">WAIT WHAT DA HHH-HUHHH???</h6> 
         <p style="margin-top: 10px;">ok ok, let's take this one at a time...</b></p>
       </section>
