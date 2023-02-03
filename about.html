@@ -8,7 +8,7 @@
         <script src ="index.js"></script>
         <title>About</title>
         <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
-        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <!--script defer src="https://pyscript.net/alpha/pyscript.js"></script-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     </head>
@@ -37,13 +37,14 @@
               </div>
             </section>
             <div id="text1">
-              <py-script>
-                from datetime import datetime
-                start = datetime(2022, 10, 3)
-                today = datetime.now()
-                pyscript.write('workdays', f"{(today - start).days} days")
-              </py-script>  
               <p>Howdy, I'm <b><font color="#4cdbff"><b>Adam Zheng</b></font></b>, a freshman at Texas A&M planning to major in aerospace engineering. As someone who aspires to one day be at the cutting edge of space exploration, this project has taught me how much more we have to learn about our very own sun, not to mention the unimaginably vast domain of interstellar space. But of course, this was also a great learning experience in terms of building my first website. You see, during the 2022 NASA Space Apps Challenge (October 1-2), Warren Wu and I tackled a challenge called "<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/creative-data-display/details" target="_blank">Creative Data Display With the Parker Solar Probe</a>," for which we created this website. With Warren's help, I was able to quickly get the hang of using HTML & CSS. However, despite our best efforts, the website ultimately proved to be too ambitious to complete in two days. So for the past <label id="workdays"></label>, I've been working on my own to bring the original vision for Project Icarus to fruition. </p>
+              <script>
+                var startdate = new Date('10/3/2022');
+                var currdate = new Date();
+                var diffTime = Math.abs(currdate - startdate); // time difference in milliseconds
+                var diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));  // convert to days
+                document.getElementById("workdays").innerHTML = diffDays + " days";
+              </script> 
             </div>
             <section style="margin-left:auto; margin-right:auto;">
               <div class="imagediv">
