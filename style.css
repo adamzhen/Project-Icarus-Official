@@ -872,7 +872,7 @@ canvas {
 }
 #alfventext {
   display: block;
-  width: 55%;
+  width: 58%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1583,8 +1583,8 @@ canvas {
 #moreinfo {
   position: relative;
   text-align: right;
-  bottom: 63px;
-  left: 138px;
+  bottom: 69px;
+  left: 139px;
   font-family: 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -2008,15 +2008,6 @@ canvas {
   letter-spacing: 0px;
   text-align: center;
 }
-#moreinfo {
-  position: relative;
-  text-align: right;
-  bottom: 63px;
-  left: 138px;
-  font-family: 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-}
 #isoisdisplay span {
   background-color: #00000027;
   border-style: solid;
@@ -2383,32 +2374,23 @@ canvas {
   background-color: transparent;
   padding: 30px;
 }
-#fieldsdisplay a:link {color: rgb(167, 81, 0);text-decoration: none;}
-#fieldsdisplay a:visited {color: rgb(167, 81, 0);text-decoration: none;}
-#fieldsdisplay a:hover {color: rgb(255, 123, 0);text-decoration: none;}
-#fieldsdisplay a:active {color: rgb(255, 123, 0);text-decoration: none;}
+#fieldsdisplay a:link {color: #03c9a5;text-decoration: none;}
+#fieldsdisplay a:visited {color: #03c9a5;text-decoration: none;}
+#fieldsdisplay a:hover {color: #19FFD5;text-decoration: none;}
+#fieldsdisplay a:active {color: #19FFD5;text-decoration: none;}
 
-#instrumentdisplay {
+#instrumentdisplay4 {
   width: 300px;
   height: 300px;
-  border: 1px solid rgb(255, 122, 0);
+  border: 1px solid #19FFD5;
 }
-#instrumentdisplay p {
+#instrumentdisplay4 p {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: rgb(173, 84, 0);
+  color: #19FFD5;
   font-weight: 600;
   letter-spacing: 0px;
   text-align: center;
-}
-#moreinfo {
-  position: relative;
-  text-align: right;
-  bottom: 63px;
-  left: 138px;
-  font-family: 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
 }
 #fieldsdisplay span {
   background-color: #00000027;
@@ -2423,22 +2405,22 @@ canvas {
   text-align: right;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: rgb(255, 123, 0);
+  color: #0ce7bf;
   font-weight: 800;
   letter-spacing: 0.5px;
 }
 #fieldsunits:hover {
-  color: rgb(255, 147, 45);
+  color: #00ffd0;
   cursor: pointer;
 }
-#unitsline {
+#unitsline4 {
   position: relative;
   bottom: 30px;
   border: none;
   height: 1px;
-  background: rgb(255, 123, 0);
+  background: #19FFD5;
 }
-#instrumentdisplay h4 {
+#instrumentdisplay4 h4 {
   position: relative;
   display: none;
   bottom: 25px;
@@ -2446,7 +2428,7 @@ canvas {
   text-align: right;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
-  color: rgb(255, 123, 0);
+  color: #19FFD5;
   font-weight: 500;
   margin-bottom: 2px;
   opacity: 0.8;
@@ -2455,7 +2437,7 @@ canvas {
 .fieldsunit {
   animation: all 1s ease-in-out;
 }
-#instrumentdisplay h4:hover {
+#instrumentdisplay4 h4:hover {
   transform: translateX(-2px);
   opacity: 1;
   cursor: pointer;
@@ -2473,6 +2455,7 @@ canvas {
   justify-content: center;
   display: block;
   text-align: left;
+  filter: saturate(0%) brightness(1.4) ;
   background-image: url("public/SPC_instrument.jpg");
   background-size: 210px 210px;
   background-position: center;
@@ -2480,12 +2463,17 @@ canvas {
 }
 #fields_selector {
   position: relative;
+  color: #19FFD5;
+  border: 2px solid #19FFD5;
+  background: url(public/select_blue.png) no-repeat 89% center;
+  background-color: black;
+  background-size: 10px 5px;
   top: 8px;
   left: 8px;
   width: 96px;
 }
 
-#positiondisplay2 {
+#positiondisplay4 {
   --l: 300px;
   position: relative;
   height: var(--l);
@@ -2493,50 +2481,56 @@ canvas {
   margin-left: auto;
   margin-right: auto;
 }
-#positiondisplay2 h3 {
-  color: rgb(173, 84, 0);
+#positiondisplay4 h3 {
+  color: #06dbb4;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 0px;
 }
-#datecontainer2 {
+#datecontainer4 {
   position: relative;
   margin-left: auto;
   margin-right: auto;
 }
-#datetxt2{
+#datetxt4{
   text-align: left;
   z-index: 3;
   position: relative;
   bottom: 292px;
   right: 139px;
-  color: rgb(255, 122, 0);
+  color: rgb(240, 240, 240);
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   letter-spacing: 0px;
 }
-#timetxt{
+#timetxt4{
   text-align: left;
   inline-size: 200px; 
   z-index: 3;
   position: relative;
   bottom: 292px;
   right: 139px;
-  color: rgb(255, 122, 0);
+  color: rgb(240, 240, 240);
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   letter-spacing: 0px;
 }
-#orbit_num2 {
+#orbit_num4 {
   position: relative;
+  color: #19FFD5;
+  border: 2px solid #19FFD5;
+  background: url(public/select_blue.png) no-repeat 89% center;
+  background-color: black;
+  background-size: 10px 5px;
   bottom: 387px;
   left: 100px;
   width: 80px;
 }
-#locplot2{
+#locplot4{
   position: relative;
+  filter: hue-rotate(135deg);
   margin-left: auto;
   margin-right: auto;
   z-index: 1;
@@ -2545,14 +2539,14 @@ canvas {
   height: var(--l);
   border: 1px solid rgb(255, 122, 0);
 }
-#psploc2 {
+#psploc4 {
   position: relative;
   z-index: 4;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.triangle2 {
+.triangle4 {
   position: relative;
   z-index: 4;
   width: 0;
@@ -2563,17 +2557,18 @@ canvas {
   margin-bottom: auto;
 	border-top: 7px solid transparent;
 	border-bottom: 7px solid transparent;
-	border-left: 16px solid #FF7913;
+	border-left: 16px solid #19FFD5;
   transition: all 0.5s;
 }
-#sunicon2 {
+#sunicon4 {
   height: 4.8px;
   width: 4.8px;
-  box-shadow: 0px 0px 48px 18px #ffa600c9;
+  background-color: white;
+  box-shadow: 0px 0px 48px 18px rgb(209, 209, 209);
   bottom: 208px;
   left: 9px;
 }
-#disttxt2 {
+#disttxt4 {
   font-size: 10px;
   z-index: 3;
   position: relative;
@@ -2608,16 +2603,16 @@ canvas {
   justify-content: center;
   display: inline-block;
 }
-#speedsection2 {
+#speedsection4 {
   opacity: 0;
   transition: 200ms all ease;
 }
-#speedbuttons2 {
+#speedbuttons4 {
   background-color: white;
   height: 0px;
   justify-content: center;
 }
-#speeddisplay2 {
+#speeddisplay4 {
   position: relative;
   font-size: 12px;
   font-family: "Courier New", monospace;
@@ -2641,19 +2636,21 @@ canvas {
   right: 50%;
   bottom: 3px;
 }
-#playbutton2 {
+#playbutton4 {
+  filter: hue-rotate(-30deg);
   position: relative;
   margin-top: 10px;
   bottom: 20px;
 }
-#sliderrr2 {
+#sliderrr4 {
   position: relative;
+  filter: hue-rotate(-30deg);
   bottom: 0px;
   width: 100px;
   height: 7px;
   border-radius: 1px;  
 }
-#theslider2 {
+#theslider4 {
   position: relative;
   justify-content: center;
   margin-left: auto;

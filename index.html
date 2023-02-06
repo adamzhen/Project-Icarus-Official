@@ -188,7 +188,7 @@
       </section>
       <div id="alfventext">
         <section class="hidden">
-          <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in <b>plasma particles</b> (which, by the way, the sun is constantly spitting out), so they fly out into space as <b>solar wind</b>.</p>
+          <p><b>VERY BIG.</b> The corona stretches up to about <b>13 million km (18.8 solar radii)</b> above the sun's surface. That means you could fit another <b>18 suns</b> across just the diameter of the corona! The edge of the corona is called the <b>Alfvén surface</b>, represented here by a jolly <b>elf van</b> zipping around the sun. At the Alfvén surface, the sun's gravitational and magnetic fields become too weak to hold in <b>plasma particles</b> (which the sun is casually spitting out at a rate of over a million tons per second), so they fly out into space as the <b>solar wind</b>.</p>
           <br>
         </section>
         <section class="hidden">
@@ -345,9 +345,9 @@
         </div>
         <div id="wisprinfo">
           <section class="hidden2">
-            <p>What the <b>WISPR</b> (Wide-field Imager for Solar PRobe) essentially does is it uses its <b>2 telescope cameras</b> to take <b>never-before-seen</b> images of the <b>corona and solar wind</b> that other instruments will later be measuring directly. And in case you were wondering, the reason why these cameras are inside a <b>wacky, shoebox-sized</b> contraption is so that each camera has a <b>protective door</b> to hide behind during launch.</p>
+            <p>What the <b>WISPR</b> (Wide-field Imager for Solar PRobe) essentially does is it uses its <b>2 telescope cameras</b> to take <b>never-before-seen</b> images of the <b>corona and solar wind</b> that other instruments will later be measuring directly. And in case you were wondering, the reason why these cameras are inside a <b>wacky, shoebox-sized</b> contraption was so that each camera had a <b>protective door</b> to hide behind during launch.</p>
             <br>
-            <p>Now, if you've ever pointed a camera at the sun, you'll know that it just blows out everything else because it's <b>so absurdly bright</b>. This is why the WISPR points at an angle <b>away from the sun</b> <em>(click the triangle probe icon above to see the field of view)</em>, just barely catching the corona on thr left edge of the inner camera. And interestingly, the <b>heat shield</b> serves not only to shelter the WISPR from a blistering heat death, but also to <b>block</b> most of the sun's light, allowing the WISPR to effectively capture the <b>much fainter corona.</b></p>
+            <p>Now, if you've ever pointed a camera at the sun, you'll know that it blows out essentially everything else because it's <b>so absurdly bright</b>. This is why the WISPR points at an angle <b>away from the sun</b> <em>(click the triangle probe icon above to see the field of view)</em>, just barely catching the corona on the left edge of the inner camera. What's more, the <b>heat shield</b> serves not only to shelter the WISPR from a blistering heat death, but also to <b>block</b> most of the sun's light, allowing the WISPR to effectively capture the <b>much fainter corona.</b></p>
           </section>
         </div>
       </div>
@@ -468,7 +468,7 @@
         <script src="sweap_display.js"></script>
         <div id="sweapinfo">
           <section class="hidden2">
-            <p>What the <b>SWEAP</b> (Solar Wind Electrons Alphas and Protons investigation) essentially does is it counts the <b>3 most common plasma particles</b> in the solar wind (<b>electrons, protons, and alpha particles</b>), and measures their temperature, density, velocity, etc. This data allows us to <b>understand how the solar wind behaves</b> as it accelerates in the corona of the sun, which will then allow us to better be able to <b>predict</b> what the solar wind will be like when it hits Earth (like a <b>weather forecast</b>, but for <b>solar weather</b>).</p>
+            <p>What the <b>SWEAP</b> (Solar Wind Electrons Alphas and Protons investigation) essentially does is it counts the <b>3 most common plasma particles</b> in the solar wind (<b>electrons, protons, and alpha particles</b>) and measures their temperature, density, and velocity (and more!). This data allows us to <b>understand how the solar wind behaves</b> as it accelerates in the corona of the sun, which will then allow us to better be able to <b>predict</b> what the solar wind will be like when it hits Earth (like a <b>weather forecast</b>, but for <b>solar weather</b>).</p>
             <br>
             <p>And the results have already started to show. Scientists at the <b>Johns Hopkins Applied Physics Laboratory</b> (APL) used Parker Solar Probe's data to discern evidence that "<em><b>small-scale jetting</b> in the Sun's corona, driven by a process called magnetic reconnection, is responsible for the <b>heating and acceleration of the solar wind</b></em>." Read more about this intriguing discovery <a href="https://www.jhuapl.edu/PressRelease/230110b-scientists-may-have-solved-mystery-of-origins-of-solar-wind" target="_blank"><b>here</b></a>.</p>
             <!--h8 id='warning' style="color:white; font-size:20px; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8-->
@@ -505,7 +505,6 @@
                     <h4 id="isoiswacky" class="isoisunit" onclick="switchISOISunit('wacky')">Wacky</h4>
                   </div>
                   <p id="isoisdescription">The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).</p>
-                  <a href="http://sweap.cfa.harvard.edu/SWEAP.html" target="_blank"><h8 id="moreinfo">🛈</h8></a>
                 </div>
               </section>
 
@@ -582,6 +581,7 @@
     </div>
 
     <script defer src="fields_data/fields_list.js"></script>
+    <script src="fields_display.js"></script>
     <!--FIELDS-->
     <div id="fields">
       <section class="hidden2">
@@ -596,21 +596,25 @@
           </div>
         </section>
         
-        <h8 id='warning' style="color:white; font-size:20px; position: relative; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
-        <!--div id="fieldsdisplay" class="">
+        <div id="fieldsdisplay" class="">
           <section class="hidden2">
             <div class="fields-grid">
               <section class="hiddenInner">
-                <div id="instrumentdisplay">
+                <div id="instrumentdisplay4">
                   <div id="fieldsinstrument">
+                    <form>
+                      <select name="fields instrument" id="fields_selector" class="selector">
+                        <option value="e">Electric</option>
+                        <option value="m">Magnetic</option>
+                      </select>
+                    </form>
                     <h8 id="fieldsunits" onclick="fieldsUnitDisplay()">Units</h8>
-                    <hr id="unitsline">
+                    <hr id="unitsline4">
                     <h4 id="fieldsmetric" class="fieldsunit" onclick="switchFIELDSunit('metric')">Metric</h4>
                     <h4 id="fieldsimperial" class="fieldsunit" onclick="switchFIELDSunit('imperial')">Imperial</h4>
                     <h4 id="fieldswacky" class="fieldsunit" onclick="switchFIELDSunit('wacky')">Wacky</h4>
                   </div>
                   <p id="fieldsdescription">The Solar Probe Cup (SPC) courageously stares straight into the sun, enduring temperatures that could melt away even steel and iron (over 3000°F / 1650°C) - all in order to measure the temperature, density, and velocity of protons and alpha particles in the solar wind (only data for protons is shown here).</p>
-                  <a href="http://sweap.cfa.harvard.edu/SWEAP.html" target="_blank"><h8 id="moreinfo">🛈</h8></a>
                 </div>
               </section>
 
@@ -633,23 +637,23 @@
               </section>
 
               <section class="hiddenOuter">
-                <div id = "positiondisplay2">
-                  <img src="public/orbit_plot2_1.png" alt="Location Plot" id="locplot2">
+                <div id = "positiondisplay4">
+                  <img src="public/orbit_plot2_1.png" alt="Location Plot" id="locplot4">
                   <div class="textcontainer">
-                    <h2 id="datetxt2">11/01/2018</h2>
-                    <h4 id="timetxt">05:04</h4>
+                    <h2 id="datetxt4">11/01/2018</h2>
+                    <h4 id="timetxt4">05:04</h4>
                   </div>
-                  <div id="psploc2">
-                    <div class="triangle2" id="psptriangle2"></div>
+                  <div id="psploc4">
+                    <div class="triangle4" id="psptriangle4"></div>
                   </div>
-                  <div class="sunicon" id="sunicon2"></div>
+                  <div class="sunicon" id="sunicon4"></div>
                   <div class="textcontainer">
-                    <h3 id="disttxt2">Distance</h3>
+                    <h3 id="disttxt4">Distance</h3>
                     <h3 id="pspspeed">Speed</h3>
                   </div>
                   <h3 id="fieldssource"><a href="https://fields.ssl.berkeley.edu/data/" target="_blank">Source<sup>4</sup></a></h3>
                   <form>
-                    <select name="orbit" id="orbit_num2" class="selector">
+                    <select name="orbit" id="orbit_num4" class="selector">
                       <option value="1">Orbit 1</option>
                       <option value="2">Orbit 2</option>
                       <option value="3">Orbit 3</option>
@@ -676,7 +680,8 @@
               
             </div>
           </section>
-        </div-->
+          <h8 id='warning' style="color:white; font-size:20px; position: relative; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
+        </div>
         
         <div id="fieldsinfo">
           <section class="hidden2">
