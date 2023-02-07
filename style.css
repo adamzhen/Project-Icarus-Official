@@ -876,6 +876,16 @@ canvas {
   margin-left: auto;
   margin-right: auto;
 }
+.bluegradient { /* used for aurora */
+  background-color: #78ebf3;
+  background-image: linear-gradient(80deg, #8cfffd 0%, #005ce6 40%, #a6fffe 67%, #0043a8 95%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
 #auroracontainer {
   --w: 400px;
   --h: calc(var(--w)*212/550);
@@ -2456,7 +2466,7 @@ canvas {
   display: block;
   text-align: left;
   filter: saturate(0%) brightness(1.4) ;
-  background-image: url("public/SPC_instrument.jpg");
+  background-image: url("");
   background-size: 210px 210px;
   background-position: center;
   background-repeat: no-repeat;
@@ -2470,7 +2480,7 @@ canvas {
   background-size: 10px 5px;
   top: 8px;
   left: 8px;
-  width: 96px;
+  width: 100px;
 }
 
 #positiondisplay4 {
