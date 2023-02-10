@@ -448,10 +448,7 @@
 
           <section id="sweapcanvas" class="hidden0" style="filter: blur(0px);">
             <div id="canvascontainer"></div>
-            <canvas id="c"></canvas>
-            <div id="fullscreenbuttoncontainer">
-              <!--img src="public/fullscreen.png" alt="Fullscreen Button" id="fullscreenbutton" onclick="togglefullscreen()"-->
-            </div>
+            <canvas id="THESWEAPCANVAS"></canvas>
             <div style="height:0px;">
               <p id="whatisflux" onclick="fluxInfo()"><em>WHAT IS ENERGY FLUX?!</em></p>
               <p  id="fluxinfo" onclick="fluxInfo()">TLDR: <em>It's just a value proportional to the number of electrons hitting the sensor per second <a href="https://pds-smallbodies.astro.umd.edu/holdings/ro-c-rpcies-5-esc4-v1.0/document/flux_calculation/flux_calculation.pdf" target="_blank">(read more here)</a></em></p>
@@ -580,8 +577,6 @@
       </div>
     </div>
 
-    <script defer src="fields_data/fields_list.js"></script>
-    <script src="fields_display.js"></script>
     <!--FIELDS-->
     <div id="fields">
       <section class="hidden2">
@@ -620,14 +615,14 @@
 
               <section class="hidden2">
                 <div id="fieldscontrols">
-                  <button id = 'playbutton4' class='button' onclick="playclick2()"></button>
+                  <button id = 'playbutton4' class='button' onclick="playclick4()"></button>
                   <section id="speedsection4">
                     <div id="speedbuttons4">
                       <p id="speeddisplay4">x10000</p>
-                      <button id = 'fieldsfasterbutton1' class='fasterbutton' onclick="playfaster2(1000)"></button>
-                      <button id = 'fieldsfasterbutton2' class='fasterbutton' onclick="playfaster2(10000)"></button>
-                      <button id = 'fieldsslowerbutton1' class='slowerbutton' onclick="playslower2(1000)"></button>
-                      <button id = 'fieldsslowerbutton2' class='slowerbutton' onclick="playslower2(10000)"></button>
+                      <button id = 'fieldsfasterbutton1' class='fasterbutton' onclick="playfaster4(1000)"></button>
+                      <button id = 'fieldsfasterbutton2' class='fasterbutton' onclick="playfaster4(10000)"></button>
+                      <button id = 'fieldsslowerbutton1' class='slowerbutton' onclick="playslower4(1000)"></button>
+                      <button id = 'fieldsslowerbutton2' class='slowerbutton' onclick="playslower4(10000)"></button>
                     </div>
                   </section>
                   <div class="slidecontainer" id="theslider4">
@@ -649,7 +644,7 @@
                   <div class="sunicon" id="sunicon4"></div>
                   <div class="textcontainer">
                     <h3 id="disttxt4">Distance</h3>
-                    <h3 id="pspspeed">Speed</h3>
+                    <h3 id="pspspeed4">Speed</h3>
                   </div>
                   <h3 id="fieldssource"><a href="https://fields.ssl.berkeley.edu/data/" target="_blank">Source<sup>4</sup></a></h3>
                   <form>
@@ -675,14 +670,13 @@
 
           <section class="hidden0" style="filter: blur(0px);">
             <div id="canvascontainer"></div>
-            <canvas id="c"></canvas>
-            <div id="fullscreenbuttoncontainer">
-              
-            </div>
+            <canvas id="THEFIELDSCANVAS"></canvas>
           </section>
           <h8 id='warning' style="color:white; font-size:20px; position: relative; padding-top:30px;">⚠️ SECTION UNDER CONSTRUCTION ⚠️</h8>
         </div>
         
+        <script defer src="fields_data/fields_list.js"></script>
+        <script defer src="fields_display.js"></script>
         <div id="fieldsinfo">
           <section class="hidden2">
             <p></p>

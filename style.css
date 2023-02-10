@@ -878,7 +878,7 @@ canvas {
 }
 .bluegradient { /* used for aurora */
   background-color: #78ebf3;
-  background-image: linear-gradient(80deg, #8cfffd 0%, #005ce6 40%, #a6fffe 67%, #0043a8 95%);
+  background-image: linear-gradient(80deg, #8cfffd 0%, #3888ff 36%, #a6fffe 67%, #0043a8 95%);
   background-size: 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -1855,7 +1855,7 @@ canvas {
   margin: 0;
   padding: 0;
 }
-#c {
+#THESWEAPCANVAS {
   margin-top: 0px;
   padding: 0;
   background-color: black;
@@ -2274,7 +2274,7 @@ canvas {
   margin: 0;
   padding: 0;
 }
-#c {
+#THEISOISCANVAS {
   margin-top: 0px;
   padding: 0;
   background-color: black;
@@ -2587,7 +2587,7 @@ canvas {
   right: 140px;
   bottom: 81px;
 }
-#pspspeed {
+#pspspeed4 {
   font-size: 10px;
   z-index: 3;
   position: relative;
@@ -2673,27 +2673,10 @@ canvas {
   margin: 0;
   padding: 0;
 }
-#c {
+#THEFIELDSCANVAS {
   margin-top: 0px;
   padding: 0;
   background-color: black;
-}
-#fullscreenbuttoncontainer {
-  height: 0px;
-}
-#fullscreenbutton {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  right: 300px;
-  top: 100px;
-  transform: scale(1);
-  opacity: 0.8;
-  animation: all 3s ease-in-out;
-}
-#fullscreenbutton:hover {
-  opacity: 1;
-  transform: scale(1.03);
 }
 
 

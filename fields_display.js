@@ -6,7 +6,7 @@ Code derived from:
 https://codepen.io/aecend/pen/WbONyK
 */
 (function(w) {
-  var DISPLAYMODE = "p";
+  var DISPLAYMODE = "m";
   var canvas, ctx;
 
   var canvas_width = 1000; 
@@ -32,7 +32,7 @@ https://codepen.io/aecend/pen/WbONyK
   // Switches the display mode between protons, electrons, & alphas
   function change_mode(m){
     DISPLAYMODE = m;
-    if (m == "a" && ions.length==0){
+    if (m == "m" && ions.length==0){
       FIELDS.initialize(); // intializes ions & hidden ions
     }
   }
@@ -59,12 +59,12 @@ https://codepen.io/aecend/pen/WbONyK
   */
   function init() {
       //These lines get the canvas DOM element and canvas context, respectively.
-      canvas = document.getElementById("c");
+      canvas = document.getElementById("THEFIELDSCANVAS");
       ctx = canvas.getContext("2d");
       //These lines set the width, height, & border of the canvas.
       canvas.width = canvas_width;
       canvas.height = canvas_height;
-      canvas.style.border = "4px outset rgb(217, 54, 0)";
+      canvas.style.border = "4px outset #19FFD5";
       if (DISPLAYMODE == "p"){
         for (i = 0; i < pdensity; i++) {
           temptheta = Math.random() * 2*Math.PI; 
@@ -123,150 +123,6 @@ https://codepen.io/aecend/pen/WbONyK
     }
     return "rgb(" + r + "," + g + "," + b + ")";
   }
-
-  // Draws the proton display
-  function draw_protons() {
-      var pv = spcList[orbit_ind2][slider_val2][1].toFixed(1); // km/s
-      var pd = spcList[orbit_ind2][slider_val2][2].toFixed(0); // cm^-2
-      var pt = spcList[orbit_ind2][slider_val2][3].toFixed(0); // K
-      var pdist = spcList[orbit_ind2][slider_val2][6].toFixed(3);
-      // updates parameters
-      pvelocity = pv/10; // Proton velocity
-      pdensity = pd; // Proton density
-      pcolor = calcColor(pt, 200000, 700000); // Proton color based on temperature
-      sunradius = 32 / (pdist/0.075); // Calculates radius of the sun based on distance from it
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // Draws the sun
-      ctx.fillStyle = "#fcb603";
-      ctx.shadowColor = "rgb(255, 122, 0)";
-      ctx.shadowBlur = sunradius;
-      ctx.beginPath();
-      ctx.ellipse(canvas_width/2, canvas_height/2, sunradius, sunradius, 0, 0, 2 * Math.PI);
-      ctx.fill();
-      ctx.shadowBlur = 0;
-
-      //This sets the color to draw with.
-      ctx.strokeStyle = pcolor;
-      var maxr = Math.sqrt((canvas_width*canvas_width/4) + (canvas_height*canvas_height/4));
-      var pradius;
-
-      var diff = Math.abs(pdensity - particles.length);
-      // Increase the particle amount if below density
-      if (particles.length < pdensity){   
-        while (diff > 0) {
-            particles.push(hiddenparticles.pop());
-            diff -= 1;
-        }
-      }
-      // Decrease the particle amount if above density 
-      else if (particles.length > pdensity){
-        while (diff > 0) {
-          // if (!(p.x >= 0 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height))
-          var p = particles.pop();
-          p.theta = Math.random() * 2*Math.PI;
-          p.r = Math.random() * (maxradius(p.theta)-sunradius) + sunradius;
-          p.px = p.x = p.r * Math.cos(p.theta) + canvas_width/2;
-          p.py = p.y = p.r * Math.sin(p.theta) + canvas_height/2;
-          hiddenparticles.push(p);
-          diff -= 1;
-        }
-      }
-      // document.getElementById("warning").innerHTML = particles.length;
-      //Loops through all of the particles in the array
-      var templength = particles.length;
-      for (i = 0; i < particles.length; i++) {
-
-          //Sets this variable to the current particle so we can refer to the particle easier.
-          var p = particles[i];
-
-          //If the particle's X and Y coordinates are within the bounds of the canvas...
-          if (p.x >= 0 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
-            if (i % 9 == 0){
-              p.v = pvelocity * (p.r / maxr) * (p.r / maxr) * 2 + Math.random()*pvelocity/8;
-              p.r += p.v; 
-              ctx.fillStyle = pcolor;
-              //This recalculates the position coordinates of the particle.
-              p.x = p.r * Math.cos(p.theta) + canvas_width/2;
-              p.y = p.r * Math.sin(p.theta) + canvas_height/2;
-              pradius = psize * (p.r / maxr) * (p.r / maxr);
-              ctx.beginPath();
-              ctx.ellipse(p.x, p.y, pradius, pradius, 0, 0, 2 * Math.PI);
-              ctx.fill();
-            }
-            else {
-              if (i % 4 == 0) {
-                ctx.lineWidth = psize * (p.r / maxr) * Math.sqrt(p.r / maxr);
-                p.v = pvelocity * (p.r / maxr) * Math.sqrt(p.r / maxr) + Math.random()*pvelocity/10;
-              } else if (i % 4 == 2) {
-                ctx.lineWidth = psize * Math.sqrt(p.r / maxr);
-                p.v = pvelocity * (p.r / maxr) + Math.random()*pvelocity/9;
-              } else {
-                ctx.lineWidth = psize * (p.r / maxr) * (p.r / maxr) * 2; 
-                p.v = pvelocity * (p.r / maxr) + Math.random()*pvelocity/8;
-              }
-              p.r += p.v; 
-              //This recalculates the position coordinates of the particle.
-              p.x = p.r * Math.cos(p.theta) + canvas_width/2;
-              p.y = p.r * Math.sin(p.theta) + canvas_height/2;
-              
-              ctx.beginPath(); //Begin a new path on the canvas
-              ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
-              ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
-              ctx.stroke(); //Draw the path to the canvas
-            }
-            //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
-            p.px = p.x;
-            p.py = p.y;     
-          }
-          else {
-              //If the particle's X and Y coordinates are outside the bounds of the canvas...
-
-              //Place the particle back at the start
-              p.r = sunradius;
-              p.theta = Math.random() * 2*Math.PI;
-              p.px = p.x = p.r * Math.cos(p.theta) + canvas_width/2;
-              p.py = p.y = p.r * Math.sin(p.theta) + canvas_height/2;
-              // If there are more particles than the density...                  
-          }
-      }
-      var textw = 180;
-      var texth = 70;
-      if (sweapUnit == "wacky"){
-        textw = 210;
-      }
-      // Draws a text box
-      ctx.fillStyle = "rgba(0,0,0,0.8)";
-      ctx.fillRect(0, 0, textw, texth);
-      ctx.strokeStyle = "rgb(255, 100, 0)";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath(); 
-      ctx.moveTo(0, texth); 
-      ctx.lineTo(textw, texth); 
-      ctx.lineTo(textw, 0); 
-      ctx.stroke(); //Draw the path to the canvas
-      // Draws the text
-      ctx.textAlign = 'left';
-      ctx.fillStyle = "white";
-      ctx.font = "12px Montserrat";
-      if (sweapUnit == "metric"){
-        ctx.fillText("Velocity: " + (pv*3600).toFixed(0) + " kmph", 10, 56);
-        ctx.fillText("Density: " + pd + " protons/cm²", 10, 39);
-        ctx.fillText("Temperature: " + (pt-273) + " ℃", 10, 22);
-      } 
-      else if (sweapUnit == "imperial"){
-        ctx.fillText("Velocity: " + (pv*3600*0.6214).toFixed(0) + " mph", 10, 56);
-        ctx.fillText("Density: " + (pd/2.54/2.54).toFixed(0) + " protons/in²", 10, 39);
-        ctx.fillText("Temperature: " + (((pt-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
-      } 
-      else if (sweapUnit == "wacky"){
-        ctx.fillText("Velocity: Mach " + (pv/0.343).toFixed(0) + "", 10, 56);
-        ctx.fillText("Density: " + (pd/2.85).toFixed(0) + " protons/penny", 10, 39);
-        ctx.fillText("Temperature: " + (pt/329.817).toFixed(0) + " death valleys", 10, 22);
-      } 
-      //This requests the next animation frame which runs the draw() function again.
-      // requestAnimationFrame(draw);
-  }
   
   var spacingh = 40; // outer spacing on the bottom & top
   var spacingw = 40; // outer spacing on the left & right side
@@ -287,7 +143,7 @@ https://codepen.io/aecend/pen/WbONyK
 
       //Loops through the 32 energy bins
       for (i = 1; i <= 32; i++) {
-        var e = spaneList[orbit_ind2][slider_val2][i] // reads in energy flux value
+        var e = spaneList[orbit_ind4][slider_val4][i] // reads in energy flux value
         totalflux += e; // adds the energy flux to the total flux
         barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the energy
 
@@ -300,13 +156,13 @@ https://codepen.io/aecend/pen/WbONyK
 
       var textw = 335;
       var texth = 36;
-      if (sweapUnit == "wacky"){
+      if (fieldsUnit == "wacky"){
         textw = 360;
       } 
       // Draws a text box
       ctx.fillStyle = "rgba(0,0,0,0.8)";
       ctx.fillRect(0, 0, textw, texth);
-      ctx.strokeStyle = "rgb(255, 100, 0)";
+      ctx.strokeStyle = "#19FFD5";
       ctx.lineWidth = 1.2;
       ctx.beginPath(); 
       ctx.moveTo(0, texth); 
@@ -317,13 +173,13 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillStyle = "white";
       ctx.font = "12px Montserrat";
       ctx.textAlign = 'left';
-      if (sweapUnit == "metric"){
+      if (fieldsUnit == "metric"){
         ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million electrons/(cm² s ster)", 10, 22);
       } 
-      else if (sweapUnit == "imperial"){
+      else if (fieldsUnit == "imperial"){
         ctx.fillText("Total Energy Flux: " + (totalflux/10e6/2.54/2.54).toFixed(0) + " million electrons/(in² s ster)", 10, 22);
       } 
-      else if (sweapUnit == "wacky"){
+      else if (fieldsUnit == "wacky"){
         ctx.fillText("Total Energy Flux: " + (totalflux/10e6/1.555).toFixed(0) + " million electrons/(eardrum s ster)", 10, 22);
       } 
       // Create a linear gradient
@@ -390,10 +246,10 @@ https://codepen.io/aecend/pen/WbONyK
   //This function draws the canvas for the alphas/ions
   function draw_alphas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only works with orbits 2-8
-      var iv = spaniList[orbit_ind2][slider_val2][1].toFixed(1);
-      var id = spaniList[orbit_ind2][slider_val2][2].toFixed(2);
-      var it = spaniList[orbit_ind2][slider_val2][3].toFixed(0);
+    if (orbit_ind4 >= 1 && orbit_ind4 <= 7) { // only works with orbits 2-8
+      var iv = spaniList[orbit_ind4][slider_val4][1].toFixed(1);
+      var id = spaniList[orbit_ind4][slider_val4][2].toFixed(2);
+      var it = spaniList[orbit_ind4][slider_val4][3].toFixed(0);
       // updates parameters
       ivelocity = iv/15; // Proton velocity
       idensity = id*100; // Proton density
@@ -462,13 +318,13 @@ https://codepen.io/aecend/pen/WbONyK
       }
       var textw = 180;
       var texth = 70;
-      if (sweapUnit == "wacky"){
+      if (fieldsUnit == "wacky"){
         textw = 220;
       }
       // Draws a text box
       ctx.fillStyle = "rgba(0,0,0,0.8)";
       ctx.fillRect(0, 0, textw, texth);
-      ctx.strokeStyle = "rgb(255, 100, 0)";
+      ctx.strokeStyle = "#19FFD5";
       ctx.lineWidth = 1.2;
       ctx.beginPath(); 
       ctx.moveTo(0, texth); 
@@ -479,17 +335,17 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.textAlign = 'left';
       ctx.fillStyle = "white";
       ctx.font = "12px Montserrat";
-      if (sweapUnit == "metric"){
+      if (fieldsUnit == "metric"){
         ctx.fillText("Velocity: " + (iv*3600).toFixed(0) + " kmph", 10, 56);
         ctx.fillText("Density: " + id + " alphas/cm³", 10, 39);
         ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
       } 
-      else if (sweapUnit == "imperial"){
+      else if (fieldsUnit == "imperial"){
         ctx.fillText("Velocity: " + (iv*3600*0.6214).toFixed(0) + " mph", 10, 56);
         ctx.fillText("Density: " + (id/2.54/2.54/2.54).toFixed(4) + " alphas/in³", 10, 39);
         ctx.fillText("Temperature: " + (((it-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
       } 
-      else if (sweapUnit == "wacky"){
+      else if (fieldsUnit == "wacky"){
         ctx.fillText("Velocity: Mach " + (iv/0.343).toFixed(0) + "", 10, 56);
         ctx.fillText("Density: " + (id/2.5).toFixed(4) + " alphas/acorn", 10, 39);
         ctx.fillText("Temperature: " + (it/329.817).toFixed(0) + " death valleys", 10, 22);
@@ -584,18 +440,19 @@ function formattime(hr, min){ // formats the time to 12-hour format
     return (hr % 12).toString() + ":" + min + " pm";
   }
 }
-var datetime; // holds the string of the date and time
+var datetime4; // holds the string of the date and time
 function update_data4(){ // updates the images, location, etc. every time the slider changes
   var scale_factor = 355000;
   var angle;
-  if (fieldsmode == "e"){ // ELECTRIC
-    datetime = fieldsList[orbit_ind4][slider_val4][0]; 
+  if (fieldsmode == "m"){ // ELECTRIC
+    datetime4 = fieldsList[orbit_ind4][slider_val4][0]; 
     FIELDS.drawMagnetic();
-  } else if (fieldsmode == "m"){ // MAGNETIC
-    datetime = fieldsList[orbit_ind4][slider_val4][0]; 
+  } else if (fieldsmode == "e"){ // MAGNETIC
+    datetime4 = fieldsList[orbit_ind4][slider_val4][0]; 
     FIELDS.drawElectric();
   } 
-  var spcdateind = spcdateList[orbit_ind4].indexOf(datetime);
+  // update the date, time, position, etc. using SPC data
+  var spcdateind = spcdateList[orbit_ind4].indexOf(datetime4);
   if (spcdateind != -1){ // if the date is found in the spc date list
     var data = spcList[orbit_ind4][spcdateind]; 
     var dist = data[6].toFixed(3).toString() + " AU";
@@ -623,17 +480,16 @@ function update_data4(){ // updates the images, location, etc. every time the sl
     document.getElementById("locplot4").style.opacity = "0.8";
     dist = speed = "unknown";
   }
-  var yr = datetime.substring(0, 4);
-  var mth = datetime.substring(4, 6);
-  var day = datetime.substring(6, 8);
-  var hr = parseInt(datetime.substring(9, 11));
-  var min = datetime.substring(11, 13);
+  var yr = datetime4.substring(0, 4);
+  var mth = datetime4.substring(4, 6);
+  var day = datetime4.substring(6, 8);
+  var hr = parseInt(datetime4.substring(9, 11));
+  var min = datetime4.substring(11, 13);
   document.getElementById("datetxt4").innerHTML = mth + "/" + day + "/" + yr;
-  document.getElementById("timetxt").innerHTML = formattime(hr, min);
+  document.getElementById("timetxt4").innerHTML = formattime(hr, min);
 
   document.getElementById("disttxt4").innerHTML = "Distance: " + dist;
-  document.getElementById("pspspeed").innerHTML = "Speed: " + speed;
-  // document.getElementById("warning").innerHTML = datetime;
+  document.getElementById("pspspeed4").innerHTML = "Speed: " + speed;
 }
 function play_loop4(){
   if (!stopplay4){
@@ -661,10 +517,10 @@ selector4.oninput = function(){
   update_data4();
 }
 
-var instrumentselector = document.getElementById("fields_selector");
+var instrumentselector4 = document.getElementById("fields_selector");
 var fieldsmode = "m"; // Can be p (protons), e (electrons), or a (alphas) depending on the selector
-instrumentselector.oninput = function(){
-  fieldsmode = instrumentselector.value;
+instrumentselector4.oninput = function(){
+  fieldsmode = instrumentselector4.value;
   FIELDS.changeMode(fieldsmode);
   if (fieldsmode == "m"){ // Magnetic field
     document.getElementById("fieldsinstrument").style.backgroundImage = "";
@@ -769,29 +625,6 @@ function switchFIELDSunit(unitname){
   fieldsUnit = unitname;
   update_data4();
 }
-var showFluxInfo = false;
-function fluxInfo(){ // shows/hides flux info
-  showFluxInfo = !showFluxInfo;
-  if (showFluxInfo){
-    document.getElementById("fluxinfo").style.display = "block";
-    document.getElementById("whatisflux").style.display = "none";
-  } else {
-    document.getElementById("fluxinfo").style.display = "none";
-    document.getElementById("whatisflux").style.display = "block";
-  }
-}
-// var fullscreen = False;
-// function togglefullscreen(){
-//   fullscreen = !fullscreen;
-//   // checks to see if the canvas should be fullscreen & adjusts accordingly
-//   if (fullscreen){
-//     document.getElementById("fullscreenbutton").src = "public/minimizescreen.png";
-//     document.getElementById("c").width = window.innerWidth;
-//     document.getElementById("c").height = window.innerHeight;
-//   } else {
-//     document.getElementById("fullscreenbutton").src = "public/fullscreen.png";
-//     document.getElementById("c").width = 1000;
-//     document.getElementById("c").height = 400;
-//   }
-// }
+
+
 update_data4();

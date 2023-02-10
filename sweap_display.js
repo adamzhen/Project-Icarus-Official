@@ -59,7 +59,7 @@ https://codepen.io/aecend/pen/WbONyK
     */
     function init() {
         //These lines get the canvas DOM element and canvas context, respectively.
-        canvas = document.getElementById("c");
+        canvas = document.getElementById("THESWEAPCANVAS");
         ctx = canvas.getContext("2d");
         //These lines set the width, height, & border of the canvas.
         canvas.width = canvas_width;
@@ -840,18 +840,5 @@ function fluxInfo(){ // shows/hides flux info
     document.getElementById("whatisflux").style.display = "block";
   }
 }
-// var fullscreen = False;
-// function togglefullscreen(){
-//   fullscreen = !fullscreen;
-//   // checks to see if the canvas should be fullscreen & adjusts accordingly
-//   if (fullscreen){
-//     document.getElementById("fullscreenbutton").src = "public/minimizescreen.png";
-//     document.getElementById("c").width = window.innerWidth;
-//     document.getElementById("c").height = window.innerHeight;
-//   } else {
-//     document.getElementById("fullscreenbutton").src = "public/fullscreen.png";
-//     document.getElementById("c").width = 1000;
-//     document.getElementById("c").height = 400;
-//   }
-// }
+
 update_data2();
