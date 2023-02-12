@@ -65,23 +65,7 @@ https://codepen.io/aecend/pen/WbONyK
       canvas.width = canvas_width;
       canvas.height = canvas_height;
       canvas.style.border = "4px outset #19FFD5";
-      if (DISPLAYMODE == "p"){
-        for (i = 0; i < pdensity; i++) {
-          temptheta = Math.random() * 2*Math.PI; 
-          particles.push(new particle(temptheta, Math.random() * (maxradius(temptheta)-sunradius) + sunradius, "tr"));
-        }
-        var temptheta;
-        for (i = 0; i < (10000-pdensity); i++) {
-          /*
-          This creates the hidden particles that will appear when density increases
-          */
-          temptheta = Math.random() * 2*Math.PI; 
-          hiddenparticles.push(new particle(temptheta, Math.random() * (maxradius(temptheta)-sunradius) + sunradius, "tr"));
-        }
-        //When the page is finished loading, run the draw() function.
-        w.onload = draw_protons;
-      } 
-      else if (DISPLAYMODE == "a"){
+      if (DISPLAYMODE == "m"){
         for (i = 0; i < pdensity; i++) {
           ions.push(new ion(Math.random() * canvas_width, Math.random() * canvas_height, "xy"));
         }
@@ -154,11 +138,8 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
-      var textw = 335;
+      var textw = 300;
       var texth = 36;
-      if (fieldsUnit == "wacky"){
-        textw = 360;
-      } 
       // Draws a text box
       ctx.fillStyle = "rgba(0,0,0,0.8)";
       ctx.fillRect(0, 0, textw, texth);
@@ -173,15 +154,8 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillStyle = "white";
       ctx.font = "12px Montserrat";
       ctx.textAlign = 'left';
-      if (fieldsUnit == "metric"){
-        ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million electrons/(cm² s ster)", 10, 22);
-      } 
-      else if (fieldsUnit == "imperial"){
-        ctx.fillText("Total Energy Flux: " + (totalflux/10e6/2.54/2.54).toFixed(0) + " million electrons/(in² s ster)", 10, 22);
-      } 
-      else if (fieldsUnit == "wacky"){
-        ctx.fillText("Total Energy Flux: " + (totalflux/10e6/1.555).toFixed(0) + " million electrons/(eardrum s ster)", 10, 22);
-      } 
+      //ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million electrons/(cm² s ster)", 10, 22);
+      ctx.fillText("DISPLAY UNFINISHED", 10, 22);
       // Create a linear gradient
       // The start gradient point is at x=20, y=0
       // The end gradient point is at x=220, y=0
@@ -218,7 +192,7 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.font = "12px Montserrat";
       ctx.textAlign = 'center';
       for (i = 0; i < 3; i++) {
-        ctx.fillText("Electron Energy", canvas_width/2, canvas_height-(spacingh/2-4));
+        ctx.fillText("Electric Field Frequency (Hz)", canvas_width/2, canvas_height-(spacingh/2-4));
       }
 
       // Draws flux scale (logarithmic)
@@ -243,121 +217,87 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
-  //This function draws the canvas for the alphas/ions
-  function draw_alphas() {
+  //This function draws the canvas for the magnetic field
+  function draw_magnetic() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (orbit_ind4 >= 1 && orbit_ind4 <= 7) { // only works with orbits 2-8
-      var iv = spaniList[orbit_ind4][slider_val4][1].toFixed(1);
-      var id = spaniList[orbit_ind4][slider_val4][2].toFixed(2);
-      var it = spaniList[orbit_ind4][slider_val4][3].toFixed(0);
-      // updates parameters
-      ivelocity = iv/15; // Proton velocity
-      idensity = id*100; // Proton density
-      icolor = calcColor(it, 1000000, 5000000); // Proton color based on temperature
+    var br = fieldsList[orbit_ind4][slider_val4][1].toFixed(1);
+    var bt = fieldsList[orbit_ind4][slider_val4][2].toFixed(1);
+    var bn = fieldsList[orbit_ind4][slider_val4][3].toFixed(1);
+    // updates parameters
+    ivelocity = 20; // Proton velocity
+    idensity = 200; // Proton density
+    icolor = calcColor(4500000, 1000000, 5000000); // Proton color based on temperature
 
-      //This sets the color to draw with.
-      ctx.strokeStyle = icolor;
+    //This sets the color to draw with.
+    ctx.strokeStyle = icolor;
 
-      var diff = Math.abs(idensity - ions.length);
-      // Increase the particle amount if below density
-      if (ions.length < idensity){   
-        while (diff > 0) {
-            ions.push(hiddenions.pop());
-            diff -= 1;
+    // document.getElementById("warning").innerHTML = ions.length;
+    //Loops through all of the ions in the array
+    for (i = 0; i < ions.length; i++) {
+
+        //Sets this variable to the current particle so we can refer to the particle easier.
+        var p = ions[i];
+
+        //If the particle's X and Y coordinates are within the bounds of the canvas...
+        if (p.x >= -50 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
+            if (i % 4 == 0) {
+              ctx.lineWidth = isize;
+              p.vx = ivelocity * (Math.random()*0.2+1);;
+            } else if (i % 4 == 2) {
+              ctx.lineWidth = isize*0.6;
+              p.vx = ivelocity * (Math.random()*0.3+0.7);
+            } else {
+              ctx.lineWidth = isize*0.4; 
+              p.vx = ivelocity * (Math.random()*0.3+0.4);
+            }
+            //This recalculates the position coordinates of the particle.
+            p.x = p.x + p.vx;
+            p.y = p.y + (Math.random()*4-2);
+            
+            ctx.beginPath(); //Begin a new path on the canvas
+            ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
+            ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
+            ctx.stroke(); //Draw the path to the canvas
+            //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
+            p.px = p.x;
+            p.py = p.y;     
         }
-      }
-      // Decrease the particle amount if above density 
-      else if (ions.length > idensity){
-        while (diff > 0) {
-          // if (!(p.x >= 0 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height))
-          var p = ions.pop();
-          p.px = p.x = Math.random() * canvas_width;
-          p.py = p.y = Math.random() * canvas_height;
-          hiddenions.push(p);
-          diff -= 1;
+        else {
+            //If the particle's X and Y coordinates are outside the bounds of the canvas...
+
+            //Place the particle back at the start
+            p.px = p.x = -50 * Math.random();
+            p.py = p.y = Math.random() * canvas_height;              
         }
-      }
-      // document.getElementById("warning").innerHTML = ions.length;
-      //Loops through all of the ions in the array
-      for (i = 0; i < ions.length; i++) {
-
-          //Sets this variable to the current particle so we can refer to the particle easier.
-          var p = ions[i];
-
-          //If the particle's X and Y coordinates are within the bounds of the canvas...
-          if (p.x >= -50 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
-              if (i % 4 == 0) {
-                ctx.lineWidth = isize;
-                p.vx = ivelocity * (Math.random()*0.2+1);;
-              } else if (i % 4 == 2) {
-                ctx.lineWidth = isize*0.6;
-                p.vx = ivelocity * (Math.random()*0.3+0.7);
-              } else {
-                ctx.lineWidth = isize*0.4; 
-                p.vx = ivelocity * (Math.random()*0.3+0.4);
-              }
-              //This recalculates the position coordinates of the particle.
-              p.x = p.x + p.vx;
-              p.y = p.y + (Math.random()*4-2);
-              
-              ctx.beginPath(); //Begin a new path on the canvas
-              ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
-              ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
-              ctx.stroke(); //Draw the path to the canvas
-              //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
-              p.px = p.x;
-              p.py = p.y;     
-          }
-          else {
-              //If the particle's X and Y coordinates are outside the bounds of the canvas...
-
-              //Place the particle back at the start
-              p.px = p.x = -50 * Math.random();
-              p.py = p.y = Math.random() * canvas_height;              
-          }
-      }
-      var textw = 180;
-      var texth = 70;
-      if (fieldsUnit == "wacky"){
-        textw = 220;
-      }
-      // Draws a text box
-      ctx.fillStyle = "rgba(0,0,0,0.8)";
-      ctx.fillRect(0, 0, textw, texth);
-      ctx.strokeStyle = "#19FFD5";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath(); 
-      ctx.moveTo(0, texth); 
-      ctx.lineTo(textw, texth); 
-      ctx.lineTo(textw, 0); 
-      ctx.stroke(); //Draw the path to the canvas
-      // Draws the text
-      ctx.textAlign = 'left';
-      ctx.fillStyle = "white";
-      ctx.font = "12px Montserrat";
-      if (fieldsUnit == "metric"){
-        ctx.fillText("Velocity: " + (iv*3600).toFixed(0) + " kmph", 10, 56);
-        ctx.fillText("Density: " + id + " alphas/cm³", 10, 39);
-        ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
-      } 
-      else if (fieldsUnit == "imperial"){
-        ctx.fillText("Velocity: " + (iv*3600*0.6214).toFixed(0) + " mph", 10, 56);
-        ctx.fillText("Density: " + (id/2.54/2.54/2.54).toFixed(4) + " alphas/in³", 10, 39);
-        ctx.fillText("Temperature: " + (((it-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
-      } 
-      else if (fieldsUnit == "wacky"){
-        ctx.fillText("Velocity: Mach " + (iv/0.343).toFixed(0) + "", 10, 56);
-        ctx.fillText("Density: " + (id/2.5).toFixed(4) + " alphas/acorn", 10, 39);
-        ctx.fillText("Temperature: " + (it/329.817).toFixed(0) + " death valleys", 10, 22);
-      } 
-      //This requests the next animation frame which runs the draw() function again.
-      // requestAnimationFrame(draw);
-    } else {
-      ctx.fillStyle = 'rgb(217, 54, 0)';
-      ctx.font = "24px Montserrat";
-      ctx.textAlign = 'center';
-      ctx.fillText("DATA ONLY AVAILABLE FOR ORBITS 2-8", canvas_width/2, canvas_height/2);
     }
+    var textw = 100;
+    var texth = 70;
+    if (fieldsUnit == "wacky"){
+      textw = 220;
+    }
+    // Draws a text box
+    ctx.fillStyle = "rgba(0,0,0,0.8)";
+    ctx.fillRect(0, 0, textw, texth);
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath(); 
+    ctx.moveTo(0, texth); 
+    ctx.lineTo(textw, texth); 
+    ctx.lineTo(textw, 0); 
+    ctx.stroke(); //Draw the path to the canvas
+    // Draws the text
+    ctx.textAlign = 'left';
+    ctx.fillStyle = "white";
+    ctx.font = "12px Montserrat";
+    ctx.fillText("Br: " + br + " nT", 10, 56);
+    ctx.fillText("Bt: " + bt + " nT", 10, 39);
+    ctx.fillText("Bn: " + bn + " nT", 10, 22);
+
+    ctx.textAlign = 'center';
+    ctx.font = "32px Montserrat";
+    ctx.fillText("DISPLAY UNFINISHED", canvas_width/2, canvas_height/2);
+    //This requests the next animation frame which runs the draw() function again.
+    // requestAnimationFrame(draw);
   }
   //This function calculates theta given x, y
   function calctheta(x, y) {
@@ -413,7 +353,7 @@ https://codepen.io/aecend/pen/WbONyK
   */
   w.FIELDS = {
       initialize: init,
-      drawMagnetic: draw_alphas,
+      drawMagnetic: draw_magnetic,
       drawElectric: draw_electrons,
       changeMode: change_mode
   }
@@ -440,10 +380,12 @@ function formattime(hr, min){ // formats the time to 12-hour format
     return (hr % 12).toString() + ":" + min + " pm";
   }
 }
+
 var datetime4; // holds the string of the date and time
 function update_data4(){ // updates the images, location, etc. every time the slider changes
   var scale_factor = 355000;
   var angle;
+  document.getElementById("locplot4").src = "public/orbit_plot2_" + orbit4 + ".png"; // updates image for position display
   if (fieldsmode == "m"){ // ELECTRIC
     datetime4 = fieldsList[orbit_ind4][slider_val4][0]; 
     FIELDS.drawMagnetic();
@@ -463,7 +405,6 @@ function update_data4(){ // updates the images, location, etc. every time the sl
     } else if (fieldsUnit=="wacky"){
       var speed = "Mach " + (data[7]*4.91545).toFixed(0).toString();
     }
-    document.getElementById("locplot4").src = "public/orbit_plot2_" + orbit4 + ".png"; // updates image for position display
     document.getElementById("locplot4").style.opacity = "1";
     var x = data[4];
     var y = data[5];
