@@ -53,8 +53,8 @@
         <li><a href="#corona">Corona</a></li>
         <li><a href="#wispr">WISPR</a></li>
         <li><a href="#sweap">SWEAP</a></li>
-        <li><a href="#fields">FIELDS</a></li>
         <li><a href="#isois">IS☉IS</a></li>
+        <li><a href="#fields">FIELDS</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -179,12 +179,12 @@ For SPAN-i, I used pySPEDAS to download the cdf files from NASA's [website](http
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## [FIELDS](https://adamzhen.github.io/Project-Icarus-Official/#thefields)
+## [ISOIS](https://adamzhen.github.io/Project-Icarus-Official/#theisois)
 ⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## ISOIS
+  
+## [FIELDS](https://adamzhen.github.io/Project-Icarus-Official/#thefields)
 ⚠️ SECTION UNDER CONSTRUCTION ⚠️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
