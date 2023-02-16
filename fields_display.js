@@ -223,6 +223,7 @@ https://codepen.io/aecend/pen/WbONyK
     var br = fieldsList[orbit_ind4][slider_val4][1].toFixed(1);
     var bt = fieldsList[orbit_ind4][slider_val4][2].toFixed(1);
     var bn = fieldsList[orbit_ind4][slider_val4][3].toFixed(1);
+    drawRTvectors(br, bt);
     // updates parameters
     ivelocity = 20; // Proton velocity
     idensity = 200; // Proton density
@@ -567,5 +568,30 @@ function switchFIELDSunit(unitname){
   update_data4();
 }
 
+function drawRTvectors(r, t){ // draws R and T vectors on the position displays
+  // magnitude of vectors are scaled logarithmically using log2 (since they range from a min of -554 to a max of 786.6)
+  r = Math.log2(Math.abs(r)) * 5 + 1;
+  t = Math.log2(Math.abs(t)) * 5 + 1;
+  var vectorscale = 1;
+  if (r >= 0){ // R is positive
+    document.getElementById("rline4").style.left = "155px";
+    document.getElementById("rline4").style.width = r/vectorscale + "px";
+    document.getElementById("rline4").style.transform = "rotate(0deg)";
+  } else { // R is negative
+    document.getElementById("rline4").style.left = (155 + r/vectorscale) + "px";
+    document.getElementById("rline4").style.width = -r/vectorscale + "px";
+    document.getElementById("rline4").style.transform = "rotate(180deg)";
+  }
+  var vdiff = (Math.abs(t/vectorscale) - 20) / 2;
+  if (t >= 0){ // T is positive
+    document.getElementById("tline4").style.left = (140-vdiff) + "px";
+    document.getElementById("tline4").style.bottom = (20+vdiff) + "px";
+    document.getElementById("tline4").style.width  = (t/vectorscale) + "px";
+  } else { // T is negative
+    document.getElementById("tline4").style.left = (140-vdiff) + "px";
+    document.getElementById("tline4").style.bottom = (20+vdiff - Math.abs(t/vectorscale)) + "px";
+    document.getElementById("tline4").style.width  = (-t/vectorscale) + "px";
+  }
+}
 
 update_data4();

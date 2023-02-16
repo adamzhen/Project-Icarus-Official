@@ -2570,6 +2570,26 @@ canvas {
 	border-left: 16px solid #19FFD5;
   transition: all 0.5s;
 }
+#rline4 {
+  position: relative;
+  left: 55px;
+  bottom: 7.5px;
+  height: 3px;
+  width: 100px;
+  transform: rotate(180deg);
+  background: white;
+  opacity: 0.5;
+}
+#tline4 {
+  position: relative;
+  left: 140px;
+  bottom: 20px;
+  height: 2px;
+  width: 20px;
+  transform: rotate(90deg);
+  background: white;
+  opacity: 0.5;
+}
 #sunicon4 {
   height: 4.8px;
   width: 4.8px;
@@ -2585,7 +2605,7 @@ canvas {
   text-align: left;
   inline-size: 200px; 
   right: 140px;
-  bottom: 81px;
+  bottom: 85px;
 }
 #pspspeed4 {
   font-size: 10px;
@@ -2594,7 +2614,7 @@ canvas {
   text-align: left;
   inline-size: 200px; 
   right: 140px;
-  bottom: 81px;
+  bottom: 84px;
 }
 #fieldssource {
   font-size: 11px;
@@ -2602,7 +2622,7 @@ canvas {
   text-align: center;
   position: relative;
   left: 119px;
-  bottom: 102px;
+  bottom: 105px;
 }
 
 #fieldscontrols {
