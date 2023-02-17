@@ -2569,16 +2569,17 @@ canvas {
 	border-bottom: 7px solid transparent;
 	border-left: 16px solid #19FFD5;
   transition: all 0.5s;
+  opacity: 1;
 }
 #rline4 {
   position: relative;
   left: 55px;
   bottom: 7.5px;
-  height: 3px;
+  height: 2px;
   width: 100px;
   transform: rotate(180deg);
   background: white;
-  opacity: 0.5;
+  opacity: 0.9;
 }
 #tline4 {
   position: relative;
@@ -2588,7 +2589,7 @@ canvas {
   width: 20px;
   transform: rotate(90deg);
   background: white;
-  opacity: 0.5;
+  opacity: 0.9;
 }
 #sunicon4 {
   height: 4.8px;
@@ -2667,14 +2668,12 @@ canvas {
   bottom: 3px;
 }
 #playbutton4 {
-  filter: hue-rotate(-30deg);
   position: relative;
   margin-top: 10px;
   bottom: 20px;
 }
 #sliderrr4 {
   position: relative;
-  filter: hue-rotate(-30deg);
   bottom: 0px;
   width: 100px;
   height: 7px;

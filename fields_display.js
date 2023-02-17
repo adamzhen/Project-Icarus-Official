@@ -217,89 +217,159 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
+  var lx1 = canvas_width * 0.3; // x position of the first border line
+  var lx2 = canvas_width * 0.7; // x position of the second border line
+  var x1 = lx1/3; // x position of the first vector starting point
+  var x2 = (lx2-lx1)*0.4 + lx1; // x position of the second vector starting point
+  var x3 = (canvas_width-lx2)/2 + lx2; // x position of the third vector starting point
+  var y1 = y3 = canvas_height * 0.5; // y position of vector starting points
+  var y2 = canvas_height * 0.6; // y position of the second vector starting point
+  var theta = 61 / 180 * Math.PI; // angle for SW direction
   //This function draws the canvas for the magnetic field
   function draw_magnetic() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var br = fieldsList[orbit_ind4][slider_val4][1].toFixed(1);
     var bt = fieldsList[orbit_ind4][slider_val4][2].toFixed(1);
     var bn = fieldsList[orbit_ind4][slider_val4][3].toFixed(1);
-    drawRTvectors(br, bt);
-    // updates parameters
+    drawRTvectors(br, bt); // draws R & T vectors on position display
+
+    // Updates parameters
     ivelocity = 20; // Proton velocity
     idensity = 200; // Proton density
     icolor = calcColor(4500000, 1000000, 5000000); // Proton color based on temperature
+    var suncolor = "#FF960D"; // Sun color
 
-    //This sets the color to draw with.
-    ctx.strokeStyle = icolor;
+    //--- SIDE VIEW ---
 
-    // document.getElementById("warning").innerHTML = ions.length;
-    //Loops through all of the ions in the array
-    for (i = 0; i < ions.length; i++) {
+    //--- 3D VIEW ---
+    // Draws 3D view label
+    ctx.textAlign = 'left';
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "13px Montserrat";
+    ctx.fillText("3D View", lx1 + 10, 18);
+    // Draws the sun
+    ctx.fillStyle = suncolor;
+    ctx.shadowColor = suncolor;
+    ctx.shadowBlur = 30;
+    ctx.beginPath();
+    ctx.ellipse(lx2, y2-(lx2-5-x2)/Math.tan(theta), 50, 50, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Draws the vector starting point
+    ctx.fillStyle = "#19FFD5";
+    ctx.shadowColor = "#19FFD5";
+    ctx.shadowBlur = 2;
+    ctx.beginPath();
+    ctx.ellipse(x2, y2, 5, 5, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Draws axis lines
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); //Begin a new path on the canvas
+    ctx.setLineDash([5, 10]);
+    ctx.moveTo(lx1, y2); 
+    ctx.lineTo(lx2, y2); 
+    ctx.moveTo(x2, 0); 
+    ctx.lineTo(x2, canvas_height); 
+    ctx.moveTo(lx1, (x2-lx1)/Math.tan(theta)+y2); 
+    ctx.lineTo(lx2-15, y2-(lx2-15-x2)/Math.tan(theta)); 
+    ctx.stroke(); //Draw the path to the canvas
+    ctx.setLineDash([]);
+    // Draws the vectors
+    drawVector(x2, y2, br, 'sw', Math.PI*3/2-theta);
+    drawVector(x2, y2, bn, 'n', Math.PI/2);
+    drawVector(x2, y2, bt, 'e', 0);
 
-        //Sets this variable to the current particle so we can refer to the particle easier.
-        var p = ions[i];
 
-        //If the particle's X and Y coordinates are within the bounds of the canvas...
-        if (p.x >= -50 && p.x < canvas_width && p.y >= 0 && p.y < canvas_height) {
-            if (i % 4 == 0) {
-              ctx.lineWidth = isize;
-              p.vx = ivelocity * (Math.random()*0.2+1);;
-            } else if (i % 4 == 2) {
-              ctx.lineWidth = isize*0.6;
-              p.vx = ivelocity * (Math.random()*0.3+0.7);
-            } else {
-              ctx.lineWidth = isize*0.4; 
-              p.vx = ivelocity * (Math.random()*0.3+0.4);
-            }
-            //This recalculates the position coordinates of the particle.
-            p.x = p.x + p.vx;
-            p.y = p.y + (Math.random()*4-2);
-            
-            ctx.beginPath(); //Begin a new path on the canvas
-            ctx.moveTo(p.x, p.y); //Move the drawing cursor to the starting point
-            ctx.lineTo(p.px, p.py); //Describe a line from the particle's old coordinates to the new ones
-            ctx.stroke(); //Draw the path to the canvas
-            //This updates the previous X and Y coordinates of the particle to the new ones for the next loop.
-            p.px = p.x;
-            p.py = p.y;     
-        }
-        else {
-            //If the particle's X and Y coordinates are outside the bounds of the canvas...
+    //--- TOP VIEW ---
+    ctx.fillStyle = "rgba(0,0,0)";
+    ctx.fillRect(lx2, 0, canvas_width-lx2, canvas_height);
 
-            //Place the particle back at the start
-            p.px = p.x = -50 * Math.random();
-            p.py = p.y = Math.random() * canvas_height;              
-        }
-    }
-    var textw = 100;
-    var texth = 70;
-    if (fieldsUnit == "wacky"){
-      textw = 220;
-    }
+    // Draws border lines
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 4;
+    ctx.beginPath(); //Begin a new path on the canvas
+    ctx.moveTo(lx1, 0); 
+    ctx.lineTo(lx1, canvas_height); 
+    ctx.stroke(); //Draw the path to the canvas
+    ctx.beginPath(); //Begin a new path on the canvas
+    ctx.moveTo(lx2, 0); 
+    ctx.lineTo(lx2, canvas_height); 
+    ctx.stroke(); //Draw the path to the canvas
+
+    var textw = 200;
+    var texth = 30;
+
+    // Draws the text
+    ctx.textAlign = 'left';
+    ctx.fillStyle = "white";
+    ctx.font = "12px Montserrat";
+    ctx.fillText("Br: " + br + " nT", lx1+10, 71);
+    ctx.fillText("Bt: " + bt + " nT", lx1+10, 54);
+    ctx.fillText("Bn: " + bn + " nT", lx1+10, 37);
+
     // Draws a text box
     ctx.fillStyle = "rgba(0,0,0,0.8)";
-    ctx.fillRect(0, 0, textw, texth);
+    ctx.fillRect(0, canvas_height-texth, textw, texth);
     ctx.strokeStyle = "#19FFD5";
     ctx.lineWidth = 1.2;
     ctx.beginPath(); 
-    ctx.moveTo(0, texth); 
-    ctx.lineTo(textw, texth); 
-    ctx.lineTo(textw, 0); 
+    ctx.moveTo(0, canvas_height-texth); 
+    ctx.lineTo(textw, canvas_height-texth); 
+    ctx.lineTo(textw, canvas_height); 
     ctx.stroke(); //Draw the path to the canvas
     // Draws the text
     ctx.textAlign = 'left';
     ctx.fillStyle = "white";
     ctx.font = "12px Montserrat";
-    ctx.fillText("Br: " + br + " nT", 10, 56);
-    ctx.fillText("Bt: " + bt + " nT", 10, 39);
-    ctx.fillText("Bn: " + bn + " nT", 10, 22);
+    ctx.fillText("Total Magnetic Field: " + (Math.sqrt(br*br + bt*bt + bn*bn)).toFixed(1) + " nT", 9, canvas_height-10);
 
-    ctx.textAlign = 'center';
-    ctx.font = "32px Montserrat";
-    ctx.fillText("DISPLAY UNFINISHED", canvas_width/2, canvas_height/2);
-    //This requests the next animation frame which runs the draw() function again.
-    // requestAnimationFrame(draw);
+    // Draws labels
+    ctx.textAlign = 'right';
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "8px Montserrat";
+    ctx.fillText("direction of travel", lx2 - 5, y2 - 5);
   }
+
+  //This function draws a vector given starting point, length, direction, and angle
+  function drawVector(xs, ys, rtn, dir, ang){
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 3;
+    ctx.beginPath(); //Begin a new path on the canvas
+    var l = Math.log2(Math.abs(rtn)) * 15 + 1; // scales vector length
+    if (Math.abs(rtn) < 1){
+      l = 1;
+    }
+    var pi = Math.PI;
+    if (rtn >= 0){ // Positive vector
+      var arrowl = 5;
+      var xe = xs + l*Math.cos(ang);
+      var ye = ys - l*Math.sin(ang);
+      ctx.moveTo(xs, ys); 
+      ctx.lineTo(xe, ye); 
+      ctx.stroke();
+    } else { // Negative vector
+      var arrowl = -5;
+      var xe = xs - l*Math.cos(ang);
+      var ye = ys + l*Math.sin(ang);
+      ctx.moveTo(xs, ys); 
+      ctx.lineTo(xe, ye); 
+      ctx.stroke();
+    }
+    // Draw arrow head
+    ctx.translate(xe, ye);
+    ctx.rotate(-ang);
+    ctx.translate(-xe, -ye);
+    ctx.fillStyle = "#19FFD5";
+    ctx.moveTo(xe + arrowl*1.5, ye); 
+    ctx.lineTo(xe, ye + arrowl); 
+    ctx.lineTo(xe, ye - arrowl); 
+    ctx.lineTo(xe + arrowl*1.5, ye); 
+    ctx.fill();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+  }
+
   //This function calculates theta given x, y
   function calctheta(x, y) {
     if (x > 0 && y > 0) {
@@ -322,24 +392,7 @@ https://codepen.io/aecend/pen/WbONyK
       return 0;
     }
   }
-  //This function is used to create a particle (proton) object.
-  function particle(p1, p2, key) {
-    if (key == "xy"){ // p1 = x, p2 = y
-      var truex = p1 - (canvas_width/2);
-      var truey = p2 - (canvas_height/2);
-      this.theta = calctheta(truex, truey);
-      this.r = Math.sqrt(truex * truex + truey * truey);
-      this.x = this.px = p1;
-      this.y = this.py = p2;
-      this.v = pvelocity;
-    } else if (key == "tr"){ // p1 = theta, p2 = r
-      this.theta = p1;
-      this.r = p2;
-      this.x = this.px = p2 * Math.cos(p1) + canvas_width/2;
-      this.y = this.py = p2 * Math.sin(p1) + canvas_height/2;
-      this.v = pvelocity;
-    }
-  }
+
   //This function is used to create an ion object.
   function ion(p1, p2, key) {
     if (key == "xy"){ // p1 = x, p2 = y
@@ -466,11 +519,11 @@ instrumentselector4.oninput = function(){
   FIELDS.changeMode(fieldsmode);
   if (fieldsmode == "m"){ // Magnetic field
     document.getElementById("fieldsinstrument").style.backgroundImage = "";
-    document.getElementById("fieldsdescription").innerHTML = "DISPLAY UNFINISHED [M]";
+    document.getElementById("fieldsdescription").innerHTML = "COMING SOON";
   } 
   else if (fieldsmode == "e") { // Electric
     document.getElementById("fieldsinstrument").style.backgroundImage = "";
-    document.getElementById("fieldsdescription").innerHTML = "DISPLAY UNFINISHED [E]";
+    document.getElementById("fieldsdescription").innerHTML = "COMING SOON";
   } 
   update_data4();
 }
@@ -568,29 +621,34 @@ function switchFIELDSunit(unitname){
   update_data4();
 }
 
-function drawRTvectors(r, t){ // draws R and T vectors on the position displays
+function drawRTvectors(br, bt){ // draws R and T vectors on the position displays
   // magnitude of vectors are scaled logarithmically using log2 (since they range from a min of -554 to a max of 786.6)
-  r = Math.log2(Math.abs(r)) * 5 + 1;
-  t = Math.log2(Math.abs(t)) * 5 + 1;
+  r = Math.log2(Math.abs(br)) * 8 + 1;
+  t = Math.log2(Math.abs(bt)) * 8 + 1;
+  if (Math.abs(br) < 1){
+    r = 1;
+  } else if (Math.abs(bt) < 1){
+    t = 1;
+  }
   var vectorscale = 1;
-  if (r >= 0){ // R is positive
-    document.getElementById("rline4").style.left = "155px";
+  if (br >= 0){ // R is positive
+    document.getElementById("rline4").style.left = "150px";
     document.getElementById("rline4").style.width = r/vectorscale + "px";
     document.getElementById("rline4").style.transform = "rotate(0deg)";
   } else { // R is negative
-    document.getElementById("rline4").style.left = (155 + r/vectorscale) + "px";
-    document.getElementById("rline4").style.width = -r/vectorscale + "px";
+    document.getElementById("rline4").style.left = (150 - r/vectorscale) + "px";
+    document.getElementById("rline4").style.width = r/vectorscale + "px";
     document.getElementById("rline4").style.transform = "rotate(180deg)";
   }
   var vdiff = (Math.abs(t/vectorscale) - 20) / 2;
-  if (t >= 0){ // T is positive
+  if (bt >= 0){ // T is positive
     document.getElementById("tline4").style.left = (140-vdiff) + "px";
     document.getElementById("tline4").style.bottom = (20+vdiff) + "px";
     document.getElementById("tline4").style.width  = (t/vectorscale) + "px";
   } else { // T is negative
     document.getElementById("tline4").style.left = (140-vdiff) + "px";
     document.getElementById("tline4").style.bottom = (20+vdiff - Math.abs(t/vectorscale)) + "px";
-    document.getElementById("tline4").style.width  = (-t/vectorscale) + "px";
+    document.getElementById("tline4").style.width  = (t/vectorscale) + "px";
   }
 }
 
