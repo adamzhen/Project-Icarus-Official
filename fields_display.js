@@ -37,23 +37,6 @@ https://codepen.io/aecend/pen/WbONyK
     }
   }
 
-  // Calculates the maximum radius within the canvas depending on the theta value
-  function maxradius(theta){
-    var maxw = canvas_width/2;
-    var maxh = canvas_height/2;
-    var corner = Math.atan(maxh/maxw); // angle from x-axis to corner
-    if (theta < corner){
-      return maxw / Math.abs(Math.cos(theta));
-    } else if (theta < (Math.PI-corner)){
-      return maxh / Math.abs(Math.sin(theta));
-    } else if (theta < (Math.PI+corner)){
-      return maxw / Math.abs(Math.cos(theta));
-    } else if (theta < (2*Math.PI-corner)){
-      return maxh / Math.abs(Math.sin(theta));
-    } else {
-      return maxw / Math.abs(Math.cos(theta));
-    }
-  }
   /*
   This creates the canvas & particles
   */
@@ -217,14 +200,15 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
-  var lx1 = canvas_width * 0.3; // x position of the first border line
-  var lx2 = canvas_width * 0.7; // x position of the second border line
-  var x1 = lx1/3; // x position of the first vector starting point
-  var x2 = (lx2-lx1)*0.4 + lx1; // x position of the second vector starting point
+  var lx1 = canvas_width * 0.28; // x position of the first border line
+  var lx2 = canvas_width * 0.72; // x position of the second border line
+  var x1 = lx1/2; // x position of the first vector starting point
+  var x2 = (lx2-lx1)*0.42 + lx1; // x position of the second vector starting point
   var x3 = (canvas_width-lx2)/2 + lx2; // x position of the third vector starting point
   var y1 = y3 = canvas_height * 0.5; // y position of vector starting points
-  var y2 = canvas_height * 0.6; // y position of the second vector starting point
-  var theta = 61 / 180 * Math.PI; // angle for SW direction
+  var y2 = canvas_height * 0.5; // y position of the second vector starting point
+  var thetaR = 60 / 180 * Math.PI; // angle of the R axis in 3D view with respect to the vertical axis
+  var thetaT = 10 / 180 * Math.PI; // angle of the T axis in 3D view with respect to the horizontal axis
   //This function draws the canvas for the magnetic field
   function draw_magnetic() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -240,21 +224,37 @@ https://codepen.io/aecend/pen/WbONyK
     var suncolor = "#FF960D"; // Sun color
 
     //--- SIDE VIEW ---
+    // Draws side view label
+    ctx.textAlign = 'left';
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "13px Montserrat";
+    ctx.fillText("Side View", 8, 18);
+    // Draws the sun
+    ctx.fillStyle = suncolor;
+    ctx.shadowColor = suncolor;
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.ellipse(0, canvas_height/2, 12, 12, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Draws the vector starting point
+    ctx.fillStyle = "#19FFD5";
+    ctx.shadowColor = "#19FFD5";
+    ctx.shadowBlur = 2;
+    ctx.beginPath();
+    ctx.ellipse(x1, y1, 5, 5, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Draws the vectors
+    drawVector(x1, y1, br, 0);
+    drawVector(x1, y1, bn, Math.PI/2);
 
     //--- 3D VIEW ---
     // Draws 3D view label
     ctx.textAlign = 'left';
     ctx.fillStyle = "#19FFD5";
     ctx.font = "13px Montserrat";
-    ctx.fillText("3D View", lx1 + 10, 18);
-    // Draws the sun
-    ctx.fillStyle = suncolor;
-    ctx.shadowColor = suncolor;
-    ctx.shadowBlur = 30;
-    ctx.beginPath();
-    ctx.ellipse(lx2, y2-(lx2-5-x2)/Math.tan(theta), 50, 50, 0, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.shadowBlur = 0;
+    ctx.fillText("3D View", lx1 + 12, 18);
     // Draws the vector starting point
     ctx.fillStyle = "#19FFD5";
     ctx.shadowColor = "#19FFD5";
@@ -267,28 +267,60 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.strokeStyle = "#19FFD5";
     ctx.lineWidth = 1;
     ctx.beginPath(); //Begin a new path on the canvas
-    ctx.setLineDash([5, 10]);
-    ctx.moveTo(lx1, y2); 
-    ctx.lineTo(lx2, y2); 
+    ctx.setLineDash([7, 10]);
+    ctx.moveTo(lx1, y2 - (x2-lx1)*Math.tan(thetaT)); 
+    ctx.lineTo(lx2, y2 + (lx2-15-x2)*Math.tan(thetaT)); 
     ctx.moveTo(x2, 0); 
     ctx.lineTo(x2, canvas_height); 
-    ctx.moveTo(lx1, (x2-lx1)/Math.tan(theta)+y2); 
-    ctx.lineTo(lx2-15, y2-(lx2-15-x2)/Math.tan(theta)); 
+    ctx.moveTo(lx1, (x2-lx1)/Math.tan(thetaR)+y2); 
+    ctx.lineTo(lx2, y2-(lx2-x2)/Math.tan(thetaR)); 
     ctx.stroke(); //Draw the path to the canvas
     ctx.setLineDash([]);
     // Draws the vectors
-    drawVector(x2, y2, br, 'sw', Math.PI*3/2-theta);
-    drawVector(x2, y2, bn, 'n', Math.PI/2);
-    drawVector(x2, y2, bt, 'e', 0);
-
+    drawVector(x2, y2, br, Math.PI*3/2-thetaR);
+    drawVector(x2, y2, bn, Math.PI/2);
+    drawVector(x2, y2, bt, -thetaT);
+    // Draws the sun
+    ctx.fillStyle = suncolor;
+    ctx.shadowColor = suncolor;
+    ctx.shadowBlur = 20;
+    ctx.beginPath();
+    ctx.ellipse(lx2, 0, 52, 52, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
 
     //--- TOP VIEW ---
+    // Fills in black background
     ctx.fillStyle = "rgba(0,0,0)";
     ctx.fillRect(lx2, 0, canvas_width-lx2, canvas_height);
+    // Draws side view label
+    ctx.textAlign = 'left';
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "13px Montserrat";
+    ctx.fillText("Top View", lx2+12, 18);
+    // Draws the sun
+    ctx.fillStyle = suncolor;
+    ctx.shadowColor = suncolor;
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.ellipse(x3, canvas_height, 12, 12, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Draws the vector starting point
+    ctx.fillStyle = "#19FFD5";
+    ctx.shadowColor = "#19FFD5";
+    ctx.shadowBlur = 2;
+    ctx.beginPath();
+    ctx.ellipse(x3, y3, 5, 5, 0, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // Draws the vectors
+    drawVector(x3, y3, br, Math.PI/2);
+    drawVector(x3, y3, bt, -Math.PI);
 
     // Draws border lines
-    ctx.strokeStyle = "#19FFD5";
-    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#19FFD5"; // #10aa8e [darker blue]
+    ctx.lineWidth = 7;
     ctx.beginPath(); //Begin a new path on the canvas
     ctx.moveTo(lx1, 0); 
     ctx.lineTo(lx1, canvas_height); 
@@ -302,12 +334,25 @@ https://codepen.io/aecend/pen/WbONyK
     var texth = 30;
 
     // Draws the text
-    ctx.textAlign = 'left';
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#19FFD5";
     ctx.font = "12px Montserrat";
-    ctx.fillText("Br: " + br + " nT", lx1+10, 71);
-    ctx.fillText("Bt: " + bt + " nT", lx1+10, 54);
-    ctx.fillText("Bn: " + bn + " nT", lx1+10, 37);
+
+    ctx.translate(lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
+    ctx.rotate(-(Math.PI/2-thetaR));
+    ctx.translate(-(lx1 + 12), -((x2-lx1)/Math.tan(thetaR)+y2 + 14));
+    ctx.textAlign = 'left';
+    ctx.fillText("R: " + br + " nT", lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    ctx.translate(lx2 - 10, y2 + (lx2-15-x2)*Math.tan(thetaT) + 16);
+    ctx.rotate(thetaT);
+    ctx.translate(-(lx2 - 10), -(y2 + (lx2-15-x2)*Math.tan(thetaT) + 16));
+    ctx.textAlign = 'right';
+    ctx.fillText("T: " + bt + " nT", lx2 - 10, y2 + (lx2-15-x2)*Math.tan(thetaT) + 16);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    ctx.textAlign = 'left';
+    ctx.fillText("N: " + bn + " nT", x2 + 8, 18);
 
     // Draws a text box
     ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -326,18 +371,15 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.fillText("Total Magnetic Field: " + (Math.sqrt(br*br + bt*bt + bn*bn)).toFixed(1) + " nT", 9, canvas_height-10);
 
     // Draws labels
-    ctx.textAlign = 'right';
-    ctx.fillStyle = "#19FFD5";
-    ctx.font = "8px Montserrat";
-    ctx.fillText("direction of travel", lx2 - 5, y2 - 5);
+
   }
 
-  //This function draws a vector given starting point, length, direction, and angle
-  function drawVector(xs, ys, rtn, dir, ang){
+  //This function draws a vector given starting point, length, and angle
+  function drawVector(xs, ys, rtn, ang){
     ctx.strokeStyle = "#19FFD5";
     ctx.lineWidth = 3;
     ctx.beginPath(); //Begin a new path on the canvas
-    var l = Math.log2(Math.abs(rtn)) * 15 + 1; // scales vector length
+    var l = Math.log2(Math.abs(rtn)) * 12 + 1; // scales vector length
     if (Math.abs(rtn) < 1){
       l = 1;
     }
