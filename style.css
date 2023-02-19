@@ -2534,7 +2534,7 @@ canvas {
   background: url(public/select_blue.png) no-repeat 89% center;
   background-color: black;
   background-size: 10px 5px;
-  bottom: 387px;
+  bottom: 390px;
   left: 100px;
   width: 80px;
 }
@@ -2578,7 +2578,7 @@ canvas {
   height: 2px;
   width: 100px;
   transform: rotate(180deg);
-  background: white;
+  background: #04ebc1;
   opacity: 0.9;
 }
 #tline4 {
@@ -2588,7 +2588,7 @@ canvas {
   height: 2px;
   width: 20px;
   transform: rotate(90deg);
-  background: white;
+  background: #04ebc1;
   opacity: 0.9;
 }
 #sunicon4 {

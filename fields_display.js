@@ -228,7 +228,26 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.textAlign = 'left';
     ctx.fillStyle = "#19FFD5";
     ctx.font = "13px Montserrat";
-    ctx.fillText("Side View", 8, 18);
+    for (i = 0; i < 2; i++) {
+      ctx.fillText("Side View", 8, 18);
+    }
+    // Draws axis lines
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); //Begin a new path on the canvas
+    ctx.setLineDash([5, 10]);
+    ctx.moveTo(x1, y1); 
+    ctx.lineTo(x1, 0); 
+    ctx.moveTo(x1, y1); 
+    ctx.lineTo(lx1, y1); 
+    ctx.stroke(); //Draws the positive axes on the canvas
+    ctx.strokeStyle = "rgba(25, 255, 213, 0.5)";
+    ctx.moveTo(x1, y1); 
+    ctx.lineTo(x1, canvas_height); 
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(0, y1);
+    ctx.stroke(); //Draws the negative axes on the canvas
+    ctx.setLineDash([]);
     // Draws the sun
     ctx.fillStyle = suncolor;
     ctx.shadowColor = suncolor;
@@ -248,13 +267,45 @@ https://codepen.io/aecend/pen/WbONyK
     // Draws the vectors
     drawVector(x1, y1, br, 0);
     drawVector(x1, y1, bn, Math.PI/2);
+    // Draws the vector labels
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "11px Montserrat";
+    // N
+    ctx.textAlign = 'left';
+    ctx.fillText("N: " + bn + " nT", x1 + 8, 18);
+    // R
+    ctx.textAlign = 'right';
+    ctx.fillText("R: " + br + " nT", lx1 - 10, y1 - 10);
 
     //--- 3D VIEW ---
     // Draws 3D view label
     ctx.textAlign = 'left';
     ctx.fillStyle = "#19FFD5";
     ctx.font = "13px Montserrat";
-    ctx.fillText("3D View", lx1 + 12, 18);
+    for (i = 0; i < 2; i++) {
+      ctx.fillText("3D View", lx1 + 12, 18);
+    }
+    // Draws axis lines
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); //Begin a new path on the canvas
+    ctx.setLineDash([5, 10]);
+    ctx.moveTo(x2, y2); 
+    ctx.lineTo(lx2, y2 + (lx2-15-x2)*Math.tan(thetaT)); 
+    ctx.moveTo(x2, 0); 
+    ctx.lineTo(x2, y2); 
+    ctx.moveTo(x2, y2); 
+    ctx.lineTo(lx1, (x2-lx1)/Math.tan(thetaR)+y2); 
+    ctx.stroke(); //Draws the positive axes on the canvas
+    ctx.strokeStyle = "rgba(25, 255, 213, 0.5)";
+    ctx.moveTo(x2, y2); 
+    ctx.lineTo(lx1, y2 - (x2-lx1)*Math.tan(thetaT)); 
+    ctx.moveTo(x2, y2); 
+    ctx.lineTo(x2, canvas_height); 
+    ctx.moveTo(x2, y2); 
+    ctx.lineTo(lx2, y2-(lx2-x2)/Math.tan(thetaR)); 
+    ctx.stroke(); //Draws the negative axes on the canvas
+    ctx.setLineDash([]);
     // Draws the vector starting point
     ctx.fillStyle = "#19FFD5";
     ctx.shadowColor = "#19FFD5";
@@ -263,19 +314,6 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(x2, y2, 5, 5, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
-    // Draws axis lines
-    ctx.strokeStyle = "#19FFD5";
-    ctx.lineWidth = 1;
-    ctx.beginPath(); //Begin a new path on the canvas
-    ctx.setLineDash([7, 10]);
-    ctx.moveTo(lx1, y2 - (x2-lx1)*Math.tan(thetaT)); 
-    ctx.lineTo(lx2, y2 + (lx2-15-x2)*Math.tan(thetaT)); 
-    ctx.moveTo(x2, 0); 
-    ctx.lineTo(x2, canvas_height); 
-    ctx.moveTo(lx1, (x2-lx1)/Math.tan(thetaR)+y2); 
-    ctx.lineTo(lx2, y2-(lx2-x2)/Math.tan(thetaR)); 
-    ctx.stroke(); //Draw the path to the canvas
-    ctx.setLineDash([]);
     // Draws the vectors
     drawVector(x2, y2, br, Math.PI*3/2-thetaR);
     drawVector(x2, y2, bn, Math.PI/2);
@@ -288,6 +326,27 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(lx2, 0, 52, 52, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
+    // Draws the vector labels
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "11px Montserrat";
+    // R
+    ctx.translate(lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
+    ctx.rotate(-(Math.PI/2-thetaR));
+    ctx.translate(-(lx1 + 12), -((x2-lx1)/Math.tan(thetaR)+y2 + 14));
+    ctx.textAlign = 'left';
+    ctx.fillText("R: " + br + " nT", lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    // T
+    ctx.translate(lx2 - 10, y2 + (lx2-15-x2)*Math.tan(thetaT) + 16);
+    ctx.rotate(thetaT);
+    ctx.translate(-(lx2 - 10), -(y2 + (lx2-15-x2)*Math.tan(thetaT) + 16));
+    ctx.textAlign = 'right';
+    ctx.fillText("T: " + bt + " nT", lx2 - 10, y2 + (lx2-15-x2)*Math.tan(thetaT) + 16);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    // N
+    ctx.textAlign = 'left';
+    ctx.fillText("N: " + bn + " nT", x2 + 8, 16);
+
 
     //--- TOP VIEW ---
     // Fills in black background
@@ -297,7 +356,26 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.textAlign = 'left';
     ctx.fillStyle = "#19FFD5";
     ctx.font = "13px Montserrat";
-    ctx.fillText("Top View", lx2+12, 18);
+    for (i = 0; i < 2; i++) {
+      ctx.fillText("Top View", lx2+12, 18);
+    }
+    // Draws axis lines
+    ctx.strokeStyle = "#19FFD5";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); //Begin a new path on the canvas
+    ctx.setLineDash([5, 10]);
+    ctx.moveTo(x3, y3); 
+    ctx.lineTo(x3, 0); 
+    ctx.moveTo(x3, y3); 
+    ctx.lineTo(lx2, y3); 
+    ctx.stroke(); //Draws the positive axes on the canvas
+    ctx.strokeStyle = "rgba(25, 255, 213, 0.5)";
+    ctx.moveTo(x3, y3); 
+    ctx.lineTo(x3, canvas_height); 
+    ctx.moveTo(x3, y3);
+    ctx.lineTo(canvas_width, y3);
+    ctx.stroke(); //Draws the negative axes on the canvas
+    ctx.setLineDash([]);
     // Draws the sun
     ctx.fillStyle = suncolor;
     ctx.shadowColor = suncolor;
@@ -317,6 +395,15 @@ https://codepen.io/aecend/pen/WbONyK
     // Draws the vectors
     drawVector(x3, y3, br, Math.PI/2);
     drawVector(x3, y3, bt, -Math.PI);
+    // Draws the vector labels
+    ctx.fillStyle = "#19FFD5";
+    ctx.font = "11px Montserrat";
+    // R
+    ctx.textAlign = 'left';
+    ctx.fillText("R: " + br + " nT", x3 + 8, 16);
+    // T
+    ctx.textAlign = 'left';
+    ctx.fillText("T: " + bt + " nT", lx2 + 10, y2 - 10);
 
     // Draws border lines
     ctx.strokeStyle = "#19FFD5"; // #10aa8e [darker blue]
@@ -333,27 +420,6 @@ https://codepen.io/aecend/pen/WbONyK
     var textw = 200;
     var texth = 30;
 
-    // Draws the text
-    ctx.fillStyle = "#19FFD5";
-    ctx.font = "12px Montserrat";
-
-    ctx.translate(lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
-    ctx.rotate(-(Math.PI/2-thetaR));
-    ctx.translate(-(lx1 + 12), -((x2-lx1)/Math.tan(thetaR)+y2 + 14));
-    ctx.textAlign = 'left';
-    ctx.fillText("R: " + br + " nT", lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-    ctx.translate(lx2 - 10, y2 + (lx2-15-x2)*Math.tan(thetaT) + 16);
-    ctx.rotate(thetaT);
-    ctx.translate(-(lx2 - 10), -(y2 + (lx2-15-x2)*Math.tan(thetaT) + 16));
-    ctx.textAlign = 'right';
-    ctx.fillText("T: " + bt + " nT", lx2 - 10, y2 + (lx2-15-x2)*Math.tan(thetaT) + 16);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-    ctx.textAlign = 'left';
-    ctx.fillText("N: " + bn + " nT", x2 + 8, 18);
-
     // Draws a text box
     ctx.fillStyle = "rgba(0,0,0,0.8)";
     ctx.fillRect(0, canvas_height-texth, textw, texth);
@@ -369,8 +435,6 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.fillStyle = "white";
     ctx.font = "12px Montserrat";
     ctx.fillText("Total Magnetic Field: " + (Math.sqrt(br*br + bt*bt + bn*bn)).toFixed(1) + " nT", 9, canvas_height-10);
-
-    // Draws labels
 
   }
 
@@ -505,7 +569,7 @@ function update_data4(){ // updates the images, location, etc. every time the sl
     var x = data[4];
     var y = data[5];
     loc4.style.left = (8 + x / scale_factor).toString() + 'px'; //
-    loc4.style.top = (-198 - y / scale_factor).toString() + 'px'; //
+    loc4.style.top = (-200 - y / scale_factor).toString() + 'px'; //
     if (x>0){
       angle = Math.atan(y/x);
     } else {
