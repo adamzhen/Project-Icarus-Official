@@ -624,11 +624,11 @@ instrumentselector4.oninput = function(){
   fieldsmode = instrumentselector4.value;
   FIELDS.changeMode(fieldsmode);
   if (fieldsmode == "m"){ // Magnetic field
-    document.getElementById("fieldsinstrument").style.backgroundImage = "";
-    document.getElementById("fieldsdescription").innerHTML = "COMING SOON";
+    document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/magnet.png)";
+    document.getElementById("fieldsdescription").innerHTML = "The magnetic field data displayed here is split into 3 vector components: R, T, and N (to help visualize a 3D vector on your 2D screen). R is the radius, pointing from the Sun out to the PSP. T is tangent to the PSP's orbit, pointing in its direction of travel. N is normal (perpendicular) to both R and T, pointing \"up\" to form a 3rd axis. Ingeniously, this coordinate system is called the RTN coordinate system (yes, it blew my mind too). The standard units for magnetic field, as you may know, are Teslas (named after Nikola Tesla), though here they are nanoteslas.";
   } 
   else if (fieldsmode == "e") { // Electric
-    document.getElementById("fieldsinstrument").style.backgroundImage = "";
+    document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/electric.png)";
     document.getElementById("fieldsdescription").innerHTML = "COMING SOON";
   } 
   update_data4();
