@@ -217,11 +217,9 @@ https://codepen.io/aecend/pen/WbONyK
     var bn = fieldsList[orbit_ind4][slider_val4][3].toFixed(1);
     drawRTvectors(br, bt); // draws R & T vectors on position display
 
-    // Updates parameters
-    ivelocity = 20; // Proton velocity
-    idensity = 200; // Proton density
-    icolor = calcColor(4500000, 1000000, 5000000); // Proton color based on temperature
-    var suncolor = "#FF960D"; // Sun color
+    // Colors
+    var suncolor = "#FFFFFF"; // Sun color
+    var RTNcolor = "#FFFFFF"; // RTN label color
 
     //--- SIDE VIEW ---
     // Draws side view label
@@ -232,7 +230,7 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillText("Side View", 8, 18);
     }
     // Draws axis lines
-    ctx.strokeStyle = "#19FFD5";
+    ctx.strokeStyle = "rgba(255, 255, 255, 1)";
     ctx.lineWidth = 1;
     ctx.beginPath(); //Begin a new path on the canvas
     ctx.setLineDash([5, 10]);
@@ -241,7 +239,7 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.moveTo(x1, y1); 
     ctx.lineTo(lx1, y1); 
     ctx.stroke(); //Draws the positive axes on the canvas
-    ctx.strokeStyle = "rgba(25, 255, 213, 0.5)";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
     ctx.moveTo(x1, y1); 
     ctx.lineTo(x1, canvas_height); 
     ctx.moveTo(x1, y1);
@@ -256,6 +254,9 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(0, canvas_height/2, 12, 12, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
+    // Draws the vectors
+    drawVector(x1, y1, br, 0);
+    drawVector(x1, y1, bn, Math.PI/2);
     // Draws the vector starting point
     ctx.fillStyle = "#19FFD5";
     ctx.shadowColor = "#19FFD5";
@@ -264,11 +265,8 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(x1, y1, 5, 5, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
-    // Draws the vectors
-    drawVector(x1, y1, br, 0);
-    drawVector(x1, y1, bn, Math.PI/2);
     // Draws the vector labels
-    ctx.fillStyle = "#19FFD5";
+    ctx.fillStyle = RTNcolor;
     ctx.font = "11px Montserrat";
     // N
     ctx.textAlign = 'left';
@@ -286,7 +284,7 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillText("3D View", lx1 + 12, 18);
     }
     // Draws axis lines
-    ctx.strokeStyle = "#19FFD5";
+    ctx.strokeStyle = "rgba(255, 255, 255, 1)";
     ctx.lineWidth = 1;
     ctx.beginPath(); //Begin a new path on the canvas
     ctx.setLineDash([5, 10]);
@@ -297,7 +295,7 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.moveTo(x2, y2); 
     ctx.lineTo(lx1, (x2-lx1)/Math.tan(thetaR)+y2); 
     ctx.stroke(); //Draws the positive axes on the canvas
-    ctx.strokeStyle = "rgba(25, 255, 213, 0.5)";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
     ctx.moveTo(x2, y2); 
     ctx.lineTo(lx1, y2 - (x2-lx1)*Math.tan(thetaT)); 
     ctx.moveTo(x2, y2); 
@@ -306,6 +304,10 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.lineTo(lx2, y2-(lx2-x2)/Math.tan(thetaR)); 
     ctx.stroke(); //Draws the negative axes on the canvas
     ctx.setLineDash([]);
+    // Draws the vectors
+    drawVector(x2, y2, br, Math.PI*3/2-thetaR);
+    drawVector(x2, y2, bn, Math.PI/2);
+    drawVector(x2, y2, bt, -thetaT);
     // Draws the vector starting point
     ctx.fillStyle = "#19FFD5";
     ctx.shadowColor = "#19FFD5";
@@ -314,10 +316,6 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(x2, y2, 5, 5, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
-    // Draws the vectors
-    drawVector(x2, y2, br, Math.PI*3/2-thetaR);
-    drawVector(x2, y2, bn, Math.PI/2);
-    drawVector(x2, y2, bt, -thetaT);
     // Draws the sun
     ctx.fillStyle = suncolor;
     ctx.shadowColor = suncolor;
@@ -327,7 +325,7 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.fill();
     ctx.shadowBlur = 0;
     // Draws the vector labels
-    ctx.fillStyle = "#19FFD5";
+    ctx.fillStyle = RTNcolor;
     ctx.font = "11px Montserrat";
     // R
     ctx.translate(lx1 + 12, (x2-lx1)/Math.tan(thetaR)+y2 + 14);
@@ -360,7 +358,7 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillText("Top View", lx2+12, 18);
     }
     // Draws axis lines
-    ctx.strokeStyle = "#19FFD5";
+    ctx.strokeStyle = "rgba(255, 255, 255, 1)";
     ctx.lineWidth = 1;
     ctx.beginPath(); //Begin a new path on the canvas
     ctx.setLineDash([5, 10]);
@@ -369,7 +367,7 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.moveTo(x3, y3); 
     ctx.lineTo(lx2, y3); 
     ctx.stroke(); //Draws the positive axes on the canvas
-    ctx.strokeStyle = "rgba(25, 255, 213, 0.5)";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
     ctx.moveTo(x3, y3); 
     ctx.lineTo(x3, canvas_height); 
     ctx.moveTo(x3, y3);
@@ -384,6 +382,9 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(x3, canvas_height, 12, 12, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
+    // Draws the vectors
+    drawVector(x3, y3, br, Math.PI/2);
+    drawVector(x3, y3, bt, -Math.PI);
     // Draws the vector starting point
     ctx.fillStyle = "#19FFD5";
     ctx.shadowColor = "#19FFD5";
@@ -392,11 +393,8 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.ellipse(x3, y3, 5, 5, 0, 0, 2 * Math.PI);
     ctx.fill();
     ctx.shadowBlur = 0;
-    // Draws the vectors
-    drawVector(x3, y3, br, Math.PI/2);
-    drawVector(x3, y3, bt, -Math.PI);
     // Draws the vector labels
-    ctx.fillStyle = "#19FFD5";
+    ctx.fillStyle = RTNcolor;
     ctx.font = "11px Montserrat";
     // R
     ctx.textAlign = 'left';
@@ -440,7 +438,8 @@ https://codepen.io/aecend/pen/WbONyK
 
   //This function draws a vector given starting point, length, and angle
   function drawVector(xs, ys, rtn, ang){
-    ctx.strokeStyle = "#19FFD5";
+    var vectorcolor = "#19FFD5";
+    ctx.strokeStyle = vectorcolor;
     ctx.lineWidth = 3;
     ctx.beginPath(); //Begin a new path on the canvas
     var l = Math.log2(Math.abs(rtn)) * 12 + 1; // scales vector length
@@ -467,7 +466,7 @@ https://codepen.io/aecend/pen/WbONyK
     ctx.translate(xe, ye);
     ctx.rotate(-ang);
     ctx.translate(-xe, -ye);
-    ctx.fillStyle = "#19FFD5";
+    ctx.fillStyle = vectorcolor;
     ctx.moveTo(xe + arrowl*1.5, ye); 
     ctx.lineTo(xe, ye + arrowl); 
     ctx.lineTo(xe, ye - arrowl); 
@@ -625,7 +624,7 @@ instrumentselector4.oninput = function(){
   FIELDS.changeMode(fieldsmode);
   if (fieldsmode == "m"){ // Magnetic field
     document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/magnet.png)";
-    document.getElementById("fieldsdescription").innerHTML = "The magnetic field data displayed here is split into 3 vector components: R, T, and N (to help visualize a 3D vector on your 2D screen). R is the radius, pointing from the Sun out to the PSP. T is tangent to the PSP's orbit, pointing in its direction of travel. N is normal (perpendicular) to both R and T, pointing \"up\" to form a 3rd axis. Ingeniously, this coordinate system is called the RTN coordinate system (yes, it blew my mind too). The standard units for magnetic field, as you may know, are Teslas (named after Nikola Tesla), though here they are nanoteslas.";
+    document.getElementById("fieldsdescription").innerHTML = "To help visualize a 3D vector on your 2D screen, the magnetic field data displayed here is split into 3 vector components: R, T, and N. R is the radius, pointing from the Sun outwards to the PSP. T is tangent to the PSP's orbit, pointing in its direction of travel. N is normal (perpendicular) to both R and T, pointing \"up\" to form a 3rd axis. Ingeniously, this coordinate system is called the RTN coordinate system (yes, it blew my mind too). The standard units for magnetic field, as you may know, are Teslas (named after Nikola Tesla), though here they are nanoteslas: one-billionth of a Tesla.";
   } 
   else if (fieldsmode == "e") { // Electric
     document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/electric.png)";

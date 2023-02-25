@@ -1,0 +1,19 @@
+SPC Data:
+Col 1: Date/Time (YYYYMMDD_HHMM)
+Col 2: Proton Velocity (km/s)
+Col 3: Proton Density (cm^-2)
+Col 4: Proton Temperature (K)
+Col 5: X-coordinate (km)
+Col 6: Y-coordinate (km)
+Col 7: Distance (AU)
+Col 8: PSP Velocity (km/s)
+
+SPAN-e Data:
+Col 1: Date/Time (YYYYMMDD_HHMM)
+Col 2: Differential Energy Flux (electrons/(cm^2 s ster), 32 bins)
+
+SPAN-i Data:
+Col 1: Date/Time (YYYYMMDD_HHMM)
+Col 2: Ion Velocity (km/s)
+Col 3: Ion Density (cm^-3)
+Col 4: Ion Temperature (K)

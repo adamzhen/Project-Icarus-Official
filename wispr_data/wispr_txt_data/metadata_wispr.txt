@@ -1,0 +1,8 @@
+WISPR Data:
+Col 1: Date/Time (YYYYMMDD_HHMM)
+Col 2: Formatted Date (MM/DD/YYYY)
+Col 3: Formatted Time (HH:MM)
+Col 4: HAE X-coordinate (m)
+Col 5: HAE Y-coordinate (m)
+Col 6: HAE Z-coordinate (m)
+Col 7: Distance (AU)

@@ -15,7 +15,7 @@ with open(f'fields_data/fields_list.js', 'w') as l:
             line = lines[i]
             output = "["
             rline = line.replace('\n','').split(', ')
-            for p in range(len(rline)):
+            for p in range(4): # date and magentic field data
                 j = rline[p]
                 if '.' in j: #converts to float if the string is a float, since only the floats contain '.'
                   if float(j) < 5:
@@ -24,6 +24,12 @@ with open(f'fields_data/fields_list.js', 'w') as l:
                     output += f'{float(j):.0f}, '
                 else:
                     output += f"'{j}', "
+            for p in range(4, len(rline), 2): # gets electric field data and sums every 2 data points (in order to decrease file size)
+                k = float(rline[p]) + float(rline[p+1]) # sums the 2 data points
+                if k < 5:
+                    output += f'{k:.1f}, ' # add :.0f for spane to reduce the number of decimal places
+                else:
+                    output += f'{k:.0f}, '
             output = output[:-2] # removes the last comma and space
             if i == len(lines)-1:
                 output += ']\n'

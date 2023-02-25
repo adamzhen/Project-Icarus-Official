@@ -1,0 +1,5 @@
+FIELDS Data:
+Col 1: Date/Time (YYYYMMDD_HHMM)
+Col 2-4: Magnetic Field Vectors (Br, Bt, and Bn in nT)
+Col 5-58: DC Electric Field Data (Power Spectral Density in V^2/Hz, 54 bins)
+Col 59-111: AC Electric Field Data (Power Spectral Density in V^2/Hz, 54 bins)
