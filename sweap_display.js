@@ -27,7 +27,6 @@ https://codepen.io/aecend/pen/WbONyK
     var ivelocity = 20; //This determines the velocity of the ions.
     var icolor = "#00FFFF"; // This varies the ion color according to temperature
 
-    var evals = []; // This array will contain the 32 energy values of the different electrons
     var totalflux; // This represents the total number of electrons at any point in time
     // Switches the display mode between protons, electrons, & alphas
     function change_mode(m){

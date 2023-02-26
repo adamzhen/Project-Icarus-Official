@@ -27,7 +27,6 @@ https://codepen.io/aecend/pen/WbONyK
   var ivelocity = 20; //This determines the velocity of the ions.
   var icolor = "#00FFFF"; // This varies the ion color according to temperature
 
-  var evals = []; // This array will contain the 32 energy values of the different electrons
   var totalflux; // This represents the total number of electrons at any point in time
   // Switches the display mode between protons, electrons, & alphas
   function change_mode(m){
@@ -93,31 +92,56 @@ https://codepen.io/aecend/pen/WbONyK
   
   var spacingh = 40; // outer spacing on the bottom & top
   var spacingw = 40; // outer spacing on the left & right side
-  var barw = (canvas_width-spacingw) / 32; // width of a single bar in the electron display
+  var marginw = 5; // horizontal spacing between bars
+  var nbins = 54; // number of AC & DC bins
+  var barw = (canvas_width-spacingw-marginw) / nbins; // width of a single bar in the electron display
   var barh; // represents the height of a single bar
-  var marginw = 6; // horizontal spacing between bars
-  var emin = 3; // minimum power of 10 for the electron energy (eV)
-  var emax = 10; // maximum power of 10 for the electron energy (eV)
+  var emin = 0; // minimum power of 10 for the PSD 
+  var emax = 7; // maximum power of 10 for the PSD
   var ediff = emax - emin;
-  // var energybins = [2,2.6,3.3,4.2,5.1,6.1,7.9,9.9,12.5,15,19,24,29,36,45,56,70,88,112,133,175,212,257,333,400,490,600,780,950,1200,1500,1800];
 
-  //This function draws the canvas for the electrons
+  //This function draws the canvas for the electric field
   function draw_electrons() {
       // updates parameters
       totalflux = 0;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      //Loops through the 32 energy bins
-      for (i = 1; i <= 32; i++) {
-        var e = spaneList[orbit_ind4][slider_val4][i] // reads in energy flux value
-        totalflux += e; // adds the energy flux to the total flux
-        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the energy
-
+      //Loops through the DC energy bins
+      for (i = 1; i <= nbins/2; i++) {
+        var e = fieldsList[orbit_ind4][slider_val4][i+3] // reads in PSD value (10^-12 V^2/Hz)
+        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the PSD
         // Draws the bar
-        ctx.fillStyle = calcColor(i, 1, 32); // calcColor(Math.log10(e), emin, emax);
-        ctx.fillRect(marginw+(i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
+        ctx.fillStyle = calcColor(i, 1, nbins); // calcColor(Math.log10(e), emin, emax);
+        ctx.fillRect(marginw + (i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
       }
+      //Loops through the AC energy bins
+      for (i = nbins/2+1; i <= nbins; i++) {
+        var e = fieldsList[orbit_ind4][slider_val4][i+3] // reads in PSD value (10^-12 V^2/Hz)
+        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the PSD
+        // Draws the bar
+        ctx.fillStyle = calcColor(i, 1, nbins); // calcColor(Math.log10(e), emin, emax);
+        ctx.fillRect(marginw*2 + (i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
+      }
+      // Draws middle line
+      ctx.strokeStyle = "#19FFD5";
+      ctx.lineWidth = 1;
+      ctx.setLineDash([8, 3]);
+      ctx.beginPath(); 
+      ctx.moveTo((canvas_width-spacingw+marginw)/2, 0); 
+      ctx.lineTo((canvas_width-spacingw+marginw)/2, canvas_height-spacingh); 
+      ctx.stroke(); //Draw the path to the canvas
+      ctx.setLineDash([]);
+      // Draws AC/DC label text
+      ctx.fillStyle = "#19FFD5";
+      ctx.font = "12px Montserrat";
+      for (i = 1; i <= 2; i++) {
+        ctx.textAlign = 'right';
+        ctx.fillText("DC", (canvas_width-spacingw+marginw)/2-5, 15);
+        ctx.textAlign = 'left';
+        ctx.fillText("AC", (canvas_width-spacingw+marginw)/2+5, 15);
+      }
+      // Cuts off negative bars
       ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
@@ -146,8 +170,8 @@ https://codepen.io/aecend/pen/WbONyK
       // Add color stops
       // gradient.addColorStop(0, "black");
       // gradient.addColorStop(0.7, "rgba(255,0,0,0.9)");
-      for (i = 1; i <= 32; i++) {
-        gradient.addColorStop((i-1)/32, calcColor(i, 1, 32));
+      for (i = 1; i <= nbins; i++) {
+        gradient.addColorStop((i-1)/nbins, calcColor(i, 1, nbins));
       }
 
       // Draws horizontal axis
@@ -170,7 +194,7 @@ https://codepen.io/aecend/pen/WbONyK
       region2.closePath();
       ctx.fill(region2);
 
-      // Draws the Electron Energy label
+      // Draws the frequency label
       ctx.fillStyle = 'black';
       ctx.font = "12px Montserrat";
       ctx.textAlign = 'center';
@@ -180,10 +204,10 @@ https://codepen.io/aecend/pen/WbONyK
 
       // Draws flux scale (logarithmic)
       ctx.font = "10px Montserrat";
-      var superscripts = ["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹", "¹⁰"];
+      var superscripts = ["⁰","⁻¹","⁻²","⁻³","⁻⁴","⁻⁵","⁻⁶","⁻⁷","⁻⁸","⁻⁹", "⁻¹⁰", "⁻¹¹", "⁻¹²", "⁻¹³"];
       for (i = 0; i < 2; i++) {
         for (j = emin; j <= emax; j++) {
-          ctx.fillText("10"+superscripts[j], canvas_width - (spacingw/2), canvas_height-spacingh-5 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
+          ctx.fillText("10"+superscripts[Math.abs(j-12)], canvas_width - (spacingw/2), canvas_height-spacingh-5 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
         }
       }
       // Draws the flux label
@@ -194,8 +218,8 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.translate(canvas_width - (spacingw-2), marginw);
       ctx.rotate(270 * Math.PI / 180);
       ctx.translate(-(canvas_width - (spacingw-2)), -marginw);
-      for (i = 0; i < 3; i++) {
-        ctx.fillText("energy flux", canvas_width - (spacingw-2), marginw); // canvas_width - (spacingw-2), marginw
+      for (i = 0; i < 5; i++) {
+        ctx.fillText("PSD", canvas_width - (spacingw-2) - 2, marginw); // canvas_width - (spacingw-2), marginw
       }
       ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
@@ -625,10 +649,14 @@ instrumentselector4.oninput = function(){
   if (fieldsmode == "m"){ // Magnetic field
     document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/magnet.png)";
     document.getElementById("fieldsdescription").innerHTML = "To help visualize a 3D vector on your 2D screen, the magnetic field data displayed here is split into 3 vector components: R, T, and N. R is the radius, pointing from the Sun outwards to the PSP. T is tangent to the PSP's orbit, pointing in its direction of travel. N is normal (perpendicular) to both R and T, pointing \"up\" to form a 3rd axis. Ingeniously, this coordinate system is called the RTN coordinate system (yes, it blew my mind too). The standard units for magnetic field, as you may know, are Teslas (named after Nikola Tesla), though here they are nanoteslas: one-billionth of a Tesla.";
+    document.getElementById("rline4").style.opacity = "0.9";
+    document.getElementById("tline4").style.opacity = "0.9";
   } 
   else if (fieldsmode == "e") { // Electric
     document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/electric.png)";
     document.getElementById("fieldsdescription").innerHTML = "COMING SOON";
+    document.getElementById("rline4").style.opacity = "0";
+    document.getElementById("tline4").style.opacity = "0";
   } 
   update_data4();
 }

@@ -2574,6 +2574,7 @@ canvas {
 }
 #rline4 {
   position: relative;
+  display: block;
   left: 55px;
   bottom: 7.5px;
   height: 2px;
@@ -2584,6 +2585,7 @@ canvas {
 }
 #tline4 {
   position: relative;
+  display: block;
   left: 140px;
   bottom: 20px;
   height: 2px;
