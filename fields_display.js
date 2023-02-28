@@ -103,7 +103,7 @@ https://codepen.io/aecend/pen/WbONyK
   //This function draws the canvas for the electric field
   function draw_electrons() {
       // updates parameters
-      totalflux = 0;
+      totalpsd = 0;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -114,6 +114,7 @@ https://codepen.io/aecend/pen/WbONyK
         // Draws the bar
         ctx.fillStyle = calcColor(i, 1, nbins); // calcColor(Math.log10(e), emin, emax);
         ctx.fillRect(marginw + (i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
+        totalpsd += e;
       }
       //Loops through the AC energy bins
       for (i = nbins/2+1; i <= nbins; i++) {
@@ -122,6 +123,7 @@ https://codepen.io/aecend/pen/WbONyK
         // Draws the bar
         ctx.fillStyle = calcColor(i, 1, nbins); // calcColor(Math.log10(e), emin, emax);
         ctx.fillRect(marginw*2 + (i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
+        totalpsd += e;
       }
       // Draws middle line
       ctx.strokeStyle = "#19FFD5";
@@ -145,8 +147,8 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
-      var textw = 300;
-      var texth = 36;
+      var textw = 225;
+      var texth = 30;
       // Draws a text box
       ctx.fillStyle = "rgba(0,0,0,0.8)";
       ctx.fillRect(0, 0, textw, texth);
@@ -162,7 +164,8 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.font = "12px Montserrat";
       ctx.textAlign = 'left';
       //ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million electrons/(cm² s ster)", 10, 22);
-      ctx.fillText("DISPLAY UNFINISHED", 10, 22);
+      ctx.fillText("Total PSD: " + (totalpsd/10**12).toFixed(12) + " V²/Hz", 8, 19);
+      
       // Create a linear gradient
       // The start gradient point is at x=20, y=0
       // The end gradient point is at x=220, y=0
