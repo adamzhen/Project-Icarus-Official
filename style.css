@@ -2790,6 +2790,15 @@ canvas {
   font-weight: 500;
   margin-left: 6%;
   margin-right: 6%;
+  margin-bottom: 10px;
+}
+#fieldsacknowledgments {
+  color: rgb(173, 84, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 6%;
+  margin-right: 6%;
 }
 
 #github a:link {color: rgb(89, 89, 89); font-family: "Lucida Console", monospace;}
