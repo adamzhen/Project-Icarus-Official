@@ -267,6 +267,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * [Parker Solar Probe was designed, built, and is now operated by the Johns Hopkins Applied Physics Laboratory as part of NASA’s Living with a Star (LWS) program (contract NNN06AA01C). Support from the LWS management and technical team has played a critical role in the success of the Parker Solar Probe mission.](http://parkersolarprobe.jhuapl.edu/)
 * [The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology.](https://wispr.nrl.navy.mil/wisprdata)
 * [We acknowledge the NASA Parker Solar Probe Mission and the SWEAP team led by J. Kasper for use of data.](http://sweap.cfa.harvard.edu/Data.html)
+* [The FIELDS experiment on the Parker Solar Probe spacecraft was designed and developed under NASA contract NNN06AA01C.](https://fields.ssl.berkeley.edu/data/)
 * [README template by othneildrew](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
