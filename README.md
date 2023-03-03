@@ -185,7 +185,29 @@ For SPAN-i, I used pySPEDAS to download the cdf files from NASA's [website](http
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
 ## [FIELDS](https://adamzhen.github.io/Project-Icarus-Official/#thefields)
-⚠️ SECTION UNDER CONSTRUCTION ⚠️
+This section visualizes magnetic and electric field data from the FIELDS instrument. Similarly to the SWEAP display, this section contains a controls box, a position display (which runs using the same data as SWEAP), a play button, and a canvas display for data visualization. 
+
+Interactivity is controlled by [fields_display.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/fields_display.js), and all data analysis/extraction was done using pySPEDAS in [pyspedas_data_analysis.ipynb](https://github.com/adamzhen/Project-Icarus-Official/blob/main/pyspedas_data_analysis.ipynb), which contains more thorough documentation on that matter.
+
+#### Controls & Position Display
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
+    <img src="public/readme_assets/fieldscontrols.png" width=750px/>
+  </a>
+</div>
+
+These displays are almost identical to those of SWEAP. The controls on the left allow the user to switch between magnetic and electric field. Whenever you switch modes, it should keep the date & time the same as it was before, as the two datasets encompass the same timeframes. The position display here uses data from the SPC dataset [spc_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spc_list.js). By exporting one FIELDS data point for each minute, I was able to make it easily compatible with the position and velocity data from SPC. All that had to be done is take the date/time from the FIELDS data and check if it's in the [spcdate_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/sweap_data/spcdate_list.js), generated using [read_sweaptext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_sweaptext.py). For the units here, I chose not to have the distance units (AU) change, so as to keep it consistent with the WISPR section. For speed, I converted it to KMPH for metric, MPH for imperial, and MACH NUMBER for wacky (speed of sound = 2.91545 km/s), which by the way, is supposed to wacky because sound cannot travel in the vacuum of space. 
+
+#### Magnetic Field
+
+For magnetic field data, I used pySPEDAS to download the cdf files from NASA's [website](https://spdf.gsfc.nasa.gov/pub/data/psp/fields/l2/mag_rtn/) (datatype = mag_rtn), extract the data from them, and export it (magnetic field components (nT) in the RTN coordinate system) into text files which were then compiled as [fields_list.js](https://github.com/adamzhen/Project-Icarus-Official/blob/main/fields_data/fields_list.js) using [read_fieldstext.py](https://github.com/adamzhen/Project-Icarus-Official/blob/main/data_processing/read_fieldstext.py). I visualized this data by (1) scaling vector magnitudes logarithmically (base 2) to encompass the range of data [-554.0 nT, 786.6 nT] (2) splitting the display into a 3D view, a 2D side view, and a 2D top view (3) drawing axes to represent the RTN coordinates system, with bolded axes signifying positive values and the sun as a reference point (4) plotting the magnetic field's RTN components on the axes and labeling their values in nT. I also calculated the magnitude of the total magnetic field and displayed it in the bottom left.  
+
+<div align="left">
+  <a href="https://adamzhen.github.io/Project-Icarus-Official/#thesweap">
+    <img src="public/readme_assets/fieldsmagnetic.png" width=750px/>
+  </a>
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -245,6 +267,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * [Parker Solar Probe was designed, built, and is now operated by the Johns Hopkins Applied Physics Laboratory as part of NASA’s Living with a Star (LWS) program (contract NNN06AA01C). Support from the LWS management and technical team has played a critical role in the success of the Parker Solar Probe mission.](http://parkersolarprobe.jhuapl.edu/)
 * [The Wide-Field Imager for Parker Solar Probe (WISPR) instrument was designed, built, and is now operated by the US Naval Research Laboratory in collaboration with Johns Hopkins University/Applied Physics Laboratory, California Institute of Technology/Jet Propulsion Laboratory, University of Gottingen, Germany, Centre Spatiale de Liege, Belgium and University of Toulouse/Research Institute in Astrophysics and Planetology.](https://wispr.nrl.navy.mil/wisprdata)
 * [We acknowledge the NASA Parker Solar Probe Mission and the SWEAP team led by J. Kasper for use of data.](http://sweap.cfa.harvard.edu/Data.html)
+* [The FIELDS experiment on the Parker Solar Probe spacecraft was designed and developed under NASA contract NNN06AA01C.](https://fields.ssl.berkeley.edu/data/)
 * [README template by othneildrew](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
