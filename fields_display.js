@@ -96,8 +96,8 @@ https://codepen.io/aecend/pen/WbONyK
   var nbins = 54; // number of AC & DC bins
   var barw = (canvas_width-spacingw-marginw) / nbins; // width of a single bar in the electron display
   var barh; // represents the height of a single bar
-  var emin = 0; // minimum power of 10 for the PSD 
-  var emax = 7; // maximum power of 10 for the PSD
+  var emin = -1; // minimum power of 10 for the voltage (mV)
+  var emax = 3; // maximum power of 10 for the voltage (mV)
   var ediff = emax - emin;
 
   //This function draws the canvas for the electric field
@@ -109,8 +109,8 @@ https://codepen.io/aecend/pen/WbONyK
 
       //Loops through the DC energy bins
       for (i = 1; i <= nbins/2; i++) {
-        var e = fieldsList[orbit_ind4][slider_val4][i+3] // reads in PSD value (10^-12 V^2/Hz)
-        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the PSD
+        var e = fieldsList[orbit_ind4][slider_val4][i+3] // reads in voltage (mV)
+        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the voltage
         // Draws the bar
         ctx.fillStyle = calcColor(i, 1, nbins); // calcColor(Math.log10(e), emin, emax);
         ctx.fillRect(marginw + (i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
@@ -118,8 +118,8 @@ https://codepen.io/aecend/pen/WbONyK
       }
       //Loops through the AC energy bins
       for (i = nbins/2+1; i <= nbins; i++) {
-        var e = fieldsList[orbit_ind4][slider_val4][i+3] // reads in PSD value (10^-12 V^2/Hz)
-        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the PSD
+        var e = fieldsList[orbit_ind4][slider_val4][i+3] // reads in voltage (mV)
+        barh = (Math.log10(e) - emin) / (ediff) * (canvas_height - 2*spacingh); // calculates scaled bar height depending on the voltage
         // Draws the bar
         ctx.fillStyle = calcColor(i, 1, nbins); // calcColor(Math.log10(e), emin, emax);
         ctx.fillRect(marginw*2 + (i-1)*barw, canvas_height-spacingh-barh, barw-marginw, barh);
@@ -147,7 +147,7 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.fillStyle = "rgb(0,0,0)";
       ctx.fillRect(0, canvas_height-spacingh, canvas_width, spacingh);
 
-      var textw = 225;
+      var textw = 165;
       var texth = 30;
       // Draws a text box
       ctx.fillStyle = "rgba(0,0,0,0.8)";
@@ -164,7 +164,7 @@ https://codepen.io/aecend/pen/WbONyK
       ctx.font = "12px Montserrat";
       ctx.textAlign = 'left';
       //ctx.fillText("Total Energy Flux: " + (totalflux/10e6).toFixed(0) + " million electrons/(cm² s ster)", 10, 22);
-      ctx.fillText("Total PSD: " + (totalpsd/10**12).toFixed(12) + " V²/Hz", 8, 19);
+      ctx.fillText("Total Voltage: " + (totalpsd).toFixed(1) + " mV", 8, 19);
       
       // Create a linear gradient
       // The start gradient point is at x=20, y=0
@@ -206,26 +206,28 @@ https://codepen.io/aecend/pen/WbONyK
       }
 
       // Draws flux scale (logarithmic)
-      ctx.font = "10px Montserrat";
-      var superscripts = ["⁰","⁻¹","⁻²","⁻³","⁻⁴","⁻⁵","⁻⁶","⁻⁷","⁻⁸","⁻⁹", "⁻¹⁰", "⁻¹¹", "⁻¹²", "⁻¹³"];
+      ctx.font = "12px Montserrat";
+      var superscripts = ["⁻¹","⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"];
       for (i = 0; i < 2; i++) {
         for (j = emin; j <= emax; j++) {
-          ctx.fillText("10"+superscripts[Math.abs(j-12)], canvas_width - (spacingw/2), canvas_height-spacingh-5 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
+          ctx.fillText("10"+superscripts[j+1], canvas_width - (spacingw/2), canvas_height-spacingh-10 - (j - emin) / (ediff) * (canvas_height - 2*spacingh));
         }
       }
       // Draws the flux label
+      ctx.font = "10px Montserrat";
       ctx.fillStyle = "rgba(0,0,0,0.75)";
       ctx.fillRect(canvas_width - (spacingw+10), 0, 15, marginw+62);
       ctx.fillStyle = 'rgba(255,0,0,1)';
       ctx.textAlign = 'right';
-      ctx.translate(canvas_width - (spacingw-2), marginw);
+      ctx.translate(canvas_width - (spacingw-2) - 1, marginw);
       ctx.rotate(270 * Math.PI / 180);
-      ctx.translate(-(canvas_width - (spacingw-2)), -marginw);
+      ctx.translate(-(canvas_width - (spacingw-2) - 1), -marginw);
       for (i = 0; i < 5; i++) {
-        ctx.fillText("PSD", canvas_width - (spacingw-2) - 2, marginw); // canvas_width - (spacingw-2), marginw
+        ctx.fillText("Voltage (mV)", canvas_width - (spacingw-2) - 1, marginw); // canvas_width - (spacingw-2), marginw
       }
       ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
+
 
   var lx1 = canvas_width * 0.28; // x position of the first border line
   var lx2 = canvas_width * 0.72; // x position of the second border line
