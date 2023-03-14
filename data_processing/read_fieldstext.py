@@ -6,8 +6,8 @@ from math import sqrt
 arr = []
 NUMORBITS = 12
 
-def psd_to_v(psd): # converts 10^-12 PSD (V^2/Hz) to millivolts using a sampling rate of 18750 Hz
-    return sqrt(psd*10**(-12) * 18750) * 10**3
+def psd_to_v(psd, srate): # converts 10^-12 PSD (V^2/Hz) to millivolts using a sampling rate of srate (18,750 Hz for DC & 150,000 Hz for AC))
+    return sqrt(psd*10**(-12) * srate) * 10**3
 
 with open(f'fields_data/fields_list.js', 'w') as l:
     l.write(f'var fieldsList = [')
@@ -29,9 +29,12 @@ with open(f'fields_data/fields_list.js', 'w') as l:
                 else:
                     output += f"'{j}', "
             for p in range(4, len(rline), 2): # gets electric field data and sums every 2 data points (in order to decrease file size)
-                k = psd_to_v(float(rline[p]) + float(rline[p+1])) # sums the 2 data points and converts to volts
+                if p < 58: # DC
+                    k = psd_to_v(float(rline[p]) + float(rline[p+1]), 18750) # sums the 2 data points and converts to volts
+                else: # AC
+                    k = psd_to_v(float(rline[p]) + float(rline[p+1]), 150000) # sums the 2 data points and converts to volts
                 if k < 5:
-                    output += f'{k:.3f}, ' # add :.0f for spane to reduce the number of decimal places
+                    output += f'{k:.2f}, ' # add :.0f for spane to reduce the number of decimal places
                 else:
                     output += f'{k:.0f}, '
             output = output[:-2] # removes the last comma and space

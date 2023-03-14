@@ -653,13 +653,13 @@ instrumentselector4.oninput = function(){
   FIELDS.changeMode(fieldsmode);
   if (fieldsmode == "m"){ // Magnetic field
     document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/magnet.png)";
-    document.getElementById("fieldsdescription").innerHTML = "To help visualize a 3D vector on your 2D screen, the magnetic field data displayed here is split into 3 vector components: R, T, and N. R is the radius, pointing from the Sun outwards to the PSP. T is tangent to the PSP's orbit, pointing in its direction of travel. N is normal (perpendicular) to both R and T, pointing \"up\" to form a 3rd axis. Ingeniously, this coordinate system is called the RTN coordinate system (yes, it blew my mind too). The standard units for magnetic field, as you may know, are Teslas (named after Nikola Tesla), though here they are nanoteslas: one-billionth of a Tesla.";
+    document.getElementById("fieldsdescription").innerHTML = "To help visualize a 3D vector on your 2D screen, the magnetic field data displayed here is split into 3 vector components: R, T, and N. R is the radius, pointing from the Sun outwards to the PSP. T is tangent to the PSP's orbit, pointing in its direction of travel. N is normal (perpendicular) to both R and T, pointing \"up\" to form a 3rd axis. Ingeniously, this coordinate system is called the RTN coordinate system (yes, it blew my mind too). The standard units for magnetic field, as you may know, are Teslas (named after Nikola Tesla), and here they are nanoteslas: one-billionth of a Tesla.";
     document.getElementById("rline4").style.opacity = "0.9";
     document.getElementById("tline4").style.opacity = "0.9";
   } 
   else if (fieldsmode == "e") { // Electric
     document.getElementById("fieldsinstrument").style.backgroundImage = "url(public/electric.png)";
-    document.getElementById("fieldsdescription").innerHTML = "COMING SOON";
+    document.getElementById("fieldsdescription").innerHTML = "The electric antennas measure both AC/DC voltage at a mindblowing rate of thousands of times per second. These measurements are separated out by electric field frequency into 108 bins, which is a lot of data, so I combined every 2 bins to reduce it to 54. The standard units for voltage are - you guessed it! - volts, and here they are millivolts: one-thousandth of a volt (this was actually converted from a unit called power spectral density using some mathematical maths). Also, pssst - don't forget, the data is on a logarithmic scale!";
     document.getElementById("rline4").style.opacity = "0";
     document.getElementById("tline4").style.opacity = "0";
   } 
