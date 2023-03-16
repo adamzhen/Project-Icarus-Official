@@ -2715,7 +2715,7 @@ canvas {
   margin-bottom: 20px;
 }
 #fieldsinfo p {
-  color: rgb(255, 106, 56);
+  color: white;
   z-index: 5;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
