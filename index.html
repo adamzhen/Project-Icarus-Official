@@ -69,11 +69,10 @@
       <p id="featheroverlay"  onclick="switchimg()"></p>
       <h2 class="suntext" id="suntext1">THIS IS THE SUN RIGHT NOW.</h2>
       <h3 class="suntext" ><em>ever wondered what it'd be like to touch it?</em></h3>
-      <h4 class="suntext" >(plz don't click this image)</h4>
       <p id="sunsource"><a href="https://sdo.gsfc.nasa.gov/data/" target="_blank">Source<sup>1</sup></a></p>
       <img src="public/circle.png" id="thesun" style="position:absolute; top:25%; width:1px; height:1px;">
       <script>
-        var imgnames = ['0304', '0193', '0131', '0094', '0211'];
+        var imgnames = ['0304', '0193', '0131', '0094'];
         var i = 1;
         var suntexts = document.querySelectorAll('.suntext')
         suntexts.forEach((el) => el.style.transform = "scale(" + window.innerWidth / 1536 +")");
@@ -104,25 +103,19 @@
         <section class="hidden3">
           <div id="circle2">
             <img src="public/circle2.png" id="dimg2" class="circleccw">
-            <h2>we</h2>
+            <h2>you're</h2>
           </div>
         </section>
         <section class="hidden3">
           <div id="circle3">
             <img src="public/circle3.png" id="dimg3" class="circlecw">
-            <h3>got</h3>
+            <h3>in</h3>
           </div>
         </section>
         <section class="hidden3">
           <div id="circle4">
             <img src="public/circle4.png" id="dimg4" class="circleccw">
-            <h4>your</h4>
-          </div>
-        </section>
-        <section class="hidden3">
-          <div id="circle5">
-            <img src="public/circle5.png" id="dimg5" class="circlecw">
-            <h5>answer.</h5>
+            <h4>luck.</h4>
           </div>
         </section>
         <script src="scrollAnimation.js"></script>
@@ -143,7 +136,7 @@
       </section>
       <iframe src='https://solarsystem.nasa.gov/gltf_embed/2356' width='80%' height='550px' frameborder='0' style="position:relative; left:10%;" onload="load()"></iframe>
       <!--button type="button" id="statsbutton">view stats</button-->
-      <p id="disclaimer"> <strong>Disclaimer:</strong> This is a joke. Obviously.<a href="#pspacknowledgments"><sup>2</sup></a> We are not NASA. You can’t actually buy the Parker Solar Probe. And before you get any smart ideas, you’re also a tad late if you were hoping to stowaway in that cozy little cubby behind the heat shield. The Parker Solar Probe has been in space since August 2018, officially touching the sun on April 28, 2021.
+      <p id="disclaimer"> <strong>Disclaimer:</strong> This is a joke. Obviously. We are not NASA. You can’t actually buy the Parker Solar Probe. And before you get any smart ideas, you’re also a tad late if you were hoping to stowaway in that cozy little cubby behind the heat shield. The Parker Solar Probe has been in space since August 2018, officially touching the sun on April 28, 2021.
       </p>
       <img src="public/PSP_model.png" alt="PSP Model Placeholder" id="PSPimg" style="display:none; position:relative; bottom:650px; width:720px; height:500px; margin-left:auto; margin-right:auto;">
       <script>
