@@ -594,17 +594,47 @@ a:active { text-decoration: underline; }
 .modelcontainer a:hover {color: #ffae17e5;}
 .modelcontainer a:active {color: #ffae17e5;}
 .modelcontainer {
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border: solid 4px #ffae17;
-  border-radius: 12vw;
+  border-top: solid 4px #ffae17;
+  border-bottom: solid 4px #F86800;
+  border-radius: 0vw;
   background-color: #ebebeb;
   justify-content: center;
   padding-top: 0px;
   margin-bottom: 0px;
 }
-
+.orangegradient1 { /* used for aurora */
+  background-color: #ff8b17;
+  background-image: linear-gradient(180deg, #ffae17 0%, #ff8b17 80%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+.orangegradient2 { /* used for aurora */
+  background-color: #ff8b17;
+  background-image: linear-gradient(180deg, #ff8b17 0%, #ff6c17 80%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+.orangegradient3 { /* used for aurora */
+  background-color: #ff8b17;
+  background-image: linear-gradient(180deg, #ff6c17 0%, #ff4d17 80%, #ff4d17 100%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
 .modelcontainer h1 {
   color: #ff8b17;
   text-align: center;
@@ -613,7 +643,7 @@ a:active { text-decoration: underline; }
   font-weight: 900;
   letter-spacing: 0px;
   margin-bottom: 20px;
-  line-height: 109px;
+  line-height: 116px;
 }
 .modelcontainer h2 {
   color: black;
@@ -630,7 +660,7 @@ a:active { text-decoration: underline; }
   color: #ff4d17;
   text-align: center;
   font-family: 'nasalizationregular';
-  font-size: 50px;
+  font-size: 43px;
   font-weight: 400;
   letter-spacing: -2px;
   line-height: 50px;
