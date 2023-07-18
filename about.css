@@ -276,13 +276,12 @@ button {
 
   .navbar .menu-items {
     z-index: 3;
-    background: radial-gradient(#ff4000 30%, #ffd500 80%);
-    background: radial-gradient(ellipse at top,#007896 30%, #4cdbff 80%), radial-gradient(ellipse at bottom,#007896, #4cdbff);
+    background: radial-gradient(ellipse at top, #ff4000 30%, #ffd500 80%), radial-gradient(ellipse at bottom, #ff4000, #ffd500);
     opacity: 1;
     border-right: none 5px #000000;
     border-bottom: none 5px #000000;
     border-radius: 250px;
-    box-shadow: 1px 0px 8px #4cdbff;
+    box-shadow: 1px 0px 8px #ffdd30;
     height: 500px;
     width: 500px;
     transform: translateX(-250px) translateY(150px);
@@ -291,7 +290,7 @@ button {
     margin-left: -350px;
     margin-top: calc(-70px);
     padding-left: 335px;
-    padding-top: 140px;
+    padding-top: 130px;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
   }
