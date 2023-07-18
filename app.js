@@ -111,3 +111,31 @@ const observerOuter = new IntersectionObserver((entries) => {
 });
 const hiddenElementsOuter = document.querySelectorAll('.hiddenOuter')
 hiddenElementsOuter.forEach((el) => observerOuter.observe(el));
+
+// Fade in from left 5%
+const observerLeft = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('showLeft');
+    } else {
+      entry.target.classList.remove('showLeft');
+    }
+  });
+});
+const hiddenElementsLeft = document.querySelectorAll('.hiddenLeft')
+hiddenElementsLeft.forEach((el) => observerLeft.observe(el));
+
+// Fade in from right 5%
+const observerRight = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('showRight');
+    } else {
+      entry.target.classList.remove('showRight');
+    }
+  });
+});
+const hiddenElementsRight = document.querySelectorAll('.hiddenRight')
+hiddenElementsRight.forEach((el) => observerRight.observe(el));

@@ -112,6 +112,28 @@
   transform: translateY(0);
   transform: translateX(0);
 }
+.hiddenLeft {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateX(-5%);
+  transition: all 1s;
+}
+.showLeft {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+.hiddenRight {
+  opacity: 0;
+  filter: blur(1px);
+  transform: translateX(5%);
+  transition: all 1s;
+}
+.showRight {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
 
 /*hamburger navbar thing*/
 *,
@@ -245,11 +267,11 @@ button {
     opacity: 0;
     filter: blur(2px);
     border-right: solid 2px #f8860d;
-    border-bottom: solid 4px #f8860d;
-    border-radius: 30px;
-    height: 580px;
-    max-width: 200px;
-    transform: translateX(-250px) translateY(-250px);
+    border-bottom: solid 2px #f8860d;
+    border-radius: 0px;
+    height: 1000px;
+    max-width: 190px;
+    transform: translateX(-250px);
     display: flex;
     flex-direction: column;
     margin-left: -50px;
@@ -657,7 +679,7 @@ a:active { text-decoration: underline; }
   padding-bottom: 20px;
 }
 .modelcontainer h3 {
-  color: #ff4d17;
+  color: #ff4117;
   text-align: center;
   font-family: 'nasalizationregular';
   font-size: 43px;
@@ -665,7 +687,7 @@ a:active { text-decoration: underline; }
   letter-spacing: -2px;
   line-height: 50px;
   padding-top: 0px;
-  padding-bottom: 15px;
+  padding-bottom: 8px;
 }
 .modelcontainer h4 {
   color: rgb(0, 14, 54);
@@ -698,9 +720,9 @@ a:active { text-decoration: underline; }
   color: rgb(0, 14, 54);
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 7px;
+  font-size: 8px;
   font-weight: 500;
-  line-height: 10px;
+  line-height: 12px;
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 27%;
@@ -740,20 +762,29 @@ canvas {
 }
 #corona h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
+  font-size: 90px;
   font-weight: 800;
-  letter-spacing: 0px;
-  padding-top: 2px;
+  letter-spacing: 1px;
+  padding-top: 5px;
   line-height: 40pt;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 50px;
 }
 #corona h2 {
   color:#ff9950;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 7px;
+  padding-bottom: 20px;
+}
+#corona h3 {
+  color:#ff6a00;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0px;
 }
 #corona p {
   color: #ff9950;
@@ -795,13 +826,13 @@ canvas {
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 25px;;
+  margin-bottom: 25px;
 }
 #waithowbig{
   color: #ff6a00;
   position: relative;
   z-index: 2;
-  margin-top: 15px;
+  padding-top: 25px;
   margin-left: 5%;
   margin-right: 5%;
   bottom: 20px;
@@ -895,7 +926,7 @@ canvas {
 }
 #alfventext {
   display: block;
-  width: 58%;
+  width: 37%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -931,7 +962,7 @@ canvas {
   margin-right: auto;
   width: calc(var(--w) + 3px);
   height: var(--h2);
-  box-shadow: calc(var(--w)/40*3) calc(var(--w)/8) calc(var(--w)/8) black inset, calc(var(--w)/40*-3) calc(var(--w) / -8) calc(var(--w)/8) black inset;
+  box-shadow: calc(var(--w)/40*3) calc(var(--w)/8) calc(var(--w)/8) black inset, calc(var(--w)/40*-6) calc(var(--w) / -8) calc(var(--w)/8) black inset;
 }
 #cmecontainer {
   --w: 360px;
