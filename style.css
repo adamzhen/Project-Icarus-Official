@@ -191,14 +191,14 @@ button {
 }
 
 .navbar a {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
 }
 
 .navbar a:hover {
-  color: #ed9c05;
+  color: #ffffff;
 }
 
 @media (max-width: 1000000000px) {
@@ -243,7 +243,7 @@ button {
     height: 2px;
     width: 100%;
     border-radius: 5px;
-    background: #f8860d;
+    background:  #ffac13;
   }
 
   .navbar-container .hamburger-lines .line1 {
@@ -262,29 +262,30 @@ button {
 
   .navbar .menu-items {
     z-index: 3;
-    padding-top: 80px;
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    filter: blur(2px);
-    border-right: solid 2px #f8860d;
-    border-bottom: solid 2px #f8860d;
-    border-radius: 0px;
-    height: 1000px;
-    max-width: 190px;
-    transform: translateX(-250px);
+    background: radial-gradient(ellipse at top, #ff4000 30%, #ffd500 80%), radial-gradient(ellipse at bottom, #ff4000, #ffd500);
+    opacity: 1;
+    border-right: none 5px #000000;
+    border-bottom: none 5px #000000;
+    border-radius: 250px;
+    box-shadow: 1px 0px 8px #ffdd30;
+    height: 500px;
+    width: 500px;
+    transform: translateX(-250px) translateY(150px);
     display: flex;
     flex-direction: column;
-    margin-left: -50px;
-    padding-left: 35px;
+    margin-left: -350px;
+    margin-top: calc(-70px);
+    padding-left: 335px;
+    padding-top: 140px;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
   }
 
   .navbar .menu-items a {
-    margin-bottom: 28px;
+    margin-bottom: 5px;
     font-family: 'Montserrat', 'sans-serif';
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 700;
   }
 
   .navbar-container input[type="checkbox"]:checked ~ .menu-items {
