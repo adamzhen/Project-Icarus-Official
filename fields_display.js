@@ -587,9 +587,9 @@ function update_data4(){ // updates the images, location, etc. every time the sl
     var data = spcList[orbit_ind4][spcdateind]; 
     var dist = data[6].toFixed(3).toString() + " AU";
     if (fieldsUnit=="metric"){
-      var speed = (data[7]*3600).toFixed(0).toString() + " kmph";
+      var speed = (data[7]*1).toFixed(0).toString() + " km/s";
     } else if (fieldsUnit=="imperial"){
-      var speed = (data[7]*3600*0.6214).toFixed(0).toString() + " mph";
+      var speed = (data[7]*0.6214).toFixed(0).toString() + " mi/s";
     } else if (fieldsUnit=="wacky"){
       var speed = "Mach " + (data[7]*4.91545).toFixed(0).toString();
     }

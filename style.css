@@ -748,9 +748,9 @@ canvas {
   border-left: 3px solid #F86800;
 }
 #thecorona {
-  background: linear-gradient(180deg, #ff3e17 0%, #f87c00 25%, #f8aa00 55%, #ff8400 90%);
+  background: linear-gradient(180deg, #ff3e17 0%, #f88d00 33%, #f88d00 40%,#f88000 60%, #ff5e00 90%);
   border-top: solid 80px #ff3e17;
-  border-bottom: solid 80px #ff8400;
+  border-bottom: solid 80px #ff5e00;
 }
 #corona {
   width: 620px;
@@ -760,7 +760,7 @@ canvas {
   margin-right: auto;
   padding-top: 80px;
   padding-bottom: 80px;
-  position: relative;
+  position: sticky;
   color: #ff3e17;
   text-align: center;
   justify-content: center;
@@ -1018,8 +1018,9 @@ canvas {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(180deg, #0f263c 10%, #5bacf3 95%);
-  border-bottom: solid 4px white;
+  background: linear-gradient(180deg, #0f263c 10%, #004c8f 95%);
+  background-color: #0f263c;
+  border-bottom: solid 4px #5bacf3;
   border-radius: 0vw;
   padding-top: 80px;
   text-align: center;

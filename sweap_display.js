@@ -249,12 +249,12 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = "white";
         ctx.font = "12px Montserrat";
         if (sweapUnit == "metric"){
-          ctx.fillText("Velocity: " + (pv*3600).toFixed(0) + " kmph", 10, 56);
+          ctx.fillText("Velocity: " + (pv*1).toFixed(0) + " km/s", 10, 56);
           ctx.fillText("Density: " + pd + " protons/cm²", 10, 39);
           ctx.fillText("Temperature: " + (pt-273) + " ℃", 10, 22);
         } 
         else if (sweapUnit == "imperial"){
-          ctx.fillText("Velocity: " + (pv*3600*0.6214).toFixed(0) + " mph", 10, 56);
+          ctx.fillText("Velocity: " + (pv*0.6214).toFixed(0) + " mi/s", 10, 56);
           ctx.fillText("Density: " + (pd/2.54/2.54).toFixed(0) + " protons/in²", 10, 39);
           ctx.fillText("Temperature: " + (((pt-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
         } 
@@ -479,12 +479,12 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = "white";
         ctx.font = "12px Montserrat";
         if (sweapUnit == "metric"){
-          ctx.fillText("Velocity: " + (iv*3600).toFixed(0) + " kmph", 10, 56);
+          ctx.fillText("Velocity: " + (iv*1).toFixed(0) + " km/s", 10, 56);
           ctx.fillText("Density: " + id + " alphas/cm³", 10, 39);
           ctx.fillText("Temperature: " + (it-273) + " ℃", 10, 22);
         } 
         else if (sweapUnit == "imperial"){
-          ctx.fillText("Velocity: " + (iv*3600*0.6214).toFixed(0) + " mph", 10, 56);
+          ctx.fillText("Velocity: " + (iv*0.6214).toFixed(0) + " mi/s", 10, 56);
           ctx.fillText("Density: " + (id/2.54/2.54/2.54).toFixed(4) + " alphas/in³", 10, 39);
           ctx.fillText("Temperature: " + (((it-273)/5*9)+32).toFixed(0) + " ℉", 10, 22);
         } 
@@ -590,9 +590,9 @@ function update_data2(){ // updates the images, location, etc. every time the sl
     var data = spcList[orbit_ind2][slider_val2]; 
     var dist = (data[6]).toFixed(3).toString() + " AU";
     if (sweapUnit=="metric"){
-      var speed = (data[7]*3600).toFixed(0).toString() + " kmph";
+      var speed = (data[7]*1).toFixed(0).toString() + " km/s";
     } else if (sweapUnit=="imperial"){
-      var speed = (data[7]*3600*0.6214).toFixed(0).toString() + " mph";
+      var speed = (data[7]*0.6214).toFixed(0).toString() + " mi/s";
     } else if (sweapUnit=="wacky"){
       var speed = "Mach " + (data[7]*2.91545).toFixed(0).toString();
     }
@@ -625,9 +625,9 @@ function update_data2(){ // updates the images, location, etc. every time the sl
       var data = spcList[orbit_ind2][spcdateind]; 
       var dist = data[6].toFixed(3).toString() + " AU";
       if (sweapUnit=="metric"){
-        var speed = (data[7]*3600).toFixed(0).toString() + " kmph";
+        var speed = (data[7]*1).toFixed(0).toString() + " km/s";
       } else if (sweapUnit=="imperial"){
-        var speed = (data[7]*3600*0.6214).toFixed(0).toString() + " mph";
+        var speed = (data[7]*0.6214).toFixed(0).toString() + " mi/s";
       } else if (sweapUnit=="wacky"){
         var speed = "Mach " + (data[7]*2.91545).toFixed(0).toString();
       }
