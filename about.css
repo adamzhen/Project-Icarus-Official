@@ -276,12 +276,12 @@ button {
 
   .navbar .menu-items {
     z-index: 3;
-    background: radial-gradient(ellipse at top, #ff4000 30%, #ffd500 80%), radial-gradient(ellipse at bottom, #ff4000, #ffd500);
+    background: radial-gradient(ellipse at top,#007896 30%, #4cdbff 80%), radial-gradient(ellipse at bottom,#007896, #4cdbff);
     opacity: 1;
     border-right: none 5px #000000;
     border-bottom: none 5px #000000;
     border-radius: 250px;
-    box-shadow: 1px 0px 8px #ffdd30;
+    box-shadow: 1px 0px 8px #4cdbff;
     height: 500px;
     width: 500px;
     transform: translateX(-250px) translateY(150px);

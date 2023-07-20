@@ -1020,51 +1020,42 @@ canvas {
   margin-right: auto;
   background: linear-gradient(180deg, #0f263c 10%, #004c8f 95%);
   background-color: #0f263c;
-  border-bottom: solid 4px #5bacf3;
+  border-bottom: solid 4px #fff0d7;
   border-radius: 0vw;
   padding-top: 80px;
   text-align: center;
   padding-bottom: 50px;
 }
 #instruments h1 {
-  color:  white;
-  font-size: 37px;
+  position: relative;
+  left: 18px;
+  font-size: 55px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  letter-spacing: 0px;
-  line-height: 30pt;  
-  margin-left: 20px;
-  margin-right: 20px;
+  font-weight: 1000;
+  letter-spacing: 3.5vw;
+  line-height: 60pt;  
 }
 #instruments h2 {
-  color: white; 
+  color: #fff0d7; 
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 0.3vw;
 }
 #instruments p {
-  color:  white;
+  color:  #fff0d7;
   z-index: 2;
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0px;
-}
-#istrumlist li {
-  text-align: center;
-  color:  white;
-  z-index: 2;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   letter-spacing: 0px;
 }
 #instrumlist {
   display: inline-block;
   text-align: center;
   color: white;
+  margin-top: 45px;
+  margin-bottom: 30px;
 }
 #PSPinstruments {
   position: relative;
@@ -1072,9 +1063,10 @@ canvas {
   width: 300px;
   height: 200px;
   border: 4px dashed #fff0d7;
+  filter: saturate(0.3);
 }
 #waitwuthuh{
-  color: white;
+  color: #fff0d7;
   position: relative;
   z-index: 2;
   margin-top: 15px;
@@ -1091,7 +1083,7 @@ canvas {
   border-left: dashed 1px rgba(255, 255, 255, 0.7);
   border-right: dashed 1px rgba(255, 255, 255, 0.7);
   color: white; 
-  font-size: 1vw; 
+  font-size: 15px; 
   font-family: Times New Roman;
   font-weight: 300;
   padding-top: 200px;
@@ -1580,7 +1572,7 @@ canvas {
   margin-right: auto;
   padding-top: 80px;
   padding-bottom: 80px;
-  border: solid 4px rgb(217, 54, 0);
+  border: solid 4px rgb(217, 54, 0); 
   border-radius: 5vw;
 }
 #sweap h1{
