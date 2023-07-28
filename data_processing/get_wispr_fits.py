@@ -1,4 +1,4 @@
-# STEP 1 of data processing
+# STEP 1 of WISPR data processing
 
 # This code was run on a computer with wget installed, producing the text files that were to be used for data display on the website
 import math
@@ -8,7 +8,7 @@ from astropy.io import fits
 import os
 
 print("running!!")
-NUMORBITS = 12
+NUMORBITS = 15
 
 #
 #sets up wget
@@ -28,13 +28,14 @@ def runcmd(cmd, verbose = False, *args, **kwargs):
 #obtains FITS files by date
 date = "20210429"
 orbit = "orbit08"
-# runcmd(f"wget -r -l=2 ‐‐no-parent ‐‐accept fits https://wispr.nrl.navy.mil/data/rel/fits/L3/orbit12/", verbose = False)
+runcmd("wget -nc -r -l=2 --no-parent --accept fits https://wispr.nrl.navy.mil/data/rel/fits/L3/orbit15/", verbose=True)
+
 
 #creates list of FITS files in certain date
 #extracts HAE coordinates from the FITS files
 m_in_au = 149597870700 #conversion factor obtained from https://cneos.jpl.nasa.gov/glossary/au.html
 
-for i in range(12, NUMORBITS+1):
+for i in range(15, NUMORBITS+1):
     if i<10:
         orbit = 'orbit'+'0'+str(i)
     else:
