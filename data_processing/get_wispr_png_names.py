@@ -46,7 +46,7 @@ for file in text_files:
                     fo.write(f"\n")
                 else:
                     fo.write(f"{row}\n")
-fi.write("]")
-fo.write("]")
+fi.write("];")
+fo.write("];")
 fi.close()
 fo.close()
