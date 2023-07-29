@@ -6,14 +6,16 @@ from matplotlib import pyplot as plt
 
 # orbits_list = os.listdir(f'wispr_txt_data')
 temp = []
-NUMORBITS = 12
 count_nan = 0
-instr = "spane" # change this to "spc", "spane", or "spani" depending on which instrument you are using
+
+### CHANGE THESE VARIABLES ###
+NUMORBITS = 14
+instr = "spani" # change this to "spc", "spane", or "spani" depending on which instrument you are using
 mode = "normal" # change this to "normal" or "date" depending on which mode you are using
 
 if instr == "spani": # only orbits 2-8 have data for spani
     start = 2
-    end = 8
+    end = NUMORBITS
 else:
     start = 1
     end = NUMORBITS

@@ -70,7 +70,7 @@ https://codepen.io/aecend/pen/WbONyK
             particles.push(new particle(temptheta, Math.random() * (maxradius(temptheta)-sunradius) + sunradius, "tr"));
           }
           var temptheta;
-          for (i = 0; i < (10000-pdensity); i++) {
+          for (i = 0; i < (20000-pdensity); i++) {
             /*
             This creates the hidden particles that will appear when density increases
             */
@@ -85,7 +85,7 @@ https://codepen.io/aecend/pen/WbONyK
             ions.push(new ion(Math.random() * canvas_width, Math.random() * canvas_height, "xy"));
           }
           var temptheta;
-          for (i = 0; i < (10000-pdensity); i++) {
+          for (i = 0; i < (20000-pdensity); i++) {
             /*
             This creates the hidden particles that will appear when density increases
             */
@@ -389,13 +389,13 @@ https://codepen.io/aecend/pen/WbONyK
     //This function draws the canvas for the alphas/ions
     function draw_alphas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only works with orbits 2-8
+      if (orbit_ind2 >= 1) { // only works with orbits 2 and above
         var iv = spaniList[orbit_ind2][slider_val2][1].toFixed(1);
         var id = spaniList[orbit_ind2][slider_val2][2].toFixed(2);
         var it = spaniList[orbit_ind2][slider_val2][3].toFixed(0);
         // updates parameters
         ivelocity = iv/15; // Proton velocity
-        idensity = id*100; // Proton density
+        idensity = Math.pow(id, 0.9)*20; // Proton density ** Used D^0.9 to make the density scale slower at higher densities (which were causing particles exceeding the total number)
         icolor = calcColor(it, 1000000, 5000000); // Proton color based on temperature
 
         //This sets the color to draw with.
@@ -420,6 +420,7 @@ https://codepen.io/aecend/pen/WbONyK
             diff -= 1;
           }
         }
+
         // document.getElementById("warning").innerHTML = ions.length;
         //Loops through all of the ions in the array
         for (i = 0; i < ions.length; i++) {
@@ -499,7 +500,7 @@ https://codepen.io/aecend/pen/WbONyK
         ctx.fillStyle = 'rgb(217, 54, 0)';
         ctx.font = "24px Montserrat";
         ctx.textAlign = 'center';
-        ctx.fillText("DATA ONLY AVAILABLE FOR ORBITS 2-8", canvas_width/2, canvas_height/2);
+        ctx.fillText("DATA NOT AVAILABLE FOR ORBIT 1", canvas_width/2, canvas_height/2);
       }
     }
     //This function calculates theta given x, y
@@ -569,7 +570,7 @@ SWEAP.initialize();
 
 var selector2 = document.getElementById("orbit_num2");
 var orbit2 = '1';
-var NUMORBITS = 12;
+var NUMORBITS = 14;
 
 function formattime(hr, min){ // formats the time to 12-hour format
   if (hr==0){
@@ -615,7 +616,7 @@ function update_data2(){ // updates the images, location, etc. every time the sl
       datetime = spaneList[orbit_ind2][slider_val2][0]; 
       SWEAP.drawElectrons();
     } else if (sweapmode == "a"){ // ALPHAS/IONS
-      if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
+      if (orbit_ind2 >= 1) { // only data for orbits 2 and above
         datetime = spaniList[orbit_ind2][slider_val2][0]; 
       }
       SWEAP.drawAlphas();
@@ -690,7 +691,7 @@ selector2.oninput = function(){
     slider2.max = spaneList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
   } 
   else if (sweapmode == "a") { // Alphas/Ions
-    if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
+    if (orbit_ind2 >= 1) { // only data for orbits 2 and above
       slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     }
   } 
@@ -720,7 +721,7 @@ instrumentselector.oninput = function(){
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
     document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so here we just call them alphas.";
     document.getElementById("whatisflux").style.display = "none";
-    if (orbit_ind2 >= 1 && orbit_ind2 <= 7) { // only data for orbits 2-8
+    if (orbit_ind2 >= 1) { // only data for orbits 2 and above
       slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
     }
     var dateind = spanidateList[orbit_ind2].indexOf(datetime);
