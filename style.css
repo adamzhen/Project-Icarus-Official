@@ -1128,10 +1128,12 @@ canvas {
 }
 #camimg {
   position: relative;
-  display: inline-block;
-  width: 100%;
+  display: block;
   z-index: 2;
+  width: 360px;
   height: 180px;
+  margin-left: auto;
+  margin-right: auto;
   background-image: url("public/WISPR_Camera_OFF_5.1.2.png");
   background-size: 359px 180px;
   background-position: center;
@@ -1141,12 +1143,12 @@ canvas {
 #camimg:hover {
   position: relative;
   display: block;
-  width: 100%;
   z-index: 2;
-  margin-left: auto;
-  margin-right:auto;
-  background-repeat:no-repeat;
+  width: 360px;
   height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat:no-repeat;
   background-image: url("public/WISPR_Camera_ON_5.1.1.png");
   background-size: 359px 180px;
   background-position: center;
@@ -1596,17 +1598,20 @@ canvas {
   display: block;
 }
 #sweapinstrumentsimg {
-  width: 100%;
+  width: 320px;
   height: 180px;
+  margin-left: auto;
+  margin-right: auto;
   background-image: url("public/SWEAP_instruments_OFF.jpg");
   background-size: 359px 180px;
   background-position: center;
   background-repeat: no-repeat;
 }
 #sweapinstrumentsimg:hover {
-  width: 100%;
-  background-repeat:no-repeat;
+  width: 320px;
   height: 180px;
+  margin-left: auto;
+  margin-right: auto;
   background-image: url("public/SWEAP_instruments_ON.jpg");
   background-size: 359px 180px;
   background-position: center;
@@ -1987,6 +1992,10 @@ canvas {
 }
 
 /* ISOIS */
+#isois a:link {color: rgba(255, 166, 0, 1);}
+#isois a:visited {color: rgba(255, 166, 0, 1);}
+#isois a:hover {color: rgb(255, 196, 85);}
+#isois a:active {color: rgb(255, 196, 85);}
 #isois {
   text-align: center;
   justify-content: center;
@@ -2015,7 +2024,7 @@ canvas {
 }
 #isoisinstruments {
   position: relative;
-  top: 5px;
+  top: 18px;
   right: 5px;
   width: 100%;
   height: 240px;
@@ -2024,20 +2033,45 @@ canvas {
   display: block;
 }
 #isoisinstrumentsimg {
-  width: 100%;
+  width: 467px;
   height: 240px;
+  margin-left: auto;
+  margin-right: auto;
   background-image: url("public/ISOIS_instruments_OFF.jpg");
   background-size: 440px 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 #isoisinstrumentsimg:hover {
-  width: 100%;
-  background-repeat:no-repeat;
+  width: 467px;
   height: 240px;
+  margin-left: auto;
+  margin-right: auto;
   background-image: url("public/ISOIS_instruments_ON.jpg");
   background-size: 440px 240px;
   background-position: center;
+}
+#isoisvid {
+  position: relative;
+  border: solid 1px rgb(255, 166, 0);
+  width: 525px;
+  height: 275px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  background-color: transparent;
+  justify-content: center;
+  display: block;
+}
+#isoisvidsource {
+  position: relative;
+  height: 0px;
+  left: 244px;
+  top: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 10px;
 }
 
 #isoisdisplay{
