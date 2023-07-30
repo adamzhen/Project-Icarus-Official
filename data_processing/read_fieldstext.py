@@ -4,7 +4,7 @@ import os
 from math import sqrt 
 
 arr = []
-NUMORBITS = 12
+NUMORBITS = 14
 
 def psd_to_v(psd, srate): # converts 10^-12 PSD (V^2/Hz) to millivolts using a sampling rate of srate (18,750 Hz for DC & 150,000 Hz for AC))
     return sqrt(psd*10**(-12) * srate) * 10**3
