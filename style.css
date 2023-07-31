@@ -796,6 +796,7 @@ canvas {
   z-index: 5;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
+  line-height: 21px;
   font-weight: 400;
   letter-spacing: 0px;
 }
@@ -1559,6 +1560,7 @@ canvas {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0px;
+  line-height: 20px;
 }
 
 #sweap {
@@ -1989,6 +1991,7 @@ canvas {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0px;
+  line-height: 20px;
 }
 
 /* ISOIS */
@@ -2401,6 +2404,7 @@ canvas {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0px;
+  line-height: 20px;
 }
 
 /* FIELDS */
@@ -2807,6 +2811,7 @@ canvas {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0px;
+  line-height: 20px;
 }
 
 #acknowledgments a:link {color: rgb(173, 84, 0);}
