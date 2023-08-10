@@ -312,7 +312,7 @@ button {
 body {
   margin: 0;
   background-color: black;
-  overflow-x: clip;
+  overflow: hidden;
 }
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
@@ -765,7 +765,7 @@ canvas {
   border-bottom: solid 80px #ff5e00;
 }
 #corona {
-  width: 620px;
+  width: 100%;
   background-color: black;
   border-radius: 75px;
   margin-left: auto;
