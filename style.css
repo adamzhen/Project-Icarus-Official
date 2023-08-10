@@ -844,8 +844,17 @@ canvas {
   bottom: 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0px;
+}
+#verybig{
+  color: #ff9950;
+  position: relative;
+  z-index: 2;
+  padding-top: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  font-weight: 900;
 }
 #elfvandisplay {
   justify-content: center;

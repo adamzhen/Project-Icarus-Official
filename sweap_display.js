@@ -719,7 +719,7 @@ instrumentselector.oninput = function(){
   } 
   else if (sweapmode == "a") { // Alphas/Ions
     document.getElementById("sweapinstrument").style.backgroundImage = "url(public/SPANi_instrument.jpg)";
-    document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alphas, so here we just call them alphas.";
+    document.getElementById("sweapdescription").innerHTML = "Unlike SPAN-B, SPAN-A measures both electrons & alpha particles (hence why it has 2 cylinder-shaped sensors, while SPAN-B only has one). It is important to note that when we say alphas, we're actually measuring all ions. But most ions in the solar wind are alpha particles, so here we just call them alphas.";
     document.getElementById("whatisflux").style.display = "none";
     if (orbit_ind2 >= 1) { // only data for orbits 2 and above
       slider2.max = spaniList[orbit_ind2].length - 1; // changes slider range to match indices of the fits data points
