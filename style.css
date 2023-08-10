@@ -970,7 +970,7 @@ canvas {
 #auroracontainer {
   --w: 400px;
   --h: calc(var(--w)*212/550);
-  width: var(--w);
+  width: 100%;
   height: var(--h);
   margin: 5px;
 }
@@ -978,7 +978,7 @@ canvas {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: var(--w);
+  width: 100%;
   height: var(--h);
 }
 #auroraoverlay {
@@ -987,7 +987,7 @@ canvas {
   bottom: calc(var(--h2) + 4px);
   margin-left: auto;
   margin-right: auto;
-  width: calc(var(--w) + 3px);
+  width: 100%;
   height: var(--h2);
   box-shadow: calc(var(--w)/40*3) calc(var(--w)/8) calc(var(--w)/8) black inset, calc(var(--w)/40*-6) calc(var(--w) / -8) calc(var(--w)/8) black inset;
 }
