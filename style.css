@@ -661,11 +661,11 @@ a:active { text-decoration: underline; }
   color: #ff8b17;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 160px;
+  font-size: 165px;
   font-weight: 900;
   letter-spacing: 0px;
   margin-bottom: 20px;
-  line-height: 116px;
+  line-height: 120px;
 }
 .modelcontainer h2 {
   color: black;
@@ -679,7 +679,7 @@ a:active { text-decoration: underline; }
   padding-bottom: 20px;
 }
 .modelcontainer h3 {
-  color: #ff4117;
+  color: #ff390d;
   text-align: center;
   font-family: 'nasalizationregular';
   font-size: 43px;
@@ -689,7 +689,7 @@ a:active { text-decoration: underline; }
   padding-top: 0px;
   padding-bottom: 8px;
 }
-.modelcontainer h4 {
+.modelcontainer h5 {
   color: rgb(0, 14, 54);
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -698,6 +698,18 @@ a:active { text-decoration: underline; }
   padding-bottom: 50px;
   padding-left: 50px;
   padding-right: 50px;
+}
+#pspaccolades {
+  color: #ff4117;
+  position: relative;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 #statsbutton {
   position: relative;
