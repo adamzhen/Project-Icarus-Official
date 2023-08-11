@@ -30,13 +30,20 @@
     </script>
 
     <!--Hero Section-->
-    <p id="fixedoverlay"  onclick="switchimg()"></p>
+    <p id="fixedoverlay"></p>
     <div class="hero" id="home">
-      <img src="public/ProjectIcarusHeader.png" id="logo">
+      <img src="public/ProjectIcarusHeader.png" id="logo" onclick="logofilter()">
       <script>
+        var brightfactor = 0.3;
+        var huefactor = -20;
         window.addEventListener("load", function () {
           document.getElementById("logo").style.opacity = 1;
         });
+        // Click to increase brightness
+        function logofilter(){
+          document.getElementById("logo").style.filter = "brightness(" + (1.2 + brightfactor) + ") hue-rotate(" + huefactor + "deg)";
+          brightfactor *= -1;
+        }
         function changesize(){
           if (window.scrollY < window.innerHeight){
             var h = document.getElementById("logo").style.getPropertyValue("--h");
@@ -92,21 +99,32 @@
       <p id="sunsource"><a href="https://sdo.gsfc.nasa.gov/data/" target="_blank">Source<sup>1</sup></a></p>
       <img src="public/circle.png" id="thesun" style="position:absolute; top:25%; width:1px; height:1px;">
       <script>
-        var imgnames = ['0304', '0193', '0131', '0094'];
-        var i = 1;
+        window.addEventListener("load", function () {
+          document.getElementById("sunimg").style.opacity = 1;
+        });
+        var imgnames = ['0304', '0131', '0094']; // 0304, 0193, 0131, 0094
+        var sunn = 0;
         var suntexts = document.querySelectorAll('.suntext')
         suntexts.forEach((el) => el.style.transform = "scale(" + window.innerWidth / 1536 +")");
         function switchimg() {
-          if (i >= imgnames.length - 1){
-            i = 0;
+          if (sunn >= imgnames.length - 1){
+            sunn = 0;
           } else {
-            i++;
+            sunn++;
           }
           if (window.innerWidth > 1500){
-            document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_" + imgnames[i] + ".jpg";
+            document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_" + imgnames[sunn] + ".jpg";
           } else {
-            document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_" + imgnames[i] + ".jpg";
+            document.getElementById("sunimg").src = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_" + imgnames[sunn] + ".jpg";
           }
+          if (sunn == 0){
+            huefactor = -20;
+          } else if (sunn == 1){
+            huefactor = 120;
+          } else if (sunn == 2){
+            huefactor = 30;
+          }
+          document.getElementById("logo").style.filter = "brightness(" + (1.2 + brightfactor) + ") hue-rotate(" + huefactor + "deg)";
         }
       </script>
     </div>

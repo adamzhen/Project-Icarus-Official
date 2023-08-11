@@ -399,12 +399,8 @@ a:active { text-decoration: underline; }
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
-  transition: opacity 3s;
-  transition: filter 2s;
-}
-.hero #logo:hover {
-  filter: brightness(1.5);
-  transition: filter 2s;
+  transition: opacity 3s, filter 1s;
+  filter: brightness(0.9) hue-rotate(-20deg);
 }
 
 .scroll-down {
@@ -480,7 +476,9 @@ a:active { text-decoration: underline; }
   position: relative;
   width: 100vw;
   height: 89vw; 
+  opacity: 0;
   object-fit: cover;
+  transition: opacity 3s;
 }
 #featheroverlay {
   position: absolute;
