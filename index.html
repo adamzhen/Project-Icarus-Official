@@ -20,7 +20,7 @@
     <script>
       window.addEventListener("load", function () {
         const loader = document.querySelector(".loader-wrapper");
-        if (window.innerWidth > 500){
+        if (window.innerWidth > 500 || window.innerWidth < window.innerHeight ){
           loader.style.opacity = 0;
           //loader.className += " hidden"; // class "loader hidden"
         } else {
@@ -94,8 +94,10 @@
     <div id="sun">
       <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_2048_0304.jpg" id = "sunimg" onerror="this.onerror=null; this.src='public/sun.jpg'">
       <p id="featheroverlay"  onclick="switchimg()"></p>
-      <h2 class="suntext" id="suntext1">THIS IS THE SUN RIGHT NOW.</h2>
-      <h3 class="suntext" ><em>ever wondered what it'd be like to touch it?</em></h3>
+      <section class="suntext">
+        <h2 id="suntext1">THIS IS THE SUN RIGHT NOW.</h2>
+        <h3 id="suntext2">ever wondered what it'd be like to touch it?</h3>
+      </section>
       <p id="sunsource"><a href="https://sdo.gsfc.nasa.gov/data/" target="_blank">Source<sup>1</sup></a></p>
       <img src="public/circle.png" id="thesun" style="position:absolute; top:25%; width:1px; height:1px;">
       <script>
@@ -119,18 +121,24 @@
           }
           if (sunn == 0){
             huefactor = -20;
+            document.getElementById("suntext1").style.color = "#ffdaaa";
+            document.getElementById("suntext2").style.color = "#ffdaaa";
           } else if (sunn == 1){
             huefactor = 120;
+            document.getElementById("suntext1").style.color = "#d5faff";
+            document.getElementById("suntext2").style.color = "#d5faff";
           } else if (sunn == 2){
             huefactor = 30;
+            document.getElementById("suntext1").style.color = "#dfffd5";
+            document.getElementById("suntext2").style.color = "#dfffd5";
           }
           document.getElementById("logo").style.filter = "brightness(" + (1.2 + brightfactor) + ") hue-rotate(" + huefactor + "deg)";
         }
       </script>
     </div>
 
-    <!--Rotating circle-->
-    <section>
+    <!--Rotating circles-->
+    <section id="rotatingcircles">
       <div id="circles">
         <section class="hidden3">
           <div id="circle1">

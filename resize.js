@@ -4,23 +4,21 @@ function resizeDisplay(){
   var w = window.innerWidth;
   var h = window.innerHeight;
   // Header
-  if (w <= 500 || w/h < 1){
+  if (w <= 500 || w < h){
     document.getElementById("logo").src = "public/ProjectIcarusHeaderVertical.png";
-    document.getElementById("logo").style.setProperty("--h", 80);
-    document.getElementById("logo").style.right = "0";
+    document.getElementById("logo").style.setProperty("--h", "80vw");
   } else {
     document.getElementById("logo").src = "public/ProjectIcarusHeader.png";
-    document.getElementById("logo").style.setProperty("--h", 40);
-    document.getElementById("logo").style.right = "1.2vw";
-  }
-  if (w <= 1536){
-    document.getElementById("scrollbuttonsection").style.transform = "scale(" + w / 1536 +")";
-  } else {
-    document.getElementById("scrollbuttonsection").style.transform = "scale(1)";
+    document.getElementById("logo").style.setProperty("--h", "27vw");
   }
   // The Sun
   var suntexts = document.querySelectorAll('.suntext')
   suntexts.forEach((el) => el.style.transform = "scale(" + w / 1536 +")");
+  if (w <= 750 || w < h){
+    document.getElementById("rotatingcircles").style.display = "none";
+  } else {
+    document.getElementById("rotatingcircles").style.display = "block";
+  }
   // PSP
   // Corona
   document.getElementById("auroracontainer").style.setProperty("--w", (w / 1536 * 500) + "px");
