@@ -312,7 +312,7 @@ button {
 body {
   margin: 0;
   background-color: black;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
@@ -836,7 +836,7 @@ canvas {
   border-bottom: solid 80px #ff5e00;
 }
 #corona {
-  width: 620px;
+  width: 100%;
   background-color: black;
   border-radius: 75px;
   margin-left: auto;
@@ -1041,7 +1041,7 @@ canvas {
 #auroracontainer {
   --w: 400px;
   --h: calc(var(--w)*212/550);
-  width: var(--w);
+  width: 100%;
   height: var(--h);
   margin: 5px;
 }
@@ -1049,7 +1049,7 @@ canvas {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: var(--w);
+  width: 100%;
   height: var(--h);
 }
 #auroraoverlay {
@@ -1058,7 +1058,7 @@ canvas {
   bottom: calc(var(--h2) + 4px);
   margin-left: auto;
   margin-right: auto;
-  width: calc(var(--w) + 3px);
+  width: 100%;
   height: var(--h2);
   box-shadow: calc(var(--w)/40*3) calc(var(--w)/8) calc(var(--w)/8) black inset, calc(var(--w)/40*-6) calc(var(--w) / -8) calc(var(--w)/8) black inset;
 }
