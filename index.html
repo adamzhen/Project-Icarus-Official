@@ -13,11 +13,30 @@
   </head>
 
   <body>
+    <!--Loading Screen-->
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span> <br> <span id="loader-text">please view on laptop</span></span>
+    </div>
+    <script>
+      window.addEventListener("load", function () {
+        const loader = document.querySelector(".loader-wrapper");
+        if (window.innerWidth > 500){
+          loader.style.opacity = 0;
+          //loader.className += " hidden"; // class "loader hidden"
+        } else {
+          document.getElementById("loader-text").style.opacity = 1;
+        }
+      });
+    </script>
+
     <!--Hero Section-->
     <p id="fixedoverlay"  onclick="switchimg()"></p>
     <div class="hero" id="home">
       <img src="public/ProjectIcarusHeader.png" id="logo">
       <script>
+        window.addEventListener("load", function () {
+          document.getElementById("logo").style.opacity = 1;
+        });
         function changesize(){
           if (window.scrollY < window.innerHeight){
             var h = document.getElementById("logo").style.getPropertyValue("--h");
@@ -55,13 +74,13 @@
       </nav>
     </div>
 
-    <!--Scroll Down Button-->
+    <!--Scroll Down Button>
     <section id="scrollbuttonsection">
       <div class="scroll-down" id="scrollbutton" onclick="scrolltosun()"></div>
       <script>
         function scrolltosun(){ document.getElementById("sun").scrollIntoView({behavior: "smooth", block: "center"}); }
       </script>
-    </section>
+    </section-->
 
     <!--hr id="sunline"-->
     <!--Sun :D-->
@@ -131,7 +150,7 @@
           <h1 class="hidden4 orangegradient1"><em>PARKER</em></h1>
           <h1 class="hidden5 orangegradient2"><em>SOLAR</em></h1>
           <h1 class="hidden4 orangegradient3"><em>PROBE</em></h1>
-          <h4 id="pspaccolades" class="hidden0">*Official Fastest Man-Made Object & Hottest Probe Ever*</h4>
+          <h4 id="pspaccolades" class="hidden0">Official Fastest Man-Made Object & Hottest Probe Ever</h4>
           <h3 class="hidden0">BY NASA</h2>
           <h5>available for just $1,500,000,000 USD</h5>
         </div>
