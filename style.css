@@ -3029,11 +3029,12 @@ canvas {
 
 #fixedoverlay {
   position: fixed;
+  opacity: 0;
   pointer-events: none;
   z-index: 4;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   height: 100%; 
-  box-shadow: 10px 40px 55px black inset, -10px -40px 55px black inset;
+  box-shadow: 10px 30px 55px black inset, -10px -30px 55px black inset;
 }

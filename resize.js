@@ -21,6 +21,12 @@ function resizeDisplay(){
     document.querySelector(".loader-wrapper").style.opacity = 0;
     document.getElementById("loader-text").style.opacity = 0;
   }
+  // Vignette Overlay
+  if (w <= 1200){
+    document.getElementById("fixedoverlay").style.opacity = 0; 
+  } else {
+    document.getElementById("fixedoverlay").style.opacity = 1; 
+  }
   // Header
   if (w <= 500 || w < h){
     document.getElementById("logo").src = "public/ProjectIcarusHeaderVertical.png";
