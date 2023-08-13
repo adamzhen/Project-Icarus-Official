@@ -1633,7 +1633,7 @@ canvas {
 #wisprinfo {
   position: relative;
   bottom: 80px;
-  width: 75%; 
+  width: 50%; 
   margin-left: auto; 
   margin-right: auto;
 }
