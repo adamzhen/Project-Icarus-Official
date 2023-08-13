@@ -742,9 +742,9 @@ a:active { text-decoration: underline; }
   margin-top: 70px;
   font-size: 20px;
   font-weight: 450;
-  letter-spacing: 32px;
+  letter-spacing: 2.11vw;
   line-height: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 .modelcontainer h3 {
   color: #ff390d;
@@ -771,30 +771,14 @@ a:active { text-decoration: underline; }
   color: #ff4117;
   position: relative;
   text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
   font-family: 'Courier New', Courier, monospace;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0px;
-  line-height: 30px;
   padding-top: 0px;
-  padding-bottom: 0px;
-}
-#statsbutton {
-  position: relative;
-  justify-content: right;
-  left: 5%;
-  bottom: 550px;
-  border: none;
-  background-color: #ebebeb;
-  color: black;
-  padding: 5px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+  padding-bottom: 10px;
 }
 #disclaimer {
   color: rgb(0, 14, 54);
@@ -805,8 +789,8 @@ a:active { text-decoration: underline; }
   line-height: 12px;
   padding-top: 50px;
   padding-bottom: 80px;
-  padding-left: 29%;
-  padding-right: 29%;
+  padding-left: 28%;
+  padding-right: 28%;
 }
 
 canvas {
@@ -833,7 +817,7 @@ canvas {
   border-bottom: solid 80px #ff5e00;
 }
 #corona {
-  width: 620px;
+  width: 100%;
   background-color: black;
   border-radius: 75px;
   margin-left: auto;

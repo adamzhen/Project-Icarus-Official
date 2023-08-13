@@ -1,12 +1,24 @@
 // responsiveness upon resize
 
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+function textResize(className, sizeFactor, lineHeightFactor) {
+  var elements = document.querySelectorAll(className); // Select all h1 elements within elements of the specified class
+  elements.forEach(function(element) {
+    element.style.fontSize = sizeFactor*Math.pow(w, 0.6) + "px"; // Set the font size of each h1 element
+    element.style.lineHeight = lineHeightFactor*sizeFactor*Math.pow(w, 0.6) + "px"; // Set the line height of each h1 element
+  });
+}
+
 function resizeDisplay(){
-  var w = window.innerWidth;
-  var h = window.innerHeight;
+  w = window.innerWidth;
+  h = window.innerHeight;
+  document.getElementById("sourcecode").innerHTML = "w: " + w + " h: " + h;
   // Header
   if (w <= 500 || w < h){
     document.getElementById("logo").src = "public/ProjectIcarusHeaderVertical.png";
-    document.getElementById("logo").style.setProperty("--h", "80vw");
+    document.getElementById("logo").style.setProperty("--h", "67vw");
   } else {
     document.getElementById("logo").src = "public/ProjectIcarusHeader.png";
     document.getElementById("logo").style.setProperty("--h", "27vw");
@@ -20,7 +32,25 @@ function resizeDisplay(){
     document.getElementById("rotatingcircles").style.display = "block";
   }
   // PSP
+  textResize(".modelcontainer h1", 2, 0.75);
+  textResize(".modelcontainer h2", 0.23, 0.8);
+  textResize(".modelcontainer h3", 0.53, 1.1);
+  textResize(".modelcontainer h4", 0.2, 1);
+  textResize(".modelcontainer h5", 0.12, 0.8);
+  textResize(".modelcontainer p", 0.1, 1.5);
+  // if (w <= 900){
+  //   document.getElementById("disclaimer").style.fontSize = "6px";
+  // } else {
+  //   document.getElementById("disclaimer").style.fontSize = "8px";
+  // }
   // Corona
+  if (w <= 750){
+    document.getElementById("corona").style.width = "100%";
+    document.getElementById("corona").style.borderRadius = "0px";
+  } else {
+    document.getElementById("corona").style.width = "620px";
+    document.getElementById("corona").style.borderRadius = "75px";
+  }
   document.getElementById("auroracontainer").style.setProperty("--w", (w / 1536 * 500) + "px");
   if (w <= 750){
     document.getElementById("cmecontainer").style.setProperty("--w", (w / 750 * 360) + "px");
