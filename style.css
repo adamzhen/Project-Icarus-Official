@@ -343,14 +343,14 @@ a:active { text-decoration: underline; }
   border: 3px solid transparent;
   border-top-color: #f8860d;
   position: relative;
-  left: 100px;
+  left: 125px;
   bottom: 20px;
   animation: spin 0.9s linear infinite;
 }
 #loader-text {
   position: relative;
   display: block;
-  width: 200px;
+  width: 250px;
   top: 25px;
   right: 20px;
   opacity: 0;
@@ -1160,8 +1160,8 @@ canvas {
   font-size: 15px; 
   font-family: Times New Roman;
   font-weight: 300;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 12vw;
+  padding-bottom: 12vw;
 }
 #wispr {
   text-align: center;
@@ -1176,6 +1176,8 @@ canvas {
   margin-right: auto;
   border: solid 4px #5bacf3;
   border-radius: 5vw;
+  padding-top: 5vw;
+  padding-bottom: 0vw;
 }
 #wispr h1{
   position: relative;
@@ -1185,8 +1187,18 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-top: 80px;
-  padding-bottom: 35px;
+  padding-bottom: 40px;
+}
+#wispr h2{
+  position:relative; 
+  bottom:25px; 
+  color:rgba(59, 183, 255, 0.754); 
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 5px;
+  line-height: 21px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 #camera {
   position: relative;
@@ -1621,10 +1633,9 @@ canvas {
 #wisprinfo {
   position: relative;
   bottom: 80px;
-  width: 50%; 
+  width: 75%; 
   margin-left: auto; 
   margin-right: auto;
-  margin-bottom: 20px;
 }
 #wisprinfo p {
   color: #5bacf3;
@@ -1647,8 +1658,8 @@ canvas {
   background-color: black;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
   border: solid 4px rgb(217, 54, 0); 
   border-radius: 5vw;
 }
@@ -1660,7 +1671,18 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-bottom: 14px;
+  padding-bottom: 40px;
+}
+#sweap h2{
+  position:relative; 
+  bottom:25px; 
+  color:rgb(217, 54, 0); 
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 5px;
+  line-height: 21px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 #sweapinstruments {
   position: relative;
@@ -2083,8 +2105,8 @@ canvas {
   background-color: black;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
   border: solid 4px rgb(255, 166, 0);
   border-radius: 5vw;
 }
@@ -2096,7 +2118,18 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-bottom: 14px;
+  padding-bottom: 40px;
+}
+#isois h2{
+  position:relative; 
+  bottom: 25px; 
+  color: rgb(255, 179, 0); 
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 5px;
+  line-height: 21px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 #isoisinstruments {
   position: relative;
@@ -2493,8 +2526,8 @@ canvas {
   background-color: black;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
   border: solid 4px rgb(0, 217, 177);
   border-radius: 5vw;
 }
@@ -2506,7 +2539,18 @@ canvas {
   font-weight: 800;
   letter-spacing: 0px;
   line-height: 100px;
-  padding-bottom: 14px;
+  padding-bottom: 40px;
+}
+#fields h2{
+  position:relative; 
+  bottom: 25px; 
+  color: rgb(0, 217, 177); 
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 8px;
+  line-height: 21px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 #fieldsinstruments {
   position: relative;

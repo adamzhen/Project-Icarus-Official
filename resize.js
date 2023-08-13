@@ -15,6 +15,12 @@ function resizeDisplay(){
   w = window.innerWidth;
   h = window.innerHeight;
   document.getElementById("sourcecode").innerHTML = "w: " + w + " h: " + h;
+
+  // If switch to landscape view, hide loader
+  if (w > 500 || w > h ){
+    document.querySelector(".loader-wrapper").style.opacity = 0;
+    document.getElementById("loader-text").style.opacity = 0;
+  }
   // Header
   if (w <= 500 || w < h){
     document.getElementById("logo").src = "public/ProjectIcarusHeaderVertical.png";
@@ -64,7 +70,10 @@ function resizeDisplay(){
   } else {
     document.getElementById("elfvansection").style.transform = "scale(1)";
   }
+  textResize(".exhibitnum", 0.2, 1);
   // WISPR
+  textResize("#wispr h1", 1.35, 0.9);
+  textResize("#wispr h2", 0.18, 1.5);
   document.getElementById("wisprfasterbutton1").style.left = (w*0.9/2 + 28) + "px";
   document.getElementById("wisprfasterbutton2").style.left = (w*0.9/2 + 28 + 14) + "px";.1
   document.getElementById("wisprslowerbutton1").style.right = (w*0.9/2 + 28) + "px";
@@ -82,6 +91,8 @@ function resizeDisplay(){
     document.getElementById("positiondisplay").style.transform = "scale(1)";
   }
   // SWEAP
+  textResize("#sweap h1", 1.35, 0.9);
+  textResize("#sweap h2", 0.18, 1.5);
   document.getElementById("sweapfasterbutton1").style.left = (60 + 22) + "px";
   document.getElementById("sweapfasterbutton2").style.left = (60 + 22 + 14) + "px";
   document.getElementById("sweapslowerbutton1").style.right = (60 + 22) + "px";
@@ -93,6 +104,12 @@ function resizeDisplay(){
     document.getElementById("positiondisplay2").style.transform = "scale(1)";
     document.getElementById("instrumentdisplay").style.transform = "scale(1)";
   }
+  // IOSIS
+  textResize("#isois h1", 1.35, 0.9);
+  textResize("#isois h2", 0.18, 1.5);
+  // FIELDS
+  textResize("#fields h1", 1.35, 0.9);
+  textResize("#fields h2", 0.2, 1.5);
 }
 
 resizeDisplay();

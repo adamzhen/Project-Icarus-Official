@@ -15,14 +15,14 @@
   <body>
     <!--Loading Screen-->
     <div class="loader-wrapper">
-      <span class="loader"><span class="loader-inner"></span> <br> <span id="loader-text">please view on laptop</span></span>
+      <span class="loader"><span class="loader-inner"></span> <br> <span id="loader-text">please view in landscape mode</span></span>
     </div>
     <script>
       window.addEventListener("load", function () {
         const loader = document.querySelector(".loader-wrapper");
-        if (window.innerWidth > 500 || window.innerWidth < window.innerHeight ){
+        if (window.innerWidth > 500 || window.innerWidth > window.innerHeight ){
           loader.style.opacity = 0;
-          //loader.className += " hidden"; // class "loader hidden"
+          document.getElementById("loader-text").style.opacity = 0;
         } else {
           document.getElementById("loader-text").style.opacity = 1;
         }
@@ -302,7 +302,7 @@
       <div id="thewispr">
         <section class="hidden2">
           <h1 style="margin-top:15px;" id="wisprtitle"><em>THE WISPR</em></h1>
-          <h8 style="position:relative; bottom:25px; color:rgba(59, 183, 255, 0.754); font-size:14px; letter-spacing:5px;"><em>Wide-field Imager for Solar PRobe (aka cameras)</em></h8>
+          <h2><em>Wide-field Imager for Solar PRobe (aka cameras)</em></h2>
           <div id="camera">
             <!--h1><em>- camera -</em></h1-->
             <div id="camimg"></div>
@@ -355,7 +355,7 @@
           <section class="hidden2">
             <div id = "positiondisplay">
               <img src="public/orbit_plot_1.png" alt="Location Plot" id="locplot">
-              <div class="textcontainer"><h2 id="datetxt">11/01/2018</h2></div>
+              <div class="textcontainer"><h4 id="datetxt"><b>11/01/2018</b></h4></div>
               <div id="psploc">
                 <div id="fov1"></div>
                 <div id="fov2"></div>
@@ -407,7 +407,7 @@
       <div id="thesweap">
         <section class="hidden2">
           <h1 style="margin-top:15px;" id="sweaptitle"><em>THE SWEAP</em></h1>
-          <h8 style="position:relative; bottom:0px; color:rgb(217, 54, 0); font-size:14px; letter-spacing:5px;"><em>Solar Wind Electrons Alphas and Protons investigation</em></h8>
+          <h2><em>Solar Wind Electrons Alphas and Protons investigation</em></h2>
           <div id="sweapinstruments">
             <div id="sweapinstrumentsimg"></div>
           </div>
@@ -459,7 +459,7 @@
                 <div id = "positiondisplay2">
                   <img src="public/orbit_plot2_1.png" alt="Location Plot" id="locplot2">
                   <div class="textcontainer">
-                    <h2 id="datetxt2">11/01/2018</h2>
+                    <h4 id="datetxt2">11/01/2018</h4>
                     <h4 id="timetxt">05:04</h4>
                   </div>
                   <div id="psploc2">
@@ -530,7 +530,7 @@
       <div id="theisois">
         <section class="hidden2">
           <h1 style="margin-top:15px;" id="isoistitle"><em>THE ISOIS</em></h1>
-          <h8 style="position:relative; bottom:0px; color:rgb(255, 179, 0); font-size:14px; letter-spacing:5px;"><em>Integrated Science Investigation of the Sun</em></h8>
+          <h2><em>Integrated Science Investigation of the Sun</em></h2>
           <div id="isoisinstruments">
             <div id="isoisinstrumentsimg"></div>
           </div>
@@ -640,7 +640,7 @@
       <div id="thefields">
         <section class="hidden2">
           <h1 style="margin-top:15px;" id="fieldstitle"><em>THE FIELDS</em></h1>
-          <h8 style="position:relative; bottom:0px; color:rgb(0, 217, 177); font-size:17px; letter-spacing:8px;"><em>Electromagnetic Fields Investigation</em></h8>
+          <h2><em>Electromagnetic Fields Investigation</em></h8>
           <div id="fieldsinstruments">
             <div id="fieldsinstrumentsimg"></div>
           </div>
