@@ -14,7 +14,7 @@ function textResize(className, sizeFactor, lineHeightFactor) {
 function resizeDisplay(){
   w = window.innerWidth;
   h = window.innerHeight;
-  document.getElementById("sourcecode").innerHTML = "w: " + w + " h: " + h;
+  // document.getElementById("sourcecode").innerHTML = "w: " + w + " h: " + h;
 
   // If switch to landscape view, hide loader
   if (w > 500 && w > h ){
