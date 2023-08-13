@@ -17,7 +17,7 @@ function resizeDisplay(){
   document.getElementById("sourcecode").innerHTML = "w: " + w + " h: " + h;
 
   // If switch to landscape view, hide loader
-  if (w > 500 || w > h ){
+  if (w > 500 && w > h ){
     document.querySelector(".loader-wrapper").style.opacity = 0;
     document.getElementById("loader-text").style.opacity = 0;
   }
