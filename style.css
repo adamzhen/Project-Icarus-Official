@@ -2497,7 +2497,7 @@ canvas {
 #isoisinfo a:active {color: rgb(255, 238, 207);}
 #isoisinfo {
   position: relative; 
-  width: 70%; 
+  width: 50%; 
   margin-left: auto; 
   margin-right: auto;
   margin-top: 30px;
