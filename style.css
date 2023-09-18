@@ -1163,6 +1163,11 @@ canvas {
   padding-top: 12vw;
   padding-bottom: 12vw;
 }
+
+#wispr a:link {color: rgb(2, 150, 236);}
+#wispr a:visited {color: rgb(2, 150, 236);}
+#wispr a:hover {color: rgb(70, 187, 255);}
+#wispr a:active {color: rgb(70, 187, 255);}
 #wispr {
   text-align: center;
   justify-content: center;
